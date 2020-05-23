@@ -4,7 +4,7 @@
 
     <groupId>com.solubris</groupId>
     <artifactId>typedtuples</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
     <name>TypedTuples</name>
     <description>Strongly typed tuples library</description>
