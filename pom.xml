@@ -17,8 +17,8 @@
 
     <scm>
         <url>http://github.com/solubris/typedtuples/</url>
-        <connection>scm:git:git://github.com/solubris/typedtuples.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/solubris/typedtuples.git</developerConnection>
+        <connection>scm:git:https://github.com/solubris/typedtuples.git</connection>
+        <developerConnection>scm:git:https://git@github.com/solubris/typedtuples.git</developerConnection>
       <tag>typedtuples-1.0</tag>
   </scm>
 
