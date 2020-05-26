@@ -11,32 +11,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-package com.solubris.typedtuples.immutable;
+package com.solubris.typedtuples;
 
-import java.util.Objects;
+public interface Quadruple<A, B, C, D> {
+    A getFirst();
 
-public final class Identity implements Tuple {
-    static final Identity INSTANCE = new Identity();
+    B getSecond();
 
-    private Identity() {
-    }
+    C getThird();
 
-    public <X0> Unit<X0> add(X0 x0) {
-        return new Unit<>(x0);
-    }
-
-    @Override
-    public boolean equals(Object that) {
-        return this == that;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash();
-    }
-
-    @Override
-    public String toString() {
-        return "Identity";
-    }
+    D get();
 }

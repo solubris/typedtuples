@@ -13,46 +13,54 @@
 // limitations under the License.
 package com.solubris.typedtuples.immutable;
 
+import com.solubris.typedtuples.Single;
+
 import java.util.Objects;
 import java.util.function.Function;
 
-public final class Unit<A> implements Tuple {
+public final class ImmutableSingleImpl<A> implements ImmutableSingle<A> {
     private final A a;
 
-    Unit(A a) {
+    ImmutableSingleImpl(A a) {
         this.a = a;
     }
 
+    @Override
     public A get() {
         return a;
     }
 
-    public <X0> Pair<X0, A> addFirst(X0 x0) {
-        return new Pair<>(x0, a);
+    @Override
+    public <X0> ImmutableCouple<X0, A> addFirst(X0 x0) {
+        return new ImmutableCoupleImpl<>(x0, a);
     }
 
-    public <X0> Pair<A, X0> add(X0 x0) {
-        return new Pair<>(a, x0);
+    @Override
+    public <X0> ImmutableCouple<A, X0> add(X0 x0) {
+        return new ImmutableCoupleImpl<>(a, x0);
     }
 
-    public Identity remove() {
-        return Identity.INSTANCE;
+    @Override
+    public ImmutableUnitImpl remove() {
+        return ImmutableUnitImpl.INSTANCE;
     }
 
-    public <X> Unit<X> replace(X x) {
-        return new Unit<>(x);
+    @Override
+    public <X> ImmutableSingle<X> replace(X x) {
+        return new ImmutableSingleImpl<>(x);
     }
 
-    public <X> Unit<X> map(Function<A, X> mapper) {
-        return new Unit<>(mapper.apply(a));
+    @Override
+    public <X> ImmutableSingle<X> map(Function<A, X> mapper) {
+        return new ImmutableSingleImpl<>(mapper.apply(a));
     }
 
     @Override
     public boolean equals(Object that) {
         if (this == that) return true;
-        if (that == null || this.getClass() != that.getClass()) return false;
-        Unit<?> thatUnit = (Unit<?>) that;
-        return Objects.equals(this.a, thatUnit.a);
+        if (!(that instanceof Single<?>)) return false;
+        Single<?> thatSingle = (Single<?>) that;
+        return Objects.equals(this.a, thatSingle.get());
     }
 
     @Override
@@ -62,8 +70,6 @@ public final class Unit<A> implements Tuple {
 
     @Override
     public String toString() {
-        return "Unit{" +
-                "a=" + a +
-                "}";
+        return "(" + a + ")";
     }
 }
