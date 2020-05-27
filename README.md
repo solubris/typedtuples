@@ -1,4 +1,4 @@
-image:https://maven-badges.herokuapp.com/maven-central/com.solubris/typedtuples/badge.svg["Maven Central", link="https://maven-badges.herokuapp.com/maven-central/com.solubris/typedtuples"]
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.solubris/typedtuples/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.solubris/typedtuples)
 
 # typedtuples
 Strongly typed tuple library for java
