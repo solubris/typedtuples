@@ -29,6 +29,16 @@ With tuples and a tuple accumulator, this can be done as follows:
                         accumulator::combine
                 );
 
+## Usage
+
+There are 3 types of tuples which can be created from the builder classes as follows:
+
+        ImmutableTuple.of(0, 0);
+        MutableTuple.of(0, 0);
+        Accumulator.of(Integer::sum, Integer::sum);
+
+The api can the be explored from the results of these methods.
+
 ## Strong typing
 
 The tuples never convert the Object class.
