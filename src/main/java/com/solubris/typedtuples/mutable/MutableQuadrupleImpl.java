@@ -75,6 +75,14 @@ public final class MutableQuadrupleImpl<A, B, C, D> implements MutableQuadruple<
     }
 
     @Override
+    public void setAll(A a, B b, C c, D d) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        this.d = d;
+    }
+
+    @Override
     public void computeFirst(UnaryOperator<A> mapper) {
         this.a = mapper.apply(a);
     }

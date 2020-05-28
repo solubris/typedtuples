@@ -77,7 +77,7 @@ public final class QuintupleAccumulatorImpl<A, B, C, D, E> implements QuintupleA
 
     @Override
     public MutableQuintuple<A, B, C, D, E> combine(MutableQuintuple<A, B, C, D, E> l,
-                                                   MutableQuintuple<A, B, C, D, E> r) {
+            MutableQuintuple<A, B, C, D, E> r) {
         A fa = a.apply(l.getFirst(), r.getFirst());
         B fb = b.apply(l.getSecond(), r.getSecond());
         C fc = c.apply(l.getThird(), r.getThird());
@@ -88,7 +88,7 @@ public final class QuintupleAccumulatorImpl<A, B, C, D, E> implements QuintupleA
 
     @Override
     public ImmutableQuintuple<A, B, C, D, E> combine(ImmutableQuintuple<A, B, C, D, E> l,
-                                                     ImmutableQuintuple<A, B, C, D, E> r) {
+            ImmutableQuintuple<A, B, C, D, E> r) {
         A fa = a.apply(l.getFirst(), r.getFirst());
         B fb = b.apply(l.getSecond(), r.getSecond());
         C fc = c.apply(l.getThird(), r.getThird());

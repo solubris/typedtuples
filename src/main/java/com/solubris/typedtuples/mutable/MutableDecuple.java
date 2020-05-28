@@ -38,6 +38,8 @@ public interface MutableDecuple<A, B, C, D, E, F, G, H, I, J> extends Decuple<A,
 
     void set(J j);
 
+    void setAll(A a, B b, C c, D d, E e, F f, G g, H h, I i, J j);
+
     void computeFirst(UnaryOperator<A> mapper);
 
     void computeSecond(UnaryOperator<B> mapper);

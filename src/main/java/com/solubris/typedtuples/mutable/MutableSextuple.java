@@ -30,6 +30,8 @@ public interface MutableSextuple<A, B, C, D, E, F> extends Sextuple<A, B, C, D, 
 
     void set(F f);
 
+    void setAll(A a, B b, C c, D d, E e, F f);
+
     void computeFirst(UnaryOperator<A> mapper);
 
     void computeSecond(UnaryOperator<B> mapper);

@@ -34,6 +34,8 @@ public interface MutableOctuple<A, B, C, D, E, F, G, H> extends Octuple<A, B, C,
 
     void set(H h);
 
+    void setAll(A a, B b, C c, D d, E e, F f, G g, H h);
+
     void computeFirst(UnaryOperator<A> mapper);
 
     void computeSecond(UnaryOperator<B> mapper);

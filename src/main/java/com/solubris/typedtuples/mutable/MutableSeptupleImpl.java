@@ -114,6 +114,17 @@ public final class MutableSeptupleImpl<A, B, C, D, E, F, G> implements MutableSe
     }
 
     @Override
+    public void setAll(A a, B b, C c, D d, E e, F f, G g) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        this.d = d;
+        this.e = e;
+        this.f = f;
+        this.g = g;
+    }
+
+    @Override
     public void computeFirst(UnaryOperator<A> mapper) {
         this.a = mapper.apply(a);
     }

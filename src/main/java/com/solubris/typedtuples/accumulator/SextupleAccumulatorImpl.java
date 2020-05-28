@@ -86,7 +86,7 @@ public final class SextupleAccumulatorImpl<A, B, C, D, E, F> implements Sextuple
 
     @Override
     public MutableSextuple<A, B, C, D, E, F> combine(MutableSextuple<A, B, C, D, E, F> l,
-                                                     MutableSextuple<A, B, C, D, E, F> r) {
+            MutableSextuple<A, B, C, D, E, F> r) {
         A fa = a.apply(l.getFirst(), r.getFirst());
         B fb = b.apply(l.getSecond(), r.getSecond());
         C fc = c.apply(l.getThird(), r.getThird());
@@ -98,7 +98,7 @@ public final class SextupleAccumulatorImpl<A, B, C, D, E, F> implements Sextuple
 
     @Override
     public ImmutableSextuple<A, B, C, D, E, F> combine(ImmutableSextuple<A, B, C, D, E, F> l,
-                                                       ImmutableSextuple<A, B, C, D, E, F> r) {
+            ImmutableSextuple<A, B, C, D, E, F> r) {
         A fa = a.apply(l.getFirst(), r.getFirst());
         B fb = b.apply(l.getSecond(), r.getSecond());
         C fc = c.apply(l.getThird(), r.getThird());

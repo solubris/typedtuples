@@ -153,6 +153,20 @@ public final class MutableDecupleImpl<A, B, C, D, E, F, G, H, I, J> implements M
     }
 
     @Override
+    public void setAll(A a, B b, C c, D d, E e, F f, G g, H h, I i, J j) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        this.d = d;
+        this.e = e;
+        this.f = f;
+        this.g = g;
+        this.h = h;
+        this.i = i;
+        this.j = j;
+    }
+
+    @Override
     public void computeFirst(UnaryOperator<A> mapper) {
         this.a = mapper.apply(a);
     }

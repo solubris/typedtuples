@@ -62,6 +62,13 @@ public final class MutableTripleImpl<A, B, C> implements MutableTriple<A, B, C> 
     }
 
     @Override
+    public void setAll(A a, B b, C c) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+
+    @Override
     public void computeFirst(UnaryOperator<A> mapper) {
         this.a = mapper.apply(a);
     }

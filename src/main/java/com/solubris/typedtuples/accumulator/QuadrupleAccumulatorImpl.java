@@ -68,7 +68,7 @@ public final class QuadrupleAccumulatorImpl<A, B, C, D> implements QuadrupleAccu
 
     @Override
     public MutableQuadruple<A, B, C, D> combine(MutableQuadruple<A, B, C, D> l,
-                                                MutableQuadruple<A, B, C, D> r) {
+            MutableQuadruple<A, B, C, D> r) {
         A fa = a.apply(l.getFirst(), r.getFirst());
         B fb = b.apply(l.getSecond(), r.getSecond());
         C fc = c.apply(l.getThird(), r.getThird());
@@ -78,7 +78,7 @@ public final class QuadrupleAccumulatorImpl<A, B, C, D> implements QuadrupleAccu
 
     @Override
     public ImmutableQuadruple<A, B, C, D> combine(ImmutableQuadruple<A, B, C, D> l,
-                                                  ImmutableQuadruple<A, B, C, D> r) {
+            ImmutableQuadruple<A, B, C, D> r) {
         A fa = a.apply(l.getFirst(), r.getFirst());
         B fb = b.apply(l.getSecond(), r.getSecond());
         C fc = c.apply(l.getThird(), r.getThird());

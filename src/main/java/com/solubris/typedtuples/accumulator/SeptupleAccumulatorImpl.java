@@ -84,7 +84,7 @@ public final class SeptupleAccumulatorImpl<A, B, C, D, E, F, G> implements Septu
 
     @Override
     public void accumulate(MutableSeptuple<A, B, C, D, E, F, G> acc,
-                           Septuple<A, B, C, D, E, F, G> t) {
+            Septuple<A, B, C, D, E, F, G> t) {
         acc.setFirst(a.apply(acc.getFirst(), t.getFirst()));
         acc.setSecond(b.apply(acc.getSecond(), t.getSecond()));
         acc.setThird(c.apply(acc.getThird(), t.getThird()));
@@ -96,7 +96,7 @@ public final class SeptupleAccumulatorImpl<A, B, C, D, E, F, G> implements Septu
 
     @Override
     public MutableSeptuple<A, B, C, D, E, F, G> combine(MutableSeptuple<A, B, C, D, E, F, G> l,
-                                                        MutableSeptuple<A, B, C, D, E, F, G> r) {
+            MutableSeptuple<A, B, C, D, E, F, G> r) {
         A fa = a.apply(l.getFirst(), r.getFirst());
         B fb = b.apply(l.getSecond(), r.getSecond());
         C fc = c.apply(l.getThird(), r.getThird());
@@ -109,7 +109,7 @@ public final class SeptupleAccumulatorImpl<A, B, C, D, E, F, G> implements Septu
 
     @Override
     public ImmutableSeptuple<A, B, C, D, E, F, G> combine(ImmutableSeptuple<A, B, C, D, E, F, G> l,
-                                                          ImmutableSeptuple<A, B, C, D, E, F, G> r) {
+            ImmutableSeptuple<A, B, C, D, E, F, G> r) {
         A fa = a.apply(l.getFirst(), r.getFirst());
         B fb = b.apply(l.getSecond(), r.getSecond());
         C fc = c.apply(l.getThird(), r.getThird());

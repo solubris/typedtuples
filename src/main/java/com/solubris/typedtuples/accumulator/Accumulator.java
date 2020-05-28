@@ -28,23 +28,23 @@ public class Accumulator {
     }
 
     public static <A, B, C> TripleAccumulator<A, B, C> of(BinaryOperator<A> a, BinaryOperator<B> b,
-                                                          BinaryOperator<C> c) {
+            BinaryOperator<C> c) {
         return new TripleAccumulatorImpl<>(a, b, c);
     }
 
     public static <A, B, C, D> QuadrupleAccumulator<A, B, C, D> of(BinaryOperator<A> a,
-                                                                   BinaryOperator<B> b, BinaryOperator<C> c, BinaryOperator<D> d) {
+            BinaryOperator<B> b, BinaryOperator<C> c, BinaryOperator<D> d) {
         return new QuadrupleAccumulatorImpl<>(a, b, c, d);
     }
 
     public static <A, B, C, D, E> QuintupleAccumulator<A, B, C, D, E> of(BinaryOperator<A> a,
-                                                                         BinaryOperator<B> b, BinaryOperator<C> c, BinaryOperator<D> d, BinaryOperator<E> e) {
+            BinaryOperator<B> b, BinaryOperator<C> c, BinaryOperator<D> d, BinaryOperator<E> e) {
         return new QuintupleAccumulatorImpl<>(a, b, c, d, e);
     }
 
     public static <A, B, C, D, E, F> SextupleAccumulator<A, B, C, D, E, F> of(BinaryOperator<A> a,
-                                                                              BinaryOperator<B> b, BinaryOperator<C> c, BinaryOperator<D> d, BinaryOperator<E> e,
-                                                                              BinaryOperator<F> f) {
+            BinaryOperator<B> b, BinaryOperator<C> c, BinaryOperator<D> d, BinaryOperator<E> e,
+            BinaryOperator<F> f) {
         return new SextupleAccumulatorImpl<>(a, b, c, d, e, f);
     }
 

@@ -49,6 +49,12 @@ public final class MutableCoupleImpl<A, B> implements MutableCouple<A, B> {
     }
 
     @Override
+    public void setAll(A a, B b) {
+        this.a = a;
+        this.b = b;
+    }
+
+    @Override
     public void computeFirst(UnaryOperator<A> mapper) {
         this.a = mapper.apply(a);
     }

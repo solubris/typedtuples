@@ -101,6 +101,16 @@ public final class MutableSextupleImpl<A, B, C, D, E, F> implements MutableSextu
     }
 
     @Override
+    public void setAll(A a, B b, C c, D d, E e, F f) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        this.d = d;
+        this.e = e;
+        this.f = f;
+    }
+
+    @Override
     public void computeFirst(UnaryOperator<A> mapper) {
         this.a = mapper.apply(a);
     }

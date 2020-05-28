@@ -22,6 +22,8 @@ public interface MutableCouple<A, B> extends Couple<A, B> {
 
     void set(B b);
 
+    void setAll(A a, B b);
+
     void computeFirst(UnaryOperator<A> mapper);
 
     void compute(UnaryOperator<B> mapper);

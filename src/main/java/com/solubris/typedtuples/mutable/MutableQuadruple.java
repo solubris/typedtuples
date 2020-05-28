@@ -26,6 +26,8 @@ public interface MutableQuadruple<A, B, C, D> extends Quadruple<A, B, C, D> {
 
     void set(D d);
 
+    void setAll(A a, B b, C c, D d);
+
     void computeFirst(UnaryOperator<A> mapper);
 
     void computeSecond(UnaryOperator<B> mapper);

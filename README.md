@@ -33,7 +33,8 @@ Methods like map are especially useful in stream operations.
 
 # Alternatives
 
-org.javatuples
-org.eclipse.collections.impl.tuple.Tuples
-reactor.util.function.Tuples
+- org.javatuples
+- org.eclipse.collections.impl.tuple.Tuples
+- reactor.util.function.Tuples
+
 

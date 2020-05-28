@@ -23,8 +23,8 @@ public interface SextupleAccumulator<A, B, C, D, E, F> extends Sextuple<BinaryOp
     void accumulate(MutableSextuple<A, B, C, D, E, F> acc, Sextuple<A, B, C, D, E, F> t);
 
     MutableSextuple<A, B, C, D, E, F> combine(MutableSextuple<A, B, C, D, E, F> l,
-                                              MutableSextuple<A, B, C, D, E, F> r);
+            MutableSextuple<A, B, C, D, E, F> r);
 
     ImmutableSextuple<A, B, C, D, E, F> combine(ImmutableSextuple<A, B, C, D, E, F> l,
-                                                ImmutableSextuple<A, B, C, D, E, F> r);
+            ImmutableSextuple<A, B, C, D, E, F> r);
 }

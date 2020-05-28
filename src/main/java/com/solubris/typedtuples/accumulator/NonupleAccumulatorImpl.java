@@ -101,7 +101,7 @@ public final class NonupleAccumulatorImpl<A, B, C, D, E, F, G, H, I> implements 
 
     @Override
     public void accumulate(MutableNonuple<A, B, C, D, E, F, G, H, I> acc,
-                           Nonuple<A, B, C, D, E, F, G, H, I> t) {
+            Nonuple<A, B, C, D, E, F, G, H, I> t) {
         acc.setFirst(a.apply(acc.getFirst(), t.getFirst()));
         acc.setSecond(b.apply(acc.getSecond(), t.getSecond()));
         acc.setThird(c.apply(acc.getThird(), t.getThird()));

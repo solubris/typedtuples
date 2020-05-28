@@ -109,7 +109,7 @@ public final class DecupleAccumulatorImpl<A, B, C, D, E, F, G, H, I, J> implemen
 
     @Override
     public void accumulate(MutableDecuple<A, B, C, D, E, F, G, H, I, J> acc,
-                           Decuple<A, B, C, D, E, F, G, H, I, J> t) {
+            Decuple<A, B, C, D, E, F, G, H, I, J> t) {
         acc.setFirst(a.apply(acc.getFirst(), t.getFirst()));
         acc.setSecond(b.apply(acc.getSecond(), t.getSecond()));
         acc.setThird(c.apply(acc.getThird(), t.getThird()));

@@ -36,6 +36,8 @@ public interface MutableNonuple<A, B, C, D, E, F, G, H, I> extends Nonuple<A, B,
 
     void set(I i);
 
+    void setAll(A a, B b, C c, D d, E e, F f, G g, H h, I i);
+
     void computeFirst(UnaryOperator<A> mapper);
 
     void computeSecond(UnaryOperator<B> mapper);

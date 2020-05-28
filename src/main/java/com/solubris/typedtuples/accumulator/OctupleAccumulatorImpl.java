@@ -93,7 +93,7 @@ public final class OctupleAccumulatorImpl<A, B, C, D, E, F, G, H> implements Oct
 
     @Override
     public void accumulate(MutableOctuple<A, B, C, D, E, F, G, H> acc,
-                           Octuple<A, B, C, D, E, F, G, H> t) {
+            Octuple<A, B, C, D, E, F, G, H> t) {
         acc.setFirst(a.apply(acc.getFirst(), t.getFirst()));
         acc.setSecond(b.apply(acc.getSecond(), t.getSecond()));
         acc.setThird(c.apply(acc.getThird(), t.getThird()));
@@ -106,7 +106,7 @@ public final class OctupleAccumulatorImpl<A, B, C, D, E, F, G, H> implements Oct
 
     @Override
     public MutableOctuple<A, B, C, D, E, F, G, H> combine(MutableOctuple<A, B, C, D, E, F, G, H> l,
-                                                          MutableOctuple<A, B, C, D, E, F, G, H> r) {
+            MutableOctuple<A, B, C, D, E, F, G, H> r) {
         A fa = a.apply(l.getFirst(), r.getFirst());
         B fb = b.apply(l.getSecond(), r.getSecond());
         C fc = c.apply(l.getThird(), r.getThird());
