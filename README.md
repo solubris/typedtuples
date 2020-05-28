@@ -41,9 +41,11 @@ The api can the be explored from the results of these methods.
 
 ## Strong typing
 
-The tuples never convert the Object class.
+The tuples are never converted to the Object class.
 
-Using Objects defeats the purpose of tuples, might as well use a List or Array of objects if that's the case.
+Alternative tuple libraries have an Object[] toArray();
+If this is the requirement, then its better to use a List\<Object> directly.
+No need to complicate the solution with tuples.
 
 ## Not Serializable
 
