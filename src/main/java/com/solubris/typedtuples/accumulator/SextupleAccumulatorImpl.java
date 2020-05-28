@@ -21,7 +21,7 @@ import com.solubris.typedtuples.mutable.MutableTuple;
 
 import java.util.function.BinaryOperator;
 
-public final class SextupleAccumulatorImpl<A, B, C, D, E, F> implements SextupleAccumulator<A, B, C, D, E, F> {
+final class SextupleAccumulatorImpl<A, B, C, D, E, F> implements SextupleAccumulator<A, B, C, D, E, F> {
     private final BinaryOperator<A> a;
 
     private final BinaryOperator<B> b;

@@ -18,7 +18,7 @@ import com.solubris.typedtuples.Quadruple;
 import java.util.Objects;
 import java.util.function.Function;
 
-public final class ImmutableQuadrupleImpl<A, B, C, D> implements ImmutableQuadruple<A, B, C, D> {
+final class ImmutableQuadrupleImpl<A, B, C, D> implements ImmutableQuadruple<A, B, C, D> {
     private final A a;
 
     private final B b;

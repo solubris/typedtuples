@@ -18,7 +18,7 @@ import com.solubris.typedtuples.Septuple;
 import java.util.Objects;
 import java.util.function.Function;
 
-public final class ImmutableSeptupleImpl<A, B, C, D, E, F, G> implements ImmutableSeptuple<A, B, C, D, E, F, G> {
+final class ImmutableSeptupleImpl<A, B, C, D, E, F, G> implements ImmutableSeptuple<A, B, C, D, E, F, G> {
     private final A a;
 
     private final B b;

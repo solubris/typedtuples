@@ -18,7 +18,7 @@ import com.solubris.typedtuples.Couple;
 import java.util.Objects;
 import java.util.function.UnaryOperator;
 
-public final class MutableCoupleImpl<A, B> implements MutableCouple<A, B> {
+final class MutableCoupleImpl<A, B> implements MutableCouple<A, B> {
     private A a;
 
     private B b;

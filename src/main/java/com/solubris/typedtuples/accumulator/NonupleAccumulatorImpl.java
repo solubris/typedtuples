@@ -21,7 +21,7 @@ import com.solubris.typedtuples.mutable.MutableTuple;
 
 import java.util.function.BinaryOperator;
 
-public final class NonupleAccumulatorImpl<A, B, C, D, E, F, G, H, I> implements NonupleAccumulator<A, B, C, D, E, F, G, H, I> {
+final class NonupleAccumulatorImpl<A, B, C, D, E, F, G, H, I> implements NonupleAccumulator<A, B, C, D, E, F, G, H, I> {
     private final BinaryOperator<A> a;
 
     private final BinaryOperator<B> b;

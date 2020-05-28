@@ -18,7 +18,7 @@ import com.solubris.typedtuples.Quintuple;
 import java.util.Objects;
 import java.util.function.Function;
 
-public final class ImmutableQuintupleImpl<A, B, C, D, E> implements ImmutableQuintuple<A, B, C, D, E> {
+final class ImmutableQuintupleImpl<A, B, C, D, E> implements ImmutableQuintuple<A, B, C, D, E> {
     private final A a;
 
     private final B b;

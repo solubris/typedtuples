@@ -18,7 +18,7 @@ import com.solubris.typedtuples.Septuple;
 import java.util.Objects;
 import java.util.function.UnaryOperator;
 
-public final class MutableSeptupleImpl<A, B, C, D, E, F, G> implements MutableSeptuple<A, B, C, D, E, F, G> {
+final class MutableSeptupleImpl<A, B, C, D, E, F, G> implements MutableSeptuple<A, B, C, D, E, F, G> {
     private A a;
 
     private B b;

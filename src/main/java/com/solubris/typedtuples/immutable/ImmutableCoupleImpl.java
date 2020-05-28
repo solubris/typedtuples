@@ -18,7 +18,7 @@ import com.solubris.typedtuples.Couple;
 import java.util.Objects;
 import java.util.function.Function;
 
-public final class ImmutableCoupleImpl<A, B> implements ImmutableCouple<A, B> {
+final class ImmutableCoupleImpl<A, B> implements ImmutableCouple<A, B> {
     private final A a;
 
     private final B b;

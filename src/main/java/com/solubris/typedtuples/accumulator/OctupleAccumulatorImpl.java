@@ -21,7 +21,7 @@ import com.solubris.typedtuples.mutable.MutableTuple;
 
 import java.util.function.BinaryOperator;
 
-public final class OctupleAccumulatorImpl<A, B, C, D, E, F, G, H> implements OctupleAccumulator<A, B, C, D, E, F, G, H> {
+final class OctupleAccumulatorImpl<A, B, C, D, E, F, G, H> implements OctupleAccumulator<A, B, C, D, E, F, G, H> {
     private final BinaryOperator<A> a;
 
     private final BinaryOperator<B> b;

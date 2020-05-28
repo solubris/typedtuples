@@ -18,7 +18,7 @@ import com.solubris.typedtuples.Decuple;
 import java.util.Objects;
 import java.util.function.Function;
 
-public final class ImmutableDecupleImpl<A, B, C, D, E, F, G, H, I, J> implements ImmutableDecuple<A, B, C, D, E, F, G, H, I, J> {
+final class ImmutableDecupleImpl<A, B, C, D, E, F, G, H, I, J> implements ImmutableDecuple<A, B, C, D, E, F, G, H, I, J> {
     private final A a;
 
     private final B b;

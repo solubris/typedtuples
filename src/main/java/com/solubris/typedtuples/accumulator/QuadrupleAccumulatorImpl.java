@@ -21,7 +21,7 @@ import com.solubris.typedtuples.mutable.MutableTuple;
 
 import java.util.function.BinaryOperator;
 
-public final class QuadrupleAccumulatorImpl<A, B, C, D> implements QuadrupleAccumulator<A, B, C, D> {
+final class QuadrupleAccumulatorImpl<A, B, C, D> implements QuadrupleAccumulator<A, B, C, D> {
     private final BinaryOperator<A> a;
 
     private final BinaryOperator<B> b;

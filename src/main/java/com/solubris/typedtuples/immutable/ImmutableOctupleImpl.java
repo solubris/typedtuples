@@ -18,7 +18,7 @@ import com.solubris.typedtuples.Octuple;
 import java.util.Objects;
 import java.util.function.Function;
 
-public final class ImmutableOctupleImpl<A, B, C, D, E, F, G, H> implements ImmutableOctuple<A, B, C, D, E, F, G, H> {
+final class ImmutableOctupleImpl<A, B, C, D, E, F, G, H> implements ImmutableOctuple<A, B, C, D, E, F, G, H> {
     private final A a;
 
     private final B b;

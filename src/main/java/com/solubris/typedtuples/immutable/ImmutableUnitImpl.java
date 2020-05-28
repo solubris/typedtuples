@@ -15,7 +15,7 @@ package com.solubris.typedtuples.immutable;
 
 import java.util.Objects;
 
-public final class ImmutableUnitImpl implements ImmutableUnit {
+final class ImmutableUnitImpl implements ImmutableUnit {
     static final ImmutableUnitImpl INSTANCE = new ImmutableUnitImpl();
 
     private ImmutableUnitImpl() {

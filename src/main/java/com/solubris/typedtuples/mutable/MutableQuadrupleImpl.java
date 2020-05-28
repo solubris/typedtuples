@@ -18,7 +18,7 @@ import com.solubris.typedtuples.Quadruple;
 import java.util.Objects;
 import java.util.function.UnaryOperator;
 
-public final class MutableQuadrupleImpl<A, B, C, D> implements MutableQuadruple<A, B, C, D> {
+final class MutableQuadrupleImpl<A, B, C, D> implements MutableQuadruple<A, B, C, D> {
     private A a;
 
     private B b;

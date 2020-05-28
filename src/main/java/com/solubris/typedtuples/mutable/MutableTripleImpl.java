@@ -18,7 +18,7 @@ import com.solubris.typedtuples.Triple;
 import java.util.Objects;
 import java.util.function.UnaryOperator;
 
-public final class MutableTripleImpl<A, B, C> implements MutableTriple<A, B, C> {
+final class MutableTripleImpl<A, B, C> implements MutableTriple<A, B, C> {
     private A a;
 
     private B b;

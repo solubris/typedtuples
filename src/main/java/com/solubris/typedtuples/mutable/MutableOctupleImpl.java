@@ -18,7 +18,7 @@ import com.solubris.typedtuples.Octuple;
 import java.util.Objects;
 import java.util.function.UnaryOperator;
 
-public final class MutableOctupleImpl<A, B, C, D, E, F, G, H> implements MutableOctuple<A, B, C, D, E, F, G, H> {
+final class MutableOctupleImpl<A, B, C, D, E, F, G, H> implements MutableOctuple<A, B, C, D, E, F, G, H> {
     private A a;
 
     private B b;

@@ -21,7 +21,7 @@ import com.solubris.typedtuples.mutable.MutableTuple;
 
 import java.util.function.BinaryOperator;
 
-public final class QuintupleAccumulatorImpl<A, B, C, D, E> implements QuintupleAccumulator<A, B, C, D, E> {
+final class QuintupleAccumulatorImpl<A, B, C, D, E> implements QuintupleAccumulator<A, B, C, D, E> {
     private final BinaryOperator<A> a;
 
     private final BinaryOperator<B> b;

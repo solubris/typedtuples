@@ -26,9 +26,11 @@ public class ImmutableReduction {
 
         // creates a new int array for each item during reduction
         int[] result = IntStream.rangeClosed(1, 3)
-                .mapToObj(i -> new int[]{i, i * i})
+                .boxed()
+//                .mapToObj(i -> new int[]{i, i * i})
                 .reduce(
                         new int[2],
+                        (acc, i) -> new int[]{acc[0] + i, acc[1] + (i * i)},
                         (l, r) -> new int[]{l[0] + r[0], l[1] + r[1]}
                 );
         System.out.println(Arrays.toString(result));
@@ -47,9 +49,11 @@ public class ImmutableReduction {
         CoupleAccumulator<Integer, Integer> accumulator = Accumulator.of(Integer::sum, Integer::sum);
 
         Couple<Integer, Integer> result = IntStream.rangeClosed(1, 3)
-                .mapToObj(i -> ImmutableTuple.of(i, i * i))
+                .boxed()
+//                .mapToObj(i -> ImmutableTuple.of(i, i * i))
                 .reduce(
                         ImmutableTuple.of(0, 0),
+                        (acc, integer) -> ImmutableTuple.of(acc.getFirst() + integer, acc.get() + (integer*integer)),
                         accumulator::combine
                 );
         System.out.println(result);

@@ -18,7 +18,7 @@ import com.solubris.typedtuples.Single;
 import java.util.Objects;
 import java.util.function.UnaryOperator;
 
-public final class MutableSingleImpl<A> implements MutableSingle<A> {
+final class MutableSingleImpl<A> implements MutableSingle<A> {
     private A a;
 
     MutableSingleImpl(A a) {

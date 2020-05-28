@@ -18,7 +18,7 @@ import com.solubris.typedtuples.Nonuple;
 import java.util.Objects;
 import java.util.function.UnaryOperator;
 
-public final class MutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements MutableNonuple<A, B, C, D, E, F, G, H, I> {
+final class MutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements MutableNonuple<A, B, C, D, E, F, G, H, I> {
     private A a;
 
     private B b;

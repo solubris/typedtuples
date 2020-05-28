@@ -2,6 +2,7 @@ package com.solubris.typedtuples;
 
 import com.solubris.typedtuples.accumulator.Accumulator;
 import com.solubris.typedtuples.accumulator.CoupleAccumulator;
+import com.solubris.typedtuples.immutable.ImmutableQuadruple;
 import com.solubris.typedtuples.immutable.ImmutableTuple;
 import com.solubris.typedtuples.mutable.MutableTuple;
 import org.junit.jupiter.api.Test;
@@ -9,7 +10,9 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -19,16 +22,33 @@ public class StreamTest {
 
     @Test
     void computeSumAndSumOfSquaresIntArrayReduction() throws Exception {
+        List<Student> allStudents = new ArrayList<>();
+        allStudents.add(getStudent());
+        allStudents.add(getStudent());
+
+        Map<Triple<Long, Long, Long>, Double> result = allStudents.stream()
+                .flatMap(s -> s.getCourses().stream().map(
+                        c -> ImmutableTuple.of(s.getStudentId(), c)))
+                .flatMap(sc -> sc.get().getTasks().stream().map(
+                        t -> ImmutableTuple.of(sc.getFirst(), sc.get().getCourseId(), t)))
+                .flatMap(sct -> sct.get().getAssessments().stream().map(
+                        a -> ImmutableTuple.of(sct.getFirst(), sct.getSecond(), sct.get().taskId, a.getScore())))
+                .collect(Collectors.groupingBy(
+                        ImmutableQuadruple::remove,
+                        Collectors.summingDouble(ImmutableQuadruple::get)
+                ));
+
+
         // compute sum(N), sum(N^2)
 
         // creates a new int array for each item during reduction
-        int[] result = IntStream.rangeClosed(1, 3)
-                .mapToObj(i -> new int[]{i, i * i})
-                .reduce(new int[2], (l, r) -> new int[]{l[0] + r[0], l[1] + r[1]});
-        System.out.println(Arrays.toString(result));
-
-        assertThat(result)
-                .containsExactly(6, 14);
+//        int[] result = IntStream.rangeClosed(1, 3)
+//                .mapToObj(i -> new int[]{i, i * i})
+//                .reduce(new int[2], (l, r) -> new int[]{l[0] + r[0], l[1] + r[1]});
+//        System.out.println(Arrays.toString(result));
+//
+//        assertThat(result)
+//                .containsExactly(6, 14);
     }
 
     @Test

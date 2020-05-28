@@ -18,7 +18,7 @@ import com.solubris.typedtuples.Nonuple;
 import java.util.Objects;
 import java.util.function.Function;
 
-public final class ImmutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements ImmutableNonuple<A, B, C, D, E, F, G, H, I> {
+final class ImmutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements ImmutableNonuple<A, B, C, D, E, F, G, H, I> {
     private final A a;
 
     private final B b;

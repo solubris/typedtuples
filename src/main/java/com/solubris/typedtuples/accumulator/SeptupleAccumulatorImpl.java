@@ -21,7 +21,7 @@ import com.solubris.typedtuples.mutable.MutableTuple;
 
 import java.util.function.BinaryOperator;
 
-public final class SeptupleAccumulatorImpl<A, B, C, D, E, F, G> implements SeptupleAccumulator<A, B, C, D, E, F, G> {
+final class SeptupleAccumulatorImpl<A, B, C, D, E, F, G> implements SeptupleAccumulator<A, B, C, D, E, F, G> {
     private final BinaryOperator<A> a;
 
     private final BinaryOperator<B> b;

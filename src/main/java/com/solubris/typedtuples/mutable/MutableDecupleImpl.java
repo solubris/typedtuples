@@ -18,7 +18,7 @@ import com.solubris.typedtuples.Decuple;
 import java.util.Objects;
 import java.util.function.UnaryOperator;
 
-public final class MutableDecupleImpl<A, B, C, D, E, F, G, H, I, J> implements MutableDecuple<A, B, C, D, E, F, G, H, I, J> {
+final class MutableDecupleImpl<A, B, C, D, E, F, G, H, I, J> implements MutableDecuple<A, B, C, D, E, F, G, H, I, J> {
     private A a;
 
     private B b;

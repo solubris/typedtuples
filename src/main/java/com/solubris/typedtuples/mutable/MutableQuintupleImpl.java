@@ -18,7 +18,7 @@ import com.solubris.typedtuples.Quintuple;
 import java.util.Objects;
 import java.util.function.UnaryOperator;
 
-public final class MutableQuintupleImpl<A, B, C, D, E> implements MutableQuintuple<A, B, C, D, E> {
+final class MutableQuintupleImpl<A, B, C, D, E> implements MutableQuintuple<A, B, C, D, E> {
     private A a;
 
     private B b;

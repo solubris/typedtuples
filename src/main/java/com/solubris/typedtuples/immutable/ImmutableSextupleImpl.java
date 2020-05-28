@@ -18,7 +18,7 @@ import com.solubris.typedtuples.Sextuple;
 import java.util.Objects;
 import java.util.function.Function;
 
-public final class ImmutableSextupleImpl<A, B, C, D, E, F> implements ImmutableSextuple<A, B, C, D, E, F> {
+final class ImmutableSextupleImpl<A, B, C, D, E, F> implements ImmutableSextuple<A, B, C, D, E, F> {
     private final A a;
 
     private final B b;

@@ -18,7 +18,7 @@ import com.solubris.typedtuples.Sextuple;
 import java.util.Objects;
 import java.util.function.UnaryOperator;
 
-public final class MutableSextupleImpl<A, B, C, D, E, F> implements MutableSextuple<A, B, C, D, E, F> {
+final class MutableSextupleImpl<A, B, C, D, E, F> implements MutableSextuple<A, B, C, D, E, F> {
     private A a;
 
     private B b;

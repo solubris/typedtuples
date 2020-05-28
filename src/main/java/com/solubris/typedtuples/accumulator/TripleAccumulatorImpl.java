@@ -21,7 +21,7 @@ import com.solubris.typedtuples.mutable.MutableTuple;
 
 import java.util.function.BinaryOperator;
 
-public final class TripleAccumulatorImpl<A, B, C> implements TripleAccumulator<A, B, C> {
+final class TripleAccumulatorImpl<A, B, C> implements TripleAccumulator<A, B, C> {
     private final BinaryOperator<A> a;
 
     private final BinaryOperator<B> b;

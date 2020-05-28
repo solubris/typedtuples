@@ -21,7 +21,7 @@ import com.solubris.typedtuples.mutable.MutableTuple;
 
 import java.util.function.BinaryOperator;
 
-public final class SingleAccumulatorImpl<A> implements SingleAccumulator<A> {
+final class SingleAccumulatorImpl<A> implements SingleAccumulator<A> {
     private final BinaryOperator<A> a;
 
     SingleAccumulatorImpl(BinaryOperator<A> a) {

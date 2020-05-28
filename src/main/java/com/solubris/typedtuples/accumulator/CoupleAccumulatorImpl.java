@@ -21,7 +21,7 @@ import com.solubris.typedtuples.mutable.MutableTuple;
 
 import java.util.function.BinaryOperator;
 
-public final class CoupleAccumulatorImpl<A, B> implements CoupleAccumulator<A, B> {
+final class CoupleAccumulatorImpl<A, B> implements CoupleAccumulator<A, B> {
     private final BinaryOperator<A> a;
 
     private final BinaryOperator<B> b;

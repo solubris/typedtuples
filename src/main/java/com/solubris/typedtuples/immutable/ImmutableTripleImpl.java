@@ -18,7 +18,7 @@ import com.solubris.typedtuples.Triple;
 import java.util.Objects;
 import java.util.function.Function;
 
-public final class ImmutableTripleImpl<A, B, C> implements ImmutableTriple<A, B, C> {
+final class ImmutableTripleImpl<A, B, C> implements ImmutableTriple<A, B, C> {
     private final A a;
 
     private final B b;

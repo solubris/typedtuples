@@ -18,7 +18,7 @@ import com.solubris.typedtuples.Single;
 import java.util.Objects;
 import java.util.function.Function;
 
-public final class ImmutableSingleImpl<A> implements ImmutableSingle<A> {
+final class ImmutableSingleImpl<A> implements ImmutableSingle<A> {
     private final A a;
 
     ImmutableSingleImpl(A a) {
