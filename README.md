@@ -2,10 +2,32 @@
 [![Javadocs](http://www.javadoc.io/badge/com.solubris/typedtuples.svg)](http://www.javadoc.io/doc/com.solubris/typedtuples)
 
 # typedtuples
+
 Strongly typed tuple library for java
 
-org.javatuples is the tuple library I have been using for years but it hasn't been updated for a long time and it fundamentally flawed.
-So I am creating a new library - typedtuples
+## Example
+
+Java streams don't handle computation of multiple values nicely, eg:
+- compute sum(N), sum(N^2)
+
+This could be done using arrays as follows:
+
+        int[] result = IntStream.rangeClosed(1, 3)
+                .mapToObj(i -> new int[]{i, i * i})
+                .reduce(
+                        new int[2],
+                        (ints, ints2) -> new int[]{ints[0] + ints2[0], ints[1] + ints2[1]}
+                );
+
+With tuples and a tuple accumulator, this can be done as follows:
+    
+        CoupleAccumulator<Integer, Integer> accumulator = Accumulator.of(Integer::sum, Integer::sum);
+        Couple<Integer, Integer> result = IntStream.rangeClosed(1, 3)
+                .mapToObj(i -> ImmutableTuple.of(i, i * i))
+                .reduce(
+                        ImmutableTuple.of(0, 0),
+                        accumulator::combine
+                );
 
 ## Strong typing
 
