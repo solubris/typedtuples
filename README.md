@@ -16,7 +16,7 @@ This could be done using arrays as follows:
                 .mapToObj(i -> new int[]{i, i * i})
                 .reduce(
                         new int[2],
-                        (ints, ints2) -> new int[]{ints[0] + ints2[0], ints[1] + ints2[1]}
+                        (l, r) -> new int[]{l[0] + r[0], l[1] + r[1]}
                 );
 
 With tuples and a tuple accumulator, this can be done as follows:

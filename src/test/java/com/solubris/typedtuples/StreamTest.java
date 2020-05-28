@@ -24,7 +24,7 @@ public class StreamTest {
         // creates a new int array for each item during reduction
         int[] result = IntStream.rangeClosed(1, 3)
                 .mapToObj(i -> new int[]{i, i * i})
-                .reduce(new int[2], (ints, ints2) -> new int[]{ints[0] + ints2[0], ints[1] + ints2[1]});
+                .reduce(new int[2], (l, r) -> new int[]{l[0] + r[0], l[1] + r[1]});
         System.out.println(Arrays.toString(result));
 
         assertThat(result)
@@ -38,7 +38,7 @@ public class StreamTest {
         // creates a new int array for each item during reduction
         Number[] result = IntStream.rangeClosed(1, 3)
                 .mapToObj(i -> new Number[]{i, Math.sqrt(i)})
-                .reduce(new Number[]{0, 0}, (ints, ints2) -> new Number[]{ints[0].intValue() + ints2[0].intValue(), ints[1].doubleValue() + ints2[1].doubleValue()});
+                .reduce(new Number[]{0, 0}, (l, r) -> new Number[]{l[0].intValue() + r[0].intValue(), l[1].doubleValue() + r[1].doubleValue()});
         System.out.println(Arrays.toString(result));
 
         assertThat(result)
