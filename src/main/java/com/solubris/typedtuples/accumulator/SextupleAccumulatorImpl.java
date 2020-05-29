@@ -1,16 +1,18 @@
-// Copyright 2020 Solubris Ltd.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+/*
+ * Copyright 2020 Solubris Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.solubris.typedtuples.accumulator;
 
 import com.solubris.typedtuples.Sextuple;
@@ -35,7 +37,7 @@ final class SextupleAccumulatorImpl<A, B, C, D, E, F> implements SextupleAccumul
     private final BinaryOperator<F> f;
 
     SextupleAccumulatorImpl(BinaryOperator<A> a, BinaryOperator<B> b, BinaryOperator<C> c,
-            BinaryOperator<D> d, BinaryOperator<E> e, BinaryOperator<F> f) {
+                            BinaryOperator<D> d, BinaryOperator<E> e, BinaryOperator<F> f) {
         this.a = a;
         this.b = b;
         this.c = c;
@@ -86,7 +88,7 @@ final class SextupleAccumulatorImpl<A, B, C, D, E, F> implements SextupleAccumul
 
     @Override
     public MutableSextuple<A, B, C, D, E, F> combine(MutableSextuple<A, B, C, D, E, F> l,
-            MutableSextuple<A, B, C, D, E, F> r) {
+                                                     MutableSextuple<A, B, C, D, E, F> r) {
         A fa = a.apply(l.getFirst(), r.getFirst());
         B fb = b.apply(l.getSecond(), r.getSecond());
         C fc = c.apply(l.getThird(), r.getThird());
@@ -98,7 +100,7 @@ final class SextupleAccumulatorImpl<A, B, C, D, E, F> implements SextupleAccumul
 
     @Override
     public ImmutableSextuple<A, B, C, D, E, F> combine(ImmutableSextuple<A, B, C, D, E, F> l,
-            ImmutableSextuple<A, B, C, D, E, F> r) {
+                                                       ImmutableSextuple<A, B, C, D, E, F> r) {
         A fa = a.apply(l.getFirst(), r.getFirst());
         B fb = b.apply(l.getSecond(), r.getSecond());
         C fc = c.apply(l.getThird(), r.getThird());

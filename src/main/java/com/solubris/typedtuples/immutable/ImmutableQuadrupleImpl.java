@@ -1,16 +1,18 @@
-// Copyright 2020 Solubris Ltd.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+/*
+ * Copyright 2020 Solubris Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.solubris.typedtuples.immutable;
 
 import com.solubris.typedtuples.Quadruple;
@@ -77,6 +79,26 @@ final class ImmutableQuadrupleImpl<A, B, C, D> implements ImmutableQuadruple<A, 
     @Override
     public <X0> ImmutableQuintuple<A, B, C, D, X0> add(X0 x0) {
         return new ImmutableQuintupleImpl<>(a, b, c, d, x0);
+    }
+
+    @Override
+    public ImmutableQuintuple<A, A, B, C, D> duplicateFirst() {
+        return new ImmutableQuintupleImpl<>(a, a, b, c, d);
+    }
+
+    @Override
+    public ImmutableQuintuple<A, B, B, C, D> duplicateSecond() {
+        return new ImmutableQuintupleImpl<>(a, b, b, c, d);
+    }
+
+    @Override
+    public ImmutableQuintuple<A, B, C, C, D> duplicateThird() {
+        return new ImmutableQuintupleImpl<>(a, b, c, c, d);
+    }
+
+    @Override
+    public ImmutableQuintuple<A, B, C, D, D> duplicate() {
+        return new ImmutableQuintupleImpl<>(a, b, c, d, d);
     }
 
     @Override
@@ -149,9 +171,9 @@ final class ImmutableQuadrupleImpl<A, B, C, D> implements ImmutableQuadruple<A, 
         if (this == that) return true;
         if (!(that instanceof Quadruple<?, ?, ?, ?>)) return false;
         Quadruple<?, ?, ?, ?> thatQuadruple = (Quadruple<?, ?, ?, ?>) that;
-        return Objects.equals(this.a, thatQuadruple.getFirst()) && 
-                Objects.equals(this.b, thatQuadruple.getSecond()) && 
-                Objects.equals(this.c, thatQuadruple.getThird()) && 
+        return Objects.equals(this.a, thatQuadruple.getFirst()) &&
+                Objects.equals(this.b, thatQuadruple.getSecond()) &&
+                Objects.equals(this.c, thatQuadruple.getThird()) &&
                 Objects.equals(this.d, thatQuadruple.get());
     }
 

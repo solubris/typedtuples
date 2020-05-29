@@ -1,16 +1,18 @@
-// Copyright 2020 Solubris Ltd.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+/*
+ * Copyright 2020 Solubris Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.solubris.typedtuples.accumulator;
 
 import com.solubris.typedtuples.Decuple;
@@ -43,8 +45,8 @@ final class DecupleAccumulatorImpl<A, B, C, D, E, F, G, H, I, J> implements Decu
     private final BinaryOperator<J> j;
 
     DecupleAccumulatorImpl(BinaryOperator<A> a, BinaryOperator<B> b, BinaryOperator<C> c,
-            BinaryOperator<D> d, BinaryOperator<E> e, BinaryOperator<F> f, BinaryOperator<G> g,
-            BinaryOperator<H> h, BinaryOperator<I> i, BinaryOperator<J> j) {
+                           BinaryOperator<D> d, BinaryOperator<E> e, BinaryOperator<F> f, BinaryOperator<G> g,
+                           BinaryOperator<H> h, BinaryOperator<I> i, BinaryOperator<J> j) {
         this.a = a;
         this.b = b;
         this.c = c;
@@ -109,7 +111,7 @@ final class DecupleAccumulatorImpl<A, B, C, D, E, F, G, H, I, J> implements Decu
 
     @Override
     public void accumulate(MutableDecuple<A, B, C, D, E, F, G, H, I, J> acc,
-            Decuple<A, B, C, D, E, F, G, H, I, J> t) {
+                           Decuple<A, B, C, D, E, F, G, H, I, J> t) {
         acc.setFirst(a.apply(acc.getFirst(), t.getFirst()));
         acc.setSecond(b.apply(acc.getSecond(), t.getSecond()));
         acc.setThird(c.apply(acc.getThird(), t.getThird()));

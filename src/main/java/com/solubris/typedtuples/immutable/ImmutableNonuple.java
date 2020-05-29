@@ -1,16 +1,18 @@
-// Copyright 2020 Solubris Ltd.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+/*
+ * Copyright 2020 Solubris Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.solubris.typedtuples.immutable;
 
 import com.solubris.typedtuples.Nonuple;
@@ -37,6 +39,24 @@ public interface ImmutableNonuple<A, B, C, D, E, F, G, H, I> extends Nonuple<A, 
     <X0> ImmutableDecuple<A, B, C, D, E, F, G, H, X0, I> addNinth(X0 x0);
 
     <X0> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X0> add(X0 x0);
+
+    ImmutableDecuple<A, A, B, C, D, E, F, G, H, I> duplicateFirst();
+
+    ImmutableDecuple<A, B, B, C, D, E, F, G, H, I> duplicateSecond();
+
+    ImmutableDecuple<A, B, C, C, D, E, F, G, H, I> duplicateThird();
+
+    ImmutableDecuple<A, B, C, D, D, E, F, G, H, I> duplicateFourth();
+
+    ImmutableDecuple<A, B, C, D, E, E, F, G, H, I> duplicateFifth();
+
+    ImmutableDecuple<A, B, C, D, E, F, F, G, H, I> duplicateSixth();
+
+    ImmutableDecuple<A, B, C, D, E, F, G, G, H, I> duplicateSeventh();
+
+    ImmutableDecuple<A, B, C, D, E, F, G, H, H, I> duplicateEighth();
+
+    ImmutableDecuple<A, B, C, D, E, F, G, H, I, I> duplicate();
 
     ImmutableOctuple<B, C, D, E, F, G, H, I> removeFirst();
 

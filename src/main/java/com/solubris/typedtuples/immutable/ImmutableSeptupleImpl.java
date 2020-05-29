@@ -1,16 +1,18 @@
-// Copyright 2020 Solubris Ltd.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+/*
+ * Copyright 2020 Solubris Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.solubris.typedtuples.immutable;
 
 import com.solubris.typedtuples.Septuple;
@@ -116,6 +118,41 @@ final class ImmutableSeptupleImpl<A, B, C, D, E, F, G> implements ImmutableSeptu
     @Override
     public <X0> ImmutableOctuple<A, B, C, D, E, F, G, X0> add(X0 x0) {
         return new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, x0);
+    }
+
+    @Override
+    public ImmutableOctuple<A, A, B, C, D, E, F, G> duplicateFirst() {
+        return new ImmutableOctupleImpl<>(a, a, b, c, d, e, f, g);
+    }
+
+    @Override
+    public ImmutableOctuple<A, B, B, C, D, E, F, G> duplicateSecond() {
+        return new ImmutableOctupleImpl<>(a, b, b, c, d, e, f, g);
+    }
+
+    @Override
+    public ImmutableOctuple<A, B, C, C, D, E, F, G> duplicateThird() {
+        return new ImmutableOctupleImpl<>(a, b, c, c, d, e, f, g);
+    }
+
+    @Override
+    public ImmutableOctuple<A, B, C, D, D, E, F, G> duplicateFourth() {
+        return new ImmutableOctupleImpl<>(a, b, c, d, d, e, f, g);
+    }
+
+    @Override
+    public ImmutableOctuple<A, B, C, D, E, E, F, G> duplicateFifth() {
+        return new ImmutableOctupleImpl<>(a, b, c, d, e, e, f, g);
+    }
+
+    @Override
+    public ImmutableOctuple<A, B, C, D, E, F, F, G> duplicateSixth() {
+        return new ImmutableOctupleImpl<>(a, b, c, d, e, f, f, g);
+    }
+
+    @Override
+    public ImmutableOctuple<A, B, C, D, E, F, G, G> duplicate() {
+        return new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, g);
     }
 
     @Override
@@ -233,12 +270,12 @@ final class ImmutableSeptupleImpl<A, B, C, D, E, F, G> implements ImmutableSeptu
         if (this == that) return true;
         if (!(that instanceof Septuple<?, ?, ?, ?, ?, ?, ?>)) return false;
         Septuple<?, ?, ?, ?, ?, ?, ?> thatSeptuple = (Septuple<?, ?, ?, ?, ?, ?, ?>) that;
-        return Objects.equals(this.a, thatSeptuple.getFirst()) && 
-                Objects.equals(this.b, thatSeptuple.getSecond()) && 
-                Objects.equals(this.c, thatSeptuple.getThird()) && 
-                Objects.equals(this.d, thatSeptuple.getFourth()) && 
-                Objects.equals(this.e, thatSeptuple.getFifth()) && 
-                Objects.equals(this.f, thatSeptuple.getSixth()) && 
+        return Objects.equals(this.a, thatSeptuple.getFirst()) &&
+                Objects.equals(this.b, thatSeptuple.getSecond()) &&
+                Objects.equals(this.c, thatSeptuple.getThird()) &&
+                Objects.equals(this.d, thatSeptuple.getFourth()) &&
+                Objects.equals(this.e, thatSeptuple.getFifth()) &&
+                Objects.equals(this.f, thatSeptuple.getSixth()) &&
                 Objects.equals(this.g, thatSeptuple.get());
     }
 

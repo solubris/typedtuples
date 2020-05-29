@@ -1,16 +1,18 @@
-// Copyright 2020 Solubris Ltd.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+/*
+ * Copyright 2020 Solubris Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.solubris.typedtuples.accumulator;
 
 import com.solubris.typedtuples.Nonuple;
@@ -41,8 +43,8 @@ final class NonupleAccumulatorImpl<A, B, C, D, E, F, G, H, I> implements Nonuple
     private final BinaryOperator<I> i;
 
     NonupleAccumulatorImpl(BinaryOperator<A> a, BinaryOperator<B> b, BinaryOperator<C> c,
-            BinaryOperator<D> d, BinaryOperator<E> e, BinaryOperator<F> f, BinaryOperator<G> g,
-            BinaryOperator<H> h, BinaryOperator<I> i) {
+                           BinaryOperator<D> d, BinaryOperator<E> e, BinaryOperator<F> f, BinaryOperator<G> g,
+                           BinaryOperator<H> h, BinaryOperator<I> i) {
         this.a = a;
         this.b = b;
         this.c = c;
@@ -101,7 +103,7 @@ final class NonupleAccumulatorImpl<A, B, C, D, E, F, G, H, I> implements Nonuple
 
     @Override
     public void accumulate(MutableNonuple<A, B, C, D, E, F, G, H, I> acc,
-            Nonuple<A, B, C, D, E, F, G, H, I> t) {
+                           Nonuple<A, B, C, D, E, F, G, H, I> t) {
         acc.setFirst(a.apply(acc.getFirst(), t.getFirst()));
         acc.setSecond(b.apply(acc.getSecond(), t.getSecond()));
         acc.setThird(c.apply(acc.getThird(), t.getThird()));

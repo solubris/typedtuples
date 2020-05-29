@@ -1,16 +1,18 @@
-// Copyright 2020 Solubris Ltd.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+/*
+ * Copyright 2020 Solubris Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.solubris.typedtuples.immutable;
 
 import com.solubris.typedtuples.Quintuple;
@@ -90,6 +92,31 @@ final class ImmutableQuintupleImpl<A, B, C, D, E> implements ImmutableQuintuple<
     @Override
     public <X0> ImmutableSextuple<A, B, C, D, E, X0> add(X0 x0) {
         return new ImmutableSextupleImpl<>(a, b, c, d, e, x0);
+    }
+
+    @Override
+    public ImmutableSextuple<A, A, B, C, D, E> duplicateFirst() {
+        return new ImmutableSextupleImpl<>(a, a, b, c, d, e);
+    }
+
+    @Override
+    public ImmutableSextuple<A, B, B, C, D, E> duplicateSecond() {
+        return new ImmutableSextupleImpl<>(a, b, b, c, d, e);
+    }
+
+    @Override
+    public ImmutableSextuple<A, B, C, C, D, E> duplicateThird() {
+        return new ImmutableSextupleImpl<>(a, b, c, c, d, e);
+    }
+
+    @Override
+    public ImmutableSextuple<A, B, C, D, D, E> duplicateFourth() {
+        return new ImmutableSextupleImpl<>(a, b, c, d, d, e);
+    }
+
+    @Override
+    public ImmutableSextuple<A, B, C, D, E, E> duplicate() {
+        return new ImmutableSextupleImpl<>(a, b, c, d, e, e);
     }
 
     @Override
@@ -177,10 +204,10 @@ final class ImmutableQuintupleImpl<A, B, C, D, E> implements ImmutableQuintuple<
         if (this == that) return true;
         if (!(that instanceof Quintuple<?, ?, ?, ?, ?>)) return false;
         Quintuple<?, ?, ?, ?, ?> thatQuintuple = (Quintuple<?, ?, ?, ?, ?>) that;
-        return Objects.equals(this.a, thatQuintuple.getFirst()) && 
-                Objects.equals(this.b, thatQuintuple.getSecond()) && 
-                Objects.equals(this.c, thatQuintuple.getThird()) && 
-                Objects.equals(this.d, thatQuintuple.getFourth()) && 
+        return Objects.equals(this.a, thatQuintuple.getFirst()) &&
+                Objects.equals(this.b, thatQuintuple.getSecond()) &&
+                Objects.equals(this.c, thatQuintuple.getThird()) &&
+                Objects.equals(this.d, thatQuintuple.getFourth()) &&
                 Objects.equals(this.e, thatQuintuple.get());
     }
 

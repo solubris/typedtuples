@@ -1,16 +1,18 @@
-// Copyright 2020 Solubris Ltd.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+/*
+ * Copyright 2020 Solubris Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.solubris.typedtuples.immutable;
 
 import com.solubris.typedtuples.Octuple;
@@ -129,6 +131,46 @@ final class ImmutableOctupleImpl<A, B, C, D, E, F, G, H> implements ImmutableOct
     @Override
     public <X0> ImmutableNonuple<A, B, C, D, E, F, G, H, X0> add(X0 x0) {
         return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, x0);
+    }
+
+    @Override
+    public ImmutableNonuple<A, A, B, C, D, E, F, G, H> duplicateFirst() {
+        return new ImmutableNonupleImpl<>(a, a, b, c, d, e, f, g, h);
+    }
+
+    @Override
+    public ImmutableNonuple<A, B, B, C, D, E, F, G, H> duplicateSecond() {
+        return new ImmutableNonupleImpl<>(a, b, b, c, d, e, f, g, h);
+    }
+
+    @Override
+    public ImmutableNonuple<A, B, C, C, D, E, F, G, H> duplicateThird() {
+        return new ImmutableNonupleImpl<>(a, b, c, c, d, e, f, g, h);
+    }
+
+    @Override
+    public ImmutableNonuple<A, B, C, D, D, E, F, G, H> duplicateFourth() {
+        return new ImmutableNonupleImpl<>(a, b, c, d, d, e, f, g, h);
+    }
+
+    @Override
+    public ImmutableNonuple<A, B, C, D, E, E, F, G, H> duplicateFifth() {
+        return new ImmutableNonupleImpl<>(a, b, c, d, e, e, f, g, h);
+    }
+
+    @Override
+    public ImmutableNonuple<A, B, C, D, E, F, F, G, H> duplicateSixth() {
+        return new ImmutableNonupleImpl<>(a, b, c, d, e, f, f, g, h);
+    }
+
+    @Override
+    public ImmutableNonuple<A, B, C, D, E, F, G, G, H> duplicateSeventh() {
+        return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, g, h);
+    }
+
+    @Override
+    public ImmutableNonuple<A, B, C, D, E, F, G, H, H> duplicate() {
+        return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, h);
     }
 
     @Override
@@ -261,13 +303,13 @@ final class ImmutableOctupleImpl<A, B, C, D, E, F, G, H> implements ImmutableOct
         if (this == that) return true;
         if (!(that instanceof Octuple<?, ?, ?, ?, ?, ?, ?, ?>)) return false;
         Octuple<?, ?, ?, ?, ?, ?, ?, ?> thatOctuple = (Octuple<?, ?, ?, ?, ?, ?, ?, ?>) that;
-        return Objects.equals(this.a, thatOctuple.getFirst()) && 
-                Objects.equals(this.b, thatOctuple.getSecond()) && 
-                Objects.equals(this.c, thatOctuple.getThird()) && 
-                Objects.equals(this.d, thatOctuple.getFourth()) && 
-                Objects.equals(this.e, thatOctuple.getFifth()) && 
-                Objects.equals(this.f, thatOctuple.getSixth()) && 
-                Objects.equals(this.g, thatOctuple.getSeventh()) && 
+        return Objects.equals(this.a, thatOctuple.getFirst()) &&
+                Objects.equals(this.b, thatOctuple.getSecond()) &&
+                Objects.equals(this.c, thatOctuple.getThird()) &&
+                Objects.equals(this.d, thatOctuple.getFourth()) &&
+                Objects.equals(this.e, thatOctuple.getFifth()) &&
+                Objects.equals(this.f, thatOctuple.getSixth()) &&
+                Objects.equals(this.g, thatOctuple.getSeventh()) &&
                 Objects.equals(this.h, thatOctuple.get());
     }
 

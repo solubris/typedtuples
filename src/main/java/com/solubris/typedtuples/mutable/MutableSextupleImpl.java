@@ -1,16 +1,18 @@
-// Copyright 2020 Solubris Ltd.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+/*
+ * Copyright 2020 Solubris Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.solubris.typedtuples.mutable;
 
 import com.solubris.typedtuples.Sextuple;
@@ -145,11 +147,11 @@ final class MutableSextupleImpl<A, B, C, D, E, F> implements MutableSextuple<A, 
         if (this == that) return true;
         if (!(that instanceof Sextuple<?, ?, ?, ?, ?, ?>)) return false;
         Sextuple<?, ?, ?, ?, ?, ?> thatSextuple = (Sextuple<?, ?, ?, ?, ?, ?>) that;
-        return Objects.equals(this.a, thatSextuple.getFirst()) && 
-                Objects.equals(this.b, thatSextuple.getSecond()) && 
-                Objects.equals(this.c, thatSextuple.getThird()) && 
-                Objects.equals(this.d, thatSextuple.getFourth()) && 
-                Objects.equals(this.e, thatSextuple.getFifth()) && 
+        return Objects.equals(this.a, thatSextuple.getFirst()) &&
+                Objects.equals(this.b, thatSextuple.getSecond()) &&
+                Objects.equals(this.c, thatSextuple.getThird()) &&
+                Objects.equals(this.d, thatSextuple.getFourth()) &&
+                Objects.equals(this.e, thatSextuple.getFifth()) &&
                 Objects.equals(this.f, thatSextuple.get());
     }
 
