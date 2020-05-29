@@ -19,5 +19,10 @@
  * - immutable - these can't be changed but have methods produce new tuples based on the current tuple
  * - mutable - these have setter methods but none of the methods on immutable tuples to avoid confusion
  * - accumulator - these are tuples of functions which can be applied to a tuple to perform accumulation
+ *
+ * Unit - unit is the empty tuple - aka ()
+ * Since a unit by definition cant be mutable, it only exists in the immutable set of tuples
+ * Unit is different to Void as Unit can be returned by a function, but Void cannot
+ * Also Unit has a method to add an element so it becomes a single
  */
 package com.solubris.typedtuples;
