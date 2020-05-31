@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.immutable;
 
 import com.solubris.typedtuples.Couple;
+import com.solubris.typedtuples.function.CoupleFunction;
 
 import java.util.function.Function;
 
@@ -41,6 +42,8 @@ public interface ImmutableCouple<A, B> extends Couple<A, B> {
     <X> ImmutableCouple<X, B> mapFirst(Function<A, X> mapper);
 
     <X> ImmutableCouple<A, X> map(Function<B, X> mapper);
+
+    <R> R mapAll(CoupleFunction<A, B, R> mapper);
 
     ImmutableCouple<B, A> reverse();
 }

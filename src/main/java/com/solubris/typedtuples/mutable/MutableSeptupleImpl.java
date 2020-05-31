@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.mutable;
 
 import com.solubris.typedtuples.Septuple;
+import com.solubris.typedtuples.function.SeptupleFunction;
 
 import java.util.Objects;
 import java.util.function.UnaryOperator;
@@ -124,6 +125,11 @@ final class MutableSeptupleImpl<A, B, C, D, E, F, G> implements MutableSeptuple<
         this.e = e;
         this.f = f;
         this.g = g;
+    }
+
+    @Override
+    public <R> R mapAll(SeptupleFunction<A, B, C, D, E, F, G, R> mapper) {
+        return mapper.apply(a, b, c, d, e, f, g);
     }
 
     @Override

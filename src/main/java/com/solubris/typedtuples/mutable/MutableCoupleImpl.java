@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.mutable;
 
 import com.solubris.typedtuples.Couple;
+import com.solubris.typedtuples.function.CoupleFunction;
 
 import java.util.Objects;
 import java.util.function.UnaryOperator;
@@ -54,6 +55,11 @@ final class MutableCoupleImpl<A, B> implements MutableCouple<A, B> {
     public void setAll(A a, B b) {
         this.a = a;
         this.b = b;
+    }
+
+    @Override
+    public <R> R mapAll(CoupleFunction<A, B, R> mapper) {
+        return mapper.apply(a, b);
     }
 
     @Override

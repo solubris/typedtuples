@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.immutable;
 
 import com.solubris.typedtuples.Octuple;
+import com.solubris.typedtuples.function.OctupleFunction;
 
 import java.util.function.Function;
 
@@ -101,6 +102,8 @@ public interface ImmutableOctuple<A, B, C, D, E, F, G, H> extends Octuple<A, B, 
     <X> ImmutableOctuple<A, B, C, D, E, F, X, H> mapSeventh(Function<G, X> mapper);
 
     <X> ImmutableOctuple<A, B, C, D, E, F, G, X> map(Function<H, X> mapper);
+
+    <R> R mapAll(OctupleFunction<A, B, C, D, E, F, G, H, R> mapper);
 
     ImmutableOctuple<H, G, F, E, D, C, B, A> reverse();
 }

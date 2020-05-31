@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.mutable;
 
 import com.solubris.typedtuples.Nonuple;
+import com.solubris.typedtuples.function.NonupleFunction;
 
 import java.util.Objects;
 import java.util.function.UnaryOperator;
@@ -152,6 +153,11 @@ final class MutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements MutableNonu
         this.g = g;
         this.h = h;
         this.i = i;
+    }
+
+    @Override
+    public <R> R mapAll(NonupleFunction<A, B, C, D, E, F, G, H, I, R> mapper) {
+        return mapper.apply(a, b, c, d, e, f, g, h, i);
     }
 
     @Override

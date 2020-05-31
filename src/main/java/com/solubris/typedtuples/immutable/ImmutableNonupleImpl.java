@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.immutable;
 
 import com.solubris.typedtuples.Nonuple;
+import com.solubris.typedtuples.function.NonupleFunction;
 
 import java.util.Objects;
 import java.util.function.Function;
@@ -324,6 +325,11 @@ final class ImmutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements Immutable
     @Override
     public <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> map(Function<I, X> mapper) {
         return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, mapper.apply(i));
+    }
+
+    @Override
+    public <R> R mapAll(NonupleFunction<A, B, C, D, E, F, G, H, I, R> mapper) {
+        return mapper.apply(a, b, c, d, e, f, g, h, i);
     }
 
     @Override

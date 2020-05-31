@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.immutable;
 
 import com.solubris.typedtuples.Quadruple;
+import com.solubris.typedtuples.function.QuadrupleFunction;
 
 import java.util.function.Function;
 
@@ -61,6 +62,8 @@ public interface ImmutableQuadruple<A, B, C, D> extends Quadruple<A, B, C, D> {
     <X> ImmutableQuadruple<A, B, X, D> mapThird(Function<C, X> mapper);
 
     <X> ImmutableQuadruple<A, B, C, X> map(Function<D, X> mapper);
+
+    <R> R mapAll(QuadrupleFunction<A, B, C, D, R> mapper);
 
     ImmutableQuadruple<D, C, B, A> reverse();
 }

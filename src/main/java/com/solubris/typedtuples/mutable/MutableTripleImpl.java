@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.mutable;
 
 import com.solubris.typedtuples.Triple;
+import com.solubris.typedtuples.function.TripleFunction;
 
 import java.util.Objects;
 import java.util.function.UnaryOperator;
@@ -68,6 +69,11 @@ final class MutableTripleImpl<A, B, C> implements MutableTriple<A, B, C> {
         this.a = a;
         this.b = b;
         this.c = c;
+    }
+
+    @Override
+    public <R> R mapAll(TripleFunction<A, B, C, R> mapper) {
+        return mapper.apply(a, b, c);
     }
 
     @Override

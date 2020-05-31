@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.immutable;
 
 import com.solubris.typedtuples.Quintuple;
+import com.solubris.typedtuples.function.QuintupleFunction;
 
 import java.util.Objects;
 import java.util.function.Function;
@@ -192,6 +193,11 @@ final class ImmutableQuintupleImpl<A, B, C, D, E> implements ImmutableQuintuple<
     @Override
     public <X> ImmutableQuintuple<A, B, C, D, X> map(Function<E, X> mapper) {
         return new ImmutableQuintupleImpl<>(a, b, c, d, mapper.apply(e));
+    }
+
+    @Override
+    public <R> R mapAll(QuintupleFunction<A, B, C, D, E, R> mapper) {
+        return mapper.apply(a, b, c, d, e);
     }
 
     @Override

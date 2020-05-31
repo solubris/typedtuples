@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.immutable;
 
 import com.solubris.typedtuples.Couple;
+import com.solubris.typedtuples.function.CoupleFunction;
 
 import java.util.Objects;
 import java.util.function.Function;
@@ -93,6 +94,11 @@ final class ImmutableCoupleImpl<A, B> implements ImmutableCouple<A, B> {
     @Override
     public <X> ImmutableCouple<A, X> map(Function<B, X> mapper) {
         return new ImmutableCoupleImpl<>(a, mapper.apply(b));
+    }
+
+    @Override
+    public <R> R mapAll(CoupleFunction<A, B, R> mapper) {
+        return mapper.apply(a, b);
     }
 
     @Override

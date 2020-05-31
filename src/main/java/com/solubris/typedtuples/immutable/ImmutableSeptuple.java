@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.immutable;
 
 import com.solubris.typedtuples.Septuple;
+import com.solubris.typedtuples.function.SeptupleFunction;
 
 import java.util.function.Function;
 
@@ -91,6 +92,8 @@ public interface ImmutableSeptuple<A, B, C, D, E, F, G> extends Septuple<A, B, C
     <X> ImmutableSeptuple<A, B, C, D, E, X, G> mapSixth(Function<F, X> mapper);
 
     <X> ImmutableSeptuple<A, B, C, D, E, F, X> map(Function<G, X> mapper);
+
+    <R> R mapAll(SeptupleFunction<A, B, C, D, E, F, G, R> mapper);
 
     ImmutableSeptuple<G, F, E, D, C, B, A> reverse();
 }

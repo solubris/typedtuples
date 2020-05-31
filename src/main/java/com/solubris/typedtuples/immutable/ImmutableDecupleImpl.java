@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.immutable;
 
 import com.solubris.typedtuples.Decuple;
+import com.solubris.typedtuples.function.DecupleFunction;
 
 import java.util.Objects;
 import java.util.function.Function;
@@ -252,6 +253,11 @@ final class ImmutableDecupleImpl<A, B, C, D, E, F, G, H, I, J> implements Immuta
     @Override
     public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> map(Function<J, X> mapper) {
         return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(j));
+    }
+
+    @Override
+    public <R> R mapAll(DecupleFunction<A, B, C, D, E, F, G, H, I, J, R> mapper) {
+        return mapper.apply(a, b, c, d, e, f, g, h, i, j);
     }
 
     @Override

@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.mutable;
 
 import com.solubris.typedtuples.Decuple;
+import com.solubris.typedtuples.function.DecupleFunction;
 
 import java.util.Objects;
 import java.util.function.UnaryOperator;
@@ -166,6 +167,11 @@ final class MutableDecupleImpl<A, B, C, D, E, F, G, H, I, J> implements MutableD
         this.h = h;
         this.i = i;
         this.j = j;
+    }
+
+    @Override
+    public <R> R mapAll(DecupleFunction<A, B, C, D, E, F, G, H, I, J, R> mapper) {
+        return mapper.apply(a, b, c, d, e, f, g, h, i, j);
     }
 
     @Override

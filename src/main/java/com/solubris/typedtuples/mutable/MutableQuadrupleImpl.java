@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.mutable;
 
 import com.solubris.typedtuples.Quadruple;
+import com.solubris.typedtuples.function.QuadrupleFunction;
 
 import java.util.Objects;
 import java.util.function.UnaryOperator;
@@ -82,6 +83,11 @@ final class MutableQuadrupleImpl<A, B, C, D> implements MutableQuadruple<A, B, C
         this.b = b;
         this.c = c;
         this.d = d;
+    }
+
+    @Override
+    public <R> R mapAll(QuadrupleFunction<A, B, C, D, R> mapper) {
+        return mapper.apply(a, b, c, d);
     }
 
     @Override

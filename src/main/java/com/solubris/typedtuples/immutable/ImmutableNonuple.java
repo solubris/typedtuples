@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.immutable;
 
 import com.solubris.typedtuples.Nonuple;
+import com.solubris.typedtuples.function.NonupleFunction;
 
 import java.util.function.Function;
 
@@ -111,6 +112,8 @@ public interface ImmutableNonuple<A, B, C, D, E, F, G, H, I> extends Nonuple<A, 
     <X> ImmutableNonuple<A, B, C, D, E, F, G, X, I> mapEighth(Function<H, X> mapper);
 
     <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> map(Function<I, X> mapper);
+
+    <R> R mapAll(NonupleFunction<A, B, C, D, E, F, G, H, I, R> mapper);
 
     ImmutableNonuple<I, H, G, F, E, D, C, B, A> reverse();
 }

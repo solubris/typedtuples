@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.mutable;
 
 import com.solubris.typedtuples.Octuple;
+import com.solubris.typedtuples.function.OctupleFunction;
 
 import java.util.Objects;
 import java.util.function.UnaryOperator;
@@ -138,6 +139,11 @@ final class MutableOctupleImpl<A, B, C, D, E, F, G, H> implements MutableOctuple
         this.f = f;
         this.g = g;
         this.h = h;
+    }
+
+    @Override
+    public <R> R mapAll(OctupleFunction<A, B, C, D, E, F, G, H, R> mapper) {
+        return mapper.apply(a, b, c, d, e, f, g, h);
     }
 
     @Override

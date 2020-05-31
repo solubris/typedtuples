@@ -1,16 +1,18 @@
-// Copyright 2020 Solubris Ltd.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+/*
+ * Copyright 2020 Solubris Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.solubris.typedtuples.accumulator;
 
 import java.util.function.BinaryOperator;
@@ -28,23 +30,23 @@ public class Accumulator {
     }
 
     public static <A, B, C> TripleAccumulator<A, B, C> of(BinaryOperator<A> a, BinaryOperator<B> b,
-            BinaryOperator<C> c) {
+                                                          BinaryOperator<C> c) {
         return new TripleAccumulatorImpl<>(a, b, c);
     }
 
     public static <A, B, C, D> QuadrupleAccumulator<A, B, C, D> of(BinaryOperator<A> a,
-            BinaryOperator<B> b, BinaryOperator<C> c, BinaryOperator<D> d) {
+                                                                   BinaryOperator<B> b, BinaryOperator<C> c, BinaryOperator<D> d) {
         return new QuadrupleAccumulatorImpl<>(a, b, c, d);
     }
 
     public static <A, B, C, D, E> QuintupleAccumulator<A, B, C, D, E> of(BinaryOperator<A> a,
-            BinaryOperator<B> b, BinaryOperator<C> c, BinaryOperator<D> d, BinaryOperator<E> e) {
+                                                                         BinaryOperator<B> b, BinaryOperator<C> c, BinaryOperator<D> d, BinaryOperator<E> e) {
         return new QuintupleAccumulatorImpl<>(a, b, c, d, e);
     }
 
     public static <A, B, C, D, E, F> SextupleAccumulator<A, B, C, D, E, F> of(BinaryOperator<A> a,
-            BinaryOperator<B> b, BinaryOperator<C> c, BinaryOperator<D> d, BinaryOperator<E> e,
-            BinaryOperator<F> f) {
+                                                                              BinaryOperator<B> b, BinaryOperator<C> c, BinaryOperator<D> d, BinaryOperator<E> e,
+                                                                              BinaryOperator<F> f) {
         return new SextupleAccumulatorImpl<>(a, b, c, d, e, f);
     }
 

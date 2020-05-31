@@ -13,23 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.solubris.typedtuples.mutable;
+package com.solubris.typedtuples.function;
 
-import com.solubris.typedtuples.Couple;
-import com.solubris.typedtuples.function.CoupleFunction;
-
-import java.util.function.UnaryOperator;
-
-public interface MutableCouple<A, B> extends Couple<A, B> {
-    void setFirst(A a);
-
-    void set(B b);
-
-    void setAll(A a, B b);
-
-    <R> R mapAll(CoupleFunction<A, B, R> mapper);
-
-    void computeFirst(UnaryOperator<A> mapper);
-
-    void compute(UnaryOperator<B> mapper);
+public interface OctupleFunction<A, B, C, D, E, F, G, H, R> {
+    R apply(A a, B b, C c, D d, E e, F f, G g, H h);
 }

@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.immutable;
 
 import com.solubris.typedtuples.Single;
+import com.solubris.typedtuples.function.SingleFunction;
 
 import java.util.function.Function;
 
@@ -31,4 +32,6 @@ public interface ImmutableSingle<A> extends Single<A> {
     <X> ImmutableSingle<X> replace(X x);
 
     <X> ImmutableSingle<X> map(Function<A, X> mapper);
+
+    <R> R mapAll(SingleFunction<A, R> mapper);
 }

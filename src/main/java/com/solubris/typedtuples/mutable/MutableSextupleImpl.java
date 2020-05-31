@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.mutable;
 
 import com.solubris.typedtuples.Sextuple;
+import com.solubris.typedtuples.function.SextupleFunction;
 
 import java.util.Objects;
 import java.util.function.UnaryOperator;
@@ -110,6 +111,11 @@ final class MutableSextupleImpl<A, B, C, D, E, F> implements MutableSextuple<A, 
         this.d = d;
         this.e = e;
         this.f = f;
+    }
+
+    @Override
+    public <R> R mapAll(SextupleFunction<A, B, C, D, E, F, R> mapper) {
+        return mapper.apply(a, b, c, d, e, f);
     }
 
     @Override

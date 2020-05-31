@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.immutable;
 
 import com.solubris.typedtuples.Quintuple;
+import com.solubris.typedtuples.function.QuintupleFunction;
 
 import java.util.function.Function;
 
@@ -71,6 +72,8 @@ public interface ImmutableQuintuple<A, B, C, D, E> extends Quintuple<A, B, C, D,
     <X> ImmutableQuintuple<A, B, C, X, E> mapFourth(Function<D, X> mapper);
 
     <X> ImmutableQuintuple<A, B, C, D, X> map(Function<E, X> mapper);
+
+    <R> R mapAll(QuintupleFunction<A, B, C, D, E, R> mapper);
 
     ImmutableQuintuple<E, D, C, B, A> reverse();
 }

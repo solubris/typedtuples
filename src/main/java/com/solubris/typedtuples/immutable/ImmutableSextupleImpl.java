@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.immutable;
 
 import com.solubris.typedtuples.Sextuple;
+import com.solubris.typedtuples.function.SextupleFunction;
 
 import java.util.Objects;
 import java.util.function.Function;
@@ -225,6 +226,11 @@ final class ImmutableSextupleImpl<A, B, C, D, E, F> implements ImmutableSextuple
     @Override
     public <X> ImmutableSextuple<A, B, C, D, E, X> map(Function<F, X> mapper) {
         return new ImmutableSextupleImpl<>(a, b, c, d, e, mapper.apply(f));
+    }
+
+    @Override
+    public <R> R mapAll(SextupleFunction<A, B, C, D, E, F, R> mapper) {
+        return mapper.apply(a, b, c, d, e, f);
     }
 
     @Override

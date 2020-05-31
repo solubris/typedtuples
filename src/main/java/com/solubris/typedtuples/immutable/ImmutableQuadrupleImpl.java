@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.immutable;
 
 import com.solubris.typedtuples.Quadruple;
+import com.solubris.typedtuples.function.QuadrupleFunction;
 
 import java.util.Objects;
 import java.util.function.Function;
@@ -159,6 +160,11 @@ final class ImmutableQuadrupleImpl<A, B, C, D> implements ImmutableQuadruple<A, 
     @Override
     public <X> ImmutableQuadruple<A, B, C, X> map(Function<D, X> mapper) {
         return new ImmutableQuadrupleImpl<>(a, b, c, mapper.apply(d));
+    }
+
+    @Override
+    public <R> R mapAll(QuadrupleFunction<A, B, C, D, R> mapper) {
+        return mapper.apply(a, b, c, d);
     }
 
     @Override

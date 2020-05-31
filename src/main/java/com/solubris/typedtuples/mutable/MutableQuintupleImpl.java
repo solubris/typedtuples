@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.mutable;
 
 import com.solubris.typedtuples.Quintuple;
+import com.solubris.typedtuples.function.QuintupleFunction;
 
 import java.util.Objects;
 import java.util.function.UnaryOperator;
@@ -96,6 +97,11 @@ final class MutableQuintupleImpl<A, B, C, D, E> implements MutableQuintuple<A, B
         this.c = c;
         this.d = d;
         this.e = e;
+    }
+
+    @Override
+    public <R> R mapAll(QuintupleFunction<A, B, C, D, E, R> mapper) {
+        return mapper.apply(a, b, c, d, e);
     }
 
     @Override

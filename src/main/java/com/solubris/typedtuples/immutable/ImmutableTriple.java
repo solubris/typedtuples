@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.immutable;
 
 import com.solubris.typedtuples.Triple;
+import com.solubris.typedtuples.function.TripleFunction;
 
 import java.util.function.Function;
 
@@ -51,6 +52,8 @@ public interface ImmutableTriple<A, B, C> extends Triple<A, B, C> {
     <X> ImmutableTriple<A, X, C> mapSecond(Function<B, X> mapper);
 
     <X> ImmutableTriple<A, B, X> map(Function<C, X> mapper);
+
+    <R> R mapAll(TripleFunction<A, B, C, R> mapper);
 
     ImmutableTriple<C, B, A> reverse();
 }

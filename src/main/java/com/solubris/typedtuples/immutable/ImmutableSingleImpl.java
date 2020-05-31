@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.immutable;
 
 import com.solubris.typedtuples.Single;
+import com.solubris.typedtuples.function.SingleFunction;
 
 import java.util.Objects;
 import java.util.function.Function;
@@ -60,6 +61,11 @@ final class ImmutableSingleImpl<A> implements ImmutableSingle<A> {
     @Override
     public <X> ImmutableSingle<X> map(Function<A, X> mapper) {
         return new ImmutableSingleImpl<>(mapper.apply(a));
+    }
+
+    @Override
+    public <R> R mapAll(SingleFunction<A, R> mapper) {
+        return mapper.apply(a);
     }
 
     @Override

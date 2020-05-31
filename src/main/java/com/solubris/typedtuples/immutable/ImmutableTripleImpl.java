@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.immutable;
 
 import com.solubris.typedtuples.Triple;
+import com.solubris.typedtuples.function.TripleFunction;
 
 import java.util.Objects;
 import java.util.function.Function;
@@ -126,6 +127,11 @@ final class ImmutableTripleImpl<A, B, C> implements ImmutableTriple<A, B, C> {
     @Override
     public <X> ImmutableTriple<A, B, X> map(Function<C, X> mapper) {
         return new ImmutableTripleImpl<>(a, b, mapper.apply(c));
+    }
+
+    @Override
+    public <R> R mapAll(TripleFunction<A, B, C, R> mapper) {
+        return mapper.apply(a, b, c);
     }
 
     @Override

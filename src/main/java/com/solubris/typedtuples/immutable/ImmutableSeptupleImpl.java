@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.immutable;
 
 import com.solubris.typedtuples.Septuple;
+import com.solubris.typedtuples.function.SeptupleFunction;
 
 import java.util.Objects;
 import java.util.function.Function;
@@ -258,6 +259,11 @@ final class ImmutableSeptupleImpl<A, B, C, D, E, F, G> implements ImmutableSeptu
     @Override
     public <X> ImmutableSeptuple<A, B, C, D, E, F, X> map(Function<G, X> mapper) {
         return new ImmutableSeptupleImpl<>(a, b, c, d, e, f, mapper.apply(g));
+    }
+
+    @Override
+    public <R> R mapAll(SeptupleFunction<A, B, C, D, E, F, G, R> mapper) {
+        return mapper.apply(a, b, c, d, e, f, g);
     }
 
     @Override

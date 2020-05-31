@@ -43,7 +43,7 @@ public class Enrichment {
 
         assertThat(result)
                 .usingFieldByFieldElementComparator()
-                .contains(
+                .containsExactly(
                         new StringStats("abc", 3, false),
                         new StringStats("1234", 4, false),
                         new StringStats("zzz", 3, true)

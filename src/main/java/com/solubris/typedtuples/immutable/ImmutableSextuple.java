@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.immutable;
 
 import com.solubris.typedtuples.Sextuple;
+import com.solubris.typedtuples.function.SextupleFunction;
 
 import java.util.function.Function;
 
@@ -81,6 +82,8 @@ public interface ImmutableSextuple<A, B, C, D, E, F> extends Sextuple<A, B, C, D
     <X> ImmutableSextuple<A, B, C, D, X, F> mapFifth(Function<E, X> mapper);
 
     <X> ImmutableSextuple<A, B, C, D, E, X> map(Function<F, X> mapper);
+
+    <R> R mapAll(SextupleFunction<A, B, C, D, E, F, R> mapper);
 
     ImmutableSextuple<F, E, D, C, B, A> reverse();
 }

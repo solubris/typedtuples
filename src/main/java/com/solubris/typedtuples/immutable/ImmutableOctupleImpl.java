@@ -16,6 +16,7 @@
 package com.solubris.typedtuples.immutable;
 
 import com.solubris.typedtuples.Octuple;
+import com.solubris.typedtuples.function.OctupleFunction;
 
 import java.util.Objects;
 import java.util.function.Function;
@@ -291,6 +292,11 @@ final class ImmutableOctupleImpl<A, B, C, D, E, F, G, H> implements ImmutableOct
     @Override
     public <X> ImmutableOctuple<A, B, C, D, E, F, G, X> map(Function<H, X> mapper) {
         return new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, mapper.apply(h));
+    }
+
+    @Override
+    public <R> R mapAll(OctupleFunction<A, B, C, D, E, F, G, H, R> mapper) {
+        return mapper.apply(a, b, c, d, e, f, g, h);
     }
 
     @Override
