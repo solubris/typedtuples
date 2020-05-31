@@ -43,6 +43,10 @@ public interface ImmutableCouple<A, B> extends Couple<A, B> {
 
     <X> ImmutableCouple<A, X> map(Function<B, X> mapper);
 
+    <X> ImmutableTriple<A, B, X> mapFirstAndAdd(Function<A, X> mapper);
+
+    <X> ImmutableTriple<A, B, X> mapAndAdd(Function<B, X> mapper);
+
     <R> R mapAll(CoupleFunction<A, B, R> mapper);
 
     ImmutableCouple<B, A> reverse();

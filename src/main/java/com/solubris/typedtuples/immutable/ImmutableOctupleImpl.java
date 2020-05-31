@@ -295,6 +295,46 @@ final class ImmutableOctupleImpl<A, B, C, D, E, F, G, H> implements ImmutableOct
     }
 
     @Override
+    public <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapFirstAndAdd(Function<A, X> mapper) {
+        return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, mapper.apply(a));
+    }
+
+    @Override
+    public <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapSecondAndAdd(Function<B, X> mapper) {
+        return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, mapper.apply(b));
+    }
+
+    @Override
+    public <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapThirdAndAdd(Function<C, X> mapper) {
+        return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, mapper.apply(c));
+    }
+
+    @Override
+    public <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapFourthAndAdd(Function<D, X> mapper) {
+        return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, mapper.apply(d));
+    }
+
+    @Override
+    public <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapFifthAndAdd(Function<E, X> mapper) {
+        return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, mapper.apply(e));
+    }
+
+    @Override
+    public <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapSixthAndAdd(Function<F, X> mapper) {
+        return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, mapper.apply(f));
+    }
+
+    @Override
+    public <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapSeventhAndAdd(Function<G, X> mapper) {
+        return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, mapper.apply(g));
+    }
+
+    @Override
+    public <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapAndAdd(Function<H, X> mapper) {
+        return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, mapper.apply(h));
+    }
+
+    @Override
     public <R> R mapAll(OctupleFunction<A, B, C, D, E, F, G, H, R> mapper) {
         return mapper.apply(a, b, c, d, e, f, g, h);
     }

@@ -53,6 +53,12 @@ public interface ImmutableTriple<A, B, C> extends Triple<A, B, C> {
 
     <X> ImmutableTriple<A, B, X> map(Function<C, X> mapper);
 
+    <X> ImmutableQuadruple<A, B, C, X> mapFirstAndAdd(Function<A, X> mapper);
+
+    <X> ImmutableQuadruple<A, B, C, X> mapSecondAndAdd(Function<B, X> mapper);
+
+    <X> ImmutableQuadruple<A, B, C, X> mapAndAdd(Function<C, X> mapper);
+
     <R> R mapAll(TripleFunction<A, B, C, R> mapper);
 
     ImmutableTriple<C, B, A> reverse();

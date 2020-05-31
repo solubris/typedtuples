@@ -130,6 +130,21 @@ final class ImmutableTripleImpl<A, B, C> implements ImmutableTriple<A, B, C> {
     }
 
     @Override
+    public <X> ImmutableQuadruple<A, B, C, X> mapFirstAndAdd(Function<A, X> mapper) {
+        return new ImmutableQuadrupleImpl<>(a, b, c, mapper.apply(a));
+    }
+
+    @Override
+    public <X> ImmutableQuadruple<A, B, C, X> mapSecondAndAdd(Function<B, X> mapper) {
+        return new ImmutableQuadrupleImpl<>(a, b, c, mapper.apply(b));
+    }
+
+    @Override
+    public <X> ImmutableQuadruple<A, B, C, X> mapAndAdd(Function<C, X> mapper) {
+        return new ImmutableQuadrupleImpl<>(a, b, c, mapper.apply(c));
+    }
+
+    @Override
     public <R> R mapAll(TripleFunction<A, B, C, R> mapper) {
         return mapper.apply(a, b, c);
     }

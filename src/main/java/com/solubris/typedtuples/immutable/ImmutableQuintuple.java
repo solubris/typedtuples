@@ -73,6 +73,16 @@ public interface ImmutableQuintuple<A, B, C, D, E> extends Quintuple<A, B, C, D,
 
     <X> ImmutableQuintuple<A, B, C, D, X> map(Function<E, X> mapper);
 
+    <X> ImmutableSextuple<A, B, C, D, E, X> mapFirstAndAdd(Function<A, X> mapper);
+
+    <X> ImmutableSextuple<A, B, C, D, E, X> mapSecondAndAdd(Function<B, X> mapper);
+
+    <X> ImmutableSextuple<A, B, C, D, E, X> mapThirdAndAdd(Function<C, X> mapper);
+
+    <X> ImmutableSextuple<A, B, C, D, E, X> mapFourthAndAdd(Function<D, X> mapper);
+
+    <X> ImmutableSextuple<A, B, C, D, E, X> mapAndAdd(Function<E, X> mapper);
+
     <R> R mapAll(QuintupleFunction<A, B, C, D, E, R> mapper);
 
     ImmutableQuintuple<E, D, C, B, A> reverse();

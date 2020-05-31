@@ -328,6 +328,59 @@ final class ImmutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements Immutable
     }
 
     @Override
+    public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapFirstAndAdd(
+            Function<A, X> mapper) {
+        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(a));
+    }
+
+    @Override
+    public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapSecondAndAdd(
+            Function<B, X> mapper) {
+        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(b));
+    }
+
+    @Override
+    public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapThirdAndAdd(
+            Function<C, X> mapper) {
+        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(c));
+    }
+
+    @Override
+    public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapFourthAndAdd(
+            Function<D, X> mapper) {
+        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(d));
+    }
+
+    @Override
+    public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapFifthAndAdd(
+            Function<E, X> mapper) {
+        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(e));
+    }
+
+    @Override
+    public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapSixthAndAdd(
+            Function<F, X> mapper) {
+        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(f));
+    }
+
+    @Override
+    public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapSeventhAndAdd(
+            Function<G, X> mapper) {
+        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(g));
+    }
+
+    @Override
+    public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapEighthAndAdd(
+            Function<H, X> mapper) {
+        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(h));
+    }
+
+    @Override
+    public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapAndAdd(Function<I, X> mapper) {
+        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(i));
+    }
+
+    @Override
     public <R> R mapAll(NonupleFunction<A, B, C, D, E, F, G, H, I, R> mapper) {
         return mapper.apply(a, b, c, d, e, f, g, h, i);
     }

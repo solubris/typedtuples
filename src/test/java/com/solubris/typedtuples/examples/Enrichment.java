@@ -35,11 +35,10 @@ public class Enrichment {
     void determineStringAttributes() {
         List<StringStats> result = Stream.of("abc", "1234", "zzz")
                 .map(ImmutableTuple::of)
-                .map(s -> s.add(s.get().length()))
-                .map(sl -> sl.add(isPalindrome(sl.getFirst())))
+                .map(s -> s.mapAndAdd(String::length))
+                .map(sl -> sl.mapFirstAndAdd(this::isPalindrome))
                 .map(slp -> slp.mapAll(StringStats::new))
                 .collect(Collectors.toList());
-        System.out.println(result);
 
         assertThat(result)
                 .usingFieldByFieldElementComparator()

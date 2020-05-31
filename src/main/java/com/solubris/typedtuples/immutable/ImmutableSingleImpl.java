@@ -64,6 +64,11 @@ final class ImmutableSingleImpl<A> implements ImmutableSingle<A> {
     }
 
     @Override
+    public <X> ImmutableCouple<A, X> mapAndAdd(Function<A, X> mapper) {
+        return new ImmutableCoupleImpl<>(a, mapper.apply(a));
+    }
+
+    @Override
     public <R> R mapAll(SingleFunction<A, R> mapper) {
         return mapper.apply(a);
     }

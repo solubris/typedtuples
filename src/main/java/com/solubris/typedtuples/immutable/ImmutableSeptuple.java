@@ -93,6 +93,20 @@ public interface ImmutableSeptuple<A, B, C, D, E, F, G> extends Septuple<A, B, C
 
     <X> ImmutableSeptuple<A, B, C, D, E, F, X> map(Function<G, X> mapper);
 
+    <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapFirstAndAdd(Function<A, X> mapper);
+
+    <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapSecondAndAdd(Function<B, X> mapper);
+
+    <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapThirdAndAdd(Function<C, X> mapper);
+
+    <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapFourthAndAdd(Function<D, X> mapper);
+
+    <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapFifthAndAdd(Function<E, X> mapper);
+
+    <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapSixthAndAdd(Function<F, X> mapper);
+
+    <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapAndAdd(Function<G, X> mapper);
+
     <R> R mapAll(SeptupleFunction<A, B, C, D, E, F, G, R> mapper);
 
     ImmutableSeptuple<G, F, E, D, C, B, A> reverse();

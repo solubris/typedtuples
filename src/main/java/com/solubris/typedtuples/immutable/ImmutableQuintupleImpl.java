@@ -196,6 +196,31 @@ final class ImmutableQuintupleImpl<A, B, C, D, E> implements ImmutableQuintuple<
     }
 
     @Override
+    public <X> ImmutableSextuple<A, B, C, D, E, X> mapFirstAndAdd(Function<A, X> mapper) {
+        return new ImmutableSextupleImpl<>(a, b, c, d, e, mapper.apply(a));
+    }
+
+    @Override
+    public <X> ImmutableSextuple<A, B, C, D, E, X> mapSecondAndAdd(Function<B, X> mapper) {
+        return new ImmutableSextupleImpl<>(a, b, c, d, e, mapper.apply(b));
+    }
+
+    @Override
+    public <X> ImmutableSextuple<A, B, C, D, E, X> mapThirdAndAdd(Function<C, X> mapper) {
+        return new ImmutableSextupleImpl<>(a, b, c, d, e, mapper.apply(c));
+    }
+
+    @Override
+    public <X> ImmutableSextuple<A, B, C, D, E, X> mapFourthAndAdd(Function<D, X> mapper) {
+        return new ImmutableSextupleImpl<>(a, b, c, d, e, mapper.apply(d));
+    }
+
+    @Override
+    public <X> ImmutableSextuple<A, B, C, D, E, X> mapAndAdd(Function<E, X> mapper) {
+        return new ImmutableSextupleImpl<>(a, b, c, d, e, mapper.apply(e));
+    }
+
+    @Override
     public <R> R mapAll(QuintupleFunction<A, B, C, D, E, R> mapper) {
         return mapper.apply(a, b, c, d, e);
     }

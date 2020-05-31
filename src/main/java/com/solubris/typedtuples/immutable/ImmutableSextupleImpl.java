@@ -229,6 +229,36 @@ final class ImmutableSextupleImpl<A, B, C, D, E, F> implements ImmutableSextuple
     }
 
     @Override
+    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapFirstAndAdd(Function<A, X> mapper) {
+        return new ImmutableSeptupleImpl<>(a, b, c, d, e, f, mapper.apply(a));
+    }
+
+    @Override
+    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapSecondAndAdd(Function<B, X> mapper) {
+        return new ImmutableSeptupleImpl<>(a, b, c, d, e, f, mapper.apply(b));
+    }
+
+    @Override
+    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapThirdAndAdd(Function<C, X> mapper) {
+        return new ImmutableSeptupleImpl<>(a, b, c, d, e, f, mapper.apply(c));
+    }
+
+    @Override
+    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapFourthAndAdd(Function<D, X> mapper) {
+        return new ImmutableSeptupleImpl<>(a, b, c, d, e, f, mapper.apply(d));
+    }
+
+    @Override
+    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapFifthAndAdd(Function<E, X> mapper) {
+        return new ImmutableSeptupleImpl<>(a, b, c, d, e, f, mapper.apply(e));
+    }
+
+    @Override
+    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapAndAdd(Function<F, X> mapper) {
+        return new ImmutableSeptupleImpl<>(a, b, c, d, e, f, mapper.apply(f));
+    }
+
+    @Override
     public <R> R mapAll(SextupleFunction<A, B, C, D, E, F, R> mapper) {
         return mapper.apply(a, b, c, d, e, f);
     }

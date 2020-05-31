@@ -103,6 +103,22 @@ public interface ImmutableOctuple<A, B, C, D, E, F, G, H> extends Octuple<A, B, 
 
     <X> ImmutableOctuple<A, B, C, D, E, F, G, X> map(Function<H, X> mapper);
 
+    <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapFirstAndAdd(Function<A, X> mapper);
+
+    <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapSecondAndAdd(Function<B, X> mapper);
+
+    <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapThirdAndAdd(Function<C, X> mapper);
+
+    <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapFourthAndAdd(Function<D, X> mapper);
+
+    <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapFifthAndAdd(Function<E, X> mapper);
+
+    <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapSixthAndAdd(Function<F, X> mapper);
+
+    <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapSeventhAndAdd(Function<G, X> mapper);
+
+    <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapAndAdd(Function<H, X> mapper);
+
     <R> R mapAll(OctupleFunction<A, B, C, D, E, F, G, H, R> mapper);
 
     ImmutableOctuple<H, G, F, E, D, C, B, A> reverse();

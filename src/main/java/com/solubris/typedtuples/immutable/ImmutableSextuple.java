@@ -83,6 +83,18 @@ public interface ImmutableSextuple<A, B, C, D, E, F> extends Sextuple<A, B, C, D
 
     <X> ImmutableSextuple<A, B, C, D, E, X> map(Function<F, X> mapper);
 
+    <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapFirstAndAdd(Function<A, X> mapper);
+
+    <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapSecondAndAdd(Function<B, X> mapper);
+
+    <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapThirdAndAdd(Function<C, X> mapper);
+
+    <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapFourthAndAdd(Function<D, X> mapper);
+
+    <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapFifthAndAdd(Function<E, X> mapper);
+
+    <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapAndAdd(Function<F, X> mapper);
+
     <R> R mapAll(SextupleFunction<A, B, C, D, E, F, R> mapper);
 
     ImmutableSextuple<F, E, D, C, B, A> reverse();

@@ -113,6 +113,24 @@ public interface ImmutableNonuple<A, B, C, D, E, F, G, H, I> extends Nonuple<A, 
 
     <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> map(Function<I, X> mapper);
 
+    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapFirstAndAdd(Function<A, X> mapper);
+
+    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapSecondAndAdd(Function<B, X> mapper);
+
+    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapThirdAndAdd(Function<C, X> mapper);
+
+    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapFourthAndAdd(Function<D, X> mapper);
+
+    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapFifthAndAdd(Function<E, X> mapper);
+
+    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapSixthAndAdd(Function<F, X> mapper);
+
+    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapSeventhAndAdd(Function<G, X> mapper);
+
+    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapEighthAndAdd(Function<H, X> mapper);
+
+    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapAndAdd(Function<I, X> mapper);
+
     <R> R mapAll(NonupleFunction<A, B, C, D, E, F, G, H, I, R> mapper);
 
     ImmutableNonuple<I, H, G, F, E, D, C, B, A> reverse();

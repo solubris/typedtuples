@@ -97,6 +97,16 @@ final class ImmutableCoupleImpl<A, B> implements ImmutableCouple<A, B> {
     }
 
     @Override
+    public <X> ImmutableTriple<A, B, X> mapFirstAndAdd(Function<A, X> mapper) {
+        return new ImmutableTripleImpl<>(a, b, mapper.apply(a));
+    }
+
+    @Override
+    public <X> ImmutableTriple<A, B, X> mapAndAdd(Function<B, X> mapper) {
+        return new ImmutableTripleImpl<>(a, b, mapper.apply(b));
+    }
+
+    @Override
     public <R> R mapAll(CoupleFunction<A, B, R> mapper) {
         return mapper.apply(a, b);
     }
