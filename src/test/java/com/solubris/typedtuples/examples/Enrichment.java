@@ -37,7 +37,7 @@ public class Enrichment {
                 .map(ImmutableTuple::of)
                 .map(s -> s.add(s.get().length()))
                 .map(sl -> sl.add(isPalindrome(sl.getFirst())))
-                .map(slp -> new StringStats(slp.getFirst(), slp.getSecond(), slp.get()))
+                .map(slp -> slp.mapAll(StringStats::new))
                 .collect(Collectors.toList());
         System.out.println(result);
 
