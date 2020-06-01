@@ -18,6 +18,9 @@ package com.solubris.typedtuples.immutable;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -26,39 +29,39 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 class SingleImmutableTest {
 
-    @Test
-    void checkAll() {
-        var underTest = ImmutableTuple.of(0);
+    @ParameterizedTest
+    @ValueSource(ints = {1})
+    @NullSource
+    void checkAll(Integer value) {
+        var underTest = ImmutableTuple.of(value);
 
+        assertThat(underTest)
+                .isEqualTo(ImmutableTuple.of(value));
         assertThat(underTest.get())
-                .isEqualTo(0);
+                .isEqualTo(value);
         assertThat(underTest.duplicate())
-                .isEqualTo(ImmutableTuple.of(0, 0));
-        assertThat(underTest.map(i -> i + 1))
-                .isEqualTo(ImmutableTuple.of(1));
-        assertThat(underTest.map(i -> i + 1))
+                .isEqualTo(ImmutableTuple.of(value, value));
+        assertThat(underTest.map(i -> 1))
                 .isEqualTo(ImmutableTuple.of(1));
         assertThat(underTest.remove())
                 .isEqualTo(ImmutableTuple.of());
-        assertThat(underTest.add("x"))
-                .isEqualTo(ImmutableTuple.of(0, "x"));
         assertThat(underTest.addFirst("x"))
-                .isEqualTo(ImmutableTuple.of("x", 0));
+                .isEqualTo(ImmutableTuple.of("x", value));
+        assertThat(underTest.add("x"))
+                .isEqualTo(ImmutableTuple.of(value, "x"));
         assertThat(underTest.replace("x"))
                 .isEqualTo(ImmutableTuple.of("x"));
-        assertThat(underTest)
-                .isEqualTo(ImmutableTuple.of(0));
         assertThat(underTest.toString())
-                .isEqualTo("(0)");
+                .isEqualTo("(" + value + ")");
         assertThat(underTest.<String>mapAll(String::valueOf))
-                .isEqualTo("0");
-        assertThat(underTest.mapAndAdd(i -> i + 1))
-                .isEqualTo(ImmutableTuple.of(0, 1));
-
-        EqualsVerifier.forClass(underTest.getClass())
-//                .suppress(Warning.IDENTICAL_COPY)
-//                .withIgnoredFields("INSTANCE")
-                .verify();
+                .isEqualTo("" + value);
+        assertThat(underTest.mapAndAdd(i -> 1))
+                .isEqualTo(ImmutableTuple.of(value, 1));
     }
 
+    @Test
+    void checkAll() {
+        EqualsVerifier.forClass(ImmutableSingleImpl.class)
+                .verify();
+    }
 }
