@@ -34,7 +34,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * - compute sum(N), sum(N^2)
  * - compute sum(N), sum(sqrt(N)) -- requires different types
  */
-public class ImmutableReduction {
+class ImmutableReduction {
 
     @Test
     void computeSumAndSumOfSquaresIntArrayReduction() {

@@ -25,7 +25,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  *
  */
-public class SingleTest {
+class SingleTest {
 
     @Test
     void compute() {

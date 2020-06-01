@@ -35,7 +35,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * These examples compare how to collect multiple values in a stream, eg:
  * - compute sum(N), sum(N^2)
  */
-public class MutableReduction {
+class MutableReduction {
 
     /**
      * Accumulating the array values is quite verbose

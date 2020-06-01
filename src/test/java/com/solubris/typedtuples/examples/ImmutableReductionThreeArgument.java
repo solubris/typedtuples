@@ -33,7 +33,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * These examples compare how to reduce multiple values in a stream, eg:
  * - compute sum(N), sum(N^2)
  */
-public class ImmutableReductionThreeArgument {
+class ImmutableReductionThreeArgument {
 
     @Test
     void computeSumAndSumOfSquaresIntArrayReduction() {

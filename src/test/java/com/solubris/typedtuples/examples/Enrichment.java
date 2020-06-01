@@ -29,7 +29,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Use tuples to enrich the items processed in the stream
  * without having to create intermediary objects
  */
-public class Enrichment {
+class Enrichment {
 
     @Test
     void determineStringAttributes() {
