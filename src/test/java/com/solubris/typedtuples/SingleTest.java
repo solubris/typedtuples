@@ -43,10 +43,10 @@ public class SingleTest {
                 .isEqualTo(ImmutableTuple.of(0, "x"));
         assertThat(underTest.addFirst("x"))
                 .isEqualTo(ImmutableTuple.of("x", 0));
-        assertThat(underTest.replace("replace"))
+        assertThat(underTest.replace("x"))
                 .isEqualTo(ImmutableTuple.of("x"));
         assertThat(underTest)
-                .isEqualTo(ImmutableTuple.of("0"));
+                .isEqualTo(ImmutableTuple.of(0));
     }
 
 }
