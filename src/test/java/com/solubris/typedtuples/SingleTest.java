@@ -50,8 +50,8 @@ public class SingleTest {
                 .isEqualTo(ImmutableTuple.of(0));
         assertThat(underTest.toString())
                 .isEqualTo("(0)");
-        assertThat(underTest.add(1).mapAll(Integer::sum))
-                .isEqualTo(1);
+        assertThat(underTest.<String>mapAll(String::valueOf))
+                .isEqualTo("0");
         assertThat(underTest.mapAndAdd(i -> i + 1))
                 .isEqualTo(ImmutableTuple.of(0, 1));
 
