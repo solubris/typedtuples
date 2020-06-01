@@ -6,7 +6,12 @@ addons:
     token:
       secure: GjRSvb9jnHuemfDEod0qdxB9Z4tTl+Y2/sqw7J+A0xJvbPbCNqfTfzh5tr4QF5IaMayfrbv4tDrqQaeFRIg6QHi/i6jJa02Kxuqr/JI2Uie5wps0SWHrtwd+2Jb2z2RibBM05kuFtj4/T5rkk/3WneVj+rLDkXzapUwNDlvyP+V/EgmW88VEdLdnKQ3jl1nVghS8Rksyj9qn51JVtjgBGeD7L+5KszvXPUhx996A8cdPCP5mUo1tC2peQ2Ru6UbeKwcoun81ZNACOEDqQOngy6DxMvFMXdVLUxv+YejGSMWk4MPAKSyiIHF77peF2dvPemd4LKEqep0AwoEjY+QIixZWAiIKVdLyzCIMxHgQevJzYYaRy2dy6wliedbc/8B5Wdt4/RqMjPj2DJEUqfPxSKCK5izZrcO+NNGFp/br5Ygr2tMkJnSDoXz30W1m+/do54n4j2/aaVnV/lAqJe8GDegTzSbaUav3zkUrXdBTByM+kfFzFM5d8A3YwtfZtPbbgTpbYNTVRIyVy62Q+QTah11K9ygAA3v7yVSdB+0ta93iTds/ud/XafpL6clGiWNzCZFK3XVBImzn2z7w3kPCIA1EHoNDmAZEx6Ge9wTxlKudFC8tgIfq3e+KXHsMOACAnWj1wMO93nZTteBownTa15sba5ipDT0YIeLtRQDz8Qs=
 
+# The default build is so verbose the travis log file can exceed the allowed limit.
+# Run a custom install that hides all the Maven ‘Downloading’ messages.
+install:
+  - mvn install -Dmaven.javadoc.skip=true -V -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=solubris_typedtuples
+  - mvn clean install sonar:sonar
 
