@@ -17,6 +17,7 @@
 package com.solubris.typedtuples;
 
 import com.solubris.typedtuples.immutable.ImmutableTuple;
+import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -47,6 +48,17 @@ public class SingleTest {
                 .isEqualTo(ImmutableTuple.of("x"));
         assertThat(underTest)
                 .isEqualTo(ImmutableTuple.of(0));
+        assertThat(underTest.toString())
+                .isEqualTo("(0)");
+        assertThat(underTest.add(1).mapAll(Integer::sum))
+                .isEqualTo(1);
+        assertThat(underTest.mapAndAdd(i -> i + 1))
+                .isEqualTo(ImmutableTuple.of(0, 1));
+
+        EqualsVerifier.forClass(underTest.getClass())
+//                .suppress(Warning.IDENTICAL_COPY)
+//                .withIgnoredFields("INSTANCE")
+                .verify();
     }
 
 }
