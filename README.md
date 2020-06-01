@@ -65,9 +65,24 @@ No names like tuple2 because they are not fluent.
 Designed for use in streams where tuples are especially useful for manipulating the intermediate values.
 Methods like map are especially useful in stream operations.
 
-# Alternatives
+## Alternatives
 
 - org.javatuples
+
+In the Tuple base class it holds the values here:
+
+    private final Object[] valueArray;
+    private final List<Object> valueList;
+
+This is in addition to the Pair class (for instance) values:
+
+    private final A val0;
+    private final B val1;
+
+The valueList is populated with Arrays.asList(valueArray), so it doesn't copy all the values again.
+In summary, every value is stored twice and there are two extra references for each tuple.
+So for a Pair, that's 4 extra object references (or 200%).
+    
 - org.eclipse.collections.impl.tuple.Tuples
 - reactor.util.function.Tuples
 
