@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.solubris.typedtuples.function;
 
 public interface OctupleFunction<A, B, C, D, E, F, G, H, R> {

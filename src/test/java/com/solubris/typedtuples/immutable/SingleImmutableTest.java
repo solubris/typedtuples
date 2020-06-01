@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-package com.solubris.typedtuples;
+package com.solubris.typedtuples.immutable;
 
-import com.solubris.typedtuples.immutable.ImmutableTuple;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Test;
 
@@ -25,11 +24,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  *
  */
-class SingleTest {
+class SingleImmutableTest {
 
     @Test
-    void compute() {
+    void checkAll() {
         var underTest = ImmutableTuple.of(0);
+
         assertThat(underTest.get())
                 .isEqualTo(0);
         assertThat(underTest.duplicate())

@@ -14,24 +14,21 @@
  * limitations under the License.
  */
 
-package com.solubris.typedtuples;
+package com.solubris.typedtuples.immutable;
 
-public interface Nonuple<A, B, C, D, E, F, G, H, I> {
-    A getFirst();
+import org.junit.jupiter.api.Test;
 
-    B getSecond();
+import static org.assertj.core.api.Assertions.assertThat;
 
-    C getThird();
+class UnitImmutableTest {
 
-    D getFourth();
+    @Test
+    void checkAll() {
+        var underTest = ImmutableTuple.of();
 
-    E getFifth();
-
-    F getSixth();
-
-    G getSeventh();
-
-    H getEighth();
-
-    I get();
+        assertThat(underTest.add("x"))
+                .isEqualTo(ImmutableTuple.of("x"));
+        assertThat(underTest.toString())
+                .isEqualTo("()");
+    }
 }

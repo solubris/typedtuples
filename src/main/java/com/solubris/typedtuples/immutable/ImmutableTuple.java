@@ -1,16 +1,19 @@
-// Copyright 2020 Solubris Ltd.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+/*
+ * Copyright 2020 Solubris Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.solubris.typedtuples.immutable;
 
 import com.solubris.typedtuples.Couple;
@@ -74,7 +77,7 @@ public class ImmutableTuple {
     }
 
     public static <A, B, C, D, E, F> ImmutableSextuple<A, B, C, D, E, F> of(A a, B b, C c, D d, E e,
-            F f) {
+                                                                            F f) {
         return new ImmutableSextupleImpl<>(a, b, c, d, e, f);
     }
 
@@ -84,7 +87,7 @@ public class ImmutableTuple {
     }
 
     public static <A, B, C, D, E, F, G> ImmutableSeptuple<A, B, C, D, E, F, G> of(A a, B b, C c,
-            D d, E e, F f, G g) {
+                                                                                  D d, E e, F f, G g) {
         return new ImmutableSeptupleImpl<>(a, b, c, d, e, f, g);
     }
 
@@ -94,7 +97,7 @@ public class ImmutableTuple {
     }
 
     public static <A, B, C, D, E, F, G, H> ImmutableOctuple<A, B, C, D, E, F, G, H> of(A a, B b,
-            C c, D d, E e, F f, G g, H h) {
+                                                                                       C c, D d, E e, F f, G g, H h) {
         return new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, h);
     }
 
@@ -104,7 +107,7 @@ public class ImmutableTuple {
     }
 
     public static <A, B, C, D, E, F, G, H, I> ImmutableNonuple<A, B, C, D, E, F, G, H, I> of(A a,
-            B b, C c, D d, E e, F f, G g, H h, I i) {
+                                                                                             B b, C c, D d, E e, F f, G g, H h, I i) {
         return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, i);
     }
 

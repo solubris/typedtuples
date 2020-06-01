@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.solubris.typedtuples.function;
 
 public interface QuintupleFunction<A, B, C, D, E, R> {
