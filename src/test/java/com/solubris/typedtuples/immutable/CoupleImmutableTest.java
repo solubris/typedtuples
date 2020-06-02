@@ -77,7 +77,7 @@ class CoupleImmutableTest {
 
     @Test
     void checkEqualsHashCode() {
-        EqualsVerifier.forClass(ImmutableCouple.class)
+        EqualsVerifier.forClass(ImmutableCoupleImpl.class)
                 .verify();
     }
 }

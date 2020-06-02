@@ -92,7 +92,7 @@ class TripleImmutableTest {
 
     @Test
     void checkEqualsHashCode() {
-        EqualsVerifier.forClass(ImmutableTriple.class)
+        EqualsVerifier.forClass(ImmutableTripleImpl.class)
                 .verify();
     }
 }
