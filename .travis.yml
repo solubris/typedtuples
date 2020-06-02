@@ -22,10 +22,11 @@ addons:
 
 # The default build is so verbose the travis log file can exceed the allowed limit.
 # Run a custom install that hides all the Maven ‘Downloading’ messages.
+# Also skip signing artifacts here as gpg is not enable on travis ci
 install:
-  - mvn install -Dmaven.javadoc.skip=true -V -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+  - mvn install -Dmaven.javadoc.skip=true -Dgpg.skip=true -V -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
 
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - mvn clean install sonar:sonar -Dsonar.java.source=11 -Dsonar.projectKey=solubris_typedtuples
+  - mvn clean install sonar:sonar -Dgpg.skip=true -Dsonar.java.source=11 -Dsonar.projectKey=solubris_typedtuples
 
