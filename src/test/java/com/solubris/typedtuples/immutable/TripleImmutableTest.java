@@ -86,10 +86,12 @@ class TripleImmutableTest {
                 .isEqualTo(ImmutableTuple.of(first, second, value, 1));
         assertThat(underTest.mapAndAdd(i -> 1))
                 .isEqualTo(ImmutableTuple.of(first, second, value, 1));
+        assertThat(underTest.reverse())
+                .isEqualTo(ImmutableTuple.of(value, second, first));
     }
 
     @Test
-    void checkAll() {
+    void checkEqualsHashCode() {
         EqualsVerifier.forClass(ImmutableTriple.class)
                 .verify();
     }

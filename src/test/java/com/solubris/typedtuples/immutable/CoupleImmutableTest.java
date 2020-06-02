@@ -71,10 +71,12 @@ class CoupleImmutableTest {
                 .isEqualTo(ImmutableTuple.of(first, value, 1));
         assertThat(underTest.mapAndAdd(i -> 1))
                 .isEqualTo(ImmutableTuple.of(first, value, 1));
+        assertThat(underTest.reverse())
+                .isEqualTo(ImmutableTuple.of(value, first));
     }
 
     @Test
-    void checkAll() {
+    void checkEqualsHashCode() {
         EqualsVerifier.forClass(ImmutableCouple.class)
                 .verify();
     }

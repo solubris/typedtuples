@@ -57,7 +57,7 @@ class SingleImmutableTest {
     }
 
     @Test
-    void checkAll() {
+    void checkEqualsHashCode() {
         EqualsVerifier.forClass(ImmutableSingleImpl.class)
                 .verify();
     }
