@@ -3,7 +3,7 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.solubris/typedtuples/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.solubris/typedtuples)
 [![Javadocs](http://www.javadoc.io/badge/com.solubris/typedtuples.svg)](http://www.javadoc.io/doc/com.solubris/typedtuples)
 
-# typedtuples
+# TypedTuples
 
 Strongly typed tuple library for java
 
@@ -87,5 +87,11 @@ So for a Pair, that's 4 extra object references (or 200%).
     
 - org.eclipse.collections.impl.tuple.Tuples
 - reactor.util.function.Tuples
+- org.apache.commons.lang3.tuple
+is comparable
+uses reflection to work out which comparator
+Pair, Triple
+Mutable, Immutable
+Serializable
 
 

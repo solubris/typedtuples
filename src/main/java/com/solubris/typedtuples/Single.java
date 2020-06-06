@@ -16,6 +16,25 @@
 
 package com.solubris.typedtuples;
 
+import java.util.Comparator;
+import java.util.function.Function;
+
 public interface Single<A> {
     A get();
+
+    static <A extends Comparable<? super A>> Comparator<Single<A>> compareByAllFieldsInOrder() {
+        Comparator<Single<A>> a = Comparator.comparing(Single::get);
+        return (a);
+    }
+
+    static <A, FA extends Comparable<? super FA>> Comparator<Single<A>> compareByAllFieldsInOrder(
+            Function<A, FA> fa) {
+        Comparator<Single<A>> a = Comparator.comparing(fa.compose(Single::get));
+        return (a);
+    }
+
+    static <A> Comparator<Single<A>> compareByAllFieldsInOrder(Comparator<? super A> ca) {
+        Comparator<Single<A>> a = Comparator.comparing(Single::get, ca);
+        return (a);
+    }
 }

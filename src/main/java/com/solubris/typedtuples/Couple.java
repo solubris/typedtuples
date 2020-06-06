@@ -16,8 +16,53 @@
 
 package com.solubris.typedtuples;
 
+import java.util.Comparator;
+import java.util.function.Function;
+
 public interface Couple<A, B> {
     A getFirst();
 
     B get();
+
+    static <A extends Comparable<? super A>, B extends Comparable<? super B>> Comparator<Couple<A, B>> compareByAllFieldsInOrder(
+    ) {
+        Comparator<Couple<A, B>> a = Comparator.comparing(Couple::getFirst);
+        Comparator<Couple<A, B>> b = Comparator.comparing(Couple::get);
+        return (a).thenComparing(b);
+    }
+
+    static <A extends Comparable<? super A>, B extends Comparable<? super B>> Comparator<Couple<A, B>> compareByAllFieldsInReverseOrder(
+    ) {
+        Comparator<Couple<A, B>> a = Comparator.comparing(Couple::getFirst);
+        Comparator<Couple<A, B>> b = Comparator.comparing(Couple::get);
+        return (b).thenComparing(a);
+    }
+
+    static <A, FA extends Comparable<? super FA>, B, FB extends Comparable<? super FB>> Comparator<Couple<A, B>> compareByAllFieldsInOrder(
+            Function<A, FA> fa, Function<B, FB> fb) {
+        Comparator<Couple<A, B>> a = Comparator.comparing(fa.compose(Couple::getFirst));
+        Comparator<Couple<A, B>> b = Comparator.comparing(fb.compose(Couple::get));
+        return (a).thenComparing(b);
+    }
+
+    static <A, FA extends Comparable<? super FA>, B, FB extends Comparable<? super FB>> Comparator<Couple<A, B>> compareByAllFieldsInReverseOrder(
+            Function<A, FA> fa, Function<B, FB> fb) {
+        Comparator<Couple<A, B>> a = Comparator.comparing(fa.compose(Couple::getFirst));
+        Comparator<Couple<A, B>> b = Comparator.comparing(fb.compose(Couple::get));
+        return (b).thenComparing(a);
+    }
+
+    static <A, B> Comparator<Couple<A, B>> compareByAllFieldsInOrder(Comparator<? super A> ca,
+                                                                     Comparator<? super B> cb) {
+        Comparator<Couple<A, B>> a = Comparator.comparing(Couple::getFirst, ca);
+        Comparator<Couple<A, B>> b = Comparator.comparing(Couple::get, cb);
+        return (a).thenComparing(b);
+    }
+
+    static <A, B> Comparator<Couple<A, B>> compareByAllFieldsInReverseOrder(
+            Comparator<? super A> ca, Comparator<? super B> cb) {
+        Comparator<Couple<A, B>> a = Comparator.comparing(Couple::getFirst, ca);
+        Comparator<Couple<A, B>> b = Comparator.comparing(Couple::get, cb);
+        return (b).thenComparing(a);
+    }
 }
