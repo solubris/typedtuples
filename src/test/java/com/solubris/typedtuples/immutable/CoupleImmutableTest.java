@@ -99,7 +99,7 @@ class CoupleImmutableTest {
     @Test
     void sortingSuper() {
         var t1 = ImmutableTuple.of(1, new Bbb());
-        var t2 = ImmutableTuple.of(1, new Bbb());
+        var t2 = ImmutableTuple.of(2, new Bbb());
 
         var list = new ArrayList<>(List.of(t2, t1));
 
