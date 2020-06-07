@@ -33,6 +33,7 @@
         <gpg.skip>false</gpg.skip>
         <sonar.projectKey>solubris_typedtuples</sonar.projectKey>
         <sonar.java.source>11</sonar.java.source>
+        <sonar.cpd.exclusions>src/main/java/**/*.java</sonar.cpd.exclusions>
     </properties>
 
     <scm>
