@@ -58,6 +58,10 @@ So they should not be used as fields in other classes which means they don't nee
 
 Without knowing if the types are comparable, then the tuples also can't be comparable (without casting).
 
+However, some custom comparators are provided as follows:
+
+        list.sort(Couple.compareByAllFieldsInOrder());
+
 ## English names
 
 No names like tuple2 because they are not fluent.
