@@ -18,11 +18,45 @@ package com.solubris.typedtuples.immutable;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
 import nl.jqno.equalsverifier.Warning;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class ImmutableDecupleImplTest {
+    final int a = 0;
+
+    final int b = 1;
+
+    final int c = 2;
+
+    final int d = 3;
+
+    final int e = 4;
+
+    final int f = 5;
+
+    final int g = 6;
+
+    final int h = 7;
+
+    final int i = 8;
+
+    final int j = 9;
+
     @Test
     void equalsHashCode() {
         EqualsVerifier.forClass(ImmutableDecupleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void toStringHas10Values(Integer value) {
+        var underTest = new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, value);
+        Assertions.assertThat(underTest.toString()).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f + ", " + g + ", " + h + ", " + i + ", " + value + ")");
     }
 }

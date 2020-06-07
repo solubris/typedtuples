@@ -18,11 +18,35 @@ package com.solubris.typedtuples.immutable;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
 import nl.jqno.equalsverifier.Warning;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class ImmutableQuintupleImplTest {
+    final int a = 0;
+
+    final int b = 1;
+
+    final int c = 2;
+
+    final int d = 3;
+
+    final int e = 4;
+
     @Test
     void equalsHashCode() {
         EqualsVerifier.forClass(ImmutableQuintupleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void toStringHas5Values(Integer value) {
+        var underTest = new ImmutableQuintupleImpl<>(a, b, c, d, value);
+        Assertions.assertThat(underTest.toString()).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + value + ")");
     }
 }

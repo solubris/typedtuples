@@ -18,11 +18,39 @@ package com.solubris.typedtuples.mutable;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
 import nl.jqno.equalsverifier.Warning;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class MutableSeptupleImplTest {
+    final int a = 0;
+
+    final int b = 1;
+
+    final int c = 2;
+
+    final int d = 3;
+
+    final int e = 4;
+
+    final int f = 5;
+
+    final int g = 6;
+
     @Test
     void equalsHashCode() {
         EqualsVerifier.forClass(MutableSeptupleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void toStringHas7Values(Integer value) {
+        var underTest = new MutableSeptupleImpl<>(a, b, c, d, e, f, value);
+        Assertions.assertThat(underTest.toString()).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f + ", " + value + ")");
     }
 }

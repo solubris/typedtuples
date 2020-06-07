@@ -18,11 +18,29 @@ package com.solubris.typedtuples.immutable;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
 import nl.jqno.equalsverifier.Warning;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class ImmutableCoupleImplTest {
+    final int a = 0;
+
+    final int b = 1;
+
     @Test
     void equalsHashCode() {
         EqualsVerifier.forClass(ImmutableCoupleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void toStringHas2Values(Integer value) {
+        var underTest = new ImmutableCoupleImpl<>(a, value);
+        Assertions.assertThat(underTest.toString()).isEqualTo("(" + a + ", " + value + ")");
     }
 }

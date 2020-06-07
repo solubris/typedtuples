@@ -18,11 +18,43 @@ package com.solubris.typedtuples.immutable;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
 import nl.jqno.equalsverifier.Warning;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class ImmutableNonupleImplTest {
+    final int a = 0;
+
+    final int b = 1;
+
+    final int c = 2;
+
+    final int d = 3;
+
+    final int e = 4;
+
+    final int f = 5;
+
+    final int g = 6;
+
+    final int h = 7;
+
+    final int i = 8;
+
     @Test
     void equalsHashCode() {
         EqualsVerifier.forClass(ImmutableNonupleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void toStringHas9Values(Integer value) {
+        var underTest = new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        Assertions.assertThat(underTest.toString()).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f + ", " + g + ", " + h + ", " + value + ")");
     }
 }

@@ -16,29 +16,13 @@
 
 package com.solubris.typedtuples.immutable;
 
-import nl.jqno.equalsverifier.EqualsVerifier;
-import nl.jqno.equalsverifier.Warning;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.NullSource;
-import org.junit.jupiter.params.provider.ValueSource;
 
-class ImmutableSingleImplTest {
-    final int a = 0;
-
+class ImmutableUnitImplTest {
     @Test
-    void equalsHashCode() {
-        EqualsVerifier.forClass(ImmutableSingleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
-    }
-
-    @ParameterizedTest
-    @ValueSource(
-            ints = 1
-    )
-    @NullSource
-    void toStringHas1Value(Integer value) {
-        var underTest = new ImmutableSingleImpl<>(value);
-        Assertions.assertThat(underTest.toString()).isEqualTo("(" + value + ")");
+    void toStringHas0Values() {
+        var underTest = ImmutableUnitImpl.INSTANCE;
+        Assertions.assertThat(underTest.toString()).isEqualTo("()");
     }
 }

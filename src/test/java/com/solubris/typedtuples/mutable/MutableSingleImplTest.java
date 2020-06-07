@@ -18,11 +18,27 @@ package com.solubris.typedtuples.mutable;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
 import nl.jqno.equalsverifier.Warning;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class MutableSingleImplTest {
+    final int a = 0;
+
     @Test
     void equalsHashCode() {
         EqualsVerifier.forClass(MutableSingleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void toStringHas1Value(Integer value) {
+        var underTest = new MutableSingleImpl<>(value);
+        Assertions.assertThat(underTest.toString()).isEqualTo("(" + value + ")");
     }
 }
