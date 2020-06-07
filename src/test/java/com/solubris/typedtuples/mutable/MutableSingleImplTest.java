@@ -17,11 +17,12 @@
 package com.solubris.typedtuples.mutable;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
+import nl.jqno.equalsverifier.Warning;
 import org.junit.jupiter.api.Test;
 
 class MutableSingleImplTest {
     @Test
     void equalsHashCode() {
-        EqualsVerifier.forClass(MutableSingleImpl.class).verify();
+        EqualsVerifier.forClass(MutableSingleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
     }
 }

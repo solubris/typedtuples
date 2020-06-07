@@ -17,11 +17,12 @@
 package com.solubris.typedtuples.mutable;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
+import nl.jqno.equalsverifier.Warning;
 import org.junit.jupiter.api.Test;
 
 class MutableDecupleImplTest {
     @Test
     void equalsHashCode() {
-        EqualsVerifier.forClass(MutableDecupleImpl.class).verify();
+        EqualsVerifier.forClass(MutableDecupleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
     }
 }

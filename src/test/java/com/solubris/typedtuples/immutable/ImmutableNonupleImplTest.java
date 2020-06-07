@@ -17,11 +17,12 @@
 package com.solubris.typedtuples.immutable;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
+import nl.jqno.equalsverifier.Warning;
 import org.junit.jupiter.api.Test;
 
 class ImmutableNonupleImplTest {
     @Test
     void equalsHashCode() {
-        EqualsVerifier.forClass(ImmutableNonupleImpl.class).verify();
+        EqualsVerifier.forClass(ImmutableNonupleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
     }
 }
