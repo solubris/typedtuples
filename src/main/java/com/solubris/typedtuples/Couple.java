@@ -24,45 +24,81 @@ public interface Couple<A, B> {
 
     B get();
 
+    /**
+     * Compare tuple fields in order requiring that the fields are Comparable
+     * Each tuple field is compared using natural ordering
+     * Null values are not allowed, use the alternative method that accepts a Comparator
+     */
     static <A extends Comparable<? super A>, B extends Comparable<? super B>> Comparator<Couple<A, B>> compareByAllFieldsInOrder(
-    ) {
+            ) {
         Comparator<Couple<A, B>> a = Comparator.comparing(Couple::getFirst);
-        Comparator<Couple<A, B>> b = Comparator.comparing(Couple::get);
+                Comparator<Couple<A, B>> b = Comparator.comparing(Couple::get);
         return (a).thenComparing(b);
     }
 
+    /**
+     * Compare tuple fields in reverse order requiring that the fields are Comparable
+     * Each tuple field is compared using natural ordering
+     * Null values are not allowed, use the alternative method that accepts a Comparator
+     */
     static <A extends Comparable<? super A>, B extends Comparable<? super B>> Comparator<Couple<A, B>> compareByAllFieldsInReverseOrder(
-    ) {
+            ) {
         Comparator<Couple<A, B>> a = Comparator.comparing(Couple::getFirst);
-        Comparator<Couple<A, B>> b = Comparator.comparing(Couple::get);
+                Comparator<Couple<A, B>> b = Comparator.comparing(Couple::get);
         return (b).thenComparing(a);
     }
 
+    /**
+     * Compare tuple fields in order using a Function to make each value Comparable
+     * Especially useful where the value is not comparable, but it has a field that can be extracted for comparison
+     * Null values are not allowed, use the alternative method that accepts a Comparator
+     */
     static <A, FA extends Comparable<? super FA>, B, FB extends Comparable<? super FB>> Comparator<Couple<A, B>> compareByAllFieldsInOrder(
             Function<A, FA> fa, Function<B, FB> fb) {
         Comparator<Couple<A, B>> a = Comparator.comparing(fa.compose(Couple::getFirst));
-        Comparator<Couple<A, B>> b = Comparator.comparing(fb.compose(Couple::get));
+                Comparator<Couple<A, B>> b = Comparator.comparing(fb.compose(Couple::get));
         return (a).thenComparing(b);
     }
 
+    /**
+     * Compare tuple fields in reverse order using a Function to make each value Comparable
+     * Especially useful where the value is not comparable, but it has a field that can be extracted for comparison
+     * Null values are not allowed, use the alternative method that accepts a Comparator
+     */
     static <A, FA extends Comparable<? super FA>, B, FB extends Comparable<? super FB>> Comparator<Couple<A, B>> compareByAllFieldsInReverseOrder(
             Function<A, FA> fa, Function<B, FB> fb) {
         Comparator<Couple<A, B>> a = Comparator.comparing(fa.compose(Couple::getFirst));
-        Comparator<Couple<A, B>> b = Comparator.comparing(fb.compose(Couple::get));
+                Comparator<Couple<A, B>> b = Comparator.comparing(fb.compose(Couple::get));
         return (b).thenComparing(a);
     }
 
+    /**
+     * Compare tuple fields in order using a Comparator for each field
+     * Especially useful for null-safe comparison, eg:
+     * <pre>{@code
+     * Couple.compareByAllFieldsInOrder(Comparator.nullsLast(Integer::compareTo), 
+     *     Comparator.nullsLast(Integer::compareTo))
+     * }</pre>
+     */
     static <A, B> Comparator<Couple<A, B>> compareByAllFieldsInOrder(Comparator<? super A> ca,
-                                                                     Comparator<? super B> cb) {
+            Comparator<? super B> cb) {
         Comparator<Couple<A, B>> a = Comparator.comparing(Couple::getFirst, ca);
-        Comparator<Couple<A, B>> b = Comparator.comparing(Couple::get, cb);
+                Comparator<Couple<A, B>> b = Comparator.comparing(Couple::get, cb);
         return (a).thenComparing(b);
     }
 
+    /**
+     * Compare tuple fields in reverse order using a Comparator for each field
+     * Especially useful for null-safe comparison, eg:
+     * <pre>{@code
+     * Couple.compareByAllFieldsInReverseOrder(Comparator.nullsLast(Integer::compareTo), 
+     *     Comparator.nullsLast(Integer::compareTo))
+     * }</pre>
+     */
     static <A, B> Comparator<Couple<A, B>> compareByAllFieldsInReverseOrder(
             Comparator<? super A> ca, Comparator<? super B> cb) {
         Comparator<Couple<A, B>> a = Comparator.comparing(Couple::getFirst, ca);
-        Comparator<Couple<A, B>> b = Comparator.comparing(Couple::get, cb);
+                Comparator<Couple<A, B>> b = Comparator.comparing(Couple::get, cb);
         return (b).thenComparing(a);
     }
 }

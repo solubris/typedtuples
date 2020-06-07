@@ -30,67 +30,109 @@ public interface Quintuple<A, B, C, D, E> {
 
     E get();
 
+    /**
+     * Compare tuple fields in order requiring that the fields are Comparable
+     * Each tuple field is compared using natural ordering
+     * Null values are not allowed, use the alternative method that accepts a Comparator
+     */
     static <A extends Comparable<? super A>, B extends Comparable<? super B>, C extends Comparable<? super C>, D extends Comparable<? super D>, E extends Comparable<? super E>> Comparator<Quintuple<A, B, C, D, E>> compareByAllFieldsInOrder(
-    ) {
+            ) {
         Comparator<Quintuple<A, B, C, D, E>> a = Comparator.comparing(Quintuple::getFirst);
-        Comparator<Quintuple<A, B, C, D, E>> b = Comparator.comparing(Quintuple::getSecond);
-        Comparator<Quintuple<A, B, C, D, E>> c = Comparator.comparing(Quintuple::getThird);
-        Comparator<Quintuple<A, B, C, D, E>> d = Comparator.comparing(Quintuple::getFourth);
-        Comparator<Quintuple<A, B, C, D, E>> e = Comparator.comparing(Quintuple::get);
+                Comparator<Quintuple<A, B, C, D, E>> b = Comparator.comparing(Quintuple::getSecond);
+                Comparator<Quintuple<A, B, C, D, E>> c = Comparator.comparing(Quintuple::getThird);
+                Comparator<Quintuple<A, B, C, D, E>> d = Comparator.comparing(Quintuple::getFourth);
+                Comparator<Quintuple<A, B, C, D, E>> e = Comparator.comparing(Quintuple::get);
         return (a).thenComparing(b).thenComparing(c).thenComparing(d).thenComparing(e);
     }
 
+    /**
+     * Compare tuple fields in reverse order requiring that the fields are Comparable
+     * Each tuple field is compared using natural ordering
+     * Null values are not allowed, use the alternative method that accepts a Comparator
+     */
     static <A extends Comparable<? super A>, B extends Comparable<? super B>, C extends Comparable<? super C>, D extends Comparable<? super D>, E extends Comparable<? super E>> Comparator<Quintuple<A, B, C, D, E>> compareByAllFieldsInReverseOrder(
-    ) {
+            ) {
         Comparator<Quintuple<A, B, C, D, E>> a = Comparator.comparing(Quintuple::getFirst);
-        Comparator<Quintuple<A, B, C, D, E>> b = Comparator.comparing(Quintuple::getSecond);
-        Comparator<Quintuple<A, B, C, D, E>> c = Comparator.comparing(Quintuple::getThird);
-        Comparator<Quintuple<A, B, C, D, E>> d = Comparator.comparing(Quintuple::getFourth);
-        Comparator<Quintuple<A, B, C, D, E>> e = Comparator.comparing(Quintuple::get);
+                Comparator<Quintuple<A, B, C, D, E>> b = Comparator.comparing(Quintuple::getSecond);
+                Comparator<Quintuple<A, B, C, D, E>> c = Comparator.comparing(Quintuple::getThird);
+                Comparator<Quintuple<A, B, C, D, E>> d = Comparator.comparing(Quintuple::getFourth);
+                Comparator<Quintuple<A, B, C, D, E>> e = Comparator.comparing(Quintuple::get);
         return (e).thenComparing(d).thenComparing(c).thenComparing(b).thenComparing(a);
     }
 
+    /**
+     * Compare tuple fields in order using a Function to make each value Comparable
+     * Especially useful where the value is not comparable, but it has a field that can be extracted for comparison
+     * Null values are not allowed, use the alternative method that accepts a Comparator
+     */
     static <A, FA extends Comparable<? super FA>, B, FB extends Comparable<? super FB>, C, FC extends Comparable<? super FC>, D, FD extends Comparable<? super FD>, E, FE extends Comparable<? super FE>> Comparator<Quintuple<A, B, C, D, E>> compareByAllFieldsInOrder(
             Function<A, FA> fa, Function<B, FB> fb, Function<C, FC> fc, Function<D, FD> fd,
             Function<E, FE> fe) {
         Comparator<Quintuple<A, B, C, D, E>> a = Comparator.comparing(fa.compose(Quintuple::getFirst));
-        Comparator<Quintuple<A, B, C, D, E>> b = Comparator.comparing(fb.compose(Quintuple::getSecond));
-        Comparator<Quintuple<A, B, C, D, E>> c = Comparator.comparing(fc.compose(Quintuple::getThird));
-        Comparator<Quintuple<A, B, C, D, E>> d = Comparator.comparing(fd.compose(Quintuple::getFourth));
-        Comparator<Quintuple<A, B, C, D, E>> e = Comparator.comparing(fe.compose(Quintuple::get));
+                Comparator<Quintuple<A, B, C, D, E>> b = Comparator.comparing(fb.compose(Quintuple::getSecond));
+                Comparator<Quintuple<A, B, C, D, E>> c = Comparator.comparing(fc.compose(Quintuple::getThird));
+                Comparator<Quintuple<A, B, C, D, E>> d = Comparator.comparing(fd.compose(Quintuple::getFourth));
+                Comparator<Quintuple<A, B, C, D, E>> e = Comparator.comparing(fe.compose(Quintuple::get));
         return (a).thenComparing(b).thenComparing(c).thenComparing(d).thenComparing(e);
     }
 
+    /**
+     * Compare tuple fields in reverse order using a Function to make each value Comparable
+     * Especially useful where the value is not comparable, but it has a field that can be extracted for comparison
+     * Null values are not allowed, use the alternative method that accepts a Comparator
+     */
     static <A, FA extends Comparable<? super FA>, B, FB extends Comparable<? super FB>, C, FC extends Comparable<? super FC>, D, FD extends Comparable<? super FD>, E, FE extends Comparable<? super FE>> Comparator<Quintuple<A, B, C, D, E>> compareByAllFieldsInReverseOrder(
             Function<A, FA> fa, Function<B, FB> fb, Function<C, FC> fc, Function<D, FD> fd,
             Function<E, FE> fe) {
         Comparator<Quintuple<A, B, C, D, E>> a = Comparator.comparing(fa.compose(Quintuple::getFirst));
-        Comparator<Quintuple<A, B, C, D, E>> b = Comparator.comparing(fb.compose(Quintuple::getSecond));
-        Comparator<Quintuple<A, B, C, D, E>> c = Comparator.comparing(fc.compose(Quintuple::getThird));
-        Comparator<Quintuple<A, B, C, D, E>> d = Comparator.comparing(fd.compose(Quintuple::getFourth));
-        Comparator<Quintuple<A, B, C, D, E>> e = Comparator.comparing(fe.compose(Quintuple::get));
+                Comparator<Quintuple<A, B, C, D, E>> b = Comparator.comparing(fb.compose(Quintuple::getSecond));
+                Comparator<Quintuple<A, B, C, D, E>> c = Comparator.comparing(fc.compose(Quintuple::getThird));
+                Comparator<Quintuple<A, B, C, D, E>> d = Comparator.comparing(fd.compose(Quintuple::getFourth));
+                Comparator<Quintuple<A, B, C, D, E>> e = Comparator.comparing(fe.compose(Quintuple::get));
         return (e).thenComparing(d).thenComparing(c).thenComparing(b).thenComparing(a);
     }
 
+    /**
+     * Compare tuple fields in order using a Comparator for each field
+     * Especially useful for null-safe comparison, eg:
+     * <pre>{@code
+     * Quintuple.compareByAllFieldsInOrder(Comparator.nullsLast(Integer::compareTo), 
+     *     Comparator.nullsLast(Integer::compareTo), 
+     *     Comparator.nullsLast(Integer::compareTo), 
+     *     Comparator.nullsLast(Integer::compareTo), 
+     *     Comparator.nullsLast(Integer::compareTo))
+     * }</pre>
+     */
     static <A, B, C, D, E> Comparator<Quintuple<A, B, C, D, E>> compareByAllFieldsInOrder(
             Comparator<? super A> ca, Comparator<? super B> cb, Comparator<? super C> cc,
             Comparator<? super D> cd, Comparator<? super E> ce) {
         Comparator<Quintuple<A, B, C, D, E>> a = Comparator.comparing(Quintuple::getFirst, ca);
-        Comparator<Quintuple<A, B, C, D, E>> b = Comparator.comparing(Quintuple::getSecond, cb);
-        Comparator<Quintuple<A, B, C, D, E>> c = Comparator.comparing(Quintuple::getThird, cc);
-        Comparator<Quintuple<A, B, C, D, E>> d = Comparator.comparing(Quintuple::getFourth, cd);
-        Comparator<Quintuple<A, B, C, D, E>> e = Comparator.comparing(Quintuple::get, ce);
+                Comparator<Quintuple<A, B, C, D, E>> b = Comparator.comparing(Quintuple::getSecond, cb);
+                Comparator<Quintuple<A, B, C, D, E>> c = Comparator.comparing(Quintuple::getThird, cc);
+                Comparator<Quintuple<A, B, C, D, E>> d = Comparator.comparing(Quintuple::getFourth, cd);
+                Comparator<Quintuple<A, B, C, D, E>> e = Comparator.comparing(Quintuple::get, ce);
         return (a).thenComparing(b).thenComparing(c).thenComparing(d).thenComparing(e);
     }
 
+    /**
+     * Compare tuple fields in reverse order using a Comparator for each field
+     * Especially useful for null-safe comparison, eg:
+     * <pre>{@code
+     * Quintuple.compareByAllFieldsInReverseOrder(Comparator.nullsLast(Integer::compareTo), 
+     *     Comparator.nullsLast(Integer::compareTo), 
+     *     Comparator.nullsLast(Integer::compareTo), 
+     *     Comparator.nullsLast(Integer::compareTo), 
+     *     Comparator.nullsLast(Integer::compareTo))
+     * }</pre>
+     */
     static <A, B, C, D, E> Comparator<Quintuple<A, B, C, D, E>> compareByAllFieldsInReverseOrder(
             Comparator<? super A> ca, Comparator<? super B> cb, Comparator<? super C> cc,
             Comparator<? super D> cd, Comparator<? super E> ce) {
         Comparator<Quintuple<A, B, C, D, E>> a = Comparator.comparing(Quintuple::getFirst, ca);
-        Comparator<Quintuple<A, B, C, D, E>> b = Comparator.comparing(Quintuple::getSecond, cb);
-        Comparator<Quintuple<A, B, C, D, E>> c = Comparator.comparing(Quintuple::getThird, cc);
-        Comparator<Quintuple<A, B, C, D, E>> d = Comparator.comparing(Quintuple::getFourth, cd);
-        Comparator<Quintuple<A, B, C, D, E>> e = Comparator.comparing(Quintuple::get, ce);
+                Comparator<Quintuple<A, B, C, D, E>> b = Comparator.comparing(Quintuple::getSecond, cb);
+                Comparator<Quintuple<A, B, C, D, E>> c = Comparator.comparing(Quintuple::getThird, cc);
+                Comparator<Quintuple<A, B, C, D, E>> d = Comparator.comparing(Quintuple::getFourth, cd);
+                Comparator<Quintuple<A, B, C, D, E>> e = Comparator.comparing(Quintuple::get, ce);
         return (e).thenComparing(d).thenComparing(c).thenComparing(b).thenComparing(a);
     }
 }
