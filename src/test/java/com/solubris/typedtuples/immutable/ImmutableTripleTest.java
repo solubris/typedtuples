@@ -25,7 +25,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class TripleImmutableTest {
+class ImmutableTripleTest {
 
     @ParameterizedTest
     @ValueSource(ints = {0})

@@ -16,21 +16,15 @@
 
 package com.solubris.typedtuples.immutable;
 
-import com.solubris.typedtuples.Couple;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.catchThrowable;
 
-class CoupleImmutableTest {
+class ImmutableCoupleTest {
     final int first = 0;
 
     @ParameterizedTest
@@ -86,107 +80,6 @@ class CoupleImmutableTest {
         var actual = underTest.mapAll(ImmutableTuple::of);
 
         assertThat(actual).isEqualTo(underTest);
-    }
-
-    public static class Bbb extends Ccc {
-    }
-
-    private static class Ccc implements Comparable<Ccc> {
-        @Override
-        public int compareTo(Ccc o) {
-            return 0;
-        }
-    }
-
-    @Test
-    void sortingSuper() {
-        var t1 = ImmutableTuple.of(1, new Bbb());
-        var t2 = ImmutableTuple.of(2, new Bbb());
-
-        var list = new ArrayList<>(List.of(t2, t1));
-
-        list.sort(Couple.compareByAllFieldsInOrder());
-
-        assertThat(list).containsExactly(t1, t2);
-    }
-
-    @Test
-    void sorting() {
-        var t1 = ImmutableTuple.of(1, 2);
-        var t2 = ImmutableTuple.of(1, 3);
-
-        var list = new ArrayList<>(List.of(t2, t1));
-
-        list.sort(Couple.compareByAllFieldsInOrder());
-
-        assertThat(list).containsExactly(t1, t2);
-    }
-
-    @Test
-    void sortingNullSafe() {
-        var t1 = ImmutableTuple.of(1, 2);
-        var t2 = ImmutableTuple.of(1, (Integer)null);
-
-        var list = new ArrayList<>(List.of(t2, t1));
-
-        Throwable thrown = catchThrowable(() -> list.sort(Couple.compareByAllFieldsInOrder()));
-
-        assertThat(thrown).isInstanceOf(NullPointerException.class);
-    }
-
-    @Test
-    void sortingReverseTuples() {
-        var t1 = ImmutableTuple.of(1, 2);
-        var t2 = ImmutableTuple.of(2, 1);
-        var t3 = ImmutableTuple.of(3, 3);
-
-        var list = new ArrayList<>(List.of(t1, t2, t3));
-
-        list.sort(Couple.compareByAllFieldsInReverseOrder());
-
-        assertThat(list).containsExactly(t2, t1, t3);
-    }
-
-    public static class Aaa {
-    }
-
-    @Test
-    void sortingWithMappingFunction() {
-
-        var t1 = ImmutableTuple.of(1, new Aaa());
-        var t2 = ImmutableTuple.of(2, new Aaa());
-
-        var list = new ArrayList<>(List.of(t2, t1));
-
-        list.sort(Couple.compareByAllFieldsInOrder(integer -> integer, aaa -> 1));
-
-        assertThat(list).containsExactly(t1, t2);
-    }
-
-    @Test
-    void sortingWithComparatorFunction() {
-
-        var t1 = ImmutableTuple.of(1, new Aaa());
-        var t2 = ImmutableTuple.of(2, new Aaa());
-
-        var list = new ArrayList<>(List.of(t2, t1));
-
-        list.sort(Couple.compareByAllFieldsInOrder(Integer::compareTo, (o1, o2) -> 0));
-
-        assertThat(list).containsExactly(t1, t2);
-    }
-
-    @Test
-    void sortingNullSafeComparator() {
-
-        var t1 = ImmutableTuple.of(1, new Aaa());
-        var t2 = ImmutableTuple.of((Integer)null, new Aaa());
-
-        var list = new ArrayList<>(List.of(t2, t1));
-
-        list.sort(Couple.compareByAllFieldsInOrder(Comparator.nullsLast(Integer::compareTo), (o1, o2) -> 0));
-
-        assertThat(list).containsExactly(t1, t2);
     }
 
     @Test
