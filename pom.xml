@@ -31,6 +31,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- gpg not enabled on travis ci -->
         <gpg.skip>false</gpg.skip>
+        <sonar.projectKey>solubris_typedtuples</sonar.projectKey>
+        <sonar.java.source>11</sonar.java.source>
     </properties>
 
     <scm>
