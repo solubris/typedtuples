@@ -61,6 +61,9 @@ Without knowing if the types are comparable, then the tuples also can't be compa
 However, some custom comparators are provided as follows:
 
         list.sort(Couple.compareByAllFieldsInOrder());
+        list.sort(Couple.compareByAllFieldsInReverseOrder());
+        list.sort(Single.compareByAllFieldsInOrder(String::length));
+        list.sort(Single.compareByAllFieldsInOrder(Comparator.nullsLast(Integer::compareTo));
 
 ## English names
 

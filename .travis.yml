@@ -24,7 +24,7 @@ addons:
 # Run a custom install that hides all the Maven ‘Downloading’ messages.
 # Also skip signing artifacts here as gpg is not enable on travis ci
 install:
-  - mvn install -Dmaven.javadoc.skip=true -Dgpg.skip=true -V -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+  - mvn install -Dmaven.javadoc.skip=true -Dmaven.test.skip=true -Dgpg.skip=true -V -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
 
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis

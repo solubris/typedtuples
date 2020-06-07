@@ -16,6 +16,7 @@
 
 package com.solubris.typedtuples;
 
+import com.solubris.typedtuples.immutable.ImmutableTuple;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -118,7 +119,7 @@ class CoupleTest {
     @Test
     void sortingNullSafeComparator() {
 
-        var t1 = InnerTuple.of(1, new Aaa());
+        var t1 = ImmutableTuple.of(1, new Aaa());
         var t2 = InnerTuple.of((Integer)null, new Aaa());
 
         var list = new ArrayList<>(List.of(t2, t1));

@@ -16,8 +16,6 @@
 
 package com.solubris.typedtuples.immutable;
 
-import nl.jqno.equalsverifier.EqualsVerifier;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -80,11 +78,5 @@ class ImmutableCoupleTest {
         var actual = underTest.mapAll(ImmutableTuple::of);
 
         assertThat(actual).isEqualTo(underTest);
-    }
-
-    @Test
-    void checkEqualsHashCode() {
-        EqualsVerifier.forClass(ImmutableCoupleImpl.class)
-                .verify();
     }
 }
