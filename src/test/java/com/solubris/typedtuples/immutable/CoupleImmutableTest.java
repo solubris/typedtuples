@@ -24,9 +24,11 @@ import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.catchThrowable;
 
 class CoupleImmutableTest {
     final int first = 0;
@@ -121,6 +123,18 @@ class CoupleImmutableTest {
     }
 
     @Test
+    void sortingNullSafe() {
+        var t1 = ImmutableTuple.of(1, 2);
+        var t2 = ImmutableTuple.of(1, (Integer)null);
+
+        var list = new ArrayList<>(List.of(t2, t1));
+
+        Throwable thrown = catchThrowable(() -> list.sort(Couple.compareByAllFieldsInOrder()));
+
+        assertThat(thrown).isInstanceOf(NullPointerException.class);
+    }
+
+    @Test
     void sortingReverseTuples() {
         var t1 = ImmutableTuple.of(1, 2);
         var t2 = ImmutableTuple.of(2, 1);
@@ -158,6 +172,19 @@ class CoupleImmutableTest {
         var list = new ArrayList<>(List.of(t2, t1));
 
         list.sort(Couple.compareByAllFieldsInOrder(Integer::compareTo, (o1, o2) -> 0));
+
+        assertThat(list).containsExactly(t1, t2);
+    }
+
+    @Test
+    void sortingNullSafeComparator() {
+
+        var t1 = ImmutableTuple.of(1, new Aaa());
+        var t2 = ImmutableTuple.of((Integer)null, new Aaa());
+
+        var list = new ArrayList<>(List.of(t2, t1));
+
+        list.sort(Couple.compareByAllFieldsInOrder(Comparator.nullsLast(Integer::compareTo), (o1, o2) -> 0));
 
         assertThat(list).containsExactly(t1, t2);
     }
