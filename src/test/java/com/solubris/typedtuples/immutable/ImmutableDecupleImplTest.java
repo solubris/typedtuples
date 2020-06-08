@@ -45,6 +45,28 @@ class ImmutableDecupleImplTest {
 
     final int j = 9;
 
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapAll(Integer value) {
+        var underTest = new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, value);
+        var actual = underTest.mapAll(ImmutableDecupleImpl::new);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void reverse(Integer value) {
+        var underTest = new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, value);
+        var actual = underTest.reverse();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableDecupleImpl<>(value, i, h, g, f, e, d, c, b, a));
+    }
+
     @Test
     void equalsHashCode() {
         EqualsVerifier.forClass(ImmutableDecupleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
@@ -57,6 +79,7 @@ class ImmutableDecupleImplTest {
     @NullSource
     void toStringHas10Values(Integer value) {
         var underTest = new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, value);
-        Assertions.assertThat(underTest.toString()).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f + ", " + g + ", " + h + ", " + i + ", " + value + ")");
+        var actual = underTest.toString();
+        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f + ", " + g + ", " + h + ", " + i + ", " + value + ")");
     }
 }

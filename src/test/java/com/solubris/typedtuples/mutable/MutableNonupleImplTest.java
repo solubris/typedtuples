@@ -43,6 +43,17 @@ class MutableNonupleImplTest {
 
     final int i = 8;
 
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapAll(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        var actual = underTest.mapAll(MutableNonupleImpl::new);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
     @Test
     void equalsHashCode() {
         EqualsVerifier.forClass(MutableNonupleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
@@ -55,6 +66,7 @@ class MutableNonupleImplTest {
     @NullSource
     void toStringHas9Values(Integer value) {
         var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
-        Assertions.assertThat(underTest.toString()).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f + ", " + g + ", " + h + ", " + value + ")");
+        var actual = underTest.toString();
+        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f + ", " + g + ", " + h + ", " + value + ")");
     }
 }

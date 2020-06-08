@@ -37,10 +37,14 @@ class ImmutableCoupleTest {
                 .isEqualTo(first);
         assertThat(underTest.get())
                 .isEqualTo(value);
-        assertThat(underTest.duplicateFirst())
-                .isEqualTo(ImmutableTuple.of(first, first, value));
-        assertThat(underTest.duplicate())
+
+        var actual1 = underTest.duplicateFirst();
+        assertThat(actual1)
+                .isEqualTo(new ImmutableTripleImpl<>(first, first, value));
+        var actual2 = underTest.duplicate();
+        assertThat(actual2)
                 .isEqualTo(ImmutableTuple.of(first, value, value));
+
         assertThat(underTest.mapFirst(i -> 1))
                 .isEqualTo(ImmutableTuple.of(1, value));
         assertThat(underTest.map(i -> 1))
@@ -65,7 +69,9 @@ class ImmutableCoupleTest {
                 .isEqualTo(ImmutableTuple.of(first, value, 1));
         assertThat(underTest.mapAndAdd(i -> 1))
                 .isEqualTo(ImmutableTuple.of(first, value, 1));
-        assertThat(underTest.reverse())
+
+        var actual = underTest.reverse();
+        assertThat(actual)
                 .isEqualTo(ImmutableTuple.of(value, first));
     }
 
@@ -75,7 +81,7 @@ class ImmutableCoupleTest {
     void mapAll(Integer value) {
         var underTest = ImmutableTuple.of(first, value);
 
-        var actual = underTest.mapAll(ImmutableTuple::of);
+        var actual = underTest.mapAll(ImmutableCoupleImpl::new);
 
         assertThat(actual).isEqualTo(underTest);
     }

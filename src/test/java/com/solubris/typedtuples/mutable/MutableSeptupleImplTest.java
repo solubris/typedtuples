@@ -39,6 +39,17 @@ class MutableSeptupleImplTest {
 
     final int g = 6;
 
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapAll(Integer value) {
+        var underTest = new MutableSeptupleImpl<>(a, b, c, d, e, f, value);
+        var actual = underTest.mapAll(MutableSeptupleImpl::new);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
     @Test
     void equalsHashCode() {
         EqualsVerifier.forClass(MutableSeptupleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
@@ -51,6 +62,7 @@ class MutableSeptupleImplTest {
     @NullSource
     void toStringHas7Values(Integer value) {
         var underTest = new MutableSeptupleImpl<>(a, b, c, d, e, f, value);
-        Assertions.assertThat(underTest.toString()).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f + ", " + value + ")");
+        var actual = underTest.toString();
+        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f + ", " + value + ")");
     }
 }

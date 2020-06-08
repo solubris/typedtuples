@@ -43,6 +43,127 @@ class ImmutableNonupleImplTest {
 
     final int i = 8;
 
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicateFirst(Integer value) {
+        var underTest = new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        var actual = underTest.duplicateFirst();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableDecupleImpl<>(a, a, b, c, d, e, f, g, h, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicateSecond(Integer value) {
+        var underTest = new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        var actual = underTest.duplicateSecond();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableDecupleImpl<>(a, b, b, c, d, e, f, g, h, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicateThird(Integer value) {
+        var underTest = new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        var actual = underTest.duplicateThird();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableDecupleImpl<>(a, b, c, c, d, e, f, g, h, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicateFourth(Integer value) {
+        var underTest = new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        var actual = underTest.duplicateFourth();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableDecupleImpl<>(a, b, c, d, d, e, f, g, h, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicateFifth(Integer value) {
+        var underTest = new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        var actual = underTest.duplicateFifth();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableDecupleImpl<>(a, b, c, d, e, e, f, g, h, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicateSixth(Integer value) {
+        var underTest = new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        var actual = underTest.duplicateSixth();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableDecupleImpl<>(a, b, c, d, e, f, f, g, h, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicateSeventh(Integer value) {
+        var underTest = new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        var actual = underTest.duplicateSeventh();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, g, h, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicateEighth(Integer value) {
+        var underTest = new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        var actual = underTest.duplicateEighth();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, h, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicate(Integer value) {
+        var underTest = new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        var actual = underTest.duplicate();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, value, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapAll(Integer value) {
+        var underTest = new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        var actual = underTest.mapAll(ImmutableNonupleImpl::new);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void reverse(Integer value) {
+        var underTest = new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        var actual = underTest.reverse();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableNonupleImpl<>(value, h, g, f, e, d, c, b, a));
+    }
+
     @Test
     void equalsHashCode() {
         EqualsVerifier.forClass(ImmutableNonupleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
@@ -55,6 +176,7 @@ class ImmutableNonupleImplTest {
     @NullSource
     void toStringHas9Values(Integer value) {
         var underTest = new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
-        Assertions.assertThat(underTest.toString()).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f + ", " + g + ", " + h + ", " + value + ")");
+        var actual = underTest.toString();
+        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f + ", " + g + ", " + h + ", " + value + ")");
     }
 }

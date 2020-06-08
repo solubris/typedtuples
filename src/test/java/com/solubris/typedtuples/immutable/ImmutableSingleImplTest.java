@@ -27,6 +27,28 @@ import org.junit.jupiter.params.provider.ValueSource;
 class ImmutableSingleImplTest {
     final int a = 0;
 
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicate(Integer value) {
+        var underTest = new ImmutableSingleImpl<>(value);
+        var actual = underTest.duplicate();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableCoupleImpl<>(value, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapAll(Integer value) {
+        var underTest = new ImmutableSingleImpl<>(value);
+        var actual = underTest.mapAll(ImmutableSingleImpl::new);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
     @Test
     void equalsHashCode() {
         EqualsVerifier.forClass(ImmutableSingleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
@@ -39,6 +61,7 @@ class ImmutableSingleImplTest {
     @NullSource
     void toStringHas1Value(Integer value) {
         var underTest = new ImmutableSingleImpl<>(value);
-        Assertions.assertThat(underTest.toString()).isEqualTo("(" + value + ")");
+        var actual = underTest.toString();
+        Assertions.assertThat(underTest).isEqualTo("(" + value + ")");
     }
 }

@@ -45,6 +45,17 @@ class MutableDecupleImplTest {
 
     final int j = 9;
 
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapAll(Integer value) {
+        var underTest = new MutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, value);
+        var actual = underTest.mapAll(MutableDecupleImpl::new);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
     @Test
     void equalsHashCode() {
         EqualsVerifier.forClass(MutableDecupleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
@@ -57,6 +68,7 @@ class MutableDecupleImplTest {
     @NullSource
     void toStringHas10Values(Integer value) {
         var underTest = new MutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, value);
-        Assertions.assertThat(underTest.toString()).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f + ", " + g + ", " + h + ", " + i + ", " + value + ")");
+        var actual = underTest.toString();
+        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f + ", " + g + ", " + h + ", " + i + ", " + value + ")");
     }
 }

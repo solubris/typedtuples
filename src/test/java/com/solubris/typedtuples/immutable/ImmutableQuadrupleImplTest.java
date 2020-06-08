@@ -33,6 +33,72 @@ class ImmutableQuadrupleImplTest {
 
     final int d = 3;
 
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicateFirst(Integer value) {
+        var underTest = new ImmutableQuadrupleImpl<>(a, b, c, value);
+        var actual = underTest.duplicateFirst();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableQuintupleImpl<>(a, a, b, c, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicateSecond(Integer value) {
+        var underTest = new ImmutableQuadrupleImpl<>(a, b, c, value);
+        var actual = underTest.duplicateSecond();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableQuintupleImpl<>(a, b, b, c, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicateThird(Integer value) {
+        var underTest = new ImmutableQuadrupleImpl<>(a, b, c, value);
+        var actual = underTest.duplicateThird();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableQuintupleImpl<>(a, b, c, c, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicate(Integer value) {
+        var underTest = new ImmutableQuadrupleImpl<>(a, b, c, value);
+        var actual = underTest.duplicate();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableQuintupleImpl<>(a, b, c, value, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapAll(Integer value) {
+        var underTest = new ImmutableQuadrupleImpl<>(a, b, c, value);
+        var actual = underTest.mapAll(ImmutableQuadrupleImpl::new);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void reverse(Integer value) {
+        var underTest = new ImmutableQuadrupleImpl<>(a, b, c, value);
+        var actual = underTest.reverse();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableQuadrupleImpl<>(value, c, b, a));
+    }
+
     @Test
     void equalsHashCode() {
         EqualsVerifier.forClass(ImmutableQuadrupleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
@@ -45,6 +111,7 @@ class ImmutableQuadrupleImplTest {
     @NullSource
     void toStringHas4Values(Integer value) {
         var underTest = new ImmutableQuadrupleImpl<>(a, b, c, value);
-        Assertions.assertThat(underTest.toString()).isEqualTo("(" + a + ", " + b + ", " + c + ", " + value + ")");
+        var actual = underTest.toString();
+        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + b + ", " + c + ", " + value + ")");
     }
 }

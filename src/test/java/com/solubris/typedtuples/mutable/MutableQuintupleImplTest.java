@@ -35,6 +35,17 @@ class MutableQuintupleImplTest {
 
     final int e = 4;
 
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapAll(Integer value) {
+        var underTest = new MutableQuintupleImpl<>(a, b, c, d, value);
+        var actual = underTest.mapAll(MutableQuintupleImpl::new);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
     @Test
     void equalsHashCode() {
         EqualsVerifier.forClass(MutableQuintupleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
@@ -47,6 +58,7 @@ class MutableQuintupleImplTest {
     @NullSource
     void toStringHas5Values(Integer value) {
         var underTest = new MutableQuintupleImpl<>(a, b, c, d, value);
-        Assertions.assertThat(underTest.toString()).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + value + ")");
+        var actual = underTest.toString();
+        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + value + ")");
     }
 }

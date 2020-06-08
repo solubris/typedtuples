@@ -31,6 +31,61 @@ class ImmutableTripleImplTest {
 
     final int c = 2;
 
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicateFirst(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = underTest.duplicateFirst();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableQuadrupleImpl<>(a, a, b, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicateSecond(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = underTest.duplicateSecond();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableQuadrupleImpl<>(a, b, b, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicate(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = underTest.duplicate();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableQuadrupleImpl<>(a, b, value, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapAll(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = underTest.mapAll(ImmutableTripleImpl::new);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void reverse(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = underTest.reverse();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableTripleImpl<>(value, b, a));
+    }
+
     @Test
     void equalsHashCode() {
         EqualsVerifier.forClass(ImmutableTripleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
@@ -43,6 +98,7 @@ class ImmutableTripleImplTest {
     @NullSource
     void toStringHas3Values(Integer value) {
         var underTest = new ImmutableTripleImpl<>(a, b, value);
-        Assertions.assertThat(underTest.toString()).isEqualTo("(" + a + ", " + b + ", " + value + ")");
+        var actual = underTest.toString();
+        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + b + ", " + value + ")");
     }
 }

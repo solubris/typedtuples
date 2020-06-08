@@ -31,6 +31,17 @@ class MutableTripleImplTest {
 
     final int c = 2;
 
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapAll(Integer value) {
+        var underTest = new MutableTripleImpl<>(a, b, value);
+        var actual = underTest.mapAll(MutableTripleImpl::new);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
     @Test
     void equalsHashCode() {
         EqualsVerifier.forClass(MutableTripleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
@@ -43,6 +54,7 @@ class MutableTripleImplTest {
     @NullSource
     void toStringHas3Values(Integer value) {
         var underTest = new MutableTripleImpl<>(a, b, value);
-        Assertions.assertThat(underTest.toString()).isEqualTo("(" + a + ", " + b + ", " + value + ")");
+        var actual = underTest.toString();
+        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + b + ", " + value + ")");
     }
 }

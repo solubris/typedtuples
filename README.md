@@ -93,12 +93,22 @@ In summary, every value is stored twice and there are two extra references for e
 So for a Pair, that's 4 extra object references (or 200%).
     
 - org.eclipse.collections.impl.tuple.Tuples
+
 - reactor.util.function.Tuples
+
 - org.apache.commons.lang3.tuple
+
 is comparable
 uses reflection to work out which comparator
 Pair, Triple
 Mutable, Immutable
 Serializable
+
+- org.jooq.lambda.tuple
+Arity: 16
+Numerical naming
+toArray(), Comparable, Serializable, Cloneable
+concat, split, limit, skip, swap, map, mapAll
+collect tuples from multiple collectors
 
 

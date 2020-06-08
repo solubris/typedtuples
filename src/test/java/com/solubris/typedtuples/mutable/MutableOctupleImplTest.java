@@ -41,6 +41,17 @@ class MutableOctupleImplTest {
 
     final int h = 7;
 
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapAll(Integer value) {
+        var underTest = new MutableOctupleImpl<>(a, b, c, d, e, f, g, value);
+        var actual = underTest.mapAll(MutableOctupleImpl::new);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
     @Test
     void equalsHashCode() {
         EqualsVerifier.forClass(MutableOctupleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
@@ -53,6 +64,7 @@ class MutableOctupleImplTest {
     @NullSource
     void toStringHas8Values(Integer value) {
         var underTest = new MutableOctupleImpl<>(a, b, c, d, e, f, g, value);
-        Assertions.assertThat(underTest.toString()).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f + ", " + g + ", " + value + ")");
+        var actual = underTest.toString();
+        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f + ", " + g + ", " + value + ")");
     }
 }

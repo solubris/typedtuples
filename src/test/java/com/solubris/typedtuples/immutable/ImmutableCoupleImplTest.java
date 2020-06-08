@@ -29,6 +29,50 @@ class ImmutableCoupleImplTest {
 
     final int b = 1;
 
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicateFirst(Integer value) {
+        var underTest = new ImmutableCoupleImpl<>(a, value);
+        var actual = underTest.duplicateFirst();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableTripleImpl<>(a, a, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicate(Integer value) {
+        var underTest = new ImmutableCoupleImpl<>(a, value);
+        var actual = underTest.duplicate();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableTripleImpl<>(a, value, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapAll(Integer value) {
+        var underTest = new ImmutableCoupleImpl<>(a, value);
+        var actual = underTest.mapAll(ImmutableCoupleImpl::new);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void reverse(Integer value) {
+        var underTest = new ImmutableCoupleImpl<>(a, value);
+        var actual = underTest.reverse();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableCoupleImpl<>(value, a));
+    }
+
     @Test
     void equalsHashCode() {
         EqualsVerifier.forClass(ImmutableCoupleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
@@ -41,6 +85,7 @@ class ImmutableCoupleImplTest {
     @NullSource
     void toStringHas2Values(Integer value) {
         var underTest = new ImmutableCoupleImpl<>(a, value);
-        Assertions.assertThat(underTest.toString()).isEqualTo("(" + a + ", " + value + ")");
+        var actual = underTest.toString();
+        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + value + ")");
     }
 }

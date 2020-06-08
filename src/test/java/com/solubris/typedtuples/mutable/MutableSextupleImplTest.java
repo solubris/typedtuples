@@ -37,6 +37,17 @@ class MutableSextupleImplTest {
 
     final int f = 5;
 
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapAll(Integer value) {
+        var underTest = new MutableSextupleImpl<>(a, b, c, d, e, value);
+        var actual = underTest.mapAll(MutableSextupleImpl::new);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
     @Test
     void equalsHashCode() {
         EqualsVerifier.forClass(MutableSextupleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
@@ -49,6 +60,7 @@ class MutableSextupleImplTest {
     @NullSource
     void toStringHas6Values(Integer value) {
         var underTest = new MutableSextupleImpl<>(a, b, c, d, e, value);
-        Assertions.assertThat(underTest.toString()).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + value + ")");
+        var actual = underTest.toString();
+        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + value + ")");
     }
 }

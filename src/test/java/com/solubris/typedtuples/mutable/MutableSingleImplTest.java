@@ -27,6 +27,17 @@ import org.junit.jupiter.params.provider.ValueSource;
 class MutableSingleImplTest {
     final int a = 0;
 
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapAll(Integer value) {
+        var underTest = new MutableSingleImpl<>(value);
+        var actual = underTest.mapAll(MutableSingleImpl::new);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
     @Test
     void equalsHashCode() {
         EqualsVerifier.forClass(MutableSingleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
@@ -39,6 +50,7 @@ class MutableSingleImplTest {
     @NullSource
     void toStringHas1Value(Integer value) {
         var underTest = new MutableSingleImpl<>(value);
-        Assertions.assertThat(underTest.toString()).isEqualTo("(" + value + ")");
+        var actual = underTest.toString();
+        Assertions.assertThat(underTest).isEqualTo("(" + value + ")");
     }
 }

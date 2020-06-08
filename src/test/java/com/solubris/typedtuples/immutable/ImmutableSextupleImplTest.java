@@ -37,6 +37,94 @@ class ImmutableSextupleImplTest {
 
     final int f = 5;
 
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicateFirst(Integer value) {
+        var underTest = new ImmutableSextupleImpl<>(a, b, c, d, e, value);
+        var actual = underTest.duplicateFirst();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableSeptupleImpl<>(a, a, b, c, d, e, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicateSecond(Integer value) {
+        var underTest = new ImmutableSextupleImpl<>(a, b, c, d, e, value);
+        var actual = underTest.duplicateSecond();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableSeptupleImpl<>(a, b, b, c, d, e, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicateThird(Integer value) {
+        var underTest = new ImmutableSextupleImpl<>(a, b, c, d, e, value);
+        var actual = underTest.duplicateThird();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableSeptupleImpl<>(a, b, c, c, d, e, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicateFourth(Integer value) {
+        var underTest = new ImmutableSextupleImpl<>(a, b, c, d, e, value);
+        var actual = underTest.duplicateFourth();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableSeptupleImpl<>(a, b, c, d, d, e, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicateFifth(Integer value) {
+        var underTest = new ImmutableSextupleImpl<>(a, b, c, d, e, value);
+        var actual = underTest.duplicateFifth();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableSeptupleImpl<>(a, b, c, d, e, e, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicate(Integer value) {
+        var underTest = new ImmutableSextupleImpl<>(a, b, c, d, e, value);
+        var actual = underTest.duplicate();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableSeptupleImpl<>(a, b, c, d, e, value, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapAll(Integer value) {
+        var underTest = new ImmutableSextupleImpl<>(a, b, c, d, e, value);
+        var actual = underTest.mapAll(ImmutableSextupleImpl::new);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void reverse(Integer value) {
+        var underTest = new ImmutableSextupleImpl<>(a, b, c, d, e, value);
+        var actual = underTest.reverse();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableSextupleImpl<>(value, e, d, c, b, a));
+    }
+
     @Test
     void equalsHashCode() {
         EqualsVerifier.forClass(ImmutableSextupleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
@@ -49,6 +137,7 @@ class ImmutableSextupleImplTest {
     @NullSource
     void toStringHas6Values(Integer value) {
         var underTest = new ImmutableSextupleImpl<>(a, b, c, d, e, value);
-        Assertions.assertThat(underTest.toString()).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + value + ")");
+        var actual = underTest.toString();
+        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + value + ")");
     }
 }

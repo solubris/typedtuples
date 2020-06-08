@@ -29,6 +29,17 @@ class MutableCoupleImplTest {
 
     final int b = 1;
 
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapAll(Integer value) {
+        var underTest = new MutableCoupleImpl<>(a, value);
+        var actual = underTest.mapAll(MutableCoupleImpl::new);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
     @Test
     void equalsHashCode() {
         EqualsVerifier.forClass(MutableCoupleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
@@ -41,6 +52,7 @@ class MutableCoupleImplTest {
     @NullSource
     void toStringHas2Values(Integer value) {
         var underTest = new MutableCoupleImpl<>(a, value);
-        Assertions.assertThat(underTest.toString()).isEqualTo("(" + a + ", " + value + ")");
+        var actual = underTest.toString();
+        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + value + ")");
     }
 }

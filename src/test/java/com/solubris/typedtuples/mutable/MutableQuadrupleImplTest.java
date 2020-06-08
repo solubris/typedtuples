@@ -33,6 +33,17 @@ class MutableQuadrupleImplTest {
 
     final int d = 3;
 
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapAll(Integer value) {
+        var underTest = new MutableQuadrupleImpl<>(a, b, c, value);
+        var actual = underTest.mapAll(MutableQuadrupleImpl::new);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
     @Test
     void equalsHashCode() {
         EqualsVerifier.forClass(MutableQuadrupleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
@@ -45,6 +56,7 @@ class MutableQuadrupleImplTest {
     @NullSource
     void toStringHas4Values(Integer value) {
         var underTest = new MutableQuadrupleImpl<>(a, b, c, value);
-        Assertions.assertThat(underTest.toString()).isEqualTo("(" + a + ", " + b + ", " + c + ", " + value + ")");
+        var actual = underTest.toString();
+        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + b + ", " + c + ", " + value + ")");
     }
 }

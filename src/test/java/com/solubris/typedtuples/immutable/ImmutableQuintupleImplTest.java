@@ -35,6 +35,83 @@ class ImmutableQuintupleImplTest {
 
     final int e = 4;
 
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicateFirst(Integer value) {
+        var underTest = new ImmutableQuintupleImpl<>(a, b, c, d, value);
+        var actual = underTest.duplicateFirst();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableSextupleImpl<>(a, a, b, c, d, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicateSecond(Integer value) {
+        var underTest = new ImmutableQuintupleImpl<>(a, b, c, d, value);
+        var actual = underTest.duplicateSecond();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableSextupleImpl<>(a, b, b, c, d, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicateThird(Integer value) {
+        var underTest = new ImmutableQuintupleImpl<>(a, b, c, d, value);
+        var actual = underTest.duplicateThird();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableSextupleImpl<>(a, b, c, c, d, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicateFourth(Integer value) {
+        var underTest = new ImmutableQuintupleImpl<>(a, b, c, d, value);
+        var actual = underTest.duplicateFourth();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableSextupleImpl<>(a, b, c, d, d, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void duplicate(Integer value) {
+        var underTest = new ImmutableQuintupleImpl<>(a, b, c, d, value);
+        var actual = underTest.duplicate();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableSextupleImpl<>(a, b, c, d, value, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapAll(Integer value) {
+        var underTest = new ImmutableQuintupleImpl<>(a, b, c, d, value);
+        var actual = underTest.mapAll(ImmutableQuintupleImpl::new);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void reverse(Integer value) {
+        var underTest = new ImmutableQuintupleImpl<>(a, b, c, d, value);
+        var actual = underTest.reverse();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableQuintupleImpl<>(value, d, c, b, a));
+    }
+
     @Test
     void equalsHashCode() {
         EqualsVerifier.forClass(ImmutableQuintupleImpl.class).suppress(Warning.NONFINAL_FIELDS).verify();
@@ -47,6 +124,7 @@ class ImmutableQuintupleImplTest {
     @NullSource
     void toStringHas5Values(Integer value) {
         var underTest = new ImmutableQuintupleImpl<>(a, b, c, d, value);
-        Assertions.assertThat(underTest.toString()).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + value + ")");
+        var actual = underTest.toString();
+        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + value + ")");
     }
 }
