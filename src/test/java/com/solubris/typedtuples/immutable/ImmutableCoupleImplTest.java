@@ -34,6 +34,27 @@ class ImmutableCoupleImplTest {
             ints = 1
     )
     @NullSource
+    void of(Integer value) {
+        var actual = ImmutableTuple.of(a, value);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableCoupleImpl<>(a, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void copyOf(Integer value) {
+        var underTest = new ImmutableCoupleImpl<>(a, value);
+        var actual = ImmutableTuple.copyOf(underTest);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
     void getFirst(Integer value) {
         var underTest = new ImmutableCoupleImpl<>(a, value);
         var actual = underTest.getFirst();

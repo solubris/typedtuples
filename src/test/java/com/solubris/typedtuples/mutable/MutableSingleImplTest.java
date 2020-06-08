@@ -32,6 +32,27 @@ class MutableSingleImplTest {
             ints = 1
     )
     @NullSource
+    void of(Integer value) {
+        var actual = MutableTuple.of(value);
+        Assertions.assertThat(actual).isEqualTo(new MutableSingleImpl<>(value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void copyOf(Integer value) {
+        var underTest = new MutableSingleImpl<>(value);
+        var actual = MutableTuple.copyOf(underTest);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
     void get(Integer value) {
         var underTest = new MutableSingleImpl<>(value);
         var actual = underTest.get();

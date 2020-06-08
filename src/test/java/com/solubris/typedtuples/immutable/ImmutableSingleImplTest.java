@@ -32,6 +32,27 @@ class ImmutableSingleImplTest {
             ints = 1
     )
     @NullSource
+    void of(Integer value) {
+        var actual = ImmutableTuple.of(value);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableSingleImpl<>(value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void copyOf(Integer value) {
+        var underTest = new ImmutableSingleImpl<>(value);
+        var actual = ImmutableTuple.copyOf(underTest);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
     void get(Integer value) {
         var underTest = new ImmutableSingleImpl<>(value);
         var actual = underTest.get();

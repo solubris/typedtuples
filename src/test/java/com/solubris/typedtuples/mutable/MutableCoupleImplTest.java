@@ -34,6 +34,27 @@ class MutableCoupleImplTest {
             ints = 1
     )
     @NullSource
+    void of(Integer value) {
+        var actual = MutableTuple.of(a, value);
+        Assertions.assertThat(actual).isEqualTo(new MutableCoupleImpl<>(a, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void copyOf(Integer value) {
+        var underTest = new MutableCoupleImpl<>(a, value);
+        var actual = MutableTuple.copyOf(underTest);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
     void getFirst(Integer value) {
         var underTest = new MutableCoupleImpl<>(a, value);
         var actual = underTest.getFirst();

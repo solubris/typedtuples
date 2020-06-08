@@ -36,6 +36,27 @@ class MutableTripleImplTest {
             ints = 1
     )
     @NullSource
+    void of(Integer value) {
+        var actual = MutableTuple.of(a, b, value);
+        Assertions.assertThat(actual).isEqualTo(new MutableTripleImpl<>(a, b, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void copyOf(Integer value) {
+        var underTest = new MutableTripleImpl<>(a, b, value);
+        var actual = MutableTuple.copyOf(underTest);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
     void getFirst(Integer value) {
         var underTest = new MutableTripleImpl<>(a, b, value);
         var actual = underTest.getFirst();

@@ -21,6 +21,12 @@ import org.junit.jupiter.api.Test;
 
 class ImmutableUnitImplTest {
     @Test
+    void of() {
+        var actual = ImmutableTuple.of();
+        Assertions.assertThat(actual).isEqualTo(ImmutableUnitImpl.INSTANCE);
+    }
+
+    @Test
     void add() {
         var underTest = ImmutableUnitImpl.INSTANCE;
         var actual = underTest.add(1);

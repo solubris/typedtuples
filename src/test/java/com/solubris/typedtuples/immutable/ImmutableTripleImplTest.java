@@ -36,6 +36,27 @@ class ImmutableTripleImplTest {
             ints = 1
     )
     @NullSource
+    void of(Integer value) {
+        var actual = ImmutableTuple.of(a, b, value);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableTripleImpl<>(a, b, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void copyOf(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = ImmutableTuple.copyOf(underTest);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
     void getFirst(Integer value) {
         var underTest = new ImmutableTripleImpl<>(a, b, value);
         var actual = underTest.getFirst();

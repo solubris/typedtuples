@@ -38,6 +38,27 @@ class MutableQuadrupleImplTest {
             ints = 1
     )
     @NullSource
+    void of(Integer value) {
+        var actual = MutableTuple.of(a, b, c, value);
+        Assertions.assertThat(actual).isEqualTo(new MutableQuadrupleImpl<>(a, b, c, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void copyOf(Integer value) {
+        var underTest = new MutableQuadrupleImpl<>(a, b, c, value);
+        var actual = MutableTuple.copyOf(underTest);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
     void getFirst(Integer value) {
         var underTest = new MutableQuadrupleImpl<>(a, b, c, value);
         var actual = underTest.getFirst();

@@ -50,6 +50,27 @@ class ImmutableDecupleImplTest {
             ints = 1
     )
     @NullSource
+    void of(Integer value) {
+        var actual = ImmutableTuple.of(a, b, c, d, e, f, g, h, i, value);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void copyOf(Integer value) {
+        var underTest = new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, value);
+        var actual = ImmutableTuple.copyOf(underTest);
+        Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
     void getFirst(Integer value) {
         var underTest = new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, value);
         var actual = underTest.getFirst();
