@@ -21,6 +21,13 @@ import org.junit.jupiter.api.Test;
 
 class ImmutableUnitImplTest {
     @Test
+    void add() {
+        var underTest = ImmutableUnitImpl.INSTANCE;
+        var actual = underTest.add(1);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableSingleImpl<>(1));
+    }
+
+    @Test
     void toStringHas0Values() {
         var underTest = ImmutableUnitImpl.INSTANCE;
         var actual = underTest.toString();

@@ -34,6 +34,28 @@ class MutableCoupleImplTest {
             ints = 1
     )
     @NullSource
+    void getFirst(Integer value) {
+        var underTest = new MutableCoupleImpl<>(a, value);
+        var actual = underTest.getFirst();
+        Assertions.assertThat(actual).isEqualTo(a);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void get(Integer value) {
+        var underTest = new MutableCoupleImpl<>(a, value);
+        var actual = underTest.get();
+        Assertions.assertThat(actual).isEqualTo(value);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
     void mapAll(Integer value) {
         var underTest = new MutableCoupleImpl<>(a, value);
         var actual = underTest.mapAll(MutableCoupleImpl::new);

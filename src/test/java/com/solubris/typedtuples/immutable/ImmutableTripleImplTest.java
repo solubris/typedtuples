@@ -36,6 +36,83 @@ class ImmutableTripleImplTest {
             ints = 1
     )
     @NullSource
+    void getFirst(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = underTest.getFirst();
+        Assertions.assertThat(actual).isEqualTo(a);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void getSecond(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = underTest.getSecond();
+        Assertions.assertThat(actual).isEqualTo(b);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void get(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = underTest.get();
+        Assertions.assertThat(actual).isEqualTo(value);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void addFirst(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = underTest.addFirst(1);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableQuadrupleImpl<>(1, a, b, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void addSecond(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = underTest.addSecond(1);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableQuadrupleImpl<>(a, 1, b, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void addThird(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = underTest.addThird(1);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableQuadrupleImpl<>(a, b, 1, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void add(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = underTest.add(1);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableQuadrupleImpl<>(a, b, value, 1));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
     void duplicateFirst(Integer value) {
         var underTest = new ImmutableTripleImpl<>(a, b, value);
         var actual = underTest.duplicateFirst();
@@ -62,6 +139,138 @@ class ImmutableTripleImplTest {
         var underTest = new ImmutableTripleImpl<>(a, b, value);
         var actual = underTest.duplicate();
         Assertions.assertThat(actual).isEqualTo(new ImmutableQuadrupleImpl<>(a, b, value, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void removeFirst(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = underTest.removeFirst();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableCoupleImpl<>(b, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void removeSecond(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = underTest.removeSecond();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableCoupleImpl<>(a, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void remove(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = underTest.remove();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableCoupleImpl<>(a, b));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void replaceFirst(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = underTest.replaceFirst(1);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableTripleImpl<>(1, b, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void replaceSecond(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = underTest.replaceSecond(1);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableTripleImpl<>(a, 1, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void replace(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = underTest.replace(1);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableTripleImpl<>(a, b, 1));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapFirst(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = underTest.mapFirst(i -> 1);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableTripleImpl<>(1, b, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapSecond(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = underTest.mapSecond(i -> 1);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableTripleImpl<>(a, 1, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void map(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = underTest.map(i -> 1);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableTripleImpl<>(a, b, 1));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapFirstAndAdd(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = underTest.mapFirstAndAdd(i -> 1);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableQuadrupleImpl<>(a, b, value, 1));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapSecondAndAdd(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = underTest.mapSecondAndAdd(i -> 1);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableQuadrupleImpl<>(a, b, value, 1));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapAndAdd(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = underTest.mapAndAdd(i -> 1);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableQuadrupleImpl<>(a, b, value, 1));
     }
 
     @ParameterizedTest

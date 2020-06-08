@@ -36,6 +36,39 @@ class MutableTripleImplTest {
             ints = 1
     )
     @NullSource
+    void getFirst(Integer value) {
+        var underTest = new MutableTripleImpl<>(a, b, value);
+        var actual = underTest.getFirst();
+        Assertions.assertThat(actual).isEqualTo(a);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void getSecond(Integer value) {
+        var underTest = new MutableTripleImpl<>(a, b, value);
+        var actual = underTest.getSecond();
+        Assertions.assertThat(actual).isEqualTo(b);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void get(Integer value) {
+        var underTest = new MutableTripleImpl<>(a, b, value);
+        var actual = underTest.get();
+        Assertions.assertThat(actual).isEqualTo(value);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
     void mapAll(Integer value) {
         var underTest = new MutableTripleImpl<>(a, b, value);
         var actual = underTest.mapAll(MutableTripleImpl::new);

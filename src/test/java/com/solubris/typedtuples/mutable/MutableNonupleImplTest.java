@@ -48,6 +48,105 @@ class MutableNonupleImplTest {
             ints = 1
     )
     @NullSource
+    void getFirst(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        var actual = underTest.getFirst();
+        Assertions.assertThat(actual).isEqualTo(a);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void getSecond(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        var actual = underTest.getSecond();
+        Assertions.assertThat(actual).isEqualTo(b);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void getThird(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        var actual = underTest.getThird();
+        Assertions.assertThat(actual).isEqualTo(c);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void getFourth(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        var actual = underTest.getFourth();
+        Assertions.assertThat(actual).isEqualTo(d);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void getFifth(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        var actual = underTest.getFifth();
+        Assertions.assertThat(actual).isEqualTo(e);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void getSixth(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        var actual = underTest.getSixth();
+        Assertions.assertThat(actual).isEqualTo(f);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void getSeventh(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        var actual = underTest.getSeventh();
+        Assertions.assertThat(actual).isEqualTo(g);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void getEighth(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        var actual = underTest.getEighth();
+        Assertions.assertThat(actual).isEqualTo(h);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void get(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        var actual = underTest.get();
+        Assertions.assertThat(actual).isEqualTo(value);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
     void mapAll(Integer value) {
         var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
         var actual = underTest.mapAll(MutableNonupleImpl::new);

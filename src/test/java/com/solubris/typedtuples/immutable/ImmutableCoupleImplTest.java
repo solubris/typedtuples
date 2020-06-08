@@ -34,6 +34,61 @@ class ImmutableCoupleImplTest {
             ints = 1
     )
     @NullSource
+    void getFirst(Integer value) {
+        var underTest = new ImmutableCoupleImpl<>(a, value);
+        var actual = underTest.getFirst();
+        Assertions.assertThat(actual).isEqualTo(a);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void get(Integer value) {
+        var underTest = new ImmutableCoupleImpl<>(a, value);
+        var actual = underTest.get();
+        Assertions.assertThat(actual).isEqualTo(value);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void addFirst(Integer value) {
+        var underTest = new ImmutableCoupleImpl<>(a, value);
+        var actual = underTest.addFirst(1);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableTripleImpl<>(1, a, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void addSecond(Integer value) {
+        var underTest = new ImmutableCoupleImpl<>(a, value);
+        var actual = underTest.addSecond(1);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableTripleImpl<>(a, 1, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void add(Integer value) {
+        var underTest = new ImmutableCoupleImpl<>(a, value);
+        var actual = underTest.add(1);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableTripleImpl<>(a, value, 1));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
     void duplicateFirst(Integer value) {
         var underTest = new ImmutableCoupleImpl<>(a, value);
         var actual = underTest.duplicateFirst();
@@ -49,6 +104,94 @@ class ImmutableCoupleImplTest {
         var underTest = new ImmutableCoupleImpl<>(a, value);
         var actual = underTest.duplicate();
         Assertions.assertThat(actual).isEqualTo(new ImmutableTripleImpl<>(a, value, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void removeFirst(Integer value) {
+        var underTest = new ImmutableCoupleImpl<>(a, value);
+        var actual = underTest.removeFirst();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableSingleImpl<>(value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void remove(Integer value) {
+        var underTest = new ImmutableCoupleImpl<>(a, value);
+        var actual = underTest.remove();
+        Assertions.assertThat(actual).isEqualTo(new ImmutableSingleImpl<>(a));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void replaceFirst(Integer value) {
+        var underTest = new ImmutableCoupleImpl<>(a, value);
+        var actual = underTest.replaceFirst(1);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableCoupleImpl<>(1, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void replace(Integer value) {
+        var underTest = new ImmutableCoupleImpl<>(a, value);
+        var actual = underTest.replace(1);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableCoupleImpl<>(a, 1));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapFirst(Integer value) {
+        var underTest = new ImmutableCoupleImpl<>(a, value);
+        var actual = underTest.mapFirst(i -> 1);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableCoupleImpl<>(1, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void map(Integer value) {
+        var underTest = new ImmutableCoupleImpl<>(a, value);
+        var actual = underTest.map(i -> 1);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableCoupleImpl<>(a, 1));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapFirstAndAdd(Integer value) {
+        var underTest = new ImmutableCoupleImpl<>(a, value);
+        var actual = underTest.mapFirstAndAdd(i -> 1);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableTripleImpl<>(a, value, 1));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mapAndAdd(Integer value) {
+        var underTest = new ImmutableCoupleImpl<>(a, value);
+        var actual = underTest.mapAndAdd(i -> 1);
+        Assertions.assertThat(actual).isEqualTo(new ImmutableTripleImpl<>(a, value, 1));
     }
 
     @ParameterizedTest
