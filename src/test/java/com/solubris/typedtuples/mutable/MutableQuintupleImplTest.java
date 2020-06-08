@@ -95,10 +95,131 @@ class MutableQuintupleImplTest {
             ints = 1
     )
     @NullSource
+    void setFirst(Integer value) {
+        var underTest = new MutableQuintupleImpl<>(a, b, c, d, value);
+        underTest.setFirst(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableQuintupleImpl<>(10, b, c, d, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setSecond(Integer value) {
+        var underTest = new MutableQuintupleImpl<>(a, b, c, d, value);
+        underTest.setSecond(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableQuintupleImpl<>(a, 10, c, d, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setThird(Integer value) {
+        var underTest = new MutableQuintupleImpl<>(a, b, c, d, value);
+        underTest.setThird(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableQuintupleImpl<>(a, b, 10, d, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setFourth(Integer value) {
+        var underTest = new MutableQuintupleImpl<>(a, b, c, d, value);
+        underTest.setFourth(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableQuintupleImpl<>(a, b, c, 10, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void set(Integer value) {
+        var underTest = new MutableQuintupleImpl<>(a, b, c, d, value);
+        underTest.set(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableQuintupleImpl<>(a, b, c, d, 10));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setAll(Integer value) {
+        var underTest = new MutableQuintupleImpl<>(a, b, c, d, value);
+        underTest.setAll(10, 10, 10, 10, 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableQuintupleImpl<>(10, 10, 10, 10, 10));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
     void mapAll(Integer value) {
         var underTest = new MutableQuintupleImpl<>(a, b, c, d, value);
         var actual = underTest.mapAll(MutableQuintupleImpl::new);
         Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeFirst(Integer value) {
+        var underTest = new MutableQuintupleImpl<>(a, b, c, d, value);
+        underTest.computeFirst(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableQuintupleImpl<>(10, b, c, d, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeSecond(Integer value) {
+        var underTest = new MutableQuintupleImpl<>(a, b, c, d, value);
+        underTest.computeSecond(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableQuintupleImpl<>(a, 10, c, d, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeThird(Integer value) {
+        var underTest = new MutableQuintupleImpl<>(a, b, c, d, value);
+        underTest.computeThird(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableQuintupleImpl<>(a, b, 10, d, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeFourth(Integer value) {
+        var underTest = new MutableQuintupleImpl<>(a, b, c, d, value);
+        underTest.computeFourth(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableQuintupleImpl<>(a, b, c, 10, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void compute(Integer value) {
+        var underTest = new MutableQuintupleImpl<>(a, b, c, d, value);
+        underTest.compute(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableQuintupleImpl<>(a, b, c, d, 10));
     }
 
     @Test

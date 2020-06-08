@@ -56,10 +56,65 @@ class MutableCoupleImplTest {
             ints = 1
     )
     @NullSource
+    void setFirst(Integer value) {
+        var underTest = new MutableCoupleImpl<>(a, value);
+        underTest.setFirst(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableCoupleImpl<>(10, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void set(Integer value) {
+        var underTest = new MutableCoupleImpl<>(a, value);
+        underTest.set(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableCoupleImpl<>(a, 10));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setAll(Integer value) {
+        var underTest = new MutableCoupleImpl<>(a, value);
+        underTest.setAll(10, 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableCoupleImpl<>(10, 10));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
     void mapAll(Integer value) {
         var underTest = new MutableCoupleImpl<>(a, value);
         var actual = underTest.mapAll(MutableCoupleImpl::new);
         Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeFirst(Integer value) {
+        var underTest = new MutableCoupleImpl<>(a, value);
+        underTest.computeFirst(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableCoupleImpl<>(10, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void compute(Integer value) {
+        var underTest = new MutableCoupleImpl<>(a, value);
+        underTest.compute(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableCoupleImpl<>(a, 10));
     }
 
     @Test

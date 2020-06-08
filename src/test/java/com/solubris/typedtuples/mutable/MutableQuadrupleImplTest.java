@@ -82,10 +82,109 @@ class MutableQuadrupleImplTest {
             ints = 1
     )
     @NullSource
+    void setFirst(Integer value) {
+        var underTest = new MutableQuadrupleImpl<>(a, b, c, value);
+        underTest.setFirst(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableQuadrupleImpl<>(10, b, c, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setSecond(Integer value) {
+        var underTest = new MutableQuadrupleImpl<>(a, b, c, value);
+        underTest.setSecond(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableQuadrupleImpl<>(a, 10, c, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setThird(Integer value) {
+        var underTest = new MutableQuadrupleImpl<>(a, b, c, value);
+        underTest.setThird(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableQuadrupleImpl<>(a, b, 10, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void set(Integer value) {
+        var underTest = new MutableQuadrupleImpl<>(a, b, c, value);
+        underTest.set(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableQuadrupleImpl<>(a, b, c, 10));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setAll(Integer value) {
+        var underTest = new MutableQuadrupleImpl<>(a, b, c, value);
+        underTest.setAll(10, 10, 10, 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableQuadrupleImpl<>(10, 10, 10, 10));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
     void mapAll(Integer value) {
         var underTest = new MutableQuadrupleImpl<>(a, b, c, value);
         var actual = underTest.mapAll(MutableQuadrupleImpl::new);
         Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeFirst(Integer value) {
+        var underTest = new MutableQuadrupleImpl<>(a, b, c, value);
+        underTest.computeFirst(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableQuadrupleImpl<>(10, b, c, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeSecond(Integer value) {
+        var underTest = new MutableQuadrupleImpl<>(a, b, c, value);
+        underTest.computeSecond(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableQuadrupleImpl<>(a, 10, c, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeThird(Integer value) {
+        var underTest = new MutableQuadrupleImpl<>(a, b, c, value);
+        underTest.computeThird(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableQuadrupleImpl<>(a, b, 10, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void compute(Integer value) {
+        var underTest = new MutableQuadrupleImpl<>(a, b, c, value);
+        underTest.compute(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableQuadrupleImpl<>(a, b, c, 10));
     }
 
     @Test

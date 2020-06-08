@@ -147,10 +147,219 @@ class MutableNonupleImplTest {
             ints = 1
     )
     @NullSource
+    void setFirst(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        underTest.setFirst(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableNonupleImpl<>(10, b, c, d, e, f, g, h, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setSecond(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        underTest.setSecond(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableNonupleImpl<>(a, 10, c, d, e, f, g, h, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setThird(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        underTest.setThird(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableNonupleImpl<>(a, b, 10, d, e, f, g, h, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setFourth(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        underTest.setFourth(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableNonupleImpl<>(a, b, c, 10, e, f, g, h, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setFifth(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        underTest.setFifth(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableNonupleImpl<>(a, b, c, d, 10, f, g, h, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setSixth(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        underTest.setSixth(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableNonupleImpl<>(a, b, c, d, e, 10, g, h, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setSeventh(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        underTest.setSeventh(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableNonupleImpl<>(a, b, c, d, e, f, 10, h, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setEighth(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        underTest.setEighth(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableNonupleImpl<>(a, b, c, d, e, f, g, 10, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void set(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        underTest.set(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, 10));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setAll(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        underTest.setAll(10, 10, 10, 10, 10, 10, 10, 10, 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableNonupleImpl<>(10, 10, 10, 10, 10, 10, 10, 10, 10));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
     void mapAll(Integer value) {
         var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
         var actual = underTest.mapAll(MutableNonupleImpl::new);
         Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeFirst(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        underTest.computeFirst(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableNonupleImpl<>(10, b, c, d, e, f, g, h, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeSecond(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        underTest.computeSecond(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableNonupleImpl<>(a, 10, c, d, e, f, g, h, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeThird(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        underTest.computeThird(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableNonupleImpl<>(a, b, 10, d, e, f, g, h, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeFourth(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        underTest.computeFourth(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableNonupleImpl<>(a, b, c, 10, e, f, g, h, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeFifth(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        underTest.computeFifth(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableNonupleImpl<>(a, b, c, d, 10, f, g, h, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeSixth(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        underTest.computeSixth(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableNonupleImpl<>(a, b, c, d, e, 10, g, h, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeSeventh(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        underTest.computeSeventh(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableNonupleImpl<>(a, b, c, d, e, f, 10, h, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeEighth(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        underTest.computeEighth(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableNonupleImpl<>(a, b, c, d, e, f, g, 10, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void compute(Integer value) {
+        var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        underTest.compute(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, 10));
     }
 
     @Test

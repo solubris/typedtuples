@@ -108,10 +108,153 @@ class MutableSextupleImplTest {
             ints = 1
     )
     @NullSource
+    void setFirst(Integer value) {
+        var underTest = new MutableSextupleImpl<>(a, b, c, d, e, value);
+        underTest.setFirst(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSextupleImpl<>(10, b, c, d, e, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setSecond(Integer value) {
+        var underTest = new MutableSextupleImpl<>(a, b, c, d, e, value);
+        underTest.setSecond(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSextupleImpl<>(a, 10, c, d, e, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setThird(Integer value) {
+        var underTest = new MutableSextupleImpl<>(a, b, c, d, e, value);
+        underTest.setThird(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSextupleImpl<>(a, b, 10, d, e, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setFourth(Integer value) {
+        var underTest = new MutableSextupleImpl<>(a, b, c, d, e, value);
+        underTest.setFourth(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSextupleImpl<>(a, b, c, 10, e, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setFifth(Integer value) {
+        var underTest = new MutableSextupleImpl<>(a, b, c, d, e, value);
+        underTest.setFifth(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSextupleImpl<>(a, b, c, d, 10, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void set(Integer value) {
+        var underTest = new MutableSextupleImpl<>(a, b, c, d, e, value);
+        underTest.set(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSextupleImpl<>(a, b, c, d, e, 10));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setAll(Integer value) {
+        var underTest = new MutableSextupleImpl<>(a, b, c, d, e, value);
+        underTest.setAll(10, 10, 10, 10, 10, 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSextupleImpl<>(10, 10, 10, 10, 10, 10));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
     void mapAll(Integer value) {
         var underTest = new MutableSextupleImpl<>(a, b, c, d, e, value);
         var actual = underTest.mapAll(MutableSextupleImpl::new);
         Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeFirst(Integer value) {
+        var underTest = new MutableSextupleImpl<>(a, b, c, d, e, value);
+        underTest.computeFirst(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSextupleImpl<>(10, b, c, d, e, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeSecond(Integer value) {
+        var underTest = new MutableSextupleImpl<>(a, b, c, d, e, value);
+        underTest.computeSecond(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSextupleImpl<>(a, 10, c, d, e, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeThird(Integer value) {
+        var underTest = new MutableSextupleImpl<>(a, b, c, d, e, value);
+        underTest.computeThird(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSextupleImpl<>(a, b, 10, d, e, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeFourth(Integer value) {
+        var underTest = new MutableSextupleImpl<>(a, b, c, d, e, value);
+        underTest.computeFourth(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSextupleImpl<>(a, b, c, 10, e, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeFifth(Integer value) {
+        var underTest = new MutableSextupleImpl<>(a, b, c, d, e, value);
+        underTest.computeFifth(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSextupleImpl<>(a, b, c, d, 10, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void compute(Integer value) {
+        var underTest = new MutableSextupleImpl<>(a, b, c, d, e, value);
+        underTest.compute(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSextupleImpl<>(a, b, c, d, e, 10));
     }
 
     @Test

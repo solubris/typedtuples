@@ -121,10 +121,175 @@ class MutableSeptupleImplTest {
             ints = 1
     )
     @NullSource
+    void setFirst(Integer value) {
+        var underTest = new MutableSeptupleImpl<>(a, b, c, d, e, f, value);
+        underTest.setFirst(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSeptupleImpl<>(10, b, c, d, e, f, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setSecond(Integer value) {
+        var underTest = new MutableSeptupleImpl<>(a, b, c, d, e, f, value);
+        underTest.setSecond(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSeptupleImpl<>(a, 10, c, d, e, f, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setThird(Integer value) {
+        var underTest = new MutableSeptupleImpl<>(a, b, c, d, e, f, value);
+        underTest.setThird(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSeptupleImpl<>(a, b, 10, d, e, f, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setFourth(Integer value) {
+        var underTest = new MutableSeptupleImpl<>(a, b, c, d, e, f, value);
+        underTest.setFourth(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSeptupleImpl<>(a, b, c, 10, e, f, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setFifth(Integer value) {
+        var underTest = new MutableSeptupleImpl<>(a, b, c, d, e, f, value);
+        underTest.setFifth(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSeptupleImpl<>(a, b, c, d, 10, f, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setSixth(Integer value) {
+        var underTest = new MutableSeptupleImpl<>(a, b, c, d, e, f, value);
+        underTest.setSixth(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSeptupleImpl<>(a, b, c, d, e, 10, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void set(Integer value) {
+        var underTest = new MutableSeptupleImpl<>(a, b, c, d, e, f, value);
+        underTest.set(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSeptupleImpl<>(a, b, c, d, e, f, 10));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void setAll(Integer value) {
+        var underTest = new MutableSeptupleImpl<>(a, b, c, d, e, f, value);
+        underTest.setAll(10, 10, 10, 10, 10, 10, 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSeptupleImpl<>(10, 10, 10, 10, 10, 10, 10));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
     void mapAll(Integer value) {
         var underTest = new MutableSeptupleImpl<>(a, b, c, d, e, f, value);
         var actual = underTest.mapAll(MutableSeptupleImpl::new);
         Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeFirst(Integer value) {
+        var underTest = new MutableSeptupleImpl<>(a, b, c, d, e, f, value);
+        underTest.computeFirst(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSeptupleImpl<>(10, b, c, d, e, f, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeSecond(Integer value) {
+        var underTest = new MutableSeptupleImpl<>(a, b, c, d, e, f, value);
+        underTest.computeSecond(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSeptupleImpl<>(a, 10, c, d, e, f, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeThird(Integer value) {
+        var underTest = new MutableSeptupleImpl<>(a, b, c, d, e, f, value);
+        underTest.computeThird(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSeptupleImpl<>(a, b, 10, d, e, f, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeFourth(Integer value) {
+        var underTest = new MutableSeptupleImpl<>(a, b, c, d, e, f, value);
+        underTest.computeFourth(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSeptupleImpl<>(a, b, c, 10, e, f, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeFifth(Integer value) {
+        var underTest = new MutableSeptupleImpl<>(a, b, c, d, e, f, value);
+        underTest.computeFifth(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSeptupleImpl<>(a, b, c, d, 10, f, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void computeSixth(Integer value) {
+        var underTest = new MutableSeptupleImpl<>(a, b, c, d, e, f, value);
+        underTest.computeSixth(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSeptupleImpl<>(a, b, c, d, e, 10, value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void compute(Integer value) {
+        var underTest = new MutableSeptupleImpl<>(a, b, c, d, e, f, value);
+        underTest.compute(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSeptupleImpl<>(a, b, c, d, e, f, 10));
     }
 
     @Test

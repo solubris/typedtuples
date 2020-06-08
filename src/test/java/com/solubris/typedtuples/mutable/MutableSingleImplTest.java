@@ -43,10 +43,32 @@ class MutableSingleImplTest {
             ints = 1
     )
     @NullSource
+    void set(Integer value) {
+        var underTest = new MutableSingleImpl<>(value);
+        underTest.set(10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSingleImpl<>(10));
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
     void mapAll(Integer value) {
         var underTest = new MutableSingleImpl<>(value);
         var actual = underTest.mapAll(MutableSingleImpl::new);
         Assertions.assertThat(actual).isEqualTo(underTest);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void compute(Integer value) {
+        var underTest = new MutableSingleImpl<>(value);
+        underTest.compute(i -> 10);
+        Assertions.assertThat(underTest).isEqualTo(new MutableSingleImpl<>(10));
     }
 
     @Test
