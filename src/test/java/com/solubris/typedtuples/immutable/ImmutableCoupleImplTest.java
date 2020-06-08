@@ -86,6 +86,6 @@ class ImmutableCoupleImplTest {
     void toStringHas2Values(Integer value) {
         var underTest = new ImmutableCoupleImpl<>(a, value);
         var actual = underTest.toString();
-        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + value + ")");
+        Assertions.assertThat(actual).isEqualTo("(" + a + ", " + value + ")");
     }
 }

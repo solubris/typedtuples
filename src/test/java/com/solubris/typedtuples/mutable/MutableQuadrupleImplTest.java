@@ -57,6 +57,6 @@ class MutableQuadrupleImplTest {
     void toStringHas4Values(Integer value) {
         var underTest = new MutableQuadrupleImpl<>(a, b, c, value);
         var actual = underTest.toString();
-        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + b + ", " + c + ", " + value + ")");
+        Assertions.assertThat(actual).isEqualTo("(" + a + ", " + b + ", " + c + ", " + value + ")");
     }
 }

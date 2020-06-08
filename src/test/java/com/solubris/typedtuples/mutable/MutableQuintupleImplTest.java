@@ -59,6 +59,6 @@ class MutableQuintupleImplTest {
     void toStringHas5Values(Integer value) {
         var underTest = new MutableQuintupleImpl<>(a, b, c, d, value);
         var actual = underTest.toString();
-        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + value + ")");
+        Assertions.assertThat(actual).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + value + ")");
     }
 }

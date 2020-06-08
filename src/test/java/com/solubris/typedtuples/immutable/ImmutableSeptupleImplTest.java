@@ -151,6 +151,6 @@ class ImmutableSeptupleImplTest {
     void toStringHas7Values(Integer value) {
         var underTest = new ImmutableSeptupleImpl<>(a, b, c, d, e, f, value);
         var actual = underTest.toString();
-        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f + ", " + value + ")");
+        Assertions.assertThat(actual).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f + ", " + value + ")");
     }
 }

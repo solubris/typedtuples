@@ -138,6 +138,6 @@ class ImmutableSextupleImplTest {
     void toStringHas6Values(Integer value) {
         var underTest = new ImmutableSextupleImpl<>(a, b, c, d, e, value);
         var actual = underTest.toString();
-        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + value + ")");
+        Assertions.assertThat(actual).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + value + ")");
     }
 }

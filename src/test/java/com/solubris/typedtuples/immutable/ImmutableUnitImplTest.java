@@ -23,6 +23,7 @@ class ImmutableUnitImplTest {
     @Test
     void toStringHas0Values() {
         var underTest = ImmutableUnitImpl.INSTANCE;
-        Assertions.assertThat(underTest.toString()).isEqualTo("()");
+        var actual = underTest.toString();
+        Assertions.assertThat(actual).isEqualTo("()");
     }
 }

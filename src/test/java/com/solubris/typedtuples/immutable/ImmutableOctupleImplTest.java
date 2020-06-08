@@ -164,6 +164,6 @@ class ImmutableOctupleImplTest {
     void toStringHas8Values(Integer value) {
         var underTest = new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, value);
         var actual = underTest.toString();
-        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f + ", " + g + ", " + value + ")");
+        Assertions.assertThat(actual).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f + ", " + g + ", " + value + ")");
     }
 }

@@ -53,6 +53,6 @@ class MutableCoupleImplTest {
     void toStringHas2Values(Integer value) {
         var underTest = new MutableCoupleImpl<>(a, value);
         var actual = underTest.toString();
-        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + value + ")");
+        Assertions.assertThat(actual).isEqualTo("(" + a + ", " + value + ")");
     }
 }

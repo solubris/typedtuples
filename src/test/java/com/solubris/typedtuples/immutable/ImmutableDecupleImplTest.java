@@ -80,6 +80,6 @@ class ImmutableDecupleImplTest {
     void toStringHas10Values(Integer value) {
         var underTest = new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, value);
         var actual = underTest.toString();
-        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f + ", " + g + ", " + h + ", " + i + ", " + value + ")");
+        Assertions.assertThat(actual).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f + ", " + g + ", " + h + ", " + i + ", " + value + ")");
     }
 }

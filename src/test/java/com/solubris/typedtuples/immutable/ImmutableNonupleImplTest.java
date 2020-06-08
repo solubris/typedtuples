@@ -177,6 +177,6 @@ class ImmutableNonupleImplTest {
     void toStringHas9Values(Integer value) {
         var underTest = new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
         var actual = underTest.toString();
-        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f + ", " + g + ", " + h + ", " + value + ")");
+        Assertions.assertThat(actual).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f + ", " + g + ", " + h + ", " + value + ")");
     }
 }

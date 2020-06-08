@@ -62,6 +62,6 @@ class ImmutableSingleImplTest {
     void toStringHas1Value(Integer value) {
         var underTest = new ImmutableSingleImpl<>(value);
         var actual = underTest.toString();
-        Assertions.assertThat(underTest).isEqualTo("(" + value + ")");
+        Assertions.assertThat(actual).isEqualTo("(" + value + ")");
     }
 }

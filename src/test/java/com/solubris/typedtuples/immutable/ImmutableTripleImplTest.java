@@ -99,6 +99,6 @@ class ImmutableTripleImplTest {
     void toStringHas3Values(Integer value) {
         var underTest = new ImmutableTripleImpl<>(a, b, value);
         var actual = underTest.toString();
-        Assertions.assertThat(underTest).isEqualTo("(" + a + ", " + b + ", " + value + ")");
+        Assertions.assertThat(actual).isEqualTo("(" + a + ", " + b + ", " + value + ")");
     }
 }

@@ -51,6 +51,6 @@ class MutableSingleImplTest {
     void toStringHas1Value(Integer value) {
         var underTest = new MutableSingleImpl<>(value);
         var actual = underTest.toString();
-        Assertions.assertThat(underTest).isEqualTo("(" + value + ")");
+        Assertions.assertThat(actual).isEqualTo("(" + value + ")");
     }
 }
