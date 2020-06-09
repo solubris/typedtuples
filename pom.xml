@@ -34,10 +34,13 @@
         <sonar.projectKey>solubris_typedtuples</sonar.projectKey>
         <sonar.java.source>11</sonar.java.source>
         <sonar.cpd.exclusions>src/main/java/**/*.java</sonar.cpd.exclusions>
-        <!-- Ignore: Type parameter names should comply with a naming convention '^[A-Z][0-9]?$' -->
-        <sonar.issue.ignore.multicriteria>e1</sonar.issue.ignore.multicriteria>
-        <sonar.issue.ignore.multicriteria.e1.ruleKey>java:S119</sonar.issue.ignore.multicriteria.e1.ruleKey>
+        <sonar.issue.ignore.multicriteria>e1,e2</sonar.issue.ignore.multicriteria>
+        <!-- Method has 10 parameters, which is greater than 7 authorized-->
+        <sonar.issue.ignore.multicriteria.e1.ruleKey>java:S107</sonar.issue.ignore.multicriteria.e1.ruleKey>
         <sonar.issue.ignore.multicriteria.e1.resourceKey>**/*.java</sonar.issue.ignore.multicriteria.e1.resourceKey>
+        <!-- Ignore: Type parameter names should comply with a naming convention '^[A-Z][0-9]?$' -->
+        <sonar.issue.ignore.multicriteria.e2.ruleKey>java:S119</sonar.issue.ignore.multicriteria.e2.ruleKey>
+        <sonar.issue.ignore.multicriteria.e2.resourceKey>**/*.java</sonar.issue.ignore.multicriteria.e2.resourceKey>
     </properties>
 
     <scm>
