@@ -23,24 +23,24 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-class CoupleTest {
+class QuadrupleTest {
     @Test
     void compareByAllFieldsInOrder() {
-        var t1 = ImmutableTuple.of(1, 1);
-        var t2 = ImmutableTuple.of(1, 2);
-        var t3 = ImmutableTuple.of(2, 1);
+        var t1 = ImmutableTuple.of(1, 1, 1, 1);
+        var t2 = ImmutableTuple.of(1, 1, 1, 2);
+        var t3 = ImmutableTuple.of(2, 1, 1, 1);
         var list = new ArrayList<>(List.of(t3, t2, t1));
-        list.sort(Couple.compareByAllFieldsInOrder());
+        list.sort(Quadruple.compareByAllFieldsInOrder());
         Assertions.assertThat(list).containsExactly(t1, t2, t3);
     }
 
     @Test
     void compareByAllFieldsInReverseOrder() {
-        var t1 = ImmutableTuple.of(1, 1);
-        var t2 = ImmutableTuple.of(1, 2);
-        var t3 = ImmutableTuple.of(2, 1);
+        var t1 = ImmutableTuple.of(1, 1, 1, 1);
+        var t2 = ImmutableTuple.of(1, 1, 1, 2);
+        var t3 = ImmutableTuple.of(2, 1, 1, 1);
         var list = new ArrayList<>(List.of(t3, t2, t1));
-        list.sort(Couple.compareByAllFieldsInReverseOrder());
+        list.sort(Quadruple.compareByAllFieldsInReverseOrder());
         Assertions.assertThat(list).containsExactly(t1, t3, t2);
     }
 }

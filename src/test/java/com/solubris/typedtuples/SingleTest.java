@@ -17,26 +17,20 @@
 package com.solubris.typedtuples;
 
 import com.solubris.typedtuples.immutable.ImmutableTuple;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 class SingleTest {
-
-
     @Test
-    void sortingWithMappingFunction2() {
-
-        var t1 = ImmutableTuple.of("short");
-        var t2 = ImmutableTuple.of("longer");
-
-        var list = new ArrayList<>(List.of(t2, t1));
-
-        list.sort(Single.compareByAllFieldsInOrder(String::length));
-
-        assertThat(list).containsExactly(t1, t2);
+    void compareByAllFieldsInOrder() {
+        var t1 = ImmutableTuple.of(1);
+        var t2 = ImmutableTuple.of(2);
+        var t3 = ImmutableTuple.of(2);
+        var list = new ArrayList<>(List.of(t3, t2, t1));
+        list.sort(Single.compareByAllFieldsInOrder());
+        Assertions.assertThat(list).containsExactly(t1, t2, t3);
     }
 }
