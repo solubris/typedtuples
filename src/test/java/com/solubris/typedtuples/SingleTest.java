@@ -25,12 +25,32 @@ import java.util.List;
 
 class SingleTest {
     @Test
-    void compareByAllFieldsInOrder() {
+    void compareByAllFieldsInOrderDefault() {
         var t1 = ImmutableTuple.of(1);
         var t2 = ImmutableTuple.of(2);
         var t3 = ImmutableTuple.of(2);
         var list = new ArrayList<>(List.of(t3, t2, t1));
         list.sort(Single.compareByAllFieldsInOrder());
+        Assertions.assertThat(list).containsExactly(t1, t2, t3);
+    }
+
+    @Test
+    void compareByAllFieldsInOrderCustomExtractor() {
+        var t1 = ImmutableTuple.of(1);
+        var t2 = ImmutableTuple.of(2);
+        var t3 = ImmutableTuple.of(2);
+        var list = new ArrayList<>(List.of(t3, t2, t1));
+        list.sort(Single.compareByAllFieldsInOrder(i -> i * i));
+        Assertions.assertThat(list).containsExactly(t1, t2, t3);
+    }
+
+    @Test
+    void compareByAllFieldsInOrderCustomComparators() {
+        var t1 = ImmutableTuple.of(1);
+        var t2 = ImmutableTuple.of(2);
+        var t3 = ImmutableTuple.of(2);
+        var list = new ArrayList<>(List.of(t3, t2, t1));
+        list.sort(Single.compareByAllFieldsInOrder(Integer::compareTo));
         Assertions.assertThat(list).containsExactly(t1, t2, t3);
     }
 }

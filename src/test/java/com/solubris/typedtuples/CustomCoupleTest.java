@@ -17,6 +17,7 @@
 package com.solubris.typedtuples;
 
 import com.solubris.typedtuples.immutable.ImmutableTuple;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -27,6 +28,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
 
 class CustomCoupleTest {
+    @Test
+    void compareByAllFieldsInOrder() {
+        var t1 = ImmutableTuple.of(1, 1);
+        var t2 = ImmutableTuple.of(1, 2);
+        var t3 = ImmutableTuple.of(2, 1);
+        var list = new ArrayList<>(List.of(t3, t2, t1));
+        list.sort(Couple.compareByAllFieldsInOrder(i -> i * i, i -> i * i));
+        Assertions.assertThat(list).containsExactly(t1, t2, t3);
+    }
+
 
     private static class Bbb extends Ccc {
     }
@@ -65,7 +76,7 @@ class CustomCoupleTest {
     @Test
     void sortingNullSafe() {
         var t1 = InnerTuple.of(1, 2);
-        var t2 = InnerTuple.of(1, (Integer)null);
+        var t2 = InnerTuple.of(1, (Integer) null);
 
         var list = new ArrayList<>(List.of(t2, t1));
 
@@ -120,7 +131,7 @@ class CustomCoupleTest {
     void sortingNullSafeComparator() {
 
         var t1 = ImmutableTuple.of(1, new Aaa());
-        var t2 = InnerTuple.of((Integer)null, new Aaa());
+        var t2 = InnerTuple.of((Integer) null, new Aaa());
 
         var list = new ArrayList<>(List.of(t2, t1));
 

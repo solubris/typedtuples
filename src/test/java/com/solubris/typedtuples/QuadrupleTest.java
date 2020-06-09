@@ -25,7 +25,7 @@ import java.util.List;
 
 class QuadrupleTest {
     @Test
-    void compareByAllFieldsInOrder() {
+    void compareByAllFieldsInOrderDefault() {
         var t1 = ImmutableTuple.of(1, 1, 1, 1);
         var t2 = ImmutableTuple.of(1, 1, 1, 2);
         var t3 = ImmutableTuple.of(2, 1, 1, 1);
@@ -35,12 +35,52 @@ class QuadrupleTest {
     }
 
     @Test
-    void compareByAllFieldsInReverseOrder() {
+    void compareByAllFieldsInReverseOrderDefault() {
         var t1 = ImmutableTuple.of(1, 1, 1, 1);
         var t2 = ImmutableTuple.of(1, 1, 1, 2);
         var t3 = ImmutableTuple.of(2, 1, 1, 1);
         var list = new ArrayList<>(List.of(t3, t2, t1));
         list.sort(Quadruple.compareByAllFieldsInReverseOrder());
+        Assertions.assertThat(list).containsExactly(t1, t3, t2);
+    }
+
+    @Test
+    void compareByAllFieldsInOrderCustomExtractor() {
+        var t1 = ImmutableTuple.of(1, 1, 1, 1);
+        var t2 = ImmutableTuple.of(1, 1, 1, 2);
+        var t3 = ImmutableTuple.of(2, 1, 1, 1);
+        var list = new ArrayList<>(List.of(t3, t2, t1));
+        list.sort(Quadruple.compareByAllFieldsInOrder(i -> i * i, i -> i * i, i -> i * i, i -> i * i));
+        Assertions.assertThat(list).containsExactly(t1, t2, t3);
+    }
+
+    @Test
+    void compareByAllFieldsInReverseOrderCustomExtractor() {
+        var t1 = ImmutableTuple.of(1, 1, 1, 1);
+        var t2 = ImmutableTuple.of(1, 1, 1, 2);
+        var t3 = ImmutableTuple.of(2, 1, 1, 1);
+        var list = new ArrayList<>(List.of(t3, t2, t1));
+        list.sort(Quadruple.compareByAllFieldsInReverseOrder(i -> i * i, i -> i * i, i -> i * i, i -> i * i));
+        Assertions.assertThat(list).containsExactly(t1, t3, t2);
+    }
+
+    @Test
+    void compareByAllFieldsInOrderCustomComparators() {
+        var t1 = ImmutableTuple.of(1, 1, 1, 1);
+        var t2 = ImmutableTuple.of(1, 1, 1, 2);
+        var t3 = ImmutableTuple.of(2, 1, 1, 1);
+        var list = new ArrayList<>(List.of(t3, t2, t1));
+        list.sort(Quadruple.compareByAllFieldsInOrder(Integer::compareTo, Integer::compareTo, Integer::compareTo, Integer::compareTo));
+        Assertions.assertThat(list).containsExactly(t1, t2, t3);
+    }
+
+    @Test
+    void compareByAllFieldsInReverseOrderCustomComparators() {
+        var t1 = ImmutableTuple.of(1, 1, 1, 1);
+        var t2 = ImmutableTuple.of(1, 1, 1, 2);
+        var t3 = ImmutableTuple.of(2, 1, 1, 1);
+        var list = new ArrayList<>(List.of(t3, t2, t1));
+        list.sort(Quadruple.compareByAllFieldsInReverseOrder(Integer::compareTo, Integer::compareTo, Integer::compareTo, Integer::compareTo));
         Assertions.assertThat(list).containsExactly(t1, t3, t2);
     }
 }
