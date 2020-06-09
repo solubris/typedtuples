@@ -76,6 +76,13 @@ Methods like map are especially useful in stream operations.
 
 ## Alternatives
 
+|                     | Arity  | Naming    | self contained     | Immutable          | Mutable            | Strongly Typed     | Accumulators       | Comparators        | Collectors         | Overloaded Builders |
+|---------------------|--------|-----------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|---------------------|
+| TypeTuples          | 0 - 10 | English   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark:                    |
+| javatuples          | 1 - 10 | English   |                    | :heavy_check_mark: |                    |                    |                    |                    |                    |                     |
+| jooq tuples         | 0 - 16 | Numerical |                    | :heavy_check_mark: |                    |                    |                    |                    | :heavy_check_mark: |                     |
+| apache lang3 tuples | 2 - 3  | English   |                    | :heavy_check_mark: | :heavy_check_mark: |                    |                    |                    |  |                     |
+
 - org.javatuples
 
 In the Tuple base class it holds the values here:
@@ -112,9 +119,5 @@ concat, split, limit, skip, swap, map, mapAll
 collect tuples from multiple collectors
 not self contained
 
-| |Arity|Naming| self contained  | Immutable  |
-|---|---|---|---|---|
-|TypeTuples|  10|English   | :heavy_check_mark: |  :heavy_check_mark:   |
-|javatuples|  10|English   |   |   :heavy_check_mark:  |
-|jooq tuples   | 16  | Numerical  |   |   :heavy_check_mark:  |
+
 
