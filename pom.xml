@@ -34,6 +34,7 @@
         <sonar.projectKey>solubris_typedtuples</sonar.projectKey>
         <sonar.java.source>11</sonar.java.source>
         <sonar.cpd.exclusions>src/main/java/**/*.java</sonar.cpd.exclusions>
+        <sonar.issue.ignore.multicriteria>java:S119</sonar.issue.ignore.multicriteria>
     </properties>
 
     <scm>
