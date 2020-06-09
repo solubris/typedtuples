@@ -16,6 +16,7 @@
 
 package com.solubris.typedtuples.accumulator;
 
+import com.solubris.typedtuples.immutable.ImmutableTuple;
 import com.solubris.typedtuples.mutable.MutableTuple;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -95,13 +96,38 @@ class QuintupleAccumulatorImplTest {
     @NullSource
     void accumulate(Integer value) {
         QuintupleAccumulatorImpl<Integer, Integer, Integer, Integer, Integer> underTest = new QuintupleAccumulatorImpl<>((l, r) -> a, (l, r) -> b, (l, r) -> c, (l, r) -> d, (l, r) -> value);
+        var expected = MutableTuple.of(a, b, c, d, value);
         var acc = MutableTuple.of(1, 1, 1, 1, 1);
         var t = MutableTuple.of(1, 1, 1, 1, 1);
         underTest.accumulate(acc, t);
-        Assertions.assertThat(acc.getFirst()).isEqualTo(a);
-        Assertions.assertThat(acc.getSecond()).isEqualTo(b);
-        Assertions.assertThat(acc.getThird()).isEqualTo(c);
-        Assertions.assertThat(acc.getFourth()).isEqualTo(d);
-        Assertions.assertThat(acc.get()).isEqualTo(value);
+        Assertions.assertThat(acc).isEqualTo(expected);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mutableCombine(Integer value) {
+        QuintupleAccumulatorImpl<Integer, Integer, Integer, Integer, Integer> underTest = new QuintupleAccumulatorImpl<>((l, r) -> a, (l, r) -> b, (l, r) -> c, (l, r) -> d, (l, r) -> value);
+        var expected = MutableTuple.of(a, b, c, d, value);
+        var l = MutableTuple.of(1, 1, 1, 1, 1);
+        var r = MutableTuple.of(1, 1, 1, 1, 1);
+        var actual = underTest.combine(l, r);
+        Assertions.assertThat(actual).isEqualTo(expected);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void immutableCombine(Integer value) {
+        QuintupleAccumulatorImpl<Integer, Integer, Integer, Integer, Integer> underTest = new QuintupleAccumulatorImpl<>((l, r) -> a, (l, r) -> b, (l, r) -> c, (l, r) -> d, (l, r) -> value);
+        var expected = ImmutableTuple.of(a, b, c, d, value);
+        var l = ImmutableTuple.of(1, 1, 1, 1, 1);
+        var r = ImmutableTuple.of(1, 1, 1, 1, 1);
+        var actual = underTest.combine(l, r);
+        Assertions.assertThat(actual).isEqualTo(expected);
     }
 }

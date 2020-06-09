@@ -16,6 +16,7 @@
 
 package com.solubris.typedtuples.accumulator;
 
+import com.solubris.typedtuples.immutable.ImmutableTuple;
 import com.solubris.typedtuples.mutable.MutableTuple;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -69,11 +70,38 @@ class TripleAccumulatorImplTest {
     @NullSource
     void accumulate(Integer value) {
         TripleAccumulatorImpl<Integer, Integer, Integer> underTest = new TripleAccumulatorImpl<>((l, r) -> a, (l, r) -> b, (l, r) -> value);
+        var expected = MutableTuple.of(a, b, value);
         var acc = MutableTuple.of(1, 1, 1);
         var t = MutableTuple.of(1, 1, 1);
         underTest.accumulate(acc, t);
-        Assertions.assertThat(acc.getFirst()).isEqualTo(a);
-        Assertions.assertThat(acc.getSecond()).isEqualTo(b);
-        Assertions.assertThat(acc.get()).isEqualTo(value);
+        Assertions.assertThat(acc).isEqualTo(expected);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mutableCombine(Integer value) {
+        TripleAccumulatorImpl<Integer, Integer, Integer> underTest = new TripleAccumulatorImpl<>((l, r) -> a, (l, r) -> b, (l, r) -> value);
+        var expected = MutableTuple.of(a, b, value);
+        var l = MutableTuple.of(1, 1, 1);
+        var r = MutableTuple.of(1, 1, 1);
+        var actual = underTest.combine(l, r);
+        Assertions.assertThat(actual).isEqualTo(expected);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void immutableCombine(Integer value) {
+        TripleAccumulatorImpl<Integer, Integer, Integer> underTest = new TripleAccumulatorImpl<>((l, r) -> a, (l, r) -> b, (l, r) -> value);
+        var expected = ImmutableTuple.of(a, b, value);
+        var l = ImmutableTuple.of(1, 1, 1);
+        var r = ImmutableTuple.of(1, 1, 1);
+        var actual = underTest.combine(l, r);
+        Assertions.assertThat(actual).isEqualTo(expected);
     }
 }

@@ -16,6 +16,7 @@
 
 package com.solubris.typedtuples.accumulator;
 
+import com.solubris.typedtuples.immutable.ImmutableTuple;
 import com.solubris.typedtuples.mutable.MutableTuple;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -43,9 +44,38 @@ class SingleAccumulatorImplTest {
     @NullSource
     void accumulate(Integer value) {
         SingleAccumulatorImpl<Integer> underTest = new SingleAccumulatorImpl<>((l, r) -> value);
+        var expected = MutableTuple.of(value);
         var acc = MutableTuple.of(1);
         var t = MutableTuple.of(1);
         underTest.accumulate(acc, t);
-        Assertions.assertThat(acc.get()).isEqualTo(value);
+        Assertions.assertThat(acc).isEqualTo(expected);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void mutableCombine(Integer value) {
+        SingleAccumulatorImpl<Integer> underTest = new SingleAccumulatorImpl<>((l, r) -> value);
+        var expected = MutableTuple.of(value);
+        var l = MutableTuple.of(1);
+        var r = MutableTuple.of(1);
+        var actual = underTest.combine(l, r);
+        Assertions.assertThat(actual).isEqualTo(expected);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void immutableCombine(Integer value) {
+        SingleAccumulatorImpl<Integer> underTest = new SingleAccumulatorImpl<>((l, r) -> value);
+        var expected = ImmutableTuple.of(value);
+        var l = ImmutableTuple.of(1);
+        var r = ImmutableTuple.of(1);
+        var actual = underTest.combine(l, r);
+        Assertions.assertThat(actual).isEqualTo(expected);
     }
 }
