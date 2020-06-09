@@ -110,5 +110,11 @@ Numerical naming
 toArray(), Comparable, Serializable, Cloneable
 concat, split, limit, skip, swap, map, mapAll
 collect tuples from multiple collectors
+not self contained
 
+| |Arity|Naming| self contained  | Immutable  |
+|---|---|---|---|---|
+|TypeTuples|  10|English   | :heavy_check_mark: |  :heavy_check_mark:   |
+|javatuples|  10|English   |   |   :heavy_check_mark:  |
+|jooq tuples   | 16  | Numerical  |   |   :heavy_check_mark:  |
 
