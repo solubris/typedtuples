@@ -74,6 +74,35 @@ No names like tuple2 because they are not fluent.
 Designed for use in streams where tuples are especially useful for manipulating the intermediate values.
 Methods like map are especially useful in stream operations.
 
+## Java 14 Record types
+
+Will record types eliminate the need for tuples?
+Let's look at the example of returning a Couple of values.
+
+        public Couple<String, String> getNameValue() {
+            return ImmutableTuple.of("name", "value");
+        }
+        
+How could this be done with record types?
+
+        record NameValue(String name, String value){}
+        public NameValue getNameValue() {
+            return new NameValue("name", "value");
+        }
+        
+So record types would still require the creation of a separate definition, however that definition would be very concise.
+This is probably suitable for method returns,
+but still not suitable for multistage stream enrichment as every stage would require a record definition.
+Other limitations:
+
+- it's not possible to have mutable record types
+- record types don't support generics
+- record types wont have the rich api of tuples
+
+Record types can be a good target for the result of enrichment, eg:
+
+        ImmutableTuple.of("name", "value").mapAll(NameValue::new);
+
 ## Alternatives
 
 |                     | Arity  | Naming    | self contained     | Immutable          | Mutable            | Strongly Typed     | Accumulators       | Comparators        | Collectors         | Overloaded Builders | Primitives         | Nullable Values    |
