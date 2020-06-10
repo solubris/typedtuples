@@ -69,6 +69,19 @@ class CoupleAccumulatorImplTest {
             ints = 1
     )
     @NullSource
+    void of(Integer value) {
+        CoupleAccumulator<Integer, Integer> underTest = Accumulator.of((l, r) -> a, (l, r) -> value);
+        var actualA = underTest.getFirst().apply(null, null);
+        Assertions.assertThat(actualA).isEqualTo(a);
+        var actualValue = underTest.get().apply(null, null);
+        Assertions.assertThat(actualValue).isEqualTo(value);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
     void mutableCombine(Integer value) {
         CoupleAccumulatorImpl<Integer, Integer> underTest = new CoupleAccumulatorImpl<>((l, r) -> a, (l, r) -> value);
         var expected = MutableTuple.of(a, value);

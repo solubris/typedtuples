@@ -82,6 +82,21 @@ class TripleAccumulatorImplTest {
             ints = 1
     )
     @NullSource
+    void of(Integer value) {
+        TripleAccumulator<Integer, Integer, Integer> underTest = Accumulator.of((l, r) -> a, (l, r) -> b, (l, r) -> value);
+        var actualA = underTest.getFirst().apply(null, null);
+        Assertions.assertThat(actualA).isEqualTo(a);
+        var actualB = underTest.getSecond().apply(null, null);
+        Assertions.assertThat(actualB).isEqualTo(b);
+        var actualValue = underTest.get().apply(null, null);
+        Assertions.assertThat(actualValue).isEqualTo(value);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
     void mutableCombine(Integer value) {
         TripleAccumulatorImpl<Integer, Integer, Integer> underTest = new TripleAccumulatorImpl<>((l, r) -> a, (l, r) -> b, (l, r) -> value);
         var expected = MutableTuple.of(a, b, value);

@@ -147,6 +147,31 @@ class OctupleAccumulatorImplTest {
             ints = 1
     )
     @NullSource
+    void of(Integer value) {
+        OctupleAccumulator<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> underTest = Accumulator.of((l, r) -> a, (l, r) -> b, (l, r) -> c, (l, r) -> d, (l, r) -> e, (l, r) -> f, (l, r) -> g, (l, r) -> value);
+        var actualA = underTest.getFirst().apply(null, null);
+        Assertions.assertThat(actualA).isEqualTo(a);
+        var actualB = underTest.getSecond().apply(null, null);
+        Assertions.assertThat(actualB).isEqualTo(b);
+        var actualC = underTest.getThird().apply(null, null);
+        Assertions.assertThat(actualC).isEqualTo(c);
+        var actualD = underTest.getFourth().apply(null, null);
+        Assertions.assertThat(actualD).isEqualTo(d);
+        var actualE = underTest.getFifth().apply(null, null);
+        Assertions.assertThat(actualE).isEqualTo(e);
+        var actualF = underTest.getSixth().apply(null, null);
+        Assertions.assertThat(actualF).isEqualTo(f);
+        var actualG = underTest.getSeventh().apply(null, null);
+        Assertions.assertThat(actualG).isEqualTo(g);
+        var actualValue = underTest.get().apply(null, null);
+        Assertions.assertThat(actualValue).isEqualTo(value);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
     void mutableCombine(Integer value) {
         OctupleAccumulatorImpl<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> underTest = new OctupleAccumulatorImpl<>((l, r) -> a, (l, r) -> b, (l, r) -> c, (l, r) -> d, (l, r) -> e, (l, r) -> f, (l, r) -> g, (l, r) -> value);
         var expected = MutableTuple.of(a, b, c, d, e, f, g, value);

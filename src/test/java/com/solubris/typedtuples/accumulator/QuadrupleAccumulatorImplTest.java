@@ -95,6 +95,23 @@ class QuadrupleAccumulatorImplTest {
             ints = 1
     )
     @NullSource
+    void of(Integer value) {
+        QuadrupleAccumulator<Integer, Integer, Integer, Integer> underTest = Accumulator.of((l, r) -> a, (l, r) -> b, (l, r) -> c, (l, r) -> value);
+        var actualA = underTest.getFirst().apply(null, null);
+        Assertions.assertThat(actualA).isEqualTo(a);
+        var actualB = underTest.getSecond().apply(null, null);
+        Assertions.assertThat(actualB).isEqualTo(b);
+        var actualC = underTest.getThird().apply(null, null);
+        Assertions.assertThat(actualC).isEqualTo(c);
+        var actualValue = underTest.get().apply(null, null);
+        Assertions.assertThat(actualValue).isEqualTo(value);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
     void mutableCombine(Integer value) {
         QuadrupleAccumulatorImpl<Integer, Integer, Integer, Integer> underTest = new QuadrupleAccumulatorImpl<>((l, r) -> a, (l, r) -> b, (l, r) -> c, (l, r) -> value);
         var expected = MutableTuple.of(a, b, c, value);

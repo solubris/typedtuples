@@ -56,6 +56,17 @@ class SingleAccumulatorImplTest {
             ints = 1
     )
     @NullSource
+    void of(Integer value) {
+        SingleAccumulator<Integer> underTest = Accumulator.of((l, r) -> value);
+        var actualValue = underTest.get().apply(null, null);
+        Assertions.assertThat(actualValue).isEqualTo(value);
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
     void mutableCombine(Integer value) {
         SingleAccumulatorImpl<Integer> underTest = new SingleAccumulatorImpl<>((l, r) -> value);
         var expected = MutableTuple.of(value);
