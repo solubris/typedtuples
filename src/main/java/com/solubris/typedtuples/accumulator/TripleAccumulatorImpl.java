@@ -69,7 +69,7 @@ final class TripleAccumulatorImpl<A, B, C> implements TripleAccumulator<A, B, C>
 
     @Override
     public ImmutableTriple<A, B, C> combine(ImmutableTriple<A, B, C> l,
-                                            ImmutableTriple<A, B, C> r) {
+            ImmutableTriple<A, B, C> r) {
         A fa = a.apply(l.getFirst(), r.getFirst());
         B fb = b.apply(l.getSecond(), r.getSecond());
         C fc = c.apply(l.get(), r.get());

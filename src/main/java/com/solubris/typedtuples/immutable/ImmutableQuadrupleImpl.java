@@ -144,42 +144,42 @@ final class ImmutableQuadrupleImpl<A, B, C, D> implements ImmutableQuadruple<A, 
     }
 
     @Override
-    public <X> ImmutableQuadruple<X, B, C, D> mapFirst(Function<A, X> mapper) {
+    public <X> ImmutableQuadruple<X, B, C, D> mapFirst(Function<? super A, X> mapper) {
         return new ImmutableQuadrupleImpl<>(mapper.apply(a), b, c, d);
     }
 
     @Override
-    public <X> ImmutableQuadruple<A, X, C, D> mapSecond(Function<B, X> mapper) {
+    public <X> ImmutableQuadruple<A, X, C, D> mapSecond(Function<? super B, X> mapper) {
         return new ImmutableQuadrupleImpl<>(a, mapper.apply(b), c, d);
     }
 
     @Override
-    public <X> ImmutableQuadruple<A, B, X, D> mapThird(Function<C, X> mapper) {
+    public <X> ImmutableQuadruple<A, B, X, D> mapThird(Function<? super C, X> mapper) {
         return new ImmutableQuadrupleImpl<>(a, b, mapper.apply(c), d);
     }
 
     @Override
-    public <X> ImmutableQuadruple<A, B, C, X> map(Function<D, X> mapper) {
+    public <X> ImmutableQuadruple<A, B, C, X> map(Function<? super D, X> mapper) {
         return new ImmutableQuadrupleImpl<>(a, b, c, mapper.apply(d));
     }
 
     @Override
-    public <X> ImmutableQuintuple<A, B, C, D, X> mapFirstAndAdd(Function<A, X> mapper) {
+    public <X> ImmutableQuintuple<A, B, C, D, X> mapFirstAndAdd(Function<? super A, X> mapper) {
         return new ImmutableQuintupleImpl<>(a, b, c, d, mapper.apply(a));
     }
 
     @Override
-    public <X> ImmutableQuintuple<A, B, C, D, X> mapSecondAndAdd(Function<B, X> mapper) {
+    public <X> ImmutableQuintuple<A, B, C, D, X> mapSecondAndAdd(Function<? super B, X> mapper) {
         return new ImmutableQuintupleImpl<>(a, b, c, d, mapper.apply(b));
     }
 
     @Override
-    public <X> ImmutableQuintuple<A, B, C, D, X> mapThirdAndAdd(Function<C, X> mapper) {
+    public <X> ImmutableQuintuple<A, B, C, D, X> mapThirdAndAdd(Function<? super C, X> mapper) {
         return new ImmutableQuintupleImpl<>(a, b, c, d, mapper.apply(c));
     }
 
     @Override
-    public <X> ImmutableQuintuple<A, B, C, D, X> mapAndAdd(Function<D, X> mapper) {
+    public <X> ImmutableQuintuple<A, B, C, D, X> mapAndAdd(Function<? super D, X> mapper) {
         return new ImmutableQuintupleImpl<>(a, b, c, d, mapper.apply(d));
     }
 
@@ -198,9 +198,9 @@ final class ImmutableQuadrupleImpl<A, B, C, D> implements ImmutableQuadruple<A, 
         if (this == that) return true;
         if (!(that instanceof Quadruple<?, ?, ?, ?>)) return false;
         Quadruple<?, ?, ?, ?> thatQuadruple = (Quadruple<?, ?, ?, ?>) that;
-        return Objects.equals(this.a, thatQuadruple.getFirst()) &&
-                Objects.equals(this.b, thatQuadruple.getSecond()) &&
-                Objects.equals(this.c, thatQuadruple.getThird()) &&
+        return Objects.equals(this.a, thatQuadruple.getFirst()) && 
+                Objects.equals(this.b, thatQuadruple.getSecond()) && 
+                Objects.equals(this.c, thatQuadruple.getThird()) && 
                 Objects.equals(this.d, thatQuadruple.get());
     }
 

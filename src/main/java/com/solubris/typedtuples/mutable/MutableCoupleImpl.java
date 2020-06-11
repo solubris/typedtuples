@@ -78,7 +78,7 @@ final class MutableCoupleImpl<A, B> implements MutableCouple<A, B> {
         if (this == that) return true;
         if (!(that instanceof Couple<?, ?>)) return false;
         Couple<?, ?> thatCouple = (Couple<?, ?>) that;
-        return Objects.equals(this.a, thatCouple.getFirst()) &&
+        return Objects.equals(this.a, thatCouple.getFirst()) && 
                 Objects.equals(this.b, thatCouple.get());
     }
 

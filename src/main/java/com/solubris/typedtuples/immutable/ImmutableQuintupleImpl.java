@@ -172,52 +172,52 @@ final class ImmutableQuintupleImpl<A, B, C, D, E> implements ImmutableQuintuple<
     }
 
     @Override
-    public <X> ImmutableQuintuple<X, B, C, D, E> mapFirst(Function<A, X> mapper) {
+    public <X> ImmutableQuintuple<X, B, C, D, E> mapFirst(Function<? super A, X> mapper) {
         return new ImmutableQuintupleImpl<>(mapper.apply(a), b, c, d, e);
     }
 
     @Override
-    public <X> ImmutableQuintuple<A, X, C, D, E> mapSecond(Function<B, X> mapper) {
+    public <X> ImmutableQuintuple<A, X, C, D, E> mapSecond(Function<? super B, X> mapper) {
         return new ImmutableQuintupleImpl<>(a, mapper.apply(b), c, d, e);
     }
 
     @Override
-    public <X> ImmutableQuintuple<A, B, X, D, E> mapThird(Function<C, X> mapper) {
+    public <X> ImmutableQuintuple<A, B, X, D, E> mapThird(Function<? super C, X> mapper) {
         return new ImmutableQuintupleImpl<>(a, b, mapper.apply(c), d, e);
     }
 
     @Override
-    public <X> ImmutableQuintuple<A, B, C, X, E> mapFourth(Function<D, X> mapper) {
+    public <X> ImmutableQuintuple<A, B, C, X, E> mapFourth(Function<? super D, X> mapper) {
         return new ImmutableQuintupleImpl<>(a, b, c, mapper.apply(d), e);
     }
 
     @Override
-    public <X> ImmutableQuintuple<A, B, C, D, X> map(Function<E, X> mapper) {
+    public <X> ImmutableQuintuple<A, B, C, D, X> map(Function<? super E, X> mapper) {
         return new ImmutableQuintupleImpl<>(a, b, c, d, mapper.apply(e));
     }
 
     @Override
-    public <X> ImmutableSextuple<A, B, C, D, E, X> mapFirstAndAdd(Function<A, X> mapper) {
+    public <X> ImmutableSextuple<A, B, C, D, E, X> mapFirstAndAdd(Function<? super A, X> mapper) {
         return new ImmutableSextupleImpl<>(a, b, c, d, e, mapper.apply(a));
     }
 
     @Override
-    public <X> ImmutableSextuple<A, B, C, D, E, X> mapSecondAndAdd(Function<B, X> mapper) {
+    public <X> ImmutableSextuple<A, B, C, D, E, X> mapSecondAndAdd(Function<? super B, X> mapper) {
         return new ImmutableSextupleImpl<>(a, b, c, d, e, mapper.apply(b));
     }
 
     @Override
-    public <X> ImmutableSextuple<A, B, C, D, E, X> mapThirdAndAdd(Function<C, X> mapper) {
+    public <X> ImmutableSextuple<A, B, C, D, E, X> mapThirdAndAdd(Function<? super C, X> mapper) {
         return new ImmutableSextupleImpl<>(a, b, c, d, e, mapper.apply(c));
     }
 
     @Override
-    public <X> ImmutableSextuple<A, B, C, D, E, X> mapFourthAndAdd(Function<D, X> mapper) {
+    public <X> ImmutableSextuple<A, B, C, D, E, X> mapFourthAndAdd(Function<? super D, X> mapper) {
         return new ImmutableSextupleImpl<>(a, b, c, d, e, mapper.apply(d));
     }
 
     @Override
-    public <X> ImmutableSextuple<A, B, C, D, E, X> mapAndAdd(Function<E, X> mapper) {
+    public <X> ImmutableSextuple<A, B, C, D, E, X> mapAndAdd(Function<? super E, X> mapper) {
         return new ImmutableSextupleImpl<>(a, b, c, d, e, mapper.apply(e));
     }
 
@@ -236,10 +236,10 @@ final class ImmutableQuintupleImpl<A, B, C, D, E> implements ImmutableQuintuple<
         if (this == that) return true;
         if (!(that instanceof Quintuple<?, ?, ?, ?, ?>)) return false;
         Quintuple<?, ?, ?, ?, ?> thatQuintuple = (Quintuple<?, ?, ?, ?, ?>) that;
-        return Objects.equals(this.a, thatQuintuple.getFirst()) &&
-                Objects.equals(this.b, thatQuintuple.getSecond()) &&
-                Objects.equals(this.c, thatQuintuple.getThird()) &&
-                Objects.equals(this.d, thatQuintuple.getFourth()) &&
+        return Objects.equals(this.a, thatQuintuple.getFirst()) && 
+                Objects.equals(this.b, thatQuintuple.getSecond()) && 
+                Objects.equals(this.c, thatQuintuple.getThird()) && 
+                Objects.equals(this.d, thatQuintuple.getFourth()) && 
                 Objects.equals(this.e, thatQuintuple.get());
     }
 

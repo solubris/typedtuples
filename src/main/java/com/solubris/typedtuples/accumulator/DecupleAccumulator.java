@@ -24,7 +24,7 @@ import java.util.function.BinaryOperator;
 
 public interface DecupleAccumulator<A, B, C, D, E, F, G, H, I, J> extends Decuple<BinaryOperator<A>, BinaryOperator<B>, BinaryOperator<C>, BinaryOperator<D>, BinaryOperator<E>, BinaryOperator<F>, BinaryOperator<G>, BinaryOperator<H>, BinaryOperator<I>, BinaryOperator<J>> {
     void accumulate(MutableDecuple<A, B, C, D, E, F, G, H, I, J> acc,
-                    Decuple<A, B, C, D, E, F, G, H, I, J> t);
+            Decuple<A, B, C, D, E, F, G, H, I, J> t);
 
     MutableDecuple<A, B, C, D, E, F, G, H, I, J> combine(
             MutableDecuple<A, B, C, D, E, F, G, H, I, J> l,

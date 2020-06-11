@@ -26,8 +26,8 @@ public interface QuintupleAccumulator<A, B, C, D, E> extends Quintuple<BinaryOpe
     void accumulate(MutableQuintuple<A, B, C, D, E> acc, Quintuple<A, B, C, D, E> t);
 
     MutableQuintuple<A, B, C, D, E> combine(MutableQuintuple<A, B, C, D, E> l,
-                                            MutableQuintuple<A, B, C, D, E> r);
+            MutableQuintuple<A, B, C, D, E> r);
 
     ImmutableQuintuple<A, B, C, D, E> combine(ImmutableQuintuple<A, B, C, D, E> l,
-                                              ImmutableQuintuple<A, B, C, D, E> r);
+            ImmutableQuintuple<A, B, C, D, E> r);
 }

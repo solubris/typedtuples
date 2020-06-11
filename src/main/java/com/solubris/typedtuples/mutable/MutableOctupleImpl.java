@@ -192,13 +192,13 @@ final class MutableOctupleImpl<A, B, C, D, E, F, G, H> implements MutableOctuple
         if (this == that) return true;
         if (!(that instanceof Octuple<?, ?, ?, ?, ?, ?, ?, ?>)) return false;
         Octuple<?, ?, ?, ?, ?, ?, ?, ?> thatOctuple = (Octuple<?, ?, ?, ?, ?, ?, ?, ?>) that;
-        return Objects.equals(this.a, thatOctuple.getFirst()) &&
-                Objects.equals(this.b, thatOctuple.getSecond()) &&
-                Objects.equals(this.c, thatOctuple.getThird()) &&
-                Objects.equals(this.d, thatOctuple.getFourth()) &&
-                Objects.equals(this.e, thatOctuple.getFifth()) &&
-                Objects.equals(this.f, thatOctuple.getSixth()) &&
-                Objects.equals(this.g, thatOctuple.getSeventh()) &&
+        return Objects.equals(this.a, thatOctuple.getFirst()) && 
+                Objects.equals(this.b, thatOctuple.getSecond()) && 
+                Objects.equals(this.c, thatOctuple.getThird()) && 
+                Objects.equals(this.d, thatOctuple.getFourth()) && 
+                Objects.equals(this.e, thatOctuple.getFifth()) && 
+                Objects.equals(this.f, thatOctuple.getSixth()) && 
+                Objects.equals(this.g, thatOctuple.getSeventh()) && 
                 Objects.equals(this.h, thatOctuple.get());
     }
 

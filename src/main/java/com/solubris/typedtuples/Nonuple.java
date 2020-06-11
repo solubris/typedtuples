@@ -39,9 +39,9 @@ public interface Nonuple<A, B, C, D, E, F, G, H, I> {
     I get();
 
     /**
-     * Compare tuple fields in order requiring that the fields are Comparable
-     * Each tuple field is compared using natural ordering
-     * Null values are not allowed, use the alternative method that accepts a Comparator
+     * Compare tuple fields in order requiring that the fields are Comparable.
+     * Each tuple field is compared using natural ordering.
+     * Null values are not allowed, use the alternative method that accepts a Comparator.
      */
     static <A extends Comparable<? super A>, B extends Comparable<? super B>, C extends Comparable<? super C>, D extends Comparable<? super D>, E extends Comparable<? super E>, F extends Comparable<? super F>, G extends Comparable<? super G>, H extends Comparable<? super H>, I extends Comparable<? super I>> Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> compareByAllFieldsInOrder(
             ) {
@@ -58,9 +58,9 @@ public interface Nonuple<A, B, C, D, E, F, G, H, I> {
     }
 
     /**
-     * Compare tuple fields in reverse order requiring that the fields are Comparable
-     * Each tuple field is compared using natural ordering
-     * Null values are not allowed, use the alternative method that accepts a Comparator
+     * Compare tuple fields in reverse order requiring that the fields are Comparable.
+     * Each tuple field is compared using natural ordering.
+     * Null values are not allowed, use the alternative method that accepts a Comparator.
      */
     static <A extends Comparable<? super A>, B extends Comparable<? super B>, C extends Comparable<? super C>, D extends Comparable<? super D>, E extends Comparable<? super E>, F extends Comparable<? super F>, G extends Comparable<? super G>, H extends Comparable<? super H>, I extends Comparable<? super I>> Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> compareByAllFieldsInReverseOrder(
             ) {
@@ -77,14 +77,14 @@ public interface Nonuple<A, B, C, D, E, F, G, H, I> {
     }
 
     /**
-     * Compare tuple fields in order using a Function to make each value Comparable
-     * Especially useful where the value is not comparable, but it has a field that can be extracted for comparison
-     * Null values are not allowed, use the alternative method that accepts a Comparator
+     * Compare tuple fields in order using a Function to make each value Comparable.
+     * Especially useful where the value is not comparable, but it has a field that can be extracted for comparison.
+     * Null values are not allowed, use the alternative method that accepts a Comparator.
      */
     static <A, FA extends Comparable<? super FA>, B, FB extends Comparable<? super FB>, C, FC extends Comparable<? super FC>, D, FD extends Comparable<? super FD>, E, FE extends Comparable<? super FE>, F, FF extends Comparable<? super FF>, G, FG extends Comparable<? super FG>, H, FH extends Comparable<? super FH>, I, FI extends Comparable<? super FI>> Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> compareByAllFieldsInOrder(
-            Function<A, FA> fa, Function<B, FB> fb, Function<C, FC> fc, Function<D, FD> fd,
-            Function<E, FE> fe, Function<F, FF> ff, Function<G, FG> fg, Function<H, FH> fh,
-            Function<I, FI> fi) {
+            Function<? super A, FA> fa, Function<? super B, FB> fb, Function<? super C, FC> fc,
+            Function<? super D, FD> fd, Function<? super E, FE> fe, Function<? super F, FF> ff,
+            Function<? super G, FG> fg, Function<? super H, FH> fh, Function<? super I, FI> fi) {
         Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> a = Comparator.comparing(fa.compose(Nonuple::getFirst));
                 Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> b = Comparator.comparing(fb.compose(Nonuple::getSecond));
                 Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> c = Comparator.comparing(fc.compose(Nonuple::getThird));
@@ -98,14 +98,14 @@ public interface Nonuple<A, B, C, D, E, F, G, H, I> {
     }
 
     /**
-     * Compare tuple fields in reverse order using a Function to make each value Comparable
-     * Especially useful where the value is not comparable, but it has a field that can be extracted for comparison
-     * Null values are not allowed, use the alternative method that accepts a Comparator
+     * Compare tuple fields in reverse order using a Function to make each value Comparable.
+     * Especially useful where the value is not comparable, but it has a field that can be extracted for comparison.
+     * Null values are not allowed, use the alternative method that accepts a Comparator.
      */
     static <A, FA extends Comparable<? super FA>, B, FB extends Comparable<? super FB>, C, FC extends Comparable<? super FC>, D, FD extends Comparable<? super FD>, E, FE extends Comparable<? super FE>, F, FF extends Comparable<? super FF>, G, FG extends Comparable<? super FG>, H, FH extends Comparable<? super FH>, I, FI extends Comparable<? super FI>> Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> compareByAllFieldsInReverseOrder(
-            Function<A, FA> fa, Function<B, FB> fb, Function<C, FC> fc, Function<D, FD> fd,
-            Function<E, FE> fe, Function<F, FF> ff, Function<G, FG> fg, Function<H, FH> fh,
-            Function<I, FI> fi) {
+            Function<? super A, FA> fa, Function<? super B, FB> fb, Function<? super C, FC> fc,
+            Function<? super D, FD> fd, Function<? super E, FE> fe, Function<? super F, FF> ff,
+            Function<? super G, FG> fg, Function<? super H, FH> fh, Function<? super I, FI> fi) {
         Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> a = Comparator.comparing(fa.compose(Nonuple::getFirst));
                 Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> b = Comparator.comparing(fb.compose(Nonuple::getSecond));
                 Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> c = Comparator.comparing(fc.compose(Nonuple::getThird));
@@ -119,7 +119,7 @@ public interface Nonuple<A, B, C, D, E, F, G, H, I> {
     }
 
     /**
-     * Compare tuple fields in order using a Comparator for each field
+     * Compare tuple fields in order using a Comparator for each field.
      * Especially useful for null-safe comparison, eg:
      * <pre>{@code
      * Nonuple.compareByAllFieldsInOrder(Comparator.nullsLast(Integer::compareTo), 
@@ -150,7 +150,7 @@ public interface Nonuple<A, B, C, D, E, F, G, H, I> {
     }
 
     /**
-     * Compare tuple fields in reverse order using a Comparator for each field
+     * Compare tuple fields in reverse order using a Comparator for each field.
      * Especially useful for null-safe comparison, eg:
      * <pre>{@code
      * Nonuple.compareByAllFieldsInReverseOrder(Comparator.nullsLast(Integer::compareTo), 

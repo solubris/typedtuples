@@ -37,9 +37,9 @@ public interface Octuple<A, B, C, D, E, F, G, H> {
     H get();
 
     /**
-     * Compare tuple fields in order requiring that the fields are Comparable
-     * Each tuple field is compared using natural ordering
-     * Null values are not allowed, use the alternative method that accepts a Comparator
+     * Compare tuple fields in order requiring that the fields are Comparable.
+     * Each tuple field is compared using natural ordering.
+     * Null values are not allowed, use the alternative method that accepts a Comparator.
      */
     static <A extends Comparable<? super A>, B extends Comparable<? super B>, C extends Comparable<? super C>, D extends Comparable<? super D>, E extends Comparable<? super E>, F extends Comparable<? super F>, G extends Comparable<? super G>, H extends Comparable<? super H>> Comparator<Octuple<A, B, C, D, E, F, G, H>> compareByAllFieldsInOrder(
             ) {
@@ -55,9 +55,9 @@ public interface Octuple<A, B, C, D, E, F, G, H> {
     }
 
     /**
-     * Compare tuple fields in reverse order requiring that the fields are Comparable
-     * Each tuple field is compared using natural ordering
-     * Null values are not allowed, use the alternative method that accepts a Comparator
+     * Compare tuple fields in reverse order requiring that the fields are Comparable.
+     * Each tuple field is compared using natural ordering.
+     * Null values are not allowed, use the alternative method that accepts a Comparator.
      */
     static <A extends Comparable<? super A>, B extends Comparable<? super B>, C extends Comparable<? super C>, D extends Comparable<? super D>, E extends Comparable<? super E>, F extends Comparable<? super F>, G extends Comparable<? super G>, H extends Comparable<? super H>> Comparator<Octuple<A, B, C, D, E, F, G, H>> compareByAllFieldsInReverseOrder(
             ) {
@@ -73,13 +73,14 @@ public interface Octuple<A, B, C, D, E, F, G, H> {
     }
 
     /**
-     * Compare tuple fields in order using a Function to make each value Comparable
-     * Especially useful where the value is not comparable, but it has a field that can be extracted for comparison
-     * Null values are not allowed, use the alternative method that accepts a Comparator
+     * Compare tuple fields in order using a Function to make each value Comparable.
+     * Especially useful where the value is not comparable, but it has a field that can be extracted for comparison.
+     * Null values are not allowed, use the alternative method that accepts a Comparator.
      */
     static <A, FA extends Comparable<? super FA>, B, FB extends Comparable<? super FB>, C, FC extends Comparable<? super FC>, D, FD extends Comparable<? super FD>, E, FE extends Comparable<? super FE>, F, FF extends Comparable<? super FF>, G, FG extends Comparable<? super FG>, H, FH extends Comparable<? super FH>> Comparator<Octuple<A, B, C, D, E, F, G, H>> compareByAllFieldsInOrder(
-            Function<A, FA> fa, Function<B, FB> fb, Function<C, FC> fc, Function<D, FD> fd,
-            Function<E, FE> fe, Function<F, FF> ff, Function<G, FG> fg, Function<H, FH> fh) {
+            Function<? super A, FA> fa, Function<? super B, FB> fb, Function<? super C, FC> fc,
+            Function<? super D, FD> fd, Function<? super E, FE> fe, Function<? super F, FF> ff,
+            Function<? super G, FG> fg, Function<? super H, FH> fh) {
         Comparator<Octuple<A, B, C, D, E, F, G, H>> a = Comparator.comparing(fa.compose(Octuple::getFirst));
                 Comparator<Octuple<A, B, C, D, E, F, G, H>> b = Comparator.comparing(fb.compose(Octuple::getSecond));
                 Comparator<Octuple<A, B, C, D, E, F, G, H>> c = Comparator.comparing(fc.compose(Octuple::getThird));
@@ -92,13 +93,14 @@ public interface Octuple<A, B, C, D, E, F, G, H> {
     }
 
     /**
-     * Compare tuple fields in reverse order using a Function to make each value Comparable
-     * Especially useful where the value is not comparable, but it has a field that can be extracted for comparison
-     * Null values are not allowed, use the alternative method that accepts a Comparator
+     * Compare tuple fields in reverse order using a Function to make each value Comparable.
+     * Especially useful where the value is not comparable, but it has a field that can be extracted for comparison.
+     * Null values are not allowed, use the alternative method that accepts a Comparator.
      */
     static <A, FA extends Comparable<? super FA>, B, FB extends Comparable<? super FB>, C, FC extends Comparable<? super FC>, D, FD extends Comparable<? super FD>, E, FE extends Comparable<? super FE>, F, FF extends Comparable<? super FF>, G, FG extends Comparable<? super FG>, H, FH extends Comparable<? super FH>> Comparator<Octuple<A, B, C, D, E, F, G, H>> compareByAllFieldsInReverseOrder(
-            Function<A, FA> fa, Function<B, FB> fb, Function<C, FC> fc, Function<D, FD> fd,
-            Function<E, FE> fe, Function<F, FF> ff, Function<G, FG> fg, Function<H, FH> fh) {
+            Function<? super A, FA> fa, Function<? super B, FB> fb, Function<? super C, FC> fc,
+            Function<? super D, FD> fd, Function<? super E, FE> fe, Function<? super F, FF> ff,
+            Function<? super G, FG> fg, Function<? super H, FH> fh) {
         Comparator<Octuple<A, B, C, D, E, F, G, H>> a = Comparator.comparing(fa.compose(Octuple::getFirst));
                 Comparator<Octuple<A, B, C, D, E, F, G, H>> b = Comparator.comparing(fb.compose(Octuple::getSecond));
                 Comparator<Octuple<A, B, C, D, E, F, G, H>> c = Comparator.comparing(fc.compose(Octuple::getThird));
@@ -111,7 +113,7 @@ public interface Octuple<A, B, C, D, E, F, G, H> {
     }
 
     /**
-     * Compare tuple fields in order using a Comparator for each field
+     * Compare tuple fields in order using a Comparator for each field.
      * Especially useful for null-safe comparison, eg:
      * <pre>{@code
      * Octuple.compareByAllFieldsInOrder(Comparator.nullsLast(Integer::compareTo), 
@@ -140,7 +142,7 @@ public interface Octuple<A, B, C, D, E, F, G, H> {
     }
 
     /**
-     * Compare tuple fields in reverse order using a Comparator for each field
+     * Compare tuple fields in reverse order using a Comparator for each field.
      * Especially useful for null-safe comparison, eg:
      * <pre>{@code
      * Octuple.compareByAllFieldsInReverseOrder(Comparator.nullsLast(Integer::compareTo), 

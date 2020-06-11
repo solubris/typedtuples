@@ -34,7 +34,7 @@ final class QuadrupleAccumulatorImpl<A, B, C, D> implements QuadrupleAccumulator
     private final BinaryOperator<D> d;
 
     QuadrupleAccumulatorImpl(BinaryOperator<A> a, BinaryOperator<B> b, BinaryOperator<C> c,
-                             BinaryOperator<D> d) {
+            BinaryOperator<D> d) {
         this.a = a;
         this.b = b;
         this.c = c;
@@ -71,7 +71,7 @@ final class QuadrupleAccumulatorImpl<A, B, C, D> implements QuadrupleAccumulator
 
     @Override
     public MutableQuadruple<A, B, C, D> combine(MutableQuadruple<A, B, C, D> l,
-                                                MutableQuadruple<A, B, C, D> r) {
+            MutableQuadruple<A, B, C, D> r) {
         A fa = a.apply(l.getFirst(), r.getFirst());
         B fb = b.apply(l.getSecond(), r.getSecond());
         C fc = c.apply(l.getThird(), r.getThird());
@@ -81,7 +81,7 @@ final class QuadrupleAccumulatorImpl<A, B, C, D> implements QuadrupleAccumulator
 
     @Override
     public ImmutableQuadruple<A, B, C, D> combine(ImmutableQuadruple<A, B, C, D> l,
-                                                  ImmutableQuadruple<A, B, C, D> r) {
+            ImmutableQuadruple<A, B, C, D> r) {
         A fa = a.apply(l.getFirst(), r.getFirst());
         B fb = b.apply(l.getSecond(), r.getSecond());
         C fc = c.apply(l.getThird(), r.getThird());

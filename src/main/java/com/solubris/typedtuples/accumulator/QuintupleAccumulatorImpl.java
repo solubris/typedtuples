@@ -36,7 +36,7 @@ final class QuintupleAccumulatorImpl<A, B, C, D, E> implements QuintupleAccumula
     private final BinaryOperator<E> e;
 
     QuintupleAccumulatorImpl(BinaryOperator<A> a, BinaryOperator<B> b, BinaryOperator<C> c,
-                             BinaryOperator<D> d, BinaryOperator<E> e) {
+            BinaryOperator<D> d, BinaryOperator<E> e) {
         this.a = a;
         this.b = b;
         this.c = c;
@@ -80,7 +80,7 @@ final class QuintupleAccumulatorImpl<A, B, C, D, E> implements QuintupleAccumula
 
     @Override
     public MutableQuintuple<A, B, C, D, E> combine(MutableQuintuple<A, B, C, D, E> l,
-                                                   MutableQuintuple<A, B, C, D, E> r) {
+            MutableQuintuple<A, B, C, D, E> r) {
         A fa = a.apply(l.getFirst(), r.getFirst());
         B fb = b.apply(l.getSecond(), r.getSecond());
         C fc = c.apply(l.getThird(), r.getThird());
@@ -91,7 +91,7 @@ final class QuintupleAccumulatorImpl<A, B, C, D, E> implements QuintupleAccumula
 
     @Override
     public ImmutableQuintuple<A, B, C, D, E> combine(ImmutableQuintuple<A, B, C, D, E> l,
-                                                     ImmutableQuintuple<A, B, C, D, E> r) {
+            ImmutableQuintuple<A, B, C, D, E> r) {
         A fa = a.apply(l.getFirst(), r.getFirst());
         B fb = b.apply(l.getSecond(), r.getSecond());
         C fc = c.apply(l.getThird(), r.getThird());

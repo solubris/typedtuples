@@ -9,6 +9,8 @@ Strongly typed tuple library for java
 
 ## Example
 
+### Multivalued Computation
+
 Java streams don't handle computation of multiple values nicely, eg:
 - compute sum(N), sum(N^2)
 
@@ -30,6 +32,10 @@ With tuples and a tuple accumulator, this can be done as follows:
                         ImmutableTuple.of(0, 0),
                         accumulator::combine
                 );
+
+### Enrichment
+
+
 
 ## Usage
 

@@ -77,7 +77,7 @@ public class ImmutableTuple {
     }
 
     public static <A, B, C, D, E, F> ImmutableSextuple<A, B, C, D, E, F> of(A a, B b, C c, D d, E e,
-                                                                            F f) {
+            F f) {
         return new ImmutableSextupleImpl<>(a, b, c, d, e, f);
     }
 
@@ -87,7 +87,7 @@ public class ImmutableTuple {
     }
 
     public static <A, B, C, D, E, F, G> ImmutableSeptuple<A, B, C, D, E, F, G> of(A a, B b, C c,
-                                                                                  D d, E e, F f, G g) {
+            D d, E e, F f, G g) {
         return new ImmutableSeptupleImpl<>(a, b, c, d, e, f, g);
     }
 
@@ -97,7 +97,7 @@ public class ImmutableTuple {
     }
 
     public static <A, B, C, D, E, F, G, H> ImmutableOctuple<A, B, C, D, E, F, G, H> of(A a, B b,
-                                                                                       C c, D d, E e, F f, G g, H h) {
+            C c, D d, E e, F f, G g, H h) {
         return new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, h);
     }
 
@@ -107,7 +107,7 @@ public class ImmutableTuple {
     }
 
     public static <A, B, C, D, E, F, G, H, I> ImmutableNonuple<A, B, C, D, E, F, G, H, I> of(A a,
-                                                                                             B b, C c, D d, E e, F f, G g, H h, I i) {
+            B b, C c, D d, E e, F f, G g, H h, I i) {
         return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, i);
     }
 

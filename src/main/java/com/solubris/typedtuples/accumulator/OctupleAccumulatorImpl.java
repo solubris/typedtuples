@@ -42,8 +42,8 @@ final class OctupleAccumulatorImpl<A, B, C, D, E, F, G, H> implements OctupleAcc
     private final BinaryOperator<H> h;
 
     OctupleAccumulatorImpl(BinaryOperator<A> a, BinaryOperator<B> b, BinaryOperator<C> c,
-                           BinaryOperator<D> d, BinaryOperator<E> e, BinaryOperator<F> f, BinaryOperator<G> g,
-                           BinaryOperator<H> h) {
+            BinaryOperator<D> d, BinaryOperator<E> e, BinaryOperator<F> f, BinaryOperator<G> g,
+            BinaryOperator<H> h) {
         this.a = a;
         this.b = b;
         this.c = c;
@@ -96,7 +96,7 @@ final class OctupleAccumulatorImpl<A, B, C, D, E, F, G, H> implements OctupleAcc
 
     @Override
     public void accumulate(MutableOctuple<A, B, C, D, E, F, G, H> acc,
-                           Octuple<A, B, C, D, E, F, G, H> t) {
+            Octuple<A, B, C, D, E, F, G, H> t) {
         acc.setFirst(a.apply(acc.getFirst(), t.getFirst()));
         acc.setSecond(b.apply(acc.getSecond(), t.getSecond()));
         acc.setThird(c.apply(acc.getThird(), t.getThird()));
@@ -109,7 +109,7 @@ final class OctupleAccumulatorImpl<A, B, C, D, E, F, G, H> implements OctupleAcc
 
     @Override
     public MutableOctuple<A, B, C, D, E, F, G, H> combine(MutableOctuple<A, B, C, D, E, F, G, H> l,
-                                                          MutableOctuple<A, B, C, D, E, F, G, H> r) {
+            MutableOctuple<A, B, C, D, E, F, G, H> r) {
         A fa = a.apply(l.getFirst(), r.getFirst());
         B fb = b.apply(l.getSecond(), r.getSecond());
         C fc = c.apply(l.getThird(), r.getThird());

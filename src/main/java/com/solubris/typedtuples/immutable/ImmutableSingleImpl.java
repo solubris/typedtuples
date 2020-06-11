@@ -60,12 +60,12 @@ final class ImmutableSingleImpl<A> implements ImmutableSingle<A> {
     }
 
     @Override
-    public <X> ImmutableSingle<X> map(Function<A, X> mapper) {
+    public <X> ImmutableSingle<X> map(Function<? super A, X> mapper) {
         return new ImmutableSingleImpl<>(mapper.apply(a));
     }
 
     @Override
-    public <X> ImmutableCouple<A, X> mapAndAdd(Function<A, X> mapper) {
+    public <X> ImmutableCouple<A, X> mapAndAdd(Function<? super A, X> mapper) {
         return new ImmutableCoupleImpl<>(a, mapper.apply(a));
     }
 

@@ -96,41 +96,49 @@ public interface ImmutableNonuple<A, B, C, D, E, F, G, H, I> extends Nonuple<A, 
 
     <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> replace(X x);
 
-    <X> ImmutableNonuple<X, B, C, D, E, F, G, H, I> mapFirst(Function<A, X> mapper);
+    <X> ImmutableNonuple<X, B, C, D, E, F, G, H, I> mapFirst(Function<? super A, X> mapper);
 
-    <X> ImmutableNonuple<A, X, C, D, E, F, G, H, I> mapSecond(Function<B, X> mapper);
+    <X> ImmutableNonuple<A, X, C, D, E, F, G, H, I> mapSecond(Function<? super B, X> mapper);
 
-    <X> ImmutableNonuple<A, B, X, D, E, F, G, H, I> mapThird(Function<C, X> mapper);
+    <X> ImmutableNonuple<A, B, X, D, E, F, G, H, I> mapThird(Function<? super C, X> mapper);
 
-    <X> ImmutableNonuple<A, B, C, X, E, F, G, H, I> mapFourth(Function<D, X> mapper);
+    <X> ImmutableNonuple<A, B, C, X, E, F, G, H, I> mapFourth(Function<? super D, X> mapper);
 
-    <X> ImmutableNonuple<A, B, C, D, X, F, G, H, I> mapFifth(Function<E, X> mapper);
+    <X> ImmutableNonuple<A, B, C, D, X, F, G, H, I> mapFifth(Function<? super E, X> mapper);
 
-    <X> ImmutableNonuple<A, B, C, D, E, X, G, H, I> mapSixth(Function<F, X> mapper);
+    <X> ImmutableNonuple<A, B, C, D, E, X, G, H, I> mapSixth(Function<? super F, X> mapper);
 
-    <X> ImmutableNonuple<A, B, C, D, E, F, X, H, I> mapSeventh(Function<G, X> mapper);
+    <X> ImmutableNonuple<A, B, C, D, E, F, X, H, I> mapSeventh(Function<? super G, X> mapper);
 
-    <X> ImmutableNonuple<A, B, C, D, E, F, G, X, I> mapEighth(Function<H, X> mapper);
+    <X> ImmutableNonuple<A, B, C, D, E, F, G, X, I> mapEighth(Function<? super H, X> mapper);
 
-    <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> map(Function<I, X> mapper);
+    <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> map(Function<? super I, X> mapper);
 
-    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapFirstAndAdd(Function<A, X> mapper);
+    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapFirstAndAdd(
+            Function<? super A, X> mapper);
 
-    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapSecondAndAdd(Function<B, X> mapper);
+    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapSecondAndAdd(
+            Function<? super B, X> mapper);
 
-    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapThirdAndAdd(Function<C, X> mapper);
+    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapThirdAndAdd(
+            Function<? super C, X> mapper);
 
-    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapFourthAndAdd(Function<D, X> mapper);
+    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapFourthAndAdd(
+            Function<? super D, X> mapper);
 
-    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapFifthAndAdd(Function<E, X> mapper);
+    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapFifthAndAdd(
+            Function<? super E, X> mapper);
 
-    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapSixthAndAdd(Function<F, X> mapper);
+    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapSixthAndAdd(
+            Function<? super F, X> mapper);
 
-    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapSeventhAndAdd(Function<G, X> mapper);
+    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapSeventhAndAdd(
+            Function<? super G, X> mapper);
 
-    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapEighthAndAdd(Function<H, X> mapper);
+    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapEighthAndAdd(
+            Function<? super H, X> mapper);
 
-    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapAndAdd(Function<I, X> mapper);
+    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapAndAdd(Function<? super I, X> mapper);
 
     <R> R mapAll(NonupleFunction<A, B, C, D, E, F, G, H, I, R> mapper);
 

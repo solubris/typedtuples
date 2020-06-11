@@ -62,25 +62,25 @@ public interface ImmutableDecuple<A, B, C, D, E, F, G, H, I, J> extends Decuple<
 
     <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> replace(X x);
 
-    <X> ImmutableDecuple<X, B, C, D, E, F, G, H, I, J> mapFirst(Function<A, X> mapper);
+    <X> ImmutableDecuple<X, B, C, D, E, F, G, H, I, J> mapFirst(Function<? super A, X> mapper);
 
-    <X> ImmutableDecuple<A, X, C, D, E, F, G, H, I, J> mapSecond(Function<B, X> mapper);
+    <X> ImmutableDecuple<A, X, C, D, E, F, G, H, I, J> mapSecond(Function<? super B, X> mapper);
 
-    <X> ImmutableDecuple<A, B, X, D, E, F, G, H, I, J> mapThird(Function<C, X> mapper);
+    <X> ImmutableDecuple<A, B, X, D, E, F, G, H, I, J> mapThird(Function<? super C, X> mapper);
 
-    <X> ImmutableDecuple<A, B, C, X, E, F, G, H, I, J> mapFourth(Function<D, X> mapper);
+    <X> ImmutableDecuple<A, B, C, X, E, F, G, H, I, J> mapFourth(Function<? super D, X> mapper);
 
-    <X> ImmutableDecuple<A, B, C, D, X, F, G, H, I, J> mapFifth(Function<E, X> mapper);
+    <X> ImmutableDecuple<A, B, C, D, X, F, G, H, I, J> mapFifth(Function<? super E, X> mapper);
 
-    <X> ImmutableDecuple<A, B, C, D, E, X, G, H, I, J> mapSixth(Function<F, X> mapper);
+    <X> ImmutableDecuple<A, B, C, D, E, X, G, H, I, J> mapSixth(Function<? super F, X> mapper);
 
-    <X> ImmutableDecuple<A, B, C, D, E, F, X, H, I, J> mapSeventh(Function<G, X> mapper);
+    <X> ImmutableDecuple<A, B, C, D, E, F, X, H, I, J> mapSeventh(Function<? super G, X> mapper);
 
-    <X> ImmutableDecuple<A, B, C, D, E, F, G, X, I, J> mapEighth(Function<H, X> mapper);
+    <X> ImmutableDecuple<A, B, C, D, E, F, G, X, I, J> mapEighth(Function<? super H, X> mapper);
 
-    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, X, J> mapNinth(Function<I, X> mapper);
+    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, X, J> mapNinth(Function<? super I, X> mapper);
 
-    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> map(Function<J, X> mapper);
+    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> map(Function<? super J, X> mapper);
 
     <R> R mapAll(DecupleFunction<A, B, C, D, E, F, G, H, I, J, R> mapper);
 

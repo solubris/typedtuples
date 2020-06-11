@@ -26,8 +26,8 @@ public interface OctupleAccumulator<A, B, C, D, E, F, G, H> extends Octuple<Bina
     void accumulate(MutableOctuple<A, B, C, D, E, F, G, H> acc, Octuple<A, B, C, D, E, F, G, H> t);
 
     MutableOctuple<A, B, C, D, E, F, G, H> combine(MutableOctuple<A, B, C, D, E, F, G, H> l,
-                                                   MutableOctuple<A, B, C, D, E, F, G, H> r);
+            MutableOctuple<A, B, C, D, E, F, G, H> r);
 
     ImmutableOctuple<A, B, C, D, E, F, G, H> combine(ImmutableOctuple<A, B, C, D, E, F, G, H> l,
-                                                     ImmutableOctuple<A, B, C, D, E, F, G, H> r);
+            ImmutableOctuple<A, B, C, D, E, F, G, H> r);
 }

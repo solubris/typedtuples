@@ -29,9 +29,9 @@ public interface Quadruple<A, B, C, D> {
     D get();
 
     /**
-     * Compare tuple fields in order requiring that the fields are Comparable
-     * Each tuple field is compared using natural ordering
-     * Null values are not allowed, use the alternative method that accepts a Comparator
+     * Compare tuple fields in order requiring that the fields are Comparable.
+     * Each tuple field is compared using natural ordering.
+     * Null values are not allowed, use the alternative method that accepts a Comparator.
      */
     static <A extends Comparable<? super A>, B extends Comparable<? super B>, C extends Comparable<? super C>, D extends Comparable<? super D>> Comparator<Quadruple<A, B, C, D>> compareByAllFieldsInOrder(
             ) {
@@ -43,9 +43,9 @@ public interface Quadruple<A, B, C, D> {
     }
 
     /**
-     * Compare tuple fields in reverse order requiring that the fields are Comparable
-     * Each tuple field is compared using natural ordering
-     * Null values are not allowed, use the alternative method that accepts a Comparator
+     * Compare tuple fields in reverse order requiring that the fields are Comparable.
+     * Each tuple field is compared using natural ordering.
+     * Null values are not allowed, use the alternative method that accepts a Comparator.
      */
     static <A extends Comparable<? super A>, B extends Comparable<? super B>, C extends Comparable<? super C>, D extends Comparable<? super D>> Comparator<Quadruple<A, B, C, D>> compareByAllFieldsInReverseOrder(
             ) {
@@ -57,12 +57,13 @@ public interface Quadruple<A, B, C, D> {
     }
 
     /**
-     * Compare tuple fields in order using a Function to make each value Comparable
-     * Especially useful where the value is not comparable, but it has a field that can be extracted for comparison
-     * Null values are not allowed, use the alternative method that accepts a Comparator
+     * Compare tuple fields in order using a Function to make each value Comparable.
+     * Especially useful where the value is not comparable, but it has a field that can be extracted for comparison.
+     * Null values are not allowed, use the alternative method that accepts a Comparator.
      */
     static <A, FA extends Comparable<? super FA>, B, FB extends Comparable<? super FB>, C, FC extends Comparable<? super FC>, D, FD extends Comparable<? super FD>> Comparator<Quadruple<A, B, C, D>> compareByAllFieldsInOrder(
-            Function<A, FA> fa, Function<B, FB> fb, Function<C, FC> fc, Function<D, FD> fd) {
+            Function<? super A, FA> fa, Function<? super B, FB> fb, Function<? super C, FC> fc,
+            Function<? super D, FD> fd) {
         Comparator<Quadruple<A, B, C, D>> a = Comparator.comparing(fa.compose(Quadruple::getFirst));
                 Comparator<Quadruple<A, B, C, D>> b = Comparator.comparing(fb.compose(Quadruple::getSecond));
                 Comparator<Quadruple<A, B, C, D>> c = Comparator.comparing(fc.compose(Quadruple::getThird));
@@ -71,12 +72,13 @@ public interface Quadruple<A, B, C, D> {
     }
 
     /**
-     * Compare tuple fields in reverse order using a Function to make each value Comparable
-     * Especially useful where the value is not comparable, but it has a field that can be extracted for comparison
-     * Null values are not allowed, use the alternative method that accepts a Comparator
+     * Compare tuple fields in reverse order using a Function to make each value Comparable.
+     * Especially useful where the value is not comparable, but it has a field that can be extracted for comparison.
+     * Null values are not allowed, use the alternative method that accepts a Comparator.
      */
     static <A, FA extends Comparable<? super FA>, B, FB extends Comparable<? super FB>, C, FC extends Comparable<? super FC>, D, FD extends Comparable<? super FD>> Comparator<Quadruple<A, B, C, D>> compareByAllFieldsInReverseOrder(
-            Function<A, FA> fa, Function<B, FB> fb, Function<C, FC> fc, Function<D, FD> fd) {
+            Function<? super A, FA> fa, Function<? super B, FB> fb, Function<? super C, FC> fc,
+            Function<? super D, FD> fd) {
         Comparator<Quadruple<A, B, C, D>> a = Comparator.comparing(fa.compose(Quadruple::getFirst));
                 Comparator<Quadruple<A, B, C, D>> b = Comparator.comparing(fb.compose(Quadruple::getSecond));
                 Comparator<Quadruple<A, B, C, D>> c = Comparator.comparing(fc.compose(Quadruple::getThird));
@@ -85,7 +87,7 @@ public interface Quadruple<A, B, C, D> {
     }
 
     /**
-     * Compare tuple fields in order using a Comparator for each field
+     * Compare tuple fields in order using a Comparator for each field.
      * Especially useful for null-safe comparison, eg:
      * <pre>{@code
      * Quadruple.compareByAllFieldsInOrder(Comparator.nullsLast(Integer::compareTo), 
@@ -105,7 +107,7 @@ public interface Quadruple<A, B, C, D> {
     }
 
     /**
-     * Compare tuple fields in reverse order using a Comparator for each field
+     * Compare tuple fields in reverse order using a Comparator for each field.
      * Especially useful for null-safe comparison, eg:
      * <pre>{@code
      * Quadruple.compareByAllFieldsInReverseOrder(Comparator.nullsLast(Integer::compareTo), 

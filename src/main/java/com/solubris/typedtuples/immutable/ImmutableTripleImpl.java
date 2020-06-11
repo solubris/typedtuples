@@ -116,32 +116,32 @@ final class ImmutableTripleImpl<A, B, C> implements ImmutableTriple<A, B, C> {
     }
 
     @Override
-    public <X> ImmutableTriple<X, B, C> mapFirst(Function<A, X> mapper) {
+    public <X> ImmutableTriple<X, B, C> mapFirst(Function<? super A, X> mapper) {
         return new ImmutableTripleImpl<>(mapper.apply(a), b, c);
     }
 
     @Override
-    public <X> ImmutableTriple<A, X, C> mapSecond(Function<B, X> mapper) {
+    public <X> ImmutableTriple<A, X, C> mapSecond(Function<? super B, X> mapper) {
         return new ImmutableTripleImpl<>(a, mapper.apply(b), c);
     }
 
     @Override
-    public <X> ImmutableTriple<A, B, X> map(Function<C, X> mapper) {
+    public <X> ImmutableTriple<A, B, X> map(Function<? super C, X> mapper) {
         return new ImmutableTripleImpl<>(a, b, mapper.apply(c));
     }
 
     @Override
-    public <X> ImmutableQuadruple<A, B, C, X> mapFirstAndAdd(Function<A, X> mapper) {
+    public <X> ImmutableQuadruple<A, B, C, X> mapFirstAndAdd(Function<? super A, X> mapper) {
         return new ImmutableQuadrupleImpl<>(a, b, c, mapper.apply(a));
     }
 
     @Override
-    public <X> ImmutableQuadruple<A, B, C, X> mapSecondAndAdd(Function<B, X> mapper) {
+    public <X> ImmutableQuadruple<A, B, C, X> mapSecondAndAdd(Function<? super B, X> mapper) {
         return new ImmutableQuadrupleImpl<>(a, b, c, mapper.apply(b));
     }
 
     @Override
-    public <X> ImmutableQuadruple<A, B, C, X> mapAndAdd(Function<C, X> mapper) {
+    public <X> ImmutableQuadruple<A, B, C, X> mapAndAdd(Function<? super C, X> mapper) {
         return new ImmutableQuadrupleImpl<>(a, b, c, mapper.apply(c));
     }
 
@@ -160,8 +160,8 @@ final class ImmutableTripleImpl<A, B, C> implements ImmutableTriple<A, B, C> {
         if (this == that) return true;
         if (!(that instanceof Triple<?, ?, ?>)) return false;
         Triple<?, ?, ?> thatTriple = (Triple<?, ?, ?>) that;
-        return Objects.equals(this.a, thatTriple.getFirst()) &&
-                Objects.equals(this.b, thatTriple.getSecond()) &&
+        return Objects.equals(this.a, thatTriple.getFirst()) && 
+                Objects.equals(this.b, thatTriple.getSecond()) && 
                 Objects.equals(this.c, thatTriple.get());
     }
 

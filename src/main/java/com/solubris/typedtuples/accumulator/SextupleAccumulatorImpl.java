@@ -38,7 +38,7 @@ final class SextupleAccumulatorImpl<A, B, C, D, E, F> implements SextupleAccumul
     private final BinaryOperator<F> f;
 
     SextupleAccumulatorImpl(BinaryOperator<A> a, BinaryOperator<B> b, BinaryOperator<C> c,
-                            BinaryOperator<D> d, BinaryOperator<E> e, BinaryOperator<F> f) {
+            BinaryOperator<D> d, BinaryOperator<E> e, BinaryOperator<F> f) {
         this.a = a;
         this.b = b;
         this.c = c;
@@ -89,7 +89,7 @@ final class SextupleAccumulatorImpl<A, B, C, D, E, F> implements SextupleAccumul
 
     @Override
     public MutableSextuple<A, B, C, D, E, F> combine(MutableSextuple<A, B, C, D, E, F> l,
-                                                     MutableSextuple<A, B, C, D, E, F> r) {
+            MutableSextuple<A, B, C, D, E, F> r) {
         A fa = a.apply(l.getFirst(), r.getFirst());
         B fb = b.apply(l.getSecond(), r.getSecond());
         C fc = c.apply(l.getThird(), r.getThird());
@@ -101,7 +101,7 @@ final class SextupleAccumulatorImpl<A, B, C, D, E, F> implements SextupleAccumul
 
     @Override
     public ImmutableSextuple<A, B, C, D, E, F> combine(ImmutableSextuple<A, B, C, D, E, F> l,
-                                                       ImmutableSextuple<A, B, C, D, E, F> r) {
+            ImmutableSextuple<A, B, C, D, E, F> r) {
         A fa = a.apply(l.getFirst(), r.getFirst());
         B fb = b.apply(l.getSecond(), r.getSecond());
         C fc = c.apply(l.getThird(), r.getThird());

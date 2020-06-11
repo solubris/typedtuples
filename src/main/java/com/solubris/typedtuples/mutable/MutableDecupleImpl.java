@@ -230,15 +230,15 @@ final class MutableDecupleImpl<A, B, C, D, E, F, G, H, I, J> implements MutableD
         if (this == that) return true;
         if (!(that instanceof Decuple<?, ?, ?, ?, ?, ?, ?, ?, ?, ?>)) return false;
         Decuple<?, ?, ?, ?, ?, ?, ?, ?, ?, ?> thatDecuple = (Decuple<?, ?, ?, ?, ?, ?, ?, ?, ?, ?>) that;
-        return Objects.equals(this.a, thatDecuple.getFirst()) &&
-                Objects.equals(this.b, thatDecuple.getSecond()) &&
-                Objects.equals(this.c, thatDecuple.getThird()) &&
-                Objects.equals(this.d, thatDecuple.getFourth()) &&
-                Objects.equals(this.e, thatDecuple.getFifth()) &&
-                Objects.equals(this.f, thatDecuple.getSixth()) &&
-                Objects.equals(this.g, thatDecuple.getSeventh()) &&
-                Objects.equals(this.h, thatDecuple.getEighth()) &&
-                Objects.equals(this.i, thatDecuple.getNinth()) &&
+        return Objects.equals(this.a, thatDecuple.getFirst()) && 
+                Objects.equals(this.b, thatDecuple.getSecond()) && 
+                Objects.equals(this.c, thatDecuple.getThird()) && 
+                Objects.equals(this.d, thatDecuple.getFourth()) && 
+                Objects.equals(this.e, thatDecuple.getFifth()) && 
+                Objects.equals(this.f, thatDecuple.getSixth()) && 
+                Objects.equals(this.g, thatDecuple.getSeventh()) && 
+                Objects.equals(this.h, thatDecuple.getEighth()) && 
+                Objects.equals(this.i, thatDecuple.getNinth()) && 
                 Objects.equals(this.j, thatDecuple.get());
     }
 

@@ -33,9 +33,9 @@ public interface Sextuple<A, B, C, D, E, F> {
     F get();
 
     /**
-     * Compare tuple fields in order requiring that the fields are Comparable
-     * Each tuple field is compared using natural ordering
-     * Null values are not allowed, use the alternative method that accepts a Comparator
+     * Compare tuple fields in order requiring that the fields are Comparable.
+     * Each tuple field is compared using natural ordering.
+     * Null values are not allowed, use the alternative method that accepts a Comparator.
      */
     static <A extends Comparable<? super A>, B extends Comparable<? super B>, C extends Comparable<? super C>, D extends Comparable<? super D>, E extends Comparable<? super E>, F extends Comparable<? super F>> Comparator<Sextuple<A, B, C, D, E, F>> compareByAllFieldsInOrder(
             ) {
@@ -49,9 +49,9 @@ public interface Sextuple<A, B, C, D, E, F> {
     }
 
     /**
-     * Compare tuple fields in reverse order requiring that the fields are Comparable
-     * Each tuple field is compared using natural ordering
-     * Null values are not allowed, use the alternative method that accepts a Comparator
+     * Compare tuple fields in reverse order requiring that the fields are Comparable.
+     * Each tuple field is compared using natural ordering.
+     * Null values are not allowed, use the alternative method that accepts a Comparator.
      */
     static <A extends Comparable<? super A>, B extends Comparable<? super B>, C extends Comparable<? super C>, D extends Comparable<? super D>, E extends Comparable<? super E>, F extends Comparable<? super F>> Comparator<Sextuple<A, B, C, D, E, F>> compareByAllFieldsInReverseOrder(
             ) {
@@ -65,13 +65,13 @@ public interface Sextuple<A, B, C, D, E, F> {
     }
 
     /**
-     * Compare tuple fields in order using a Function to make each value Comparable
-     * Especially useful where the value is not comparable, but it has a field that can be extracted for comparison
-     * Null values are not allowed, use the alternative method that accepts a Comparator
+     * Compare tuple fields in order using a Function to make each value Comparable.
+     * Especially useful where the value is not comparable, but it has a field that can be extracted for comparison.
+     * Null values are not allowed, use the alternative method that accepts a Comparator.
      */
     static <A, FA extends Comparable<? super FA>, B, FB extends Comparable<? super FB>, C, FC extends Comparable<? super FC>, D, FD extends Comparable<? super FD>, E, FE extends Comparable<? super FE>, F, FF extends Comparable<? super FF>> Comparator<Sextuple<A, B, C, D, E, F>> compareByAllFieldsInOrder(
-            Function<A, FA> fa, Function<B, FB> fb, Function<C, FC> fc, Function<D, FD> fd,
-            Function<E, FE> fe, Function<F, FF> ff) {
+            Function<? super A, FA> fa, Function<? super B, FB> fb, Function<? super C, FC> fc,
+            Function<? super D, FD> fd, Function<? super E, FE> fe, Function<? super F, FF> ff) {
         Comparator<Sextuple<A, B, C, D, E, F>> a = Comparator.comparing(fa.compose(Sextuple::getFirst));
                 Comparator<Sextuple<A, B, C, D, E, F>> b = Comparator.comparing(fb.compose(Sextuple::getSecond));
                 Comparator<Sextuple<A, B, C, D, E, F>> c = Comparator.comparing(fc.compose(Sextuple::getThird));
@@ -82,13 +82,13 @@ public interface Sextuple<A, B, C, D, E, F> {
     }
 
     /**
-     * Compare tuple fields in reverse order using a Function to make each value Comparable
-     * Especially useful where the value is not comparable, but it has a field that can be extracted for comparison
-     * Null values are not allowed, use the alternative method that accepts a Comparator
+     * Compare tuple fields in reverse order using a Function to make each value Comparable.
+     * Especially useful where the value is not comparable, but it has a field that can be extracted for comparison.
+     * Null values are not allowed, use the alternative method that accepts a Comparator.
      */
     static <A, FA extends Comparable<? super FA>, B, FB extends Comparable<? super FB>, C, FC extends Comparable<? super FC>, D, FD extends Comparable<? super FD>, E, FE extends Comparable<? super FE>, F, FF extends Comparable<? super FF>> Comparator<Sextuple<A, B, C, D, E, F>> compareByAllFieldsInReverseOrder(
-            Function<A, FA> fa, Function<B, FB> fb, Function<C, FC> fc, Function<D, FD> fd,
-            Function<E, FE> fe, Function<F, FF> ff) {
+            Function<? super A, FA> fa, Function<? super B, FB> fb, Function<? super C, FC> fc,
+            Function<? super D, FD> fd, Function<? super E, FE> fe, Function<? super F, FF> ff) {
         Comparator<Sextuple<A, B, C, D, E, F>> a = Comparator.comparing(fa.compose(Sextuple::getFirst));
                 Comparator<Sextuple<A, B, C, D, E, F>> b = Comparator.comparing(fb.compose(Sextuple::getSecond));
                 Comparator<Sextuple<A, B, C, D, E, F>> c = Comparator.comparing(fc.compose(Sextuple::getThird));
@@ -99,7 +99,7 @@ public interface Sextuple<A, B, C, D, E, F> {
     }
 
     /**
-     * Compare tuple fields in order using a Comparator for each field
+     * Compare tuple fields in order using a Comparator for each field.
      * Especially useful for null-safe comparison, eg:
      * <pre>{@code
      * Sextuple.compareByAllFieldsInOrder(Comparator.nullsLast(Integer::compareTo), 
@@ -123,7 +123,7 @@ public interface Sextuple<A, B, C, D, E, F> {
     }
 
     /**
-     * Compare tuple fields in reverse order using a Comparator for each field
+     * Compare tuple fields in reverse order using a Comparator for each field.
      * Especially useful for null-safe comparison, eg:
      * <pre>{@code
      * Sextuple.compareByAllFieldsInReverseOrder(Comparator.nullsLast(Integer::compareTo), 

@@ -72,29 +72,29 @@ public interface ImmutableSextuple<A, B, C, D, E, F> extends Sextuple<A, B, C, D
 
     <X> ImmutableSextuple<A, B, C, D, E, X> replace(X x);
 
-    <X> ImmutableSextuple<X, B, C, D, E, F> mapFirst(Function<A, X> mapper);
+    <X> ImmutableSextuple<X, B, C, D, E, F> mapFirst(Function<? super A, X> mapper);
 
-    <X> ImmutableSextuple<A, X, C, D, E, F> mapSecond(Function<B, X> mapper);
+    <X> ImmutableSextuple<A, X, C, D, E, F> mapSecond(Function<? super B, X> mapper);
 
-    <X> ImmutableSextuple<A, B, X, D, E, F> mapThird(Function<C, X> mapper);
+    <X> ImmutableSextuple<A, B, X, D, E, F> mapThird(Function<? super C, X> mapper);
 
-    <X> ImmutableSextuple<A, B, C, X, E, F> mapFourth(Function<D, X> mapper);
+    <X> ImmutableSextuple<A, B, C, X, E, F> mapFourth(Function<? super D, X> mapper);
 
-    <X> ImmutableSextuple<A, B, C, D, X, F> mapFifth(Function<E, X> mapper);
+    <X> ImmutableSextuple<A, B, C, D, X, F> mapFifth(Function<? super E, X> mapper);
 
-    <X> ImmutableSextuple<A, B, C, D, E, X> map(Function<F, X> mapper);
+    <X> ImmutableSextuple<A, B, C, D, E, X> map(Function<? super F, X> mapper);
 
-    <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapFirstAndAdd(Function<A, X> mapper);
+    <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapFirstAndAdd(Function<? super A, X> mapper);
 
-    <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapSecondAndAdd(Function<B, X> mapper);
+    <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapSecondAndAdd(Function<? super B, X> mapper);
 
-    <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapThirdAndAdd(Function<C, X> mapper);
+    <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapThirdAndAdd(Function<? super C, X> mapper);
 
-    <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapFourthAndAdd(Function<D, X> mapper);
+    <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapFourthAndAdd(Function<? super D, X> mapper);
 
-    <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapFifthAndAdd(Function<E, X> mapper);
+    <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapFifthAndAdd(Function<? super E, X> mapper);
 
-    <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapAndAdd(Function<F, X> mapper);
+    <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapAndAdd(Function<? super F, X> mapper);
 
     <R> R mapAll(SextupleFunction<A, B, C, D, E, F, R> mapper);
 

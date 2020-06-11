@@ -207,52 +207,61 @@ final class ImmutableDecupleImpl<A, B, C, D, E, F, G, H, I, J> implements Immuta
     }
 
     @Override
-    public <X> ImmutableDecuple<X, B, C, D, E, F, G, H, I, J> mapFirst(Function<A, X> mapper) {
+    public <X> ImmutableDecuple<X, B, C, D, E, F, G, H, I, J> mapFirst(
+            Function<? super A, X> mapper) {
         return new ImmutableDecupleImpl<>(mapper.apply(a), b, c, d, e, f, g, h, i, j);
     }
 
     @Override
-    public <X> ImmutableDecuple<A, X, C, D, E, F, G, H, I, J> mapSecond(Function<B, X> mapper) {
+    public <X> ImmutableDecuple<A, X, C, D, E, F, G, H, I, J> mapSecond(
+            Function<? super B, X> mapper) {
         return new ImmutableDecupleImpl<>(a, mapper.apply(b), c, d, e, f, g, h, i, j);
     }
 
     @Override
-    public <X> ImmutableDecuple<A, B, X, D, E, F, G, H, I, J> mapThird(Function<C, X> mapper) {
+    public <X> ImmutableDecuple<A, B, X, D, E, F, G, H, I, J> mapThird(
+            Function<? super C, X> mapper) {
         return new ImmutableDecupleImpl<>(a, b, mapper.apply(c), d, e, f, g, h, i, j);
     }
 
     @Override
-    public <X> ImmutableDecuple<A, B, C, X, E, F, G, H, I, J> mapFourth(Function<D, X> mapper) {
+    public <X> ImmutableDecuple<A, B, C, X, E, F, G, H, I, J> mapFourth(
+            Function<? super D, X> mapper) {
         return new ImmutableDecupleImpl<>(a, b, c, mapper.apply(d), e, f, g, h, i, j);
     }
 
     @Override
-    public <X> ImmutableDecuple<A, B, C, D, X, F, G, H, I, J> mapFifth(Function<E, X> mapper) {
+    public <X> ImmutableDecuple<A, B, C, D, X, F, G, H, I, J> mapFifth(
+            Function<? super E, X> mapper) {
         return new ImmutableDecupleImpl<>(a, b, c, d, mapper.apply(e), f, g, h, i, j);
     }
 
     @Override
-    public <X> ImmutableDecuple<A, B, C, D, E, X, G, H, I, J> mapSixth(Function<F, X> mapper) {
+    public <X> ImmutableDecuple<A, B, C, D, E, X, G, H, I, J> mapSixth(
+            Function<? super F, X> mapper) {
         return new ImmutableDecupleImpl<>(a, b, c, d, e, mapper.apply(f), g, h, i, j);
     }
 
     @Override
-    public <X> ImmutableDecuple<A, B, C, D, E, F, X, H, I, J> mapSeventh(Function<G, X> mapper) {
+    public <X> ImmutableDecuple<A, B, C, D, E, F, X, H, I, J> mapSeventh(
+            Function<? super G, X> mapper) {
         return new ImmutableDecupleImpl<>(a, b, c, d, e, f, mapper.apply(g), h, i, j);
     }
 
     @Override
-    public <X> ImmutableDecuple<A, B, C, D, E, F, G, X, I, J> mapEighth(Function<H, X> mapper) {
+    public <X> ImmutableDecuple<A, B, C, D, E, F, G, X, I, J> mapEighth(
+            Function<? super H, X> mapper) {
         return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, mapper.apply(h), i, j);
     }
 
     @Override
-    public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, X, J> mapNinth(Function<I, X> mapper) {
+    public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, X, J> mapNinth(
+            Function<? super I, X> mapper) {
         return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, mapper.apply(i), j);
     }
 
     @Override
-    public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> map(Function<J, X> mapper) {
+    public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> map(Function<? super J, X> mapper) {
         return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(j));
     }
 
@@ -271,15 +280,15 @@ final class ImmutableDecupleImpl<A, B, C, D, E, F, G, H, I, J> implements Immuta
         if (this == that) return true;
         if (!(that instanceof Decuple<?, ?, ?, ?, ?, ?, ?, ?, ?, ?>)) return false;
         Decuple<?, ?, ?, ?, ?, ?, ?, ?, ?, ?> thatDecuple = (Decuple<?, ?, ?, ?, ?, ?, ?, ?, ?, ?>) that;
-        return Objects.equals(this.a, thatDecuple.getFirst()) &&
-                Objects.equals(this.b, thatDecuple.getSecond()) &&
-                Objects.equals(this.c, thatDecuple.getThird()) &&
-                Objects.equals(this.d, thatDecuple.getFourth()) &&
-                Objects.equals(this.e, thatDecuple.getFifth()) &&
-                Objects.equals(this.f, thatDecuple.getSixth()) &&
-                Objects.equals(this.g, thatDecuple.getSeventh()) &&
-                Objects.equals(this.h, thatDecuple.getEighth()) &&
-                Objects.equals(this.i, thatDecuple.getNinth()) &&
+        return Objects.equals(this.a, thatDecuple.getFirst()) && 
+                Objects.equals(this.b, thatDecuple.getSecond()) && 
+                Objects.equals(this.c, thatDecuple.getThird()) && 
+                Objects.equals(this.d, thatDecuple.getFourth()) && 
+                Objects.equals(this.e, thatDecuple.getFifth()) && 
+                Objects.equals(this.f, thatDecuple.getSixth()) && 
+                Objects.equals(this.g, thatDecuple.getSeventh()) && 
+                Objects.equals(this.h, thatDecuple.getEighth()) && 
+                Objects.equals(this.i, thatDecuple.getNinth()) && 
                 Objects.equals(this.j, thatDecuple.get());
     }
 

@@ -200,62 +200,67 @@ final class ImmutableSextupleImpl<A, B, C, D, E, F> implements ImmutableSextuple
     }
 
     @Override
-    public <X> ImmutableSextuple<X, B, C, D, E, F> mapFirst(Function<A, X> mapper) {
+    public <X> ImmutableSextuple<X, B, C, D, E, F> mapFirst(Function<? super A, X> mapper) {
         return new ImmutableSextupleImpl<>(mapper.apply(a), b, c, d, e, f);
     }
 
     @Override
-    public <X> ImmutableSextuple<A, X, C, D, E, F> mapSecond(Function<B, X> mapper) {
+    public <X> ImmutableSextuple<A, X, C, D, E, F> mapSecond(Function<? super B, X> mapper) {
         return new ImmutableSextupleImpl<>(a, mapper.apply(b), c, d, e, f);
     }
 
     @Override
-    public <X> ImmutableSextuple<A, B, X, D, E, F> mapThird(Function<C, X> mapper) {
+    public <X> ImmutableSextuple<A, B, X, D, E, F> mapThird(Function<? super C, X> mapper) {
         return new ImmutableSextupleImpl<>(a, b, mapper.apply(c), d, e, f);
     }
 
     @Override
-    public <X> ImmutableSextuple<A, B, C, X, E, F> mapFourth(Function<D, X> mapper) {
+    public <X> ImmutableSextuple<A, B, C, X, E, F> mapFourth(Function<? super D, X> mapper) {
         return new ImmutableSextupleImpl<>(a, b, c, mapper.apply(d), e, f);
     }
 
     @Override
-    public <X> ImmutableSextuple<A, B, C, D, X, F> mapFifth(Function<E, X> mapper) {
+    public <X> ImmutableSextuple<A, B, C, D, X, F> mapFifth(Function<? super E, X> mapper) {
         return new ImmutableSextupleImpl<>(a, b, c, d, mapper.apply(e), f);
     }
 
     @Override
-    public <X> ImmutableSextuple<A, B, C, D, E, X> map(Function<F, X> mapper) {
+    public <X> ImmutableSextuple<A, B, C, D, E, X> map(Function<? super F, X> mapper) {
         return new ImmutableSextupleImpl<>(a, b, c, d, e, mapper.apply(f));
     }
 
     @Override
-    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapFirstAndAdd(Function<A, X> mapper) {
+    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapFirstAndAdd(
+            Function<? super A, X> mapper) {
         return new ImmutableSeptupleImpl<>(a, b, c, d, e, f, mapper.apply(a));
     }
 
     @Override
-    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapSecondAndAdd(Function<B, X> mapper) {
+    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapSecondAndAdd(
+            Function<? super B, X> mapper) {
         return new ImmutableSeptupleImpl<>(a, b, c, d, e, f, mapper.apply(b));
     }
 
     @Override
-    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapThirdAndAdd(Function<C, X> mapper) {
+    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapThirdAndAdd(
+            Function<? super C, X> mapper) {
         return new ImmutableSeptupleImpl<>(a, b, c, d, e, f, mapper.apply(c));
     }
 
     @Override
-    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapFourthAndAdd(Function<D, X> mapper) {
+    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapFourthAndAdd(
+            Function<? super D, X> mapper) {
         return new ImmutableSeptupleImpl<>(a, b, c, d, e, f, mapper.apply(d));
     }
 
     @Override
-    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapFifthAndAdd(Function<E, X> mapper) {
+    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapFifthAndAdd(
+            Function<? super E, X> mapper) {
         return new ImmutableSeptupleImpl<>(a, b, c, d, e, f, mapper.apply(e));
     }
 
     @Override
-    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapAndAdd(Function<F, X> mapper) {
+    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapAndAdd(Function<? super F, X> mapper) {
         return new ImmutableSeptupleImpl<>(a, b, c, d, e, f, mapper.apply(f));
     }
 
@@ -274,11 +279,11 @@ final class ImmutableSextupleImpl<A, B, C, D, E, F> implements ImmutableSextuple
         if (this == that) return true;
         if (!(that instanceof Sextuple<?, ?, ?, ?, ?, ?>)) return false;
         Sextuple<?, ?, ?, ?, ?, ?> thatSextuple = (Sextuple<?, ?, ?, ?, ?, ?>) that;
-        return Objects.equals(this.a, thatSextuple.getFirst()) &&
-                Objects.equals(this.b, thatSextuple.getSecond()) &&
-                Objects.equals(this.c, thatSextuple.getThird()) &&
-                Objects.equals(this.d, thatSextuple.getFourth()) &&
-                Objects.equals(this.e, thatSextuple.getFifth()) &&
+        return Objects.equals(this.a, thatSextuple.getFirst()) && 
+                Objects.equals(this.b, thatSextuple.getSecond()) && 
+                Objects.equals(this.c, thatSextuple.getThird()) && 
+                Objects.equals(this.d, thatSextuple.getFourth()) && 
+                Objects.equals(this.e, thatSextuple.getFifth()) && 
                 Objects.equals(this.f, thatSextuple.get());
     }
 

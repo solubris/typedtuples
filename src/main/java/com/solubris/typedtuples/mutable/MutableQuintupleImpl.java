@@ -135,10 +135,10 @@ final class MutableQuintupleImpl<A, B, C, D, E> implements MutableQuintuple<A, B
         if (this == that) return true;
         if (!(that instanceof Quintuple<?, ?, ?, ?, ?>)) return false;
         Quintuple<?, ?, ?, ?, ?> thatQuintuple = (Quintuple<?, ?, ?, ?, ?>) that;
-        return Objects.equals(this.a, thatQuintuple.getFirst()) &&
-                Objects.equals(this.b, thatQuintuple.getSecond()) &&
-                Objects.equals(this.c, thatQuintuple.getThird()) &&
-                Objects.equals(this.d, thatQuintuple.getFourth()) &&
+        return Objects.equals(this.a, thatQuintuple.getFirst()) && 
+                Objects.equals(this.b, thatQuintuple.getSecond()) && 
+                Objects.equals(this.c, thatQuintuple.getThird()) && 
+                Objects.equals(this.d, thatQuintuple.getFourth()) && 
                 Objects.equals(this.e, thatQuintuple.get());
     }
 

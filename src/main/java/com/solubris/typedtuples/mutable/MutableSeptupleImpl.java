@@ -173,12 +173,12 @@ final class MutableSeptupleImpl<A, B, C, D, E, F, G> implements MutableSeptuple<
         if (this == that) return true;
         if (!(that instanceof Septuple<?, ?, ?, ?, ?, ?, ?>)) return false;
         Septuple<?, ?, ?, ?, ?, ?, ?> thatSeptuple = (Septuple<?, ?, ?, ?, ?, ?, ?>) that;
-        return Objects.equals(this.a, thatSeptuple.getFirst()) &&
-                Objects.equals(this.b, thatSeptuple.getSecond()) &&
-                Objects.equals(this.c, thatSeptuple.getThird()) &&
-                Objects.equals(this.d, thatSeptuple.getFourth()) &&
-                Objects.equals(this.e, thatSeptuple.getFifth()) &&
-                Objects.equals(this.f, thatSeptuple.getSixth()) &&
+        return Objects.equals(this.a, thatSeptuple.getFirst()) && 
+                Objects.equals(this.b, thatSeptuple.getSecond()) && 
+                Objects.equals(this.c, thatSeptuple.getThird()) && 
+                Objects.equals(this.d, thatSeptuple.getFourth()) && 
+                Objects.equals(this.e, thatSeptuple.getFifth()) && 
+                Objects.equals(this.f, thatSeptuple.getSixth()) && 
                 Objects.equals(this.g, thatSeptuple.get());
     }
 

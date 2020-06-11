@@ -24,10 +24,10 @@ import java.util.function.BinaryOperator;
 
 public interface NonupleAccumulator<A, B, C, D, E, F, G, H, I> extends Nonuple<BinaryOperator<A>, BinaryOperator<B>, BinaryOperator<C>, BinaryOperator<D>, BinaryOperator<E>, BinaryOperator<F>, BinaryOperator<G>, BinaryOperator<H>, BinaryOperator<I>> {
     void accumulate(MutableNonuple<A, B, C, D, E, F, G, H, I> acc,
-                    Nonuple<A, B, C, D, E, F, G, H, I> t);
+            Nonuple<A, B, C, D, E, F, G, H, I> t);
 
     MutableNonuple<A, B, C, D, E, F, G, H, I> combine(MutableNonuple<A, B, C, D, E, F, G, H, I> l,
-                                                      MutableNonuple<A, B, C, D, E, F, G, H, I> r);
+            MutableNonuple<A, B, C, D, E, F, G, H, I> r);
 
     ImmutableNonuple<A, B, C, D, E, F, G, H, I> combine(
             ImmutableNonuple<A, B, C, D, E, F, G, H, I> l,

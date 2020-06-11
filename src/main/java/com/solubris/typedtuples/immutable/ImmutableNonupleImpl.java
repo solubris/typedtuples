@@ -284,100 +284,105 @@ final class ImmutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements Immutable
     }
 
     @Override
-    public <X> ImmutableNonuple<X, B, C, D, E, F, G, H, I> mapFirst(Function<A, X> mapper) {
+    public <X> ImmutableNonuple<X, B, C, D, E, F, G, H, I> mapFirst(Function<? super A, X> mapper) {
         return new ImmutableNonupleImpl<>(mapper.apply(a), b, c, d, e, f, g, h, i);
     }
 
     @Override
-    public <X> ImmutableNonuple<A, X, C, D, E, F, G, H, I> mapSecond(Function<B, X> mapper) {
+    public <X> ImmutableNonuple<A, X, C, D, E, F, G, H, I> mapSecond(
+            Function<? super B, X> mapper) {
         return new ImmutableNonupleImpl<>(a, mapper.apply(b), c, d, e, f, g, h, i);
     }
 
     @Override
-    public <X> ImmutableNonuple<A, B, X, D, E, F, G, H, I> mapThird(Function<C, X> mapper) {
+    public <X> ImmutableNonuple<A, B, X, D, E, F, G, H, I> mapThird(Function<? super C, X> mapper) {
         return new ImmutableNonupleImpl<>(a, b, mapper.apply(c), d, e, f, g, h, i);
     }
 
     @Override
-    public <X> ImmutableNonuple<A, B, C, X, E, F, G, H, I> mapFourth(Function<D, X> mapper) {
+    public <X> ImmutableNonuple<A, B, C, X, E, F, G, H, I> mapFourth(
+            Function<? super D, X> mapper) {
         return new ImmutableNonupleImpl<>(a, b, c, mapper.apply(d), e, f, g, h, i);
     }
 
     @Override
-    public <X> ImmutableNonuple<A, B, C, D, X, F, G, H, I> mapFifth(Function<E, X> mapper) {
+    public <X> ImmutableNonuple<A, B, C, D, X, F, G, H, I> mapFifth(Function<? super E, X> mapper) {
         return new ImmutableNonupleImpl<>(a, b, c, d, mapper.apply(e), f, g, h, i);
     }
 
     @Override
-    public <X> ImmutableNonuple<A, B, C, D, E, X, G, H, I> mapSixth(Function<F, X> mapper) {
+    public <X> ImmutableNonuple<A, B, C, D, E, X, G, H, I> mapSixth(Function<? super F, X> mapper) {
         return new ImmutableNonupleImpl<>(a, b, c, d, e, mapper.apply(f), g, h, i);
     }
 
     @Override
-    public <X> ImmutableNonuple<A, B, C, D, E, F, X, H, I> mapSeventh(Function<G, X> mapper) {
+    public <X> ImmutableNonuple<A, B, C, D, E, F, X, H, I> mapSeventh(
+            Function<? super G, X> mapper) {
         return new ImmutableNonupleImpl<>(a, b, c, d, e, f, mapper.apply(g), h, i);
     }
 
     @Override
-    public <X> ImmutableNonuple<A, B, C, D, E, F, G, X, I> mapEighth(Function<H, X> mapper) {
+    public <X> ImmutableNonuple<A, B, C, D, E, F, G, X, I> mapEighth(
+            Function<? super H, X> mapper) {
         return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, mapper.apply(h), i);
     }
 
     @Override
-    public <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> map(Function<I, X> mapper) {
+    public <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> map(Function<? super I, X> mapper) {
         return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, mapper.apply(i));
     }
 
     @Override
     public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapFirstAndAdd(
-            Function<A, X> mapper) {
+            Function<? super A, X> mapper) {
         return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(a));
     }
 
     @Override
     public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapSecondAndAdd(
-            Function<B, X> mapper) {
+            Function<? super B, X> mapper) {
         return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(b));
     }
 
     @Override
     public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapThirdAndAdd(
-            Function<C, X> mapper) {
+            Function<? super C, X> mapper) {
         return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(c));
     }
 
     @Override
     public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapFourthAndAdd(
-            Function<D, X> mapper) {
+            Function<? super D, X> mapper) {
         return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(d));
     }
 
     @Override
     public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapFifthAndAdd(
-            Function<E, X> mapper) {
+            Function<? super E, X> mapper) {
         return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(e));
     }
 
     @Override
     public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapSixthAndAdd(
-            Function<F, X> mapper) {
+            Function<? super F, X> mapper) {
         return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(f));
     }
 
     @Override
     public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapSeventhAndAdd(
-            Function<G, X> mapper) {
+            Function<? super G, X> mapper) {
         return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(g));
     }
 
     @Override
     public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapEighthAndAdd(
-            Function<H, X> mapper) {
+            Function<? super H, X> mapper) {
         return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(h));
     }
 
     @Override
-    public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapAndAdd(Function<I, X> mapper) {
+    public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapAndAdd(
+            Function<? super I, X> mapper) {
         return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(i));
     }
 
@@ -396,14 +401,14 @@ final class ImmutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements Immutable
         if (this == that) return true;
         if (!(that instanceof Nonuple<?, ?, ?, ?, ?, ?, ?, ?, ?>)) return false;
         Nonuple<?, ?, ?, ?, ?, ?, ?, ?, ?> thatNonuple = (Nonuple<?, ?, ?, ?, ?, ?, ?, ?, ?>) that;
-        return Objects.equals(this.a, thatNonuple.getFirst()) &&
-                Objects.equals(this.b, thatNonuple.getSecond()) &&
-                Objects.equals(this.c, thatNonuple.getThird()) &&
-                Objects.equals(this.d, thatNonuple.getFourth()) &&
-                Objects.equals(this.e, thatNonuple.getFifth()) &&
-                Objects.equals(this.f, thatNonuple.getSixth()) &&
-                Objects.equals(this.g, thatNonuple.getSeventh()) &&
-                Objects.equals(this.h, thatNonuple.getEighth()) &&
+        return Objects.equals(this.a, thatNonuple.getFirst()) && 
+                Objects.equals(this.b, thatNonuple.getSecond()) && 
+                Objects.equals(this.c, thatNonuple.getThird()) && 
+                Objects.equals(this.d, thatNonuple.getFourth()) && 
+                Objects.equals(this.e, thatNonuple.getFifth()) && 
+                Objects.equals(this.f, thatNonuple.getSixth()) && 
+                Objects.equals(this.g, thatNonuple.getSeventh()) && 
+                Objects.equals(this.h, thatNonuple.getEighth()) && 
                 Objects.equals(this.i, thatNonuple.get());
     }
 

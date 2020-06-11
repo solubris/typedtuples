@@ -26,8 +26,8 @@ public interface SeptupleAccumulator<A, B, C, D, E, F, G> extends Septuple<Binar
     void accumulate(MutableSeptuple<A, B, C, D, E, F, G> acc, Septuple<A, B, C, D, E, F, G> t);
 
     MutableSeptuple<A, B, C, D, E, F, G> combine(MutableSeptuple<A, B, C, D, E, F, G> l,
-                                                 MutableSeptuple<A, B, C, D, E, F, G> r);
+            MutableSeptuple<A, B, C, D, E, F, G> r);
 
     ImmutableSeptuple<A, B, C, D, E, F, G> combine(ImmutableSeptuple<A, B, C, D, E, F, G> l,
-                                                   ImmutableSeptuple<A, B, C, D, E, F, G> r);
+            ImmutableSeptuple<A, B, C, D, E, F, G> r);
 }

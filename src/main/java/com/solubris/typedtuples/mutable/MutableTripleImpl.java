@@ -97,8 +97,8 @@ final class MutableTripleImpl<A, B, C> implements MutableTriple<A, B, C> {
         if (this == that) return true;
         if (!(that instanceof Triple<?, ?, ?>)) return false;
         Triple<?, ?, ?> thatTriple = (Triple<?, ?, ?>) that;
-        return Objects.equals(this.a, thatTriple.getFirst()) &&
-                Objects.equals(this.b, thatTriple.getSecond()) &&
+        return Objects.equals(this.a, thatTriple.getFirst()) && 
+                Objects.equals(this.b, thatTriple.getSecond()) && 
                 Objects.equals(this.c, thatTriple.get());
     }
 

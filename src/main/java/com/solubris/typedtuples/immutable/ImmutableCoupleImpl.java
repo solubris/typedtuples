@@ -88,22 +88,22 @@ final class ImmutableCoupleImpl<A, B> implements ImmutableCouple<A, B> {
     }
 
     @Override
-    public <X> ImmutableCouple<X, B> mapFirst(Function<A, X> mapper) {
+    public <X> ImmutableCouple<X, B> mapFirst(Function<? super A, X> mapper) {
         return new ImmutableCoupleImpl<>(mapper.apply(a), b);
     }
 
     @Override
-    public <X> ImmutableCouple<A, X> map(Function<B, X> mapper) {
+    public <X> ImmutableCouple<A, X> map(Function<? super B, X> mapper) {
         return new ImmutableCoupleImpl<>(a, mapper.apply(b));
     }
 
     @Override
-    public <X> ImmutableTriple<A, B, X> mapFirstAndAdd(Function<A, X> mapper) {
+    public <X> ImmutableTriple<A, B, X> mapFirstAndAdd(Function<? super A, X> mapper) {
         return new ImmutableTripleImpl<>(a, b, mapper.apply(a));
     }
 
     @Override
-    public <X> ImmutableTriple<A, B, X> mapAndAdd(Function<B, X> mapper) {
+    public <X> ImmutableTriple<A, B, X> mapAndAdd(Function<? super B, X> mapper) {
         return new ImmutableTripleImpl<>(a, b, mapper.apply(b));
     }
 
@@ -122,7 +122,7 @@ final class ImmutableCoupleImpl<A, B> implements ImmutableCouple<A, B> {
         if (this == that) return true;
         if (!(that instanceof Couple<?, ?>)) return false;
         Couple<?, ?> thatCouple = (Couple<?, ?>) that;
-        return Objects.equals(this.a, thatCouple.getFirst()) &&
+        return Objects.equals(this.a, thatCouple.getFirst()) && 
                 Objects.equals(this.b, thatCouple.get());
     }
 

@@ -211,14 +211,14 @@ final class MutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements MutableNonu
         if (this == that) return true;
         if (!(that instanceof Nonuple<?, ?, ?, ?, ?, ?, ?, ?, ?>)) return false;
         Nonuple<?, ?, ?, ?, ?, ?, ?, ?, ?> thatNonuple = (Nonuple<?, ?, ?, ?, ?, ?, ?, ?, ?>) that;
-        return Objects.equals(this.a, thatNonuple.getFirst()) &&
-                Objects.equals(this.b, thatNonuple.getSecond()) &&
-                Objects.equals(this.c, thatNonuple.getThird()) &&
-                Objects.equals(this.d, thatNonuple.getFourth()) &&
-                Objects.equals(this.e, thatNonuple.getFifth()) &&
-                Objects.equals(this.f, thatNonuple.getSixth()) &&
-                Objects.equals(this.g, thatNonuple.getSeventh()) &&
-                Objects.equals(this.h, thatNonuple.getEighth()) &&
+        return Objects.equals(this.a, thatNonuple.getFirst()) && 
+                Objects.equals(this.b, thatNonuple.getSecond()) && 
+                Objects.equals(this.c, thatNonuple.getThird()) && 
+                Objects.equals(this.d, thatNonuple.getFourth()) && 
+                Objects.equals(this.e, thatNonuple.getFifth()) && 
+                Objects.equals(this.f, thatNonuple.getSixth()) && 
+                Objects.equals(this.g, thatNonuple.getSeventh()) && 
+                Objects.equals(this.h, thatNonuple.getEighth()) && 
                 Objects.equals(this.i, thatNonuple.get());
     }
 

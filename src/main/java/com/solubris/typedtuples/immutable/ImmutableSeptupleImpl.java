@@ -228,72 +228,78 @@ final class ImmutableSeptupleImpl<A, B, C, D, E, F, G> implements ImmutableSeptu
     }
 
     @Override
-    public <X> ImmutableSeptuple<X, B, C, D, E, F, G> mapFirst(Function<A, X> mapper) {
+    public <X> ImmutableSeptuple<X, B, C, D, E, F, G> mapFirst(Function<? super A, X> mapper) {
         return new ImmutableSeptupleImpl<>(mapper.apply(a), b, c, d, e, f, g);
     }
 
     @Override
-    public <X> ImmutableSeptuple<A, X, C, D, E, F, G> mapSecond(Function<B, X> mapper) {
+    public <X> ImmutableSeptuple<A, X, C, D, E, F, G> mapSecond(Function<? super B, X> mapper) {
         return new ImmutableSeptupleImpl<>(a, mapper.apply(b), c, d, e, f, g);
     }
 
     @Override
-    public <X> ImmutableSeptuple<A, B, X, D, E, F, G> mapThird(Function<C, X> mapper) {
+    public <X> ImmutableSeptuple<A, B, X, D, E, F, G> mapThird(Function<? super C, X> mapper) {
         return new ImmutableSeptupleImpl<>(a, b, mapper.apply(c), d, e, f, g);
     }
 
     @Override
-    public <X> ImmutableSeptuple<A, B, C, X, E, F, G> mapFourth(Function<D, X> mapper) {
+    public <X> ImmutableSeptuple<A, B, C, X, E, F, G> mapFourth(Function<? super D, X> mapper) {
         return new ImmutableSeptupleImpl<>(a, b, c, mapper.apply(d), e, f, g);
     }
 
     @Override
-    public <X> ImmutableSeptuple<A, B, C, D, X, F, G> mapFifth(Function<E, X> mapper) {
+    public <X> ImmutableSeptuple<A, B, C, D, X, F, G> mapFifth(Function<? super E, X> mapper) {
         return new ImmutableSeptupleImpl<>(a, b, c, d, mapper.apply(e), f, g);
     }
 
     @Override
-    public <X> ImmutableSeptuple<A, B, C, D, E, X, G> mapSixth(Function<F, X> mapper) {
+    public <X> ImmutableSeptuple<A, B, C, D, E, X, G> mapSixth(Function<? super F, X> mapper) {
         return new ImmutableSeptupleImpl<>(a, b, c, d, e, mapper.apply(f), g);
     }
 
     @Override
-    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> map(Function<G, X> mapper) {
+    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> map(Function<? super G, X> mapper) {
         return new ImmutableSeptupleImpl<>(a, b, c, d, e, f, mapper.apply(g));
     }
 
     @Override
-    public <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapFirstAndAdd(Function<A, X> mapper) {
+    public <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapFirstAndAdd(
+            Function<? super A, X> mapper) {
         return new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, mapper.apply(a));
     }
 
     @Override
-    public <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapSecondAndAdd(Function<B, X> mapper) {
+    public <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapSecondAndAdd(
+            Function<? super B, X> mapper) {
         return new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, mapper.apply(b));
     }
 
     @Override
-    public <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapThirdAndAdd(Function<C, X> mapper) {
+    public <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapThirdAndAdd(
+            Function<? super C, X> mapper) {
         return new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, mapper.apply(c));
     }
 
     @Override
-    public <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapFourthAndAdd(Function<D, X> mapper) {
+    public <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapFourthAndAdd(
+            Function<? super D, X> mapper) {
         return new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, mapper.apply(d));
     }
 
     @Override
-    public <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapFifthAndAdd(Function<E, X> mapper) {
+    public <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapFifthAndAdd(
+            Function<? super E, X> mapper) {
         return new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, mapper.apply(e));
     }
 
     @Override
-    public <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapSixthAndAdd(Function<F, X> mapper) {
+    public <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapSixthAndAdd(
+            Function<? super F, X> mapper) {
         return new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, mapper.apply(f));
     }
 
     @Override
-    public <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapAndAdd(Function<G, X> mapper) {
+    public <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapAndAdd(Function<? super G, X> mapper) {
         return new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, mapper.apply(g));
     }
 
@@ -312,12 +318,12 @@ final class ImmutableSeptupleImpl<A, B, C, D, E, F, G> implements ImmutableSeptu
         if (this == that) return true;
         if (!(that instanceof Septuple<?, ?, ?, ?, ?, ?, ?>)) return false;
         Septuple<?, ?, ?, ?, ?, ?, ?> thatSeptuple = (Septuple<?, ?, ?, ?, ?, ?, ?>) that;
-        return Objects.equals(this.a, thatSeptuple.getFirst()) &&
-                Objects.equals(this.b, thatSeptuple.getSecond()) &&
-                Objects.equals(this.c, thatSeptuple.getThird()) &&
-                Objects.equals(this.d, thatSeptuple.getFourth()) &&
-                Objects.equals(this.e, thatSeptuple.getFifth()) &&
-                Objects.equals(this.f, thatSeptuple.getSixth()) &&
+        return Objects.equals(this.a, thatSeptuple.getFirst()) && 
+                Objects.equals(this.b, thatSeptuple.getSecond()) && 
+                Objects.equals(this.c, thatSeptuple.getThird()) && 
+                Objects.equals(this.d, thatSeptuple.getFourth()) && 
+                Objects.equals(this.e, thatSeptuple.getFifth()) && 
+                Objects.equals(this.f, thatSeptuple.getSixth()) && 
                 Objects.equals(this.g, thatSeptuple.get());
     }
 

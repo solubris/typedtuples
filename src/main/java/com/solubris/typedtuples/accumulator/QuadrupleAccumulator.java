@@ -26,8 +26,8 @@ public interface QuadrupleAccumulator<A, B, C, D> extends Quadruple<BinaryOperat
     void accumulate(MutableQuadruple<A, B, C, D> acc, Quadruple<A, B, C, D> t);
 
     MutableQuadruple<A, B, C, D> combine(MutableQuadruple<A, B, C, D> l,
-                                         MutableQuadruple<A, B, C, D> r);
+            MutableQuadruple<A, B, C, D> r);
 
     ImmutableQuadruple<A, B, C, D> combine(ImmutableQuadruple<A, B, C, D> l,
-                                           ImmutableQuadruple<A, B, C, D> r);
+            ImmutableQuadruple<A, B, C, D> r);
 }

@@ -116,9 +116,9 @@ final class MutableQuadrupleImpl<A, B, C, D> implements MutableQuadruple<A, B, C
         if (this == that) return true;
         if (!(that instanceof Quadruple<?, ?, ?, ?>)) return false;
         Quadruple<?, ?, ?, ?> thatQuadruple = (Quadruple<?, ?, ?, ?>) that;
-        return Objects.equals(this.a, thatQuadruple.getFirst()) &&
-                Objects.equals(this.b, thatQuadruple.getSecond()) &&
-                Objects.equals(this.c, thatQuadruple.getThird()) &&
+        return Objects.equals(this.a, thatQuadruple.getFirst()) && 
+                Objects.equals(this.b, thatQuadruple.getSecond()) && 
+                Objects.equals(this.c, thatQuadruple.getThird()) && 
                 Objects.equals(this.d, thatQuadruple.get());
     }
 

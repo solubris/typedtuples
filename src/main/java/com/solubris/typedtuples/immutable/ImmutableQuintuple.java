@@ -64,25 +64,25 @@ public interface ImmutableQuintuple<A, B, C, D, E> extends Quintuple<A, B, C, D,
 
     <X> ImmutableQuintuple<A, B, C, D, X> replace(X x);
 
-    <X> ImmutableQuintuple<X, B, C, D, E> mapFirst(Function<A, X> mapper);
+    <X> ImmutableQuintuple<X, B, C, D, E> mapFirst(Function<? super A, X> mapper);
 
-    <X> ImmutableQuintuple<A, X, C, D, E> mapSecond(Function<B, X> mapper);
+    <X> ImmutableQuintuple<A, X, C, D, E> mapSecond(Function<? super B, X> mapper);
 
-    <X> ImmutableQuintuple<A, B, X, D, E> mapThird(Function<C, X> mapper);
+    <X> ImmutableQuintuple<A, B, X, D, E> mapThird(Function<? super C, X> mapper);
 
-    <X> ImmutableQuintuple<A, B, C, X, E> mapFourth(Function<D, X> mapper);
+    <X> ImmutableQuintuple<A, B, C, X, E> mapFourth(Function<? super D, X> mapper);
 
-    <X> ImmutableQuintuple<A, B, C, D, X> map(Function<E, X> mapper);
+    <X> ImmutableQuintuple<A, B, C, D, X> map(Function<? super E, X> mapper);
 
-    <X> ImmutableSextuple<A, B, C, D, E, X> mapFirstAndAdd(Function<A, X> mapper);
+    <X> ImmutableSextuple<A, B, C, D, E, X> mapFirstAndAdd(Function<? super A, X> mapper);
 
-    <X> ImmutableSextuple<A, B, C, D, E, X> mapSecondAndAdd(Function<B, X> mapper);
+    <X> ImmutableSextuple<A, B, C, D, E, X> mapSecondAndAdd(Function<? super B, X> mapper);
 
-    <X> ImmutableSextuple<A, B, C, D, E, X> mapThirdAndAdd(Function<C, X> mapper);
+    <X> ImmutableSextuple<A, B, C, D, E, X> mapThirdAndAdd(Function<? super C, X> mapper);
 
-    <X> ImmutableSextuple<A, B, C, D, E, X> mapFourthAndAdd(Function<D, X> mapper);
+    <X> ImmutableSextuple<A, B, C, D, E, X> mapFourthAndAdd(Function<? super D, X> mapper);
 
-    <X> ImmutableSextuple<A, B, C, D, E, X> mapAndAdd(Function<E, X> mapper);
+    <X> ImmutableSextuple<A, B, C, D, E, X> mapAndAdd(Function<? super E, X> mapper);
 
     <R> R mapAll(QuintupleFunction<A, B, C, D, E, R> mapper);
 

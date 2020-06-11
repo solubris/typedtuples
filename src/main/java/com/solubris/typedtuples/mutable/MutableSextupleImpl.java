@@ -154,11 +154,11 @@ final class MutableSextupleImpl<A, B, C, D, E, F> implements MutableSextuple<A, 
         if (this == that) return true;
         if (!(that instanceof Sextuple<?, ?, ?, ?, ?, ?>)) return false;
         Sextuple<?, ?, ?, ?, ?, ?> thatSextuple = (Sextuple<?, ?, ?, ?, ?, ?>) that;
-        return Objects.equals(this.a, thatSextuple.getFirst()) &&
-                Objects.equals(this.b, thatSextuple.getSecond()) &&
-                Objects.equals(this.c, thatSextuple.getThird()) &&
-                Objects.equals(this.d, thatSextuple.getFourth()) &&
-                Objects.equals(this.e, thatSextuple.getFifth()) &&
+        return Objects.equals(this.a, thatSextuple.getFirst()) && 
+                Objects.equals(this.b, thatSextuple.getSecond()) && 
+                Objects.equals(this.c, thatSextuple.getThird()) && 
+                Objects.equals(this.d, thatSextuple.getFourth()) && 
+                Objects.equals(this.e, thatSextuple.getFifth()) && 
                 Objects.equals(this.f, thatSextuple.get());
     }
 

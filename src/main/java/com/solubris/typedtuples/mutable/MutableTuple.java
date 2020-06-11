@@ -73,7 +73,7 @@ public class MutableTuple {
     }
 
     public static <A, B, C, D, E, F> MutableSextuple<A, B, C, D, E, F> of(A a, B b, C c, D d, E e,
-                                                                          F f) {
+            F f) {
         return new MutableSextupleImpl<>(a, b, c, d, e, f);
     }
 
@@ -83,7 +83,7 @@ public class MutableTuple {
     }
 
     public static <A, B, C, D, E, F, G> MutableSeptuple<A, B, C, D, E, F, G> of(A a, B b, C c, D d,
-                                                                                E e, F f, G g) {
+            E e, F f, G g) {
         return new MutableSeptupleImpl<>(a, b, c, d, e, f, g);
     }
 
@@ -93,7 +93,7 @@ public class MutableTuple {
     }
 
     public static <A, B, C, D, E, F, G, H> MutableOctuple<A, B, C, D, E, F, G, H> of(A a, B b, C c,
-                                                                                     D d, E e, F f, G g, H h) {
+            D d, E e, F f, G g, H h) {
         return new MutableOctupleImpl<>(a, b, c, d, e, f, g, h);
     }
 
@@ -103,7 +103,7 @@ public class MutableTuple {
     }
 
     public static <A, B, C, D, E, F, G, H, I> MutableNonuple<A, B, C, D, E, F, G, H, I> of(A a, B b,
-                                                                                           C c, D d, E e, F f, G g, H h, I i) {
+            C c, D d, E e, F f, G g, H h, I i) {
         return new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, i);
     }
 
