@@ -143,7 +143,8 @@ final class MutableOctupleImpl<A, B, C, D, E, F, G, H> implements MutableOctuple
     }
 
     @Override
-    public <R> R mapAll(OctupleFunction<A, B, C, D, E, F, G, H, R> mapper) {
+    public <R> R mapAll(
+            OctupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, ? super G, ? super H, R> mapper) {
         return mapper.apply(a, b, c, d, e, f, g, h);
     }
 

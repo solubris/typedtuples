@@ -38,7 +38,8 @@ public interface MutableSeptuple<A, B, C, D, E, F, G> extends Septuple<A, B, C, 
 
     void setAll(A a, B b, C c, D d, E e, F f, G g);
 
-    <R> R mapAll(SeptupleFunction<A, B, C, D, E, F, G, R> mapper);
+    <R> R mapAll(
+            SeptupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, ? super G, R> mapper);
 
     void computeFirst(UnaryOperator<A> mapper);
 

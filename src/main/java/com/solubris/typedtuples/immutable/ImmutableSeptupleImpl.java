@@ -304,7 +304,8 @@ final class ImmutableSeptupleImpl<A, B, C, D, E, F, G> implements ImmutableSeptu
     }
 
     @Override
-    public <R> R mapAll(SeptupleFunction<A, B, C, D, E, F, G, R> mapper) {
+    public <R> R mapAll(
+            SeptupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, ? super G, R> mapper) {
         return mapper.apply(a, b, c, d, e, f, g);
     }
 

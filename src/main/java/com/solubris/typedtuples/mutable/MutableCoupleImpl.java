@@ -59,7 +59,7 @@ final class MutableCoupleImpl<A, B> implements MutableCouple<A, B> {
     }
 
     @Override
-    public <R> R mapAll(CoupleFunction<A, B, R> mapper) {
+    public <R> R mapAll(CoupleFunction<? super A, ? super B, R> mapper) {
         return mapper.apply(a, b);
     }
 

@@ -40,7 +40,8 @@ public interface MutableOctuple<A, B, C, D, E, F, G, H> extends Octuple<A, B, C,
 
     void setAll(A a, B b, C c, D d, E e, F f, G g, H h);
 
-    <R> R mapAll(OctupleFunction<A, B, C, D, E, F, G, H, R> mapper);
+    <R> R mapAll(
+            OctupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, ? super G, ? super H, R> mapper);
 
     void computeFirst(UnaryOperator<A> mapper);
 

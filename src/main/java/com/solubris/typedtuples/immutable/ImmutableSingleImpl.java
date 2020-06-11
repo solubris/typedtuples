@@ -70,7 +70,7 @@ final class ImmutableSingleImpl<A> implements ImmutableSingle<A> {
     }
 
     @Override
-    public <R> R mapAll(SingleFunction<A, R> mapper) {
+    public <R> R mapAll(SingleFunction<? super A, R> mapper) {
         return mapper.apply(a);
     }
 

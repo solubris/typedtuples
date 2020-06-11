@@ -28,7 +28,7 @@ public interface MutableCouple<A, B> extends Couple<A, B> {
 
     void setAll(A a, B b);
 
-    <R> R mapAll(CoupleFunction<A, B, R> mapper);
+    <R> R mapAll(CoupleFunction<? super A, ? super B, R> mapper);
 
     void computeFirst(UnaryOperator<A> mapper);
 

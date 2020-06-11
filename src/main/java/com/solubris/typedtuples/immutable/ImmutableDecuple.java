@@ -82,7 +82,8 @@ public interface ImmutableDecuple<A, B, C, D, E, F, G, H, I, J> extends Decuple<
 
     <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> map(Function<? super J, X> mapper);
 
-    <R> R mapAll(DecupleFunction<A, B, C, D, E, F, G, H, I, J, R> mapper);
+    <R> R mapAll(
+            DecupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, ? super G, ? super H, ? super I, ? super J, R> mapper);
 
     ImmutableDecuple<J, I, H, G, F, E, D, C, B, A> reverse();
 }

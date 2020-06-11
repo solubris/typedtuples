@@ -146,7 +146,7 @@ final class ImmutableTripleImpl<A, B, C> implements ImmutableTriple<A, B, C> {
     }
 
     @Override
-    public <R> R mapAll(TripleFunction<A, B, C, R> mapper) {
+    public <R> R mapAll(TripleFunction<? super A, ? super B, ? super C, R> mapper) {
         return mapper.apply(a, b, c);
     }
 

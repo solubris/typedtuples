@@ -171,7 +171,8 @@ final class MutableDecupleImpl<A, B, C, D, E, F, G, H, I, J> implements MutableD
     }
 
     @Override
-    public <R> R mapAll(DecupleFunction<A, B, C, D, E, F, G, H, I, J, R> mapper) {
+    public <R> R mapAll(
+            DecupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, ? super G, ? super H, ? super I, ? super J, R> mapper) {
         return mapper.apply(a, b, c, d, e, f, g, h, i, j);
     }
 

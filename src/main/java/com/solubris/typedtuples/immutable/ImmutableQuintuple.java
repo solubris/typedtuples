@@ -84,7 +84,8 @@ public interface ImmutableQuintuple<A, B, C, D, E> extends Quintuple<A, B, C, D,
 
     <X> ImmutableSextuple<A, B, C, D, E, X> mapAndAdd(Function<? super E, X> mapper);
 
-    <R> R mapAll(QuintupleFunction<A, B, C, D, E, R> mapper);
+    <R> R mapAll(
+            QuintupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, R> mapper);
 
     ImmutableQuintuple<E, D, C, B, A> reverse();
 }

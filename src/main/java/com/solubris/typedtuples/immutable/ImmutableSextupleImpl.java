@@ -265,7 +265,8 @@ final class ImmutableSextupleImpl<A, B, C, D, E, F> implements ImmutableSextuple
     }
 
     @Override
-    public <R> R mapAll(SextupleFunction<A, B, C, D, E, F, R> mapper) {
+    public <R> R mapAll(
+            SextupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, R> mapper) {
         return mapper.apply(a, b, c, d, e, f);
     }
 

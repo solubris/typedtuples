@@ -120,7 +120,8 @@ public interface ImmutableOctuple<A, B, C, D, E, F, G, H> extends Octuple<A, B, 
 
     <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapAndAdd(Function<? super H, X> mapper);
 
-    <R> R mapAll(OctupleFunction<A, B, C, D, E, F, G, H, R> mapper);
+    <R> R mapAll(
+            OctupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, ? super G, ? super H, R> mapper);
 
     ImmutableOctuple<H, G, F, E, D, C, B, A> reverse();
 }

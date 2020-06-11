@@ -16,6 +16,8 @@
 
 package com.solubris.typedtuples.examples;
 
+import com.solubris.typedtuples.Couple;
+import com.solubris.typedtuples.function.CoupleFunction;
 import com.solubris.typedtuples.immutable.ImmutableTuple;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -24,7 +26,7 @@ import java.util.function.Function;
 
 class Generics {
 
-    private static class BaseClass {
+    private abstract static class BaseClass {
         public String baseMethod() {
             return "base";
         }
@@ -83,4 +85,37 @@ class Generics {
         Assertions.assertThat(actual1.get()).isEqualTo("base");
         Assertions.assertThat(actual2.get()).isEqualTo("base");
     }
+
+    /**
+     * Requires the capture: ? super T
+     */
+    @Test
+    void canMapAllFromSuperClassOfTheTarget() {
+        CoupleFunction<Integer, BaseClass, Couple<Integer, BaseClass>> function = ImmutableTuple::of;
+
+        var underTest1 = ImmutableTuple.of(1, new SubClass1());
+        var underTest2 = ImmutableTuple.of(1, new SubClass2());
+        var actual1 = underTest1.mapAll(function);
+        var actual2 = underTest2.mapAll(function);
+
+        Assertions.assertThat(actual1.get().baseMethod()).isEqualTo("base");
+        Assertions.assertThat(actual2.get().baseMethod()).isEqualTo("base");
+    }
+
+//    /**
+//     * Requires the capture: ? super T
+//     */
+//    @Test
+//    void canComputeFromSuperClassOfTheTarget() {
+////        CoupleFunction<Integer, BaseClass, Couple<Integer, BaseClass>> function = ImmutableTuple::of;
+//        UnaryOperator<BaseClass> function = sc -> (sc instanceof SubClass1) ? new SubClass2() : new SubClass1();
+//
+//        var underTest1 = MutableTuple.of(1, (BaseClass)new SubClass1());
+//        var underTest2 = MutableTuple.of(1, (BaseClass)new SubClass2());
+//        underTest1.compute(function);
+//        underTest2.compute(function);
+//
+//        Assertions.assertThat(underTest1.get().baseMethod()).isEqualTo("base");
+//        Assertions.assertThat(underTest2.get().baseMethod()).isEqualTo("base");
+//    }
 }

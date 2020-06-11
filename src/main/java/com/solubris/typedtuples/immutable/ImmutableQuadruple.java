@@ -72,7 +72,7 @@ public interface ImmutableQuadruple<A, B, C, D> extends Quadruple<A, B, C, D> {
 
     <X> ImmutableQuintuple<A, B, C, D, X> mapAndAdd(Function<? super D, X> mapper);
 
-    <R> R mapAll(QuadrupleFunction<A, B, C, D, R> mapper);
+    <R> R mapAll(QuadrupleFunction<? super A, ? super B, ? super C, ? super D, R> mapper);
 
     ImmutableQuadruple<D, C, B, A> reverse();
 }

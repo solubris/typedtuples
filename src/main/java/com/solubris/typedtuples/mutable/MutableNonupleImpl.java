@@ -157,7 +157,8 @@ final class MutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements MutableNonu
     }
 
     @Override
-    public <R> R mapAll(NonupleFunction<A, B, C, D, E, F, G, H, I, R> mapper) {
+    public <R> R mapAll(
+            NonupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, ? super G, ? super H, ? super I, R> mapper) {
         return mapper.apply(a, b, c, d, e, f, g, h, i);
     }
 
