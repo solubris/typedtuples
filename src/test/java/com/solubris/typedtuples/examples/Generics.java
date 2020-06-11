@@ -16,7 +16,6 @@
 
 package com.solubris.typedtuples.examples;
 
-import com.solubris.typedtuples.Couple;
 import com.solubris.typedtuples.function.CoupleFunction;
 import com.solubris.typedtuples.immutable.ImmutableTuple;
 import org.assertj.core.api.Assertions;
@@ -87,19 +86,22 @@ class Generics {
     }
 
     /**
+     * Given a function that can operate on a baseClass
+     * It should be accepted by mapAll for any tuples with a subclass of the baseClass
+     *
      * Requires the capture: ? super T
      */
     @Test
     void canMapAllFromSuperClassOfTheTarget() {
-        CoupleFunction<Integer, BaseClass, Couple<Integer, BaseClass>> function = ImmutableTuple::of;
+        CoupleFunction<Integer, BaseClass, String> function = (integer, baseClass) -> baseClass.baseMethod() + integer;
 
         var underTest1 = ImmutableTuple.of(1, new SubClass1());
-        var underTest2 = ImmutableTuple.of(1, new SubClass2());
+        var underTest2 = ImmutableTuple.of(2, new SubClass2());
         var actual1 = underTest1.mapAll(function);
         var actual2 = underTest2.mapAll(function);
 
-        Assertions.assertThat(actual1.get().baseMethod()).isEqualTo("base");
-        Assertions.assertThat(actual2.get().baseMethod()).isEqualTo("base");
+        Assertions.assertThat(actual1).isEqualTo("base1");
+        Assertions.assertThat(actual2).isEqualTo("base2");
     }
 
 //    /**
