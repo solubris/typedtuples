@@ -12,8 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# TODO get version from somewhere?
 newVersion="1.8"
+
+echo Patching README.md with version $newVersion
+# TODO get version from somewhere?
 sed -i .bak "s|<version>.*</version>|<version>$newVersion</version>|" README.md
 sed -i .bak "s|'com.solubris:typedtuples:.*'|'com.solubris:typedtuples:$newVersion'|" README.md
 
+git add -- README.md
