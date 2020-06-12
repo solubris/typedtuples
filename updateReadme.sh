@@ -12,8 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-newVersion=${1?"new version is required"}
-newVersion=${newVersion%%-SNAPSHOT}
+#newVersion=${1?"new version is required"}
+#newVersion=${newVersion%%-SNAPSHOT}
+
+newVersion=$(sed -n '/project.rel/s/.*=//p' release.properties)
 
 echo Patching README.md with version $newVersion
 # TODO get version from somewhere?
