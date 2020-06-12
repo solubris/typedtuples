@@ -7,6 +7,20 @@
 
 Strongly typed tuple library for java
 
+## Install
+
+- Maven
+
+        <dependency>
+          <groupId>com.solubris</groupId>
+          <artifactId>typedtuples</artifactId>
+          <version>1.7</version>
+        </dependency>
+
+- Gradle
+
+        implementation 'com.solubris:typedtuples:1.7'
+
 ## Example
 
 ### Multivalued Computation
