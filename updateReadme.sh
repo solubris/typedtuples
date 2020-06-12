@@ -19,4 +19,4 @@ echo Patching README.md with version $newVersion
 sed -i .bak "s|<version>.*</version>|<version>$newVersion</version>|" README.md
 sed -i .bak "s|'com.solubris:typedtuples:.*'|'com.solubris:typedtuples:$newVersion'|" README.md
 
-git add -- README.md
+git commit --verbose -m "bump version in README.md to $newVersion" README.md
