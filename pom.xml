@@ -289,11 +289,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.5.0</version>
                 <configuration>
-                    <executable>bash</executable>
-                    <arguments>
-                        <argument>-c</argument>
-                        <argument>set</argument>
-                    </arguments>
+                    <executable>./updateReadme.sh</executable>
                 </configuration>
             </plugin>
             <plugin>
