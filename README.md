@@ -31,15 +31,18 @@ Java streams don't handle computation of multiple values nicely, eg:
 
 This could be done using arrays as follows:
 
+```java
         int[] result = IntStream.rangeClosed(1, 3)
                 .mapToObj(i -> new int[]{i, i * i})
                 .reduce(
                         new int[2],
                         (l, r) -> new int[]{l[0] + r[0], l[1] + r[1]}
                 );
+```
 
 With tuples and a tuple accumulator, this can be done as follows:
     
+```java
         CoupleAccumulator<Integer, Integer> accumulator = Accumulator.of(Integer::sum, Integer::sum);
         Couple<Integer, Integer> result = IntStream.rangeClosed(1, 3)
                 .mapToObj(i -> ImmutableTuple.of(i, i * i))
@@ -47,6 +50,7 @@ With tuples and a tuple accumulator, this can be done as follows:
                         ImmutableTuple.of(0, 0),
                         accumulator::combine
                 );
+```
 
 ### Enrichment
 
@@ -56,9 +60,11 @@ With tuples and a tuple accumulator, this can be done as follows:
 
 There are 3 types of tuples which can be created from the builder classes as follows:
 
+```java
         ImmutableTuple.of(0, 0);
         MutableTuple.of(0, 0);
         Accumulator.of(Integer::sum, Integer::sum);
+```
 
 The api can the be explored from the results of these methods.
 
@@ -81,10 +87,12 @@ Without knowing if the types are comparable, then the tuples also can't be compa
 
 However, some custom comparators are provided as follows:
 
+```java
         list.sort(Couple.compareByAllFieldsInOrder());
         list.sort(Couple.compareByAllFieldsInReverseOrder());
         list.sort(Single.compareByAllFieldsInOrder(String::length));
         list.sort(Single.compareByAllFieldsInOrder(Comparator.nullsLast(Integer::compareTo));
+```
 
 ## English names
 
@@ -100,16 +108,20 @@ Methods like map are especially useful in stream operations.
 Will record types eliminate the need for tuples?
 Let's look at the example of returning a Couple of values.
 
+```java
         public Couple<String, String> getNameValue() {
             return ImmutableTuple.of("name", "value");
         }
+```
         
 How could this be done with record types?
 
+```java
         record NameValue(String name, String value){}
         public NameValue getNameValue() {
             return new NameValue("name", "value");
         }
+```
         
 So record types would still require the creation of a separate definition, however that definition would be very concise.
 This is probably suitable for method returns,
@@ -122,7 +134,9 @@ Other limitations:
 
 Record types can be a good target for the result of enrichment, eg:
 
+```java
         ImmutableTuple.of("name", "value").mapAll(NameValue::new);
+```
 
 ## Alternatives
 
