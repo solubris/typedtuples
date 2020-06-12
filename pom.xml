@@ -20,7 +20,7 @@
 
     <groupId>com.solubris</groupId>
     <artifactId>typedtuples</artifactId>
-    <version>1.8</version>
+    <version>1.9-SNAPSHOT</version>
 
     <name>TypedTuples</name>
     <description>Strongly typed tuples library</description>
@@ -47,7 +47,7 @@
         <url>http://github.com/solubris/typedtuples/</url>
         <connection>scm:git:git://github.com/solubris/typedtuples.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/solubris/typedtuples.git</developerConnection>
-        <tag>typedtuples-1.8</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
