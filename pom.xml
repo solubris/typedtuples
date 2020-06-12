@@ -290,6 +290,9 @@
                 <version>1.5.0</version>
                 <configuration>
                     <executable>./updateReadme.sh</executable>
+                    <arguments>
+                        <argument>${project.version}</argument>
+                    </arguments>
                 </configuration>
             </plugin>
             <plugin>
