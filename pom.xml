@@ -15,7 +15,8 @@
   ~ limitations under the License.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.solubris</groupId>
@@ -35,7 +36,7 @@
         <sonar.java.source>11</sonar.java.source>
         <sonar.cpd.exclusions>src/main/java/**/*.java</sonar.cpd.exclusions>
         <sonar.issue.ignore.multicriteria>e1,e2</sonar.issue.ignore.multicriteria>
-        <!-- Method has 10 parameters, which is greater than 7 authorized-->
+        <!-- Ignore: Method has 10 parameters, which is greater than 7 authorized-->
         <sonar.issue.ignore.multicriteria.e1.ruleKey>java:S107</sonar.issue.ignore.multicriteria.e1.ruleKey>
         <sonar.issue.ignore.multicriteria.e1.resourceKey>**/*.java</sonar.issue.ignore.multicriteria.e1.resourceKey>
         <!-- Ignore: Type parameter names should comply with a naming convention '^[A-Z][0-9]?$' -->
@@ -185,6 +186,11 @@
                     <artifactId>jacoco-maven-plugin</artifactId>
                     <version>0.8.5</version>
                 </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <version>3.0.0</version>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -286,12 +292,8 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>3.0.0</version>
                 <configuration>
                     <executable>./updateReadme.sh</executable>
-                    <arguments>
-                        <argument>${project.version}</argument>
-                    </arguments>
                 </configuration>
             </plugin>
             <plugin>

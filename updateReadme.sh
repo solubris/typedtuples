@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# XXX project.version from the pom is the next version, but need the current version
 #newVersion=${1?"new version is required"}
 #newVersion=${newVersion%%-SNAPSHOT}
 
