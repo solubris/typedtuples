@@ -24,6 +24,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 class ImmutableQuintupleImplTest {
     final int a = 0;
 
@@ -488,5 +491,16 @@ class ImmutableQuintupleImplTest {
         var underTest = new ImmutableQuintupleImpl<>(a, b, c, d, value);
         var actual = underTest.toString();
         Assertions.assertThat(actual).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + value + ")");
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void to(Integer value) {
+        var underTest = new ImmutableQuintupleImpl<>(a, b, c, d, value);
+        var actual = Stream.of(underTest).map(ImmutableTuple.to(ImmutableQuintupleImpl::new)).collect(Collectors.toList());
+        Assertions.assertThat(actual).containsExactly(underTest);
     }
 }

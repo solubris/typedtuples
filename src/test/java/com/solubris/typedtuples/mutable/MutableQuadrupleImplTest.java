@@ -24,6 +24,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 class MutableQuadrupleImplTest {
     final int a = 0;
 
@@ -222,5 +225,16 @@ class MutableQuadrupleImplTest {
         var underTest = new MutableQuadrupleImpl<>(a, b, c, value);
         var actual = underTest.toString();
         Assertions.assertThat(actual).isEqualTo("(" + a + ", " + b + ", " + c + ", " + value + ")");
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void to(Integer value) {
+        var underTest = new MutableQuadrupleImpl<>(a, b, c, value);
+        var actual = Stream.of(underTest).map(MutableTuple.to(MutableQuadrupleImpl::new)).collect(Collectors.toList());
+        Assertions.assertThat(actual).containsExactly(underTest);
     }
 }

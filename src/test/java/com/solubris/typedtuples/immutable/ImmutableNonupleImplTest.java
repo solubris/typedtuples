@@ -24,6 +24,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 class ImmutableNonupleImplTest {
     final int a = 0;
 
@@ -804,5 +807,16 @@ class ImmutableNonupleImplTest {
         var underTest = new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
         var actual = underTest.toString();
         Assertions.assertThat(actual).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f + ", " + g + ", " + h + ", " + value + ")");
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void to(Integer value) {
+        var underTest = new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
+        var actual = Stream.of(underTest).map(ImmutableTuple.to(ImmutableNonupleImpl::new)).collect(Collectors.toList());
+        Assertions.assertThat(actual).containsExactly(underTest);
     }
 }

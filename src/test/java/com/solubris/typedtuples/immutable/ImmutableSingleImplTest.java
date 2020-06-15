@@ -24,6 +24,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 class ImmutableSingleImplTest {
     final int a = 0;
 
@@ -161,5 +164,16 @@ class ImmutableSingleImplTest {
         var underTest = new ImmutableSingleImpl<>(value);
         var actual = underTest.toString();
         Assertions.assertThat(actual).isEqualTo("(" + value + ")");
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void to(Integer value) {
+        var underTest = new ImmutableSingleImpl<>(value);
+        var actual = Stream.of(underTest).map(ImmutableTuple.to(ImmutableSingleImpl::new)).collect(Collectors.toList());
+        Assertions.assertThat(actual).containsExactly(underTest);
     }
 }

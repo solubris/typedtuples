@@ -24,6 +24,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 class MutableCoupleImplTest {
     final int a = 0;
 
@@ -152,5 +155,16 @@ class MutableCoupleImplTest {
         var underTest = new MutableCoupleImpl<>(a, value);
         var actual = underTest.toString();
         Assertions.assertThat(actual).isEqualTo("(" + a + ", " + value + ")");
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void to(Integer value) {
+        var underTest = new MutableCoupleImpl<>(a, value);
+        var actual = Stream.of(underTest).map(MutableTuple.to(MutableCoupleImpl::new)).collect(Collectors.toList());
+        Assertions.assertThat(actual).containsExactly(underTest);
     }
 }

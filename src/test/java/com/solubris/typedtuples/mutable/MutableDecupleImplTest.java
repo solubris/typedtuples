@@ -24,6 +24,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 class MutableDecupleImplTest {
     final int a = 0;
 
@@ -432,5 +435,16 @@ class MutableDecupleImplTest {
         var underTest = new MutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, value);
         var actual = underTest.toString();
         Assertions.assertThat(actual).isEqualTo("(" + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f + ", " + g + ", " + h + ", " + i + ", " + value + ")");
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void to(Integer value) {
+        var underTest = new MutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, value);
+        var actual = Stream.of(underTest).map(MutableTuple.to(MutableDecupleImpl::new)).collect(Collectors.toList());
+        Assertions.assertThat(actual).containsExactly(underTest);
     }
 }

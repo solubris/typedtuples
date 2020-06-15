@@ -24,6 +24,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 class ImmutableTripleImplTest {
     final int a = 0;
 
@@ -330,5 +333,16 @@ class ImmutableTripleImplTest {
         var underTest = new ImmutableTripleImpl<>(a, b, value);
         var actual = underTest.toString();
         Assertions.assertThat(actual).isEqualTo("(" + a + ", " + b + ", " + value + ")");
+    }
+
+    @ParameterizedTest
+    @ValueSource(
+            ints = 1
+    )
+    @NullSource
+    void to(Integer value) {
+        var underTest = new ImmutableTripleImpl<>(a, b, value);
+        var actual = Stream.of(underTest).map(ImmutableTuple.to(ImmutableTripleImpl::new)).collect(Collectors.toList());
+        Assertions.assertThat(actual).containsExactly(underTest);
     }
 }
