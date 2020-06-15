@@ -16,19 +16,27 @@
 
 package com.solubris.typedtuples;
 
+import com.solubris.typedtuples.immutable.ImmutableQuadruple;
+import com.solubris.typedtuples.immutable.ImmutableTuple;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class StreamTest {
-    private static int sid = 1;
+    private int sid = 1;
+    private final List<Student> allStudents = new ArrayList<>();
+    {
+        allStudents.add(getStudent());
+        allStudents.add(getStudent());
+    }
 
     @Test
-    void streamTest() throws Exception {
-        List<Student> allStudents = new ArrayList<>();
-        allStudents.add(getStudent());
-        allStudents.add(getStudent());
+    void multilevelReduction() throws Exception {
 
         // should map be static method in another class?
         // chaining calls doesn't work:
@@ -44,30 +52,53 @@ class StreamTest {
         // eg, a left sum and a right sum - from a couple of longs
 
 
-//        Map<Triple<Long, Long, Long>, Double> result = allStudents.stream()
-//                .map(ImmutableTuple::of)
-//                .flatMap(s -> s.get().getCourses().stream().map(
-//                        c -> s.map(Student::getStudentId).add(c)))
-//                .flatMap(sc -> sc.get().getTasks().stream().map(
-//                        t -> sc.map(Course::getCourseId).add(t)))
-//                .flatMap(sct -> sct.get().getAssessments().stream().map(
-//                        a -> sct.map(Task::getTaskId).add(a.getScore())))
-//                .map(MutableTuple::copyOf)
-////                .flatMap(sct -> sct.getValue2().getAssessments().stream().map(
-////                        a -> Quartet.with(sct.getValue0(), sct.getValue1(), sct.getValue2().taskId, a.getScore())))
+        Map<Triple<Long, Long, Long>, Double> result = allStudents.stream()
+                .map(ImmutableTuple::of)
+                .flatMap(s -> s.get().getCourses().stream().map(
+                        c -> s.map(Student::getStudentId).add(c)))
+                .flatMap(sc -> sc.get().getTasks().stream().map(
+                        t -> sc.map(Course::getCourseId).add(t)))
+                .flatMap(sct -> sct.get().getAssessments().stream().map(
+                        a -> sct.map(Task::getTaskId).add(a.getScore())))
 //                .collect(Collectors.summarizingDouble())
 //                .collect(Tuples.QuartetCollector.groupingByAndAccumulating(Double::sum));
-//
-////                .collect(Collectors.groupingBy(
-////                        Quartet::withoutLast,
-////                        Collectors.summingDouble(Quartet::last)
-////                ));
-//
-//        System.out.println(result);
+                .collect(Collectors.groupingBy(
+                        ImmutableQuadruple::remove,
+                        Collectors.summingDouble(Quadruple::get)
+                ));
 
+        System.out.println(result);
+        System.out.println("1,0,0 = " + result.get(ImmutableTuple.of(1L, 0L, 0L)));
+
+        assertThat(result.get(ImmutableTuple.of(1L, 0L, 0L))).isEqualTo(30D);
     }
 
-    private static Student getStudent() {
+
+    /**
+     *      how does flatMapping in groupBy compare to flatMapping in stream?
+     *      flatMapping in groupBy results in less duplication as the key is only stored once
+     *      flatMapping in stream doesn't require nesting
+     *      what about performance?
+     */
+    @Test
+    void multilevelReductionWithFlatMapping() {
+
+        Map<Long, Map<Long, Map<Long, Double>>> result = allStudents.stream()
+                .collect(Collectors.groupingBy(Student::getStudentId,
+                        Collectors.flatMapping(student -> student.getCourses().stream(),
+                                Collectors.groupingBy(Course::getCourseId,
+                                        Collectors.flatMapping(course -> course.getTasks().stream(),
+                                                Collectors.groupingBy(Task::getTaskId,
+                                                        Collectors.flatMapping(task -> task.getAssessments().stream(),
+                                                                Collectors.summingDouble(Assessment::getScore))))))));
+
+        System.out.println(result);
+        System.out.println("1,0,0 = " + result.get(1L).get(0L).get(0L));
+
+        assertThat(result.get(1L).get(0L).get(0L)).isEqualTo(30D);
+    }
+
+    private Student getStudent() {
         Student s = new Student();
         s.studentId = sid++;
         Course c = new Course();
@@ -132,8 +163,5 @@ class StreamTest {
         public double getScore() {
             return score;
         }
-    }
-
-    private class Residence {
     }
 }

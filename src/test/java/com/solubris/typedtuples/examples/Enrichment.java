@@ -37,7 +37,7 @@ class Enrichment {
                 .map(ImmutableTuple::of)
                 .map(s -> s.mapAndAdd(String::length))
                 .map(sl -> sl.mapFirstAndAdd(this::isPalindrome))
-                .map(slp -> slp.mapAll(StringStats::new))
+                .map(ImmutableTuple.to(StringStats::new))
                 .collect(Collectors.toList());
 
         assertThat(result)
@@ -48,6 +48,35 @@ class Enrichment {
                         new StringStats("zzz", 3, true)
                 );
     }
+
+    @Test
+    void determineStringAttributesHead() {
+        List<StringStats> result = Stream.of("abc", "1234", "zzz")
+                .map(ImmutableTuple::of)
+                .map(sl -> sl.mapAndAdd(this::isPalindrome))
+                .map(s -> s.duplicateFirst().mapSecond(String::length))
+                .map(ImmutableTuple.to(StringStats::new))
+                .collect(Collectors.toList());
+//                .collect(mapping(StringStats::new, Collectors.toList()));
+
+        assertThat(result)
+                .usingFieldByFieldElementComparator()
+                .containsExactly(
+                        new StringStats("abc", 3, false),
+                        new StringStats("1234", 4, false),
+                        new StringStats("zzz", 3, true)
+                );
+    }
+
+//    public static <A, B, C, RR, ACC, R>
+//    Collector<ImmutableTriple<A, B, C>, ?, R> mapping(TripleFunction<? super A, ? super B, ? super C, RR> mapper,
+//                                             Collector<RR, ACC, R> downstream) {
+//        BiConsumer<ACC, ? super RR> downstreamAccumulator = downstream.accumulator();
+//        return new Collectors.CollectorImpl<>(downstream.supplier(),
+//                (r, t) -> downstreamAccumulator.accept(r, t.mapAll(mapper)),
+//                downstream.combiner(), downstream.finisher(),
+//                downstream.characteristics());
+//    }
 
     private boolean isPalindrome(String first) {
         for (int i = 0; i < first.length() / 2; i++) {
