@@ -54,7 +54,16 @@ With tuples and a tuple accumulator, this can be done as follows:
 
 ### Enrichment
 
+Enriching a stream of data can be done as follows:
 
+```java
+        List<StringStats> result = Stream.of("abc", "1234", "zzz")
+                .map(ImmutableTuple::of)
+                .map(s -> s.mapAndAdd(String::length))
+                .map(sl -> sl.mapFirstAndAdd(this::isPalindrome))
+                .map(ImmutableTuple.to(StringStats::new))
+                .collect(Collectors.toList());
+```
 
 ## Usage
 
