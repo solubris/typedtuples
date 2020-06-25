@@ -62,7 +62,7 @@ final class ImmutableQuintupleImpl<A, B, C, D, E> implements ImmutableQuintuple<
     }
 
     @Override
-    public E get() {
+    public E getFifth() {
         return e;
     }
 
@@ -117,7 +117,7 @@ final class ImmutableQuintupleImpl<A, B, C, D, E> implements ImmutableQuintuple<
     }
 
     @Override
-    public ImmutableSextuple<A, B, C, D, E, E> duplicate() {
+    public ImmutableSextuple<A, B, C, D, E, E> duplicateFifth() {
         return new ImmutableSextupleImpl<>(a, b, c, d, e, e);
     }
 
@@ -142,7 +142,7 @@ final class ImmutableQuintupleImpl<A, B, C, D, E> implements ImmutableQuintuple<
     }
 
     @Override
-    public ImmutableQuadruple<A, B, C, D> remove() {
+    public ImmutableQuadruple<A, B, C, D> removeFifth() {
         return new ImmutableQuadrupleImpl<>(a, b, c, d);
     }
 
@@ -167,7 +167,7 @@ final class ImmutableQuintupleImpl<A, B, C, D, E> implements ImmutableQuintuple<
     }
 
     @Override
-    public <X> ImmutableQuintuple<A, B, C, D, X> replace(X x) {
+    public <X> ImmutableQuintuple<A, B, C, D, X> replaceFifth(X x) {
         return new ImmutableQuintupleImpl<>(a, b, c, d, x);
     }
 
@@ -192,7 +192,7 @@ final class ImmutableQuintupleImpl<A, B, C, D, E> implements ImmutableQuintuple<
     }
 
     @Override
-    public <X> ImmutableQuintuple<A, B, C, D, X> map(Function<? super E, X> mapper) {
+    public <X> ImmutableQuintuple<A, B, C, D, X> mapFifth(Function<? super E, X> mapper) {
         return new ImmutableQuintupleImpl<>(a, b, c, d, mapper.apply(e));
     }
 
@@ -217,7 +217,7 @@ final class ImmutableQuintupleImpl<A, B, C, D, E> implements ImmutableQuintuple<
     }
 
     @Override
-    public <X> ImmutableSextuple<A, B, C, D, E, X> mapAndAdd(Function<? super E, X> mapper) {
+    public <X> ImmutableSextuple<A, B, C, D, E, X> mapFifthAndAdd(Function<? super E, X> mapper) {
         return new ImmutableSextupleImpl<>(a, b, c, d, e, mapper.apply(e));
     }
 
@@ -241,7 +241,7 @@ final class ImmutableQuintupleImpl<A, B, C, D, E> implements ImmutableQuintuple<
                 Objects.equals(this.b, thatQuintuple.getSecond()) && 
                 Objects.equals(this.c, thatQuintuple.getThird()) && 
                 Objects.equals(this.d, thatQuintuple.getFourth()) && 
-                Objects.equals(this.e, thatQuintuple.get());
+                Objects.equals(this.e, thatQuintuple.getFifth());
     }
 
     @Override

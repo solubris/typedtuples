@@ -65,7 +65,7 @@ final class QuintupleAccumulatorImpl<A, B, C, D, E> implements QuintupleAccumula
     }
 
     @Override
-    public BinaryOperator<E> get() {
+    public BinaryOperator<E> getFifth() {
         return e;
     }
 
@@ -75,7 +75,7 @@ final class QuintupleAccumulatorImpl<A, B, C, D, E> implements QuintupleAccumula
         acc.setSecond(b.apply(acc.getSecond(), t.getSecond()));
         acc.setThird(c.apply(acc.getThird(), t.getThird()));
         acc.setFourth(d.apply(acc.getFourth(), t.getFourth()));
-        acc.set(e.apply(acc.get(), t.get()));
+        acc.setFifth(e.apply(acc.getFifth(), t.getFifth()));
     }
 
     @Override
@@ -85,7 +85,7 @@ final class QuintupleAccumulatorImpl<A, B, C, D, E> implements QuintupleAccumula
         B fb = b.apply(l.getSecond(), r.getSecond());
         C fc = c.apply(l.getThird(), r.getThird());
         D fd = d.apply(l.getFourth(), r.getFourth());
-        E fe = e.apply(l.get(), r.get());
+        E fe = e.apply(l.getFifth(), r.getFifth());
         return MutableTuple.of(fa, fb, fc, fd, fe);
     }
 
@@ -96,7 +96,7 @@ final class QuintupleAccumulatorImpl<A, B, C, D, E> implements QuintupleAccumula
         B fb = b.apply(l.getSecond(), r.getSecond());
         C fc = c.apply(l.getThird(), r.getThird());
         D fd = d.apply(l.getFourth(), r.getFourth());
-        E fe = e.apply(l.get(), r.get());
+        E fe = e.apply(l.getFifth(), r.getFifth());
         return ImmutableTuple.of(fa, fb, fc, fd, fe);
     }
 }

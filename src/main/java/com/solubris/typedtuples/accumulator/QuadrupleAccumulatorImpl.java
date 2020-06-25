@@ -57,7 +57,7 @@ final class QuadrupleAccumulatorImpl<A, B, C, D> implements QuadrupleAccumulator
     }
 
     @Override
-    public BinaryOperator<D> get() {
+    public BinaryOperator<D> getFourth() {
         return d;
     }
 
@@ -66,7 +66,7 @@ final class QuadrupleAccumulatorImpl<A, B, C, D> implements QuadrupleAccumulator
         acc.setFirst(a.apply(acc.getFirst(), t.getFirst()));
         acc.setSecond(b.apply(acc.getSecond(), t.getSecond()));
         acc.setThird(c.apply(acc.getThird(), t.getThird()));
-        acc.set(d.apply(acc.get(), t.get()));
+        acc.setFourth(d.apply(acc.getFourth(), t.getFourth()));
     }
 
     @Override
@@ -75,7 +75,7 @@ final class QuadrupleAccumulatorImpl<A, B, C, D> implements QuadrupleAccumulator
         A fa = a.apply(l.getFirst(), r.getFirst());
         B fb = b.apply(l.getSecond(), r.getSecond());
         C fc = c.apply(l.getThird(), r.getThird());
-        D fd = d.apply(l.get(), r.get());
+        D fd = d.apply(l.getFourth(), r.getFourth());
         return MutableTuple.of(fa, fb, fc, fd);
     }
 
@@ -85,7 +85,7 @@ final class QuadrupleAccumulatorImpl<A, B, C, D> implements QuadrupleAccumulator
         A fa = a.apply(l.getFirst(), r.getFirst());
         B fb = b.apply(l.getSecond(), r.getSecond());
         C fc = c.apply(l.getThird(), r.getThird());
-        D fd = d.apply(l.get(), r.get());
+        D fd = d.apply(l.getFourth(), r.getFourth());
         return ImmutableTuple.of(fa, fb, fc, fd);
     }
 }

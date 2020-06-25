@@ -40,7 +40,7 @@ public interface ImmutableDecuple<A, B, C, D, E, F, G, H, I, J> extends Decuple<
 
     ImmutableNonuple<A, B, C, D, E, F, G, H, J> removeNinth();
 
-    ImmutableNonuple<A, B, C, D, E, F, G, H, I> remove();
+    ImmutableNonuple<A, B, C, D, E, F, G, H, I> removeTenth();
 
     <X> ImmutableDecuple<X, B, C, D, E, F, G, H, I, J> replaceFirst(X x);
 
@@ -60,7 +60,7 @@ public interface ImmutableDecuple<A, B, C, D, E, F, G, H, I, J> extends Decuple<
 
     <X> ImmutableDecuple<A, B, C, D, E, F, G, H, X, J> replaceNinth(X x);
 
-    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> replace(X x);
+    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> replaceTenth(X x);
 
     <X> ImmutableDecuple<X, B, C, D, E, F, G, H, I, J> mapFirst(Function<? super A, X> mapper);
 
@@ -80,7 +80,7 @@ public interface ImmutableDecuple<A, B, C, D, E, F, G, H, I, J> extends Decuple<
 
     <X> ImmutableDecuple<A, B, C, D, E, F, G, H, X, J> mapNinth(Function<? super I, X> mapper);
 
-    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> map(Function<? super J, X> mapper);
+    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapTenth(Function<? super J, X> mapper);
 
     <R> R mapAll(
             DecupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, ? super G, ? super H, ? super I, ? super J, R> mapper);

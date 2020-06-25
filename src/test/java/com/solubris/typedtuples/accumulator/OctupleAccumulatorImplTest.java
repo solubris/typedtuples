@@ -122,9 +122,9 @@ class OctupleAccumulatorImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getEighth(Integer value) {
         OctupleAccumulatorImpl<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> underTest = new OctupleAccumulatorImpl<>((l, r) -> a, (l, r) -> b, (l, r) -> c, (l, r) -> d, (l, r) -> e, (l, r) -> f, (l, r) -> g, (l, r) -> value);
-        var actual = underTest.get().apply(null, null);
+        var actual = underTest.getEighth().apply(null, null);
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -163,7 +163,7 @@ class OctupleAccumulatorImplTest {
         Assertions.assertThat(actualF).isEqualTo(f);
         var actualG = underTest.getSeventh().apply(null, null);
         Assertions.assertThat(actualG).isEqualTo(g);
-        var actualValue = underTest.get().apply(null, null);
+        var actualValue = underTest.getEighth().apply(null, null);
         Assertions.assertThat(actualValue).isEqualTo(value);
     }
 

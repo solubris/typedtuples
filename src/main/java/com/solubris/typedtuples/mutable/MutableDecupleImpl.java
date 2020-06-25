@@ -102,7 +102,7 @@ final class MutableDecupleImpl<A, B, C, D, E, F, G, H, I, J> implements MutableD
     }
 
     @Override
-    public J get() {
+    public J getTenth() {
         return j;
     }
 
@@ -152,7 +152,7 @@ final class MutableDecupleImpl<A, B, C, D, E, F, G, H, I, J> implements MutableD
     }
 
     @Override
-    public void set(J j) {
+    public void setTenth(J j) {
         this.j = j;
     }
 
@@ -222,7 +222,7 @@ final class MutableDecupleImpl<A, B, C, D, E, F, G, H, I, J> implements MutableD
     }
 
     @Override
-    public void compute(UnaryOperator<J> mapper) {
+    public void computeTenth(UnaryOperator<J> mapper) {
         this.j = mapper.apply(j);
     }
 
@@ -240,7 +240,7 @@ final class MutableDecupleImpl<A, B, C, D, E, F, G, H, I, J> implements MutableD
                 Objects.equals(this.g, thatDecuple.getSeventh()) && 
                 Objects.equals(this.h, thatDecuple.getEighth()) && 
                 Objects.equals(this.i, thatDecuple.getNinth()) && 
-                Objects.equals(this.j, thatDecuple.get());
+                Objects.equals(this.j, thatDecuple.getTenth());
     }
 
     @Override

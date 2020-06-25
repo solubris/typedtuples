@@ -86,7 +86,7 @@ final class MutableOctupleImpl<A, B, C, D, E, F, G, H> implements MutableOctuple
     }
 
     @Override
-    public H get() {
+    public H getEighth() {
         return h;
     }
 
@@ -126,7 +126,7 @@ final class MutableOctupleImpl<A, B, C, D, E, F, G, H> implements MutableOctuple
     }
 
     @Override
-    public void set(H h) {
+    public void setEighth(H h) {
         this.h = h;
     }
 
@@ -184,7 +184,7 @@ final class MutableOctupleImpl<A, B, C, D, E, F, G, H> implements MutableOctuple
     }
 
     @Override
-    public void compute(UnaryOperator<H> mapper) {
+    public void computeEighth(UnaryOperator<H> mapper) {
         this.h = mapper.apply(h);
     }
 
@@ -200,7 +200,7 @@ final class MutableOctupleImpl<A, B, C, D, E, F, G, H> implements MutableOctuple
                 Objects.equals(this.e, thatOctuple.getFifth()) && 
                 Objects.equals(this.f, thatOctuple.getSixth()) && 
                 Objects.equals(this.g, thatOctuple.getSeventh()) && 
-                Objects.equals(this.h, thatOctuple.get());
+                Objects.equals(this.h, thatOctuple.getEighth());
     }
 
     @Override

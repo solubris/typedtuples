@@ -34,31 +34,31 @@ public interface ImmutableTriple<A, B, C> extends Triple<A, B, C> {
 
     ImmutableQuadruple<A, B, B, C> duplicateSecond();
 
-    ImmutableQuadruple<A, B, C, C> duplicate();
+    ImmutableQuadruple<A, B, C, C> duplicateThird();
 
     ImmutableCouple<B, C> removeFirst();
 
     ImmutableCouple<A, C> removeSecond();
 
-    ImmutableCouple<A, B> remove();
+    ImmutableCouple<A, B> removeThird();
 
     <X> ImmutableTriple<X, B, C> replaceFirst(X x);
 
     <X> ImmutableTriple<A, X, C> replaceSecond(X x);
 
-    <X> ImmutableTriple<A, B, X> replace(X x);
+    <X> ImmutableTriple<A, B, X> replaceThird(X x);
 
     <X> ImmutableTriple<X, B, C> mapFirst(Function<? super A, X> mapper);
 
     <X> ImmutableTriple<A, X, C> mapSecond(Function<? super B, X> mapper);
 
-    <X> ImmutableTriple<A, B, X> map(Function<? super C, X> mapper);
+    <X> ImmutableTriple<A, B, X> mapThird(Function<? super C, X> mapper);
 
     <X> ImmutableQuadruple<A, B, C, X> mapFirstAndAdd(Function<? super A, X> mapper);
 
     <X> ImmutableQuadruple<A, B, C, X> mapSecondAndAdd(Function<? super B, X> mapper);
 
-    <X> ImmutableQuadruple<A, B, C, X> mapAndAdd(Function<? super C, X> mapper);
+    <X> ImmutableQuadruple<A, B, C, X> mapThirdAndAdd(Function<? super C, X> mapper);
 
     <R> R mapAll(TripleFunction<? super A, ? super B, ? super C, R> mapper);
 

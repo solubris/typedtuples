@@ -82,9 +82,9 @@ class MutableTripleImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getThird(Integer value) {
         var underTest = new MutableTripleImpl<>(a, b, value);
-        var actual = underTest.get();
+        var actual = underTest.getThird();
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -115,9 +115,9 @@ class MutableTripleImplTest {
             ints = 1
     )
     @NullSource
-    void set(Integer value) {
+    void setThird(Integer value) {
         var underTest = new MutableTripleImpl<>(a, b, value);
-        underTest.set(10);
+        underTest.setThird(10);
         Assertions.assertThat(underTest).isEqualTo(new MutableTripleImpl<>(a, b, 10));
     }
 
@@ -170,9 +170,9 @@ class MutableTripleImplTest {
             ints = 1
     )
     @NullSource
-    void compute(Integer value) {
+    void computeThird(Integer value) {
         var underTest = new MutableTripleImpl<>(a, b, value);
-        underTest.compute(i -> 10);
+        underTest.computeThird(i -> 10);
         Assertions.assertThat(underTest).isEqualTo(new MutableTripleImpl<>(a, b, 10));
     }
 

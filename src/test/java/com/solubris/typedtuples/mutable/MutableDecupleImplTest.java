@@ -173,9 +173,9 @@ class MutableDecupleImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getTenth(Integer value) {
         var underTest = new MutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, value);
-        var actual = underTest.get();
+        var actual = underTest.getTenth();
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -283,9 +283,9 @@ class MutableDecupleImplTest {
             ints = 1
     )
     @NullSource
-    void set(Integer value) {
+    void setTenth(Integer value) {
         var underTest = new MutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, value);
-        underTest.set(10);
+        underTest.setTenth(10);
         Assertions.assertThat(underTest).isEqualTo(new MutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, 10));
     }
 
@@ -415,9 +415,9 @@ class MutableDecupleImplTest {
             ints = 1
     )
     @NullSource
-    void compute(Integer value) {
+    void computeTenth(Integer value) {
         var underTest = new MutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, value);
-        underTest.compute(i -> 10);
+        underTest.computeTenth(i -> 10);
         Assertions.assertThat(underTest).isEqualTo(new MutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, 10));
     }
 

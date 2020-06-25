@@ -40,7 +40,7 @@ public interface MutableDecuple<A, B, C, D, E, F, G, H, I, J> extends Decuple<A,
 
     void setNinth(I i);
 
-    void set(J j);
+    void setTenth(J j);
 
     void setAll(A a, B b, C c, D d, E e, F f, G g, H h, I i, J j);
 
@@ -65,5 +65,5 @@ public interface MutableDecuple<A, B, C, D, E, F, G, H, I, J> extends Decuple<A,
 
     void computeNinth(UnaryOperator<I> mapper);
 
-    void compute(UnaryOperator<J> mapper);
+    void computeTenth(UnaryOperator<J> mapper);
 }

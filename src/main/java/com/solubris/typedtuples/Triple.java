@@ -24,7 +24,7 @@ public interface Triple<A, B, C> {
 
     B getSecond();
 
-    C get();
+    C getThird();
 
     /**
      * Compare tuple fields in order requiring that the fields are Comparable.
@@ -35,7 +35,7 @@ public interface Triple<A, B, C> {
             ) {
         Comparator<Triple<A, B, C>> a = Comparator.comparing(Triple::getFirst);
                 Comparator<Triple<A, B, C>> b = Comparator.comparing(Triple::getSecond);
-                Comparator<Triple<A, B, C>> c = Comparator.comparing(Triple::get);
+                Comparator<Triple<A, B, C>> c = Comparator.comparing(Triple::getThird);
         return (a).thenComparing(b).thenComparing(c);
     }
 
@@ -48,7 +48,7 @@ public interface Triple<A, B, C> {
             ) {
         Comparator<Triple<A, B, C>> a = Comparator.comparing(Triple::getFirst);
                 Comparator<Triple<A, B, C>> b = Comparator.comparing(Triple::getSecond);
-                Comparator<Triple<A, B, C>> c = Comparator.comparing(Triple::get);
+                Comparator<Triple<A, B, C>> c = Comparator.comparing(Triple::getThird);
         return (c).thenComparing(b).thenComparing(a);
     }
 
@@ -61,7 +61,7 @@ public interface Triple<A, B, C> {
             Function<? super A, FA> fa, Function<? super B, FB> fb, Function<? super C, FC> fc) {
         Comparator<Triple<A, B, C>> a = Comparator.comparing(fa.compose(Triple::getFirst));
                 Comparator<Triple<A, B, C>> b = Comparator.comparing(fb.compose(Triple::getSecond));
-                Comparator<Triple<A, B, C>> c = Comparator.comparing(fc.compose(Triple::get));
+                Comparator<Triple<A, B, C>> c = Comparator.comparing(fc.compose(Triple::getThird));
         return (a).thenComparing(b).thenComparing(c);
     }
 
@@ -74,7 +74,7 @@ public interface Triple<A, B, C> {
             Function<? super A, FA> fa, Function<? super B, FB> fb, Function<? super C, FC> fc) {
         Comparator<Triple<A, B, C>> a = Comparator.comparing(fa.compose(Triple::getFirst));
                 Comparator<Triple<A, B, C>> b = Comparator.comparing(fb.compose(Triple::getSecond));
-                Comparator<Triple<A, B, C>> c = Comparator.comparing(fc.compose(Triple::get));
+                Comparator<Triple<A, B, C>> c = Comparator.comparing(fc.compose(Triple::getThird));
         return (c).thenComparing(b).thenComparing(a);
     }
 
@@ -91,7 +91,7 @@ public interface Triple<A, B, C> {
             Comparator<? super B> cb, Comparator<? super C> cc) {
         Comparator<Triple<A, B, C>> a = Comparator.comparing(Triple::getFirst, ca);
                 Comparator<Triple<A, B, C>> b = Comparator.comparing(Triple::getSecond, cb);
-                Comparator<Triple<A, B, C>> c = Comparator.comparing(Triple::get, cc);
+                Comparator<Triple<A, B, C>> c = Comparator.comparing(Triple::getThird, cc);
         return (a).thenComparing(b).thenComparing(c);
     }
 
@@ -108,7 +108,7 @@ public interface Triple<A, B, C> {
             Comparator<? super A> ca, Comparator<? super B> cb, Comparator<? super C> cc) {
         Comparator<Triple<A, B, C>> a = Comparator.comparing(Triple::getFirst, ca);
                 Comparator<Triple<A, B, C>> b = Comparator.comparing(Triple::getSecond, cb);
-                Comparator<Triple<A, B, C>> c = Comparator.comparing(Triple::get, cc);
+                Comparator<Triple<A, B, C>> c = Comparator.comparing(Triple::getThird, cc);
         return (c).thenComparing(b).thenComparing(a);
     }
 }

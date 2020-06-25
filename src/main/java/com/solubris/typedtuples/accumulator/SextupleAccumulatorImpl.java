@@ -73,7 +73,7 @@ final class SextupleAccumulatorImpl<A, B, C, D, E, F> implements SextupleAccumul
     }
 
     @Override
-    public BinaryOperator<F> get() {
+    public BinaryOperator<F> getSixth() {
         return f;
     }
 
@@ -84,7 +84,7 @@ final class SextupleAccumulatorImpl<A, B, C, D, E, F> implements SextupleAccumul
         acc.setThird(c.apply(acc.getThird(), t.getThird()));
         acc.setFourth(d.apply(acc.getFourth(), t.getFourth()));
         acc.setFifth(e.apply(acc.getFifth(), t.getFifth()));
-        acc.set(f.apply(acc.get(), t.get()));
+        acc.setSixth(f.apply(acc.getSixth(), t.getSixth()));
     }
 
     @Override
@@ -95,7 +95,7 @@ final class SextupleAccumulatorImpl<A, B, C, D, E, F> implements SextupleAccumul
         C fc = c.apply(l.getThird(), r.getThird());
         D fd = d.apply(l.getFourth(), r.getFourth());
         E fe = e.apply(l.getFifth(), r.getFifth());
-        F ff = f.apply(l.get(), r.get());
+        F ff = f.apply(l.getSixth(), r.getSixth());
         return MutableTuple.of(fa, fb, fc, fd, fe, ff);
     }
 
@@ -107,7 +107,7 @@ final class SextupleAccumulatorImpl<A, B, C, D, E, F> implements SextupleAccumul
         C fc = c.apply(l.getThird(), r.getThird());
         D fd = d.apply(l.getFourth(), r.getFourth());
         E fe = e.apply(l.getFifth(), r.getFifth());
-        F ff = f.apply(l.get(), r.get());
+        F ff = f.apply(l.getSixth(), r.getSixth());
         return ImmutableTuple.of(fa, fb, fc, fd, fe, ff);
     }
 }

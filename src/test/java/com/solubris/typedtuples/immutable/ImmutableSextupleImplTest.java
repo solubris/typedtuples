@@ -121,9 +121,9 @@ class ImmutableSextupleImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getSixth(Integer value) {
         var underTest = new ImmutableSextupleImpl<>(a, b, c, d, e, value);
-        var actual = underTest.get();
+        var actual = underTest.getSixth();
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -264,9 +264,9 @@ class ImmutableSextupleImplTest {
             ints = 1
     )
     @NullSource
-    void duplicate(Integer value) {
+    void duplicateSixth(Integer value) {
         var underTest = new ImmutableSextupleImpl<>(a, b, c, d, e, value);
-        var actual = underTest.duplicate();
+        var actual = underTest.duplicateSixth();
         Assertions.assertThat(actual).isEqualTo(new ImmutableSeptupleImpl<>(a, b, c, d, e, value, value));
     }
 
@@ -330,9 +330,9 @@ class ImmutableSextupleImplTest {
             ints = 1
     )
     @NullSource
-    void remove(Integer value) {
+    void removeSixth(Integer value) {
         var underTest = new ImmutableSextupleImpl<>(a, b, c, d, e, value);
-        var actual = underTest.remove();
+        var actual = underTest.removeSixth();
         Assertions.assertThat(actual).isEqualTo(new ImmutableQuintupleImpl<>(a, b, c, d, e));
     }
 
@@ -396,9 +396,9 @@ class ImmutableSextupleImplTest {
             ints = 1
     )
     @NullSource
-    void replace(Integer value) {
+    void replaceSixth(Integer value) {
         var underTest = new ImmutableSextupleImpl<>(a, b, c, d, e, value);
-        var actual = underTest.replace(1);
+        var actual = underTest.replaceSixth(1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableSextupleImpl<>(a, b, c, d, e, 1));
     }
 
@@ -462,9 +462,9 @@ class ImmutableSextupleImplTest {
             ints = 1
     )
     @NullSource
-    void map(Integer value) {
+    void mapSixth(Integer value) {
         var underTest = new ImmutableSextupleImpl<>(a, b, c, d, e, value);
-        var actual = underTest.map(i -> 1);
+        var actual = underTest.mapSixth(i -> 1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableSextupleImpl<>(a, b, c, d, e, 1));
     }
 
@@ -528,9 +528,9 @@ class ImmutableSextupleImplTest {
             ints = 1
     )
     @NullSource
-    void mapAndAdd(Integer value) {
+    void mapSixthAndAdd(Integer value) {
         var underTest = new ImmutableSextupleImpl<>(a, b, c, d, e, value);
-        var actual = underTest.mapAndAdd(i -> 1);
+        var actual = underTest.mapSixthAndAdd(i -> 1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableSeptupleImpl<>(a, b, c, d, e, value, 1));
     }
 

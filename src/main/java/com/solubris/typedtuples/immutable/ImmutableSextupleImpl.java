@@ -70,7 +70,7 @@ final class ImmutableSextupleImpl<A, B, C, D, E, F> implements ImmutableSextuple
     }
 
     @Override
-    public F get() {
+    public F getSixth() {
         return f;
     }
 
@@ -135,7 +135,7 @@ final class ImmutableSextupleImpl<A, B, C, D, E, F> implements ImmutableSextuple
     }
 
     @Override
-    public ImmutableSeptuple<A, B, C, D, E, F, F> duplicate() {
+    public ImmutableSeptuple<A, B, C, D, E, F, F> duplicateSixth() {
         return new ImmutableSeptupleImpl<>(a, b, c, d, e, f, f);
     }
 
@@ -165,7 +165,7 @@ final class ImmutableSextupleImpl<A, B, C, D, E, F> implements ImmutableSextuple
     }
 
     @Override
-    public ImmutableQuintuple<A, B, C, D, E> remove() {
+    public ImmutableQuintuple<A, B, C, D, E> removeSixth() {
         return new ImmutableQuintupleImpl<>(a, b, c, d, e);
     }
 
@@ -195,7 +195,7 @@ final class ImmutableSextupleImpl<A, B, C, D, E, F> implements ImmutableSextuple
     }
 
     @Override
-    public <X> ImmutableSextuple<A, B, C, D, E, X> replace(X x) {
+    public <X> ImmutableSextuple<A, B, C, D, E, X> replaceSixth(X x) {
         return new ImmutableSextupleImpl<>(a, b, c, d, e, x);
     }
 
@@ -225,7 +225,7 @@ final class ImmutableSextupleImpl<A, B, C, D, E, F> implements ImmutableSextuple
     }
 
     @Override
-    public <X> ImmutableSextuple<A, B, C, D, E, X> map(Function<? super F, X> mapper) {
+    public <X> ImmutableSextuple<A, B, C, D, E, X> mapSixth(Function<? super F, X> mapper) {
         return new ImmutableSextupleImpl<>(a, b, c, d, e, mapper.apply(f));
     }
 
@@ -260,7 +260,8 @@ final class ImmutableSextupleImpl<A, B, C, D, E, F> implements ImmutableSextuple
     }
 
     @Override
-    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapAndAdd(Function<? super F, X> mapper) {
+    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapSixthAndAdd(
+            Function<? super F, X> mapper) {
         return new ImmutableSeptupleImpl<>(a, b, c, d, e, f, mapper.apply(f));
     }
 
@@ -285,7 +286,7 @@ final class ImmutableSextupleImpl<A, B, C, D, E, F> implements ImmutableSextuple
                 Objects.equals(this.c, thatSextuple.getThird()) && 
                 Objects.equals(this.d, thatSextuple.getFourth()) && 
                 Objects.equals(this.e, thatSextuple.getFifth()) && 
-                Objects.equals(this.f, thatSextuple.get());
+                Objects.equals(this.f, thatSextuple.getSixth());
     }
 
     @Override

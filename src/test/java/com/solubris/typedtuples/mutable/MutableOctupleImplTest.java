@@ -147,9 +147,9 @@ class MutableOctupleImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getEighth(Integer value) {
         var underTest = new MutableOctupleImpl<>(a, b, c, d, e, f, g, value);
-        var actual = underTest.get();
+        var actual = underTest.getEighth();
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -235,9 +235,9 @@ class MutableOctupleImplTest {
             ints = 1
     )
     @NullSource
-    void set(Integer value) {
+    void setEighth(Integer value) {
         var underTest = new MutableOctupleImpl<>(a, b, c, d, e, f, g, value);
-        underTest.set(10);
+        underTest.setEighth(10);
         Assertions.assertThat(underTest).isEqualTo(new MutableOctupleImpl<>(a, b, c, d, e, f, g, 10));
     }
 
@@ -345,9 +345,9 @@ class MutableOctupleImplTest {
             ints = 1
     )
     @NullSource
-    void compute(Integer value) {
+    void computeEighth(Integer value) {
         var underTest = new MutableOctupleImpl<>(a, b, c, d, e, f, g, value);
-        underTest.compute(i -> 10);
+        underTest.computeEighth(i -> 10);
         Assertions.assertThat(underTest).isEqualTo(new MutableOctupleImpl<>(a, b, c, d, e, f, g, 10));
     }
 

@@ -94,7 +94,7 @@ final class MutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements MutableNonu
     }
 
     @Override
-    public I get() {
+    public I getNinth() {
         return i;
     }
 
@@ -139,7 +139,7 @@ final class MutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements MutableNonu
     }
 
     @Override
-    public void set(I i) {
+    public void setNinth(I i) {
         this.i = i;
     }
 
@@ -203,7 +203,7 @@ final class MutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements MutableNonu
     }
 
     @Override
-    public void compute(UnaryOperator<I> mapper) {
+    public void computeNinth(UnaryOperator<I> mapper) {
         this.i = mapper.apply(i);
     }
 
@@ -220,7 +220,7 @@ final class MutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements MutableNonu
                 Objects.equals(this.f, thatNonuple.getSixth()) && 
                 Objects.equals(this.g, thatNonuple.getSeventh()) && 
                 Objects.equals(this.h, thatNonuple.getEighth()) && 
-                Objects.equals(this.i, thatNonuple.get());
+                Objects.equals(this.i, thatNonuple.getNinth());
     }
 
     @Override

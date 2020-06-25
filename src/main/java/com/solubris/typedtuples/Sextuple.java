@@ -30,7 +30,7 @@ public interface Sextuple<A, B, C, D, E, F> {
 
     E getFifth();
 
-    F get();
+    F getSixth();
 
     /**
      * Compare tuple fields in order requiring that the fields are Comparable.
@@ -44,7 +44,7 @@ public interface Sextuple<A, B, C, D, E, F> {
                 Comparator<Sextuple<A, B, C, D, E, F>> c = Comparator.comparing(Sextuple::getThird);
                 Comparator<Sextuple<A, B, C, D, E, F>> d = Comparator.comparing(Sextuple::getFourth);
                 Comparator<Sextuple<A, B, C, D, E, F>> e = Comparator.comparing(Sextuple::getFifth);
-                Comparator<Sextuple<A, B, C, D, E, F>> f = Comparator.comparing(Sextuple::get);
+                Comparator<Sextuple<A, B, C, D, E, F>> f = Comparator.comparing(Sextuple::getSixth);
         return (a).thenComparing(b).thenComparing(c).thenComparing(d).thenComparing(e).thenComparing(f);
     }
 
@@ -60,7 +60,7 @@ public interface Sextuple<A, B, C, D, E, F> {
                 Comparator<Sextuple<A, B, C, D, E, F>> c = Comparator.comparing(Sextuple::getThird);
                 Comparator<Sextuple<A, B, C, D, E, F>> d = Comparator.comparing(Sextuple::getFourth);
                 Comparator<Sextuple<A, B, C, D, E, F>> e = Comparator.comparing(Sextuple::getFifth);
-                Comparator<Sextuple<A, B, C, D, E, F>> f = Comparator.comparing(Sextuple::get);
+                Comparator<Sextuple<A, B, C, D, E, F>> f = Comparator.comparing(Sextuple::getSixth);
         return (f).thenComparing(e).thenComparing(d).thenComparing(c).thenComparing(b).thenComparing(a);
     }
 
@@ -77,7 +77,7 @@ public interface Sextuple<A, B, C, D, E, F> {
                 Comparator<Sextuple<A, B, C, D, E, F>> c = Comparator.comparing(fc.compose(Sextuple::getThird));
                 Comparator<Sextuple<A, B, C, D, E, F>> d = Comparator.comparing(fd.compose(Sextuple::getFourth));
                 Comparator<Sextuple<A, B, C, D, E, F>> e = Comparator.comparing(fe.compose(Sextuple::getFifth));
-                Comparator<Sextuple<A, B, C, D, E, F>> f = Comparator.comparing(ff.compose(Sextuple::get));
+                Comparator<Sextuple<A, B, C, D, E, F>> f = Comparator.comparing(ff.compose(Sextuple::getSixth));
         return (a).thenComparing(b).thenComparing(c).thenComparing(d).thenComparing(e).thenComparing(f);
     }
 
@@ -94,7 +94,7 @@ public interface Sextuple<A, B, C, D, E, F> {
                 Comparator<Sextuple<A, B, C, D, E, F>> c = Comparator.comparing(fc.compose(Sextuple::getThird));
                 Comparator<Sextuple<A, B, C, D, E, F>> d = Comparator.comparing(fd.compose(Sextuple::getFourth));
                 Comparator<Sextuple<A, B, C, D, E, F>> e = Comparator.comparing(fe.compose(Sextuple::getFifth));
-                Comparator<Sextuple<A, B, C, D, E, F>> f = Comparator.comparing(ff.compose(Sextuple::get));
+                Comparator<Sextuple<A, B, C, D, E, F>> f = Comparator.comparing(ff.compose(Sextuple::getSixth));
         return (f).thenComparing(e).thenComparing(d).thenComparing(c).thenComparing(b).thenComparing(a);
     }
 
@@ -118,7 +118,7 @@ public interface Sextuple<A, B, C, D, E, F> {
                 Comparator<Sextuple<A, B, C, D, E, F>> c = Comparator.comparing(Sextuple::getThird, cc);
                 Comparator<Sextuple<A, B, C, D, E, F>> d = Comparator.comparing(Sextuple::getFourth, cd);
                 Comparator<Sextuple<A, B, C, D, E, F>> e = Comparator.comparing(Sextuple::getFifth, ce);
-                Comparator<Sextuple<A, B, C, D, E, F>> f = Comparator.comparing(Sextuple::get, cf);
+                Comparator<Sextuple<A, B, C, D, E, F>> f = Comparator.comparing(Sextuple::getSixth, cf);
         return (a).thenComparing(b).thenComparing(c).thenComparing(d).thenComparing(e).thenComparing(f);
     }
 
@@ -142,7 +142,7 @@ public interface Sextuple<A, B, C, D, E, F> {
                 Comparator<Sextuple<A, B, C, D, E, F>> c = Comparator.comparing(Sextuple::getThird, cc);
                 Comparator<Sextuple<A, B, C, D, E, F>> d = Comparator.comparing(Sextuple::getFourth, cd);
                 Comparator<Sextuple<A, B, C, D, E, F>> e = Comparator.comparing(Sextuple::getFifth, ce);
-                Comparator<Sextuple<A, B, C, D, E, F>> f = Comparator.comparing(Sextuple::get, cf);
+                Comparator<Sextuple<A, B, C, D, E, F>> f = Comparator.comparing(Sextuple::getSixth, cf);
         return (f).thenComparing(e).thenComparing(d).thenComparing(c).thenComparing(b).thenComparing(a);
     }
 }

@@ -38,7 +38,7 @@ public interface MutableNonuple<A, B, C, D, E, F, G, H, I> extends Nonuple<A, B,
 
     void setEighth(H h);
 
-    void set(I i);
+    void setNinth(I i);
 
     void setAll(A a, B b, C c, D d, E e, F f, G g, H h, I i);
 
@@ -61,5 +61,5 @@ public interface MutableNonuple<A, B, C, D, E, F, G, H, I> extends Nonuple<A, B,
 
     void computeEighth(UnaryOperator<H> mapper);
 
-    void compute(UnaryOperator<I> mapper);
+    void computeNinth(UnaryOperator<I> mapper);
 }

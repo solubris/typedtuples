@@ -69,9 +69,9 @@ class ImmutableCoupleImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getSecond(Integer value) {
         var underTest = new ImmutableCoupleImpl<>(a, value);
-        var actual = underTest.get();
+        var actual = underTest.getSecond();
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -124,9 +124,9 @@ class ImmutableCoupleImplTest {
             ints = 1
     )
     @NullSource
-    void duplicate(Integer value) {
+    void duplicateSecond(Integer value) {
         var underTest = new ImmutableCoupleImpl<>(a, value);
-        var actual = underTest.duplicate();
+        var actual = underTest.duplicateSecond();
         Assertions.assertThat(actual).isEqualTo(new ImmutableTripleImpl<>(a, value, value));
     }
 
@@ -146,9 +146,9 @@ class ImmutableCoupleImplTest {
             ints = 1
     )
     @NullSource
-    void remove(Integer value) {
+    void removeSecond(Integer value) {
         var underTest = new ImmutableCoupleImpl<>(a, value);
-        var actual = underTest.remove();
+        var actual = underTest.removeSecond();
         Assertions.assertThat(actual).isEqualTo(new ImmutableSingleImpl<>(a));
     }
 
@@ -168,9 +168,9 @@ class ImmutableCoupleImplTest {
             ints = 1
     )
     @NullSource
-    void replace(Integer value) {
+    void replaceSecond(Integer value) {
         var underTest = new ImmutableCoupleImpl<>(a, value);
-        var actual = underTest.replace(1);
+        var actual = underTest.replaceSecond(1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableCoupleImpl<>(a, 1));
     }
 
@@ -190,9 +190,9 @@ class ImmutableCoupleImplTest {
             ints = 1
     )
     @NullSource
-    void map(Integer value) {
+    void mapSecond(Integer value) {
         var underTest = new ImmutableCoupleImpl<>(a, value);
-        var actual = underTest.map(i -> 1);
+        var actual = underTest.mapSecond(i -> 1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableCoupleImpl<>(a, 1));
     }
 
@@ -212,9 +212,9 @@ class ImmutableCoupleImplTest {
             ints = 1
     )
     @NullSource
-    void mapAndAdd(Integer value) {
+    void mapSecondAndAdd(Integer value) {
         var underTest = new ImmutableCoupleImpl<>(a, value);
-        var actual = underTest.mapAndAdd(i -> 1);
+        var actual = underTest.mapSecondAndAdd(i -> 1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableTripleImpl<>(a, value, 1));
     }
 

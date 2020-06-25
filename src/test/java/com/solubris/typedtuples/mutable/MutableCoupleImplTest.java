@@ -69,9 +69,9 @@ class MutableCoupleImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getSecond(Integer value) {
         var underTest = new MutableCoupleImpl<>(a, value);
-        var actual = underTest.get();
+        var actual = underTest.getSecond();
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -91,9 +91,9 @@ class MutableCoupleImplTest {
             ints = 1
     )
     @NullSource
-    void set(Integer value) {
+    void setSecond(Integer value) {
         var underTest = new MutableCoupleImpl<>(a, value);
-        underTest.set(10);
+        underTest.setSecond(10);
         Assertions.assertThat(underTest).isEqualTo(new MutableCoupleImpl<>(a, 10));
     }
 
@@ -135,9 +135,9 @@ class MutableCoupleImplTest {
             ints = 1
     )
     @NullSource
-    void compute(Integer value) {
+    void computeSecond(Integer value) {
         var underTest = new MutableCoupleImpl<>(a, value);
-        underTest.compute(i -> 10);
+        underTest.computeSecond(i -> 10);
         Assertions.assertThat(underTest).isEqualTo(new MutableCoupleImpl<>(a, 10));
     }
 

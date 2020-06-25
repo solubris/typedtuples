@@ -36,7 +36,7 @@ public interface Nonuple<A, B, C, D, E, F, G, H, I> {
 
     H getEighth();
 
-    I get();
+    I getNinth();
 
     /**
      * Compare tuple fields in order requiring that the fields are Comparable.
@@ -53,7 +53,7 @@ public interface Nonuple<A, B, C, D, E, F, G, H, I> {
                 Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> f = Comparator.comparing(Nonuple::getSixth);
                 Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> g = Comparator.comparing(Nonuple::getSeventh);
                 Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> h = Comparator.comparing(Nonuple::getEighth);
-                Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> i = Comparator.comparing(Nonuple::get);
+                Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> i = Comparator.comparing(Nonuple::getNinth);
         return (a).thenComparing(b).thenComparing(c).thenComparing(d).thenComparing(e).thenComparing(f).thenComparing(g).thenComparing(h).thenComparing(i);
     }
 
@@ -72,7 +72,7 @@ public interface Nonuple<A, B, C, D, E, F, G, H, I> {
                 Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> f = Comparator.comparing(Nonuple::getSixth);
                 Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> g = Comparator.comparing(Nonuple::getSeventh);
                 Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> h = Comparator.comparing(Nonuple::getEighth);
-                Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> i = Comparator.comparing(Nonuple::get);
+                Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> i = Comparator.comparing(Nonuple::getNinth);
         return (i).thenComparing(h).thenComparing(g).thenComparing(f).thenComparing(e).thenComparing(d).thenComparing(c).thenComparing(b).thenComparing(a);
     }
 
@@ -93,7 +93,7 @@ public interface Nonuple<A, B, C, D, E, F, G, H, I> {
                 Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> f = Comparator.comparing(ff.compose(Nonuple::getSixth));
                 Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> g = Comparator.comparing(fg.compose(Nonuple::getSeventh));
                 Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> h = Comparator.comparing(fh.compose(Nonuple::getEighth));
-                Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> i = Comparator.comparing(fi.compose(Nonuple::get));
+                Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> i = Comparator.comparing(fi.compose(Nonuple::getNinth));
         return (a).thenComparing(b).thenComparing(c).thenComparing(d).thenComparing(e).thenComparing(f).thenComparing(g).thenComparing(h).thenComparing(i);
     }
 
@@ -114,7 +114,7 @@ public interface Nonuple<A, B, C, D, E, F, G, H, I> {
                 Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> f = Comparator.comparing(ff.compose(Nonuple::getSixth));
                 Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> g = Comparator.comparing(fg.compose(Nonuple::getSeventh));
                 Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> h = Comparator.comparing(fh.compose(Nonuple::getEighth));
-                Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> i = Comparator.comparing(fi.compose(Nonuple::get));
+                Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> i = Comparator.comparing(fi.compose(Nonuple::getNinth));
         return (i).thenComparing(h).thenComparing(g).thenComparing(f).thenComparing(e).thenComparing(d).thenComparing(c).thenComparing(b).thenComparing(a);
     }
 
@@ -145,7 +145,7 @@ public interface Nonuple<A, B, C, D, E, F, G, H, I> {
                 Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> f = Comparator.comparing(Nonuple::getSixth, cf);
                 Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> g = Comparator.comparing(Nonuple::getSeventh, cg);
                 Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> h = Comparator.comparing(Nonuple::getEighth, ch);
-                Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> i = Comparator.comparing(Nonuple::get, ci);
+                Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> i = Comparator.comparing(Nonuple::getNinth, ci);
         return (a).thenComparing(b).thenComparing(c).thenComparing(d).thenComparing(e).thenComparing(f).thenComparing(g).thenComparing(h).thenComparing(i);
     }
 
@@ -176,7 +176,7 @@ public interface Nonuple<A, B, C, D, E, F, G, H, I> {
                 Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> f = Comparator.comparing(Nonuple::getSixth, cf);
                 Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> g = Comparator.comparing(Nonuple::getSeventh, cg);
                 Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> h = Comparator.comparing(Nonuple::getEighth, ch);
-                Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> i = Comparator.comparing(Nonuple::get, ci);
+                Comparator<Nonuple<A, B, C, D, E, F, G, H, I>> i = Comparator.comparing(Nonuple::getNinth, ci);
         return (i).thenComparing(h).thenComparing(g).thenComparing(f).thenComparing(e).thenComparing(d).thenComparing(c).thenComparing(b).thenComparing(a);
     }
 }

@@ -160,9 +160,9 @@ class ImmutableNonupleImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getNinth(Integer value) {
         var underTest = new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
-        var actual = underTest.get();
+        var actual = underTest.getNinth();
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -369,9 +369,9 @@ class ImmutableNonupleImplTest {
             ints = 1
     )
     @NullSource
-    void duplicate(Integer value) {
+    void duplicateNinth(Integer value) {
         var underTest = new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
-        var actual = underTest.duplicate();
+        var actual = underTest.duplicateNinth();
         Assertions.assertThat(actual).isEqualTo(new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, value, value));
     }
 
@@ -468,9 +468,9 @@ class ImmutableNonupleImplTest {
             ints = 1
     )
     @NullSource
-    void remove(Integer value) {
+    void removeNinth(Integer value) {
         var underTest = new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
-        var actual = underTest.remove();
+        var actual = underTest.removeNinth();
         Assertions.assertThat(actual).isEqualTo(new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, h));
     }
 
@@ -567,9 +567,9 @@ class ImmutableNonupleImplTest {
             ints = 1
     )
     @NullSource
-    void replace(Integer value) {
+    void replaceNinth(Integer value) {
         var underTest = new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
-        var actual = underTest.replace(1);
+        var actual = underTest.replaceNinth(1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, 1));
     }
 
@@ -666,9 +666,9 @@ class ImmutableNonupleImplTest {
             ints = 1
     )
     @NullSource
-    void map(Integer value) {
+    void mapNinth(Integer value) {
         var underTest = new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
-        var actual = underTest.map(i -> 1);
+        var actual = underTest.mapNinth(i -> 1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, 1));
     }
 
@@ -765,9 +765,9 @@ class ImmutableNonupleImplTest {
             ints = 1
     )
     @NullSource
-    void mapAndAdd(Integer value) {
+    void mapNinthAndAdd(Integer value) {
         var underTest = new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
-        var actual = underTest.mapAndAdd(i -> 1);
+        var actual = underTest.mapNinthAndAdd(i -> 1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, value, 1));
     }
 

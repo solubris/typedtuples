@@ -108,9 +108,9 @@ class ImmutableQuintupleImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getFifth(Integer value) {
         var underTest = new ImmutableQuintupleImpl<>(a, b, c, d, value);
-        var actual = underTest.get();
+        var actual = underTest.getFifth();
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -229,9 +229,9 @@ class ImmutableQuintupleImplTest {
             ints = 1
     )
     @NullSource
-    void duplicate(Integer value) {
+    void duplicateFifth(Integer value) {
         var underTest = new ImmutableQuintupleImpl<>(a, b, c, d, value);
-        var actual = underTest.duplicate();
+        var actual = underTest.duplicateFifth();
         Assertions.assertThat(actual).isEqualTo(new ImmutableSextupleImpl<>(a, b, c, d, value, value));
     }
 
@@ -284,9 +284,9 @@ class ImmutableQuintupleImplTest {
             ints = 1
     )
     @NullSource
-    void remove(Integer value) {
+    void removeFifth(Integer value) {
         var underTest = new ImmutableQuintupleImpl<>(a, b, c, d, value);
-        var actual = underTest.remove();
+        var actual = underTest.removeFifth();
         Assertions.assertThat(actual).isEqualTo(new ImmutableQuadrupleImpl<>(a, b, c, d));
     }
 
@@ -339,9 +339,9 @@ class ImmutableQuintupleImplTest {
             ints = 1
     )
     @NullSource
-    void replace(Integer value) {
+    void replaceFifth(Integer value) {
         var underTest = new ImmutableQuintupleImpl<>(a, b, c, d, value);
-        var actual = underTest.replace(1);
+        var actual = underTest.replaceFifth(1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableQuintupleImpl<>(a, b, c, d, 1));
     }
 
@@ -394,9 +394,9 @@ class ImmutableQuintupleImplTest {
             ints = 1
     )
     @NullSource
-    void map(Integer value) {
+    void mapFifth(Integer value) {
         var underTest = new ImmutableQuintupleImpl<>(a, b, c, d, value);
-        var actual = underTest.map(i -> 1);
+        var actual = underTest.mapFifth(i -> 1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableQuintupleImpl<>(a, b, c, d, 1));
     }
 
@@ -449,9 +449,9 @@ class ImmutableQuintupleImplTest {
             ints = 1
     )
     @NullSource
-    void mapAndAdd(Integer value) {
+    void mapFifthAndAdd(Integer value) {
         var underTest = new ImmutableQuintupleImpl<>(a, b, c, d, value);
-        var actual = underTest.mapAndAdd(i -> 1);
+        var actual = underTest.mapFifthAndAdd(i -> 1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableSextupleImpl<>(a, b, c, d, value, 1));
     }
 

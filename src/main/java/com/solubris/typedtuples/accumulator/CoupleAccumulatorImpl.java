@@ -40,27 +40,27 @@ final class CoupleAccumulatorImpl<A, B> implements CoupleAccumulator<A, B> {
     }
 
     @Override
-    public BinaryOperator<B> get() {
+    public BinaryOperator<B> getSecond() {
         return b;
     }
 
     @Override
     public void accumulate(MutableCouple<A, B> acc, Couple<A, B> t) {
         acc.setFirst(a.apply(acc.getFirst(), t.getFirst()));
-        acc.set(b.apply(acc.get(), t.get()));
+        acc.setSecond(b.apply(acc.getSecond(), t.getSecond()));
     }
 
     @Override
     public MutableCouple<A, B> combine(MutableCouple<A, B> l, MutableCouple<A, B> r) {
         A fa = a.apply(l.getFirst(), r.getFirst());
-        B fb = b.apply(l.get(), r.get());
+        B fb = b.apply(l.getSecond(), r.getSecond());
         return MutableTuple.of(fa, fb);
     }
 
     @Override
     public ImmutableCouple<A, B> combine(ImmutableCouple<A, B> l, ImmutableCouple<A, B> r) {
         A fa = a.apply(l.getFirst(), r.getFirst());
-        B fb = b.apply(l.get(), r.get());
+        B fb = b.apply(l.getSecond(), r.getSecond());
         return ImmutableTuple.of(fa, fb);
     }
 }

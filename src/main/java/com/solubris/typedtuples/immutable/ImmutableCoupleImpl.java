@@ -38,7 +38,7 @@ final class ImmutableCoupleImpl<A, B> implements ImmutableCouple<A, B> {
     }
 
     @Override
-    public B get() {
+    public B getSecond() {
         return b;
     }
 
@@ -63,7 +63,7 @@ final class ImmutableCoupleImpl<A, B> implements ImmutableCouple<A, B> {
     }
 
     @Override
-    public ImmutableTriple<A, B, B> duplicate() {
+    public ImmutableTriple<A, B, B> duplicateSecond() {
         return new ImmutableTripleImpl<>(a, b, b);
     }
 
@@ -73,7 +73,7 @@ final class ImmutableCoupleImpl<A, B> implements ImmutableCouple<A, B> {
     }
 
     @Override
-    public ImmutableSingle<A> remove() {
+    public ImmutableSingle<A> removeSecond() {
         return new ImmutableSingleImpl<>(a);
     }
 
@@ -83,7 +83,7 @@ final class ImmutableCoupleImpl<A, B> implements ImmutableCouple<A, B> {
     }
 
     @Override
-    public <X> ImmutableCouple<A, X> replace(X x) {
+    public <X> ImmutableCouple<A, X> replaceSecond(X x) {
         return new ImmutableCoupleImpl<>(a, x);
     }
 
@@ -93,7 +93,7 @@ final class ImmutableCoupleImpl<A, B> implements ImmutableCouple<A, B> {
     }
 
     @Override
-    public <X> ImmutableCouple<A, X> map(Function<? super B, X> mapper) {
+    public <X> ImmutableCouple<A, X> mapSecond(Function<? super B, X> mapper) {
         return new ImmutableCoupleImpl<>(a, mapper.apply(b));
     }
 
@@ -103,7 +103,7 @@ final class ImmutableCoupleImpl<A, B> implements ImmutableCouple<A, B> {
     }
 
     @Override
-    public <X> ImmutableTriple<A, B, X> mapAndAdd(Function<? super B, X> mapper) {
+    public <X> ImmutableTriple<A, B, X> mapSecondAndAdd(Function<? super B, X> mapper) {
         return new ImmutableTripleImpl<>(a, b, mapper.apply(b));
     }
 
@@ -123,7 +123,7 @@ final class ImmutableCoupleImpl<A, B> implements ImmutableCouple<A, B> {
         if (!(that instanceof Couple<?, ?>)) return false;
         Couple<?, ?> thatCouple = (Couple<?, ?>) that;
         return Objects.equals(this.a, thatCouple.getFirst()) && 
-                Objects.equals(this.b, thatCouple.get());
+                Objects.equals(this.b, thatCouple.getSecond());
     }
 
     @Override

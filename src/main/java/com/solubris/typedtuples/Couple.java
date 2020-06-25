@@ -22,7 +22,7 @@ import java.util.function.Function;
 public interface Couple<A, B> {
     A getFirst();
 
-    B get();
+    B getSecond();
 
     /**
      * Compare tuple fields in order requiring that the fields are Comparable.
@@ -32,7 +32,7 @@ public interface Couple<A, B> {
     static <A extends Comparable<? super A>, B extends Comparable<? super B>> Comparator<Couple<A, B>> compareByAllFieldsInOrder(
             ) {
         Comparator<Couple<A, B>> a = Comparator.comparing(Couple::getFirst);
-                Comparator<Couple<A, B>> b = Comparator.comparing(Couple::get);
+                Comparator<Couple<A, B>> b = Comparator.comparing(Couple::getSecond);
         return (a).thenComparing(b);
     }
 
@@ -44,7 +44,7 @@ public interface Couple<A, B> {
     static <A extends Comparable<? super A>, B extends Comparable<? super B>> Comparator<Couple<A, B>> compareByAllFieldsInReverseOrder(
             ) {
         Comparator<Couple<A, B>> a = Comparator.comparing(Couple::getFirst);
-                Comparator<Couple<A, B>> b = Comparator.comparing(Couple::get);
+                Comparator<Couple<A, B>> b = Comparator.comparing(Couple::getSecond);
         return (b).thenComparing(a);
     }
 
@@ -56,7 +56,7 @@ public interface Couple<A, B> {
     static <A, FA extends Comparable<? super FA>, B, FB extends Comparable<? super FB>> Comparator<Couple<A, B>> compareByAllFieldsInOrder(
             Function<? super A, FA> fa, Function<? super B, FB> fb) {
         Comparator<Couple<A, B>> a = Comparator.comparing(fa.compose(Couple::getFirst));
-                Comparator<Couple<A, B>> b = Comparator.comparing(fb.compose(Couple::get));
+                Comparator<Couple<A, B>> b = Comparator.comparing(fb.compose(Couple::getSecond));
         return (a).thenComparing(b);
     }
 
@@ -68,7 +68,7 @@ public interface Couple<A, B> {
     static <A, FA extends Comparable<? super FA>, B, FB extends Comparable<? super FB>> Comparator<Couple<A, B>> compareByAllFieldsInReverseOrder(
             Function<? super A, FA> fa, Function<? super B, FB> fb) {
         Comparator<Couple<A, B>> a = Comparator.comparing(fa.compose(Couple::getFirst));
-                Comparator<Couple<A, B>> b = Comparator.comparing(fb.compose(Couple::get));
+                Comparator<Couple<A, B>> b = Comparator.comparing(fb.compose(Couple::getSecond));
         return (b).thenComparing(a);
     }
 
@@ -83,7 +83,7 @@ public interface Couple<A, B> {
     static <A, B> Comparator<Couple<A, B>> compareByAllFieldsInOrder(Comparator<? super A> ca,
             Comparator<? super B> cb) {
         Comparator<Couple<A, B>> a = Comparator.comparing(Couple::getFirst, ca);
-                Comparator<Couple<A, B>> b = Comparator.comparing(Couple::get, cb);
+                Comparator<Couple<A, B>> b = Comparator.comparing(Couple::getSecond, cb);
         return (a).thenComparing(b);
     }
 
@@ -98,7 +98,7 @@ public interface Couple<A, B> {
     static <A, B> Comparator<Couple<A, B>> compareByAllFieldsInReverseOrder(
             Comparator<? super A> ca, Comparator<? super B> cb) {
         Comparator<Couple<A, B>> a = Comparator.comparing(Couple::getFirst, ca);
-                Comparator<Couple<A, B>> b = Comparator.comparing(Couple::get, cb);
+                Comparator<Couple<A, B>> b = Comparator.comparing(Couple::getSecond, cb);
         return (b).thenComparing(a);
     }
 }

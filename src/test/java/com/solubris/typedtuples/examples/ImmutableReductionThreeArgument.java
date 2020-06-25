@@ -65,7 +65,7 @@ class ImmutableReductionThreeArgument {
                 .boxed()
                 .reduce(
                         ImmutableTuple.of(0, 0),
-                        (acc, integer) -> ImmutableTuple.of(acc.getFirst() + integer, acc.get() + (integer*integer)),
+                        (acc, integer) -> ImmutableTuple.of(acc.getFirst() + integer, acc.getSecond() + (integer*integer)),
                         accumulator::combine
                 );
         System.out.println(result);

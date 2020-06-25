@@ -46,7 +46,7 @@ final class MutableTripleImpl<A, B, C> implements MutableTriple<A, B, C> {
     }
 
     @Override
-    public C get() {
+    public C getThird() {
         return c;
     }
 
@@ -61,7 +61,7 @@ final class MutableTripleImpl<A, B, C> implements MutableTriple<A, B, C> {
     }
 
     @Override
-    public void set(C c) {
+    public void setThird(C c) {
         this.c = c;
     }
 
@@ -88,7 +88,7 @@ final class MutableTripleImpl<A, B, C> implements MutableTriple<A, B, C> {
     }
 
     @Override
-    public void compute(UnaryOperator<C> mapper) {
+    public void computeThird(UnaryOperator<C> mapper) {
         this.c = mapper.apply(c);
     }
 
@@ -99,7 +99,7 @@ final class MutableTripleImpl<A, B, C> implements MutableTriple<A, B, C> {
         Triple<?, ?, ?> thatTriple = (Triple<?, ?, ?>) that;
         return Objects.equals(this.a, thatTriple.getFirst()) && 
                 Objects.equals(this.b, thatTriple.getSecond()) && 
-                Objects.equals(this.c, thatTriple.get());
+                Objects.equals(this.c, thatTriple.getThird());
     }
 
     @Override

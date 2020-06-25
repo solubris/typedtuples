@@ -95,9 +95,9 @@ class MutableQuadrupleImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getFourth(Integer value) {
         var underTest = new MutableQuadrupleImpl<>(a, b, c, value);
-        var actual = underTest.get();
+        var actual = underTest.getFourth();
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -139,9 +139,9 @@ class MutableQuadrupleImplTest {
             ints = 1
     )
     @NullSource
-    void set(Integer value) {
+    void setFourth(Integer value) {
         var underTest = new MutableQuadrupleImpl<>(a, b, c, value);
-        underTest.set(10);
+        underTest.setFourth(10);
         Assertions.assertThat(underTest).isEqualTo(new MutableQuadrupleImpl<>(a, b, c, 10));
     }
 
@@ -205,9 +205,9 @@ class MutableQuadrupleImplTest {
             ints = 1
     )
     @NullSource
-    void compute(Integer value) {
+    void computeFourth(Integer value) {
         var underTest = new MutableQuadrupleImpl<>(a, b, c, value);
-        underTest.compute(i -> 10);
+        underTest.computeFourth(i -> 10);
         Assertions.assertThat(underTest).isEqualTo(new MutableQuadrupleImpl<>(a, b, c, 10));
     }
 

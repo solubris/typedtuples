@@ -34,7 +34,7 @@ public interface Octuple<A, B, C, D, E, F, G, H> {
 
     G getSeventh();
 
-    H get();
+    H getEighth();
 
     /**
      * Compare tuple fields in order requiring that the fields are Comparable.
@@ -50,7 +50,7 @@ public interface Octuple<A, B, C, D, E, F, G, H> {
                 Comparator<Octuple<A, B, C, D, E, F, G, H>> e = Comparator.comparing(Octuple::getFifth);
                 Comparator<Octuple<A, B, C, D, E, F, G, H>> f = Comparator.comparing(Octuple::getSixth);
                 Comparator<Octuple<A, B, C, D, E, F, G, H>> g = Comparator.comparing(Octuple::getSeventh);
-                Comparator<Octuple<A, B, C, D, E, F, G, H>> h = Comparator.comparing(Octuple::get);
+                Comparator<Octuple<A, B, C, D, E, F, G, H>> h = Comparator.comparing(Octuple::getEighth);
         return (a).thenComparing(b).thenComparing(c).thenComparing(d).thenComparing(e).thenComparing(f).thenComparing(g).thenComparing(h);
     }
 
@@ -68,7 +68,7 @@ public interface Octuple<A, B, C, D, E, F, G, H> {
                 Comparator<Octuple<A, B, C, D, E, F, G, H>> e = Comparator.comparing(Octuple::getFifth);
                 Comparator<Octuple<A, B, C, D, E, F, G, H>> f = Comparator.comparing(Octuple::getSixth);
                 Comparator<Octuple<A, B, C, D, E, F, G, H>> g = Comparator.comparing(Octuple::getSeventh);
-                Comparator<Octuple<A, B, C, D, E, F, G, H>> h = Comparator.comparing(Octuple::get);
+                Comparator<Octuple<A, B, C, D, E, F, G, H>> h = Comparator.comparing(Octuple::getEighth);
         return (h).thenComparing(g).thenComparing(f).thenComparing(e).thenComparing(d).thenComparing(c).thenComparing(b).thenComparing(a);
     }
 
@@ -88,7 +88,7 @@ public interface Octuple<A, B, C, D, E, F, G, H> {
                 Comparator<Octuple<A, B, C, D, E, F, G, H>> e = Comparator.comparing(fe.compose(Octuple::getFifth));
                 Comparator<Octuple<A, B, C, D, E, F, G, H>> f = Comparator.comparing(ff.compose(Octuple::getSixth));
                 Comparator<Octuple<A, B, C, D, E, F, G, H>> g = Comparator.comparing(fg.compose(Octuple::getSeventh));
-                Comparator<Octuple<A, B, C, D, E, F, G, H>> h = Comparator.comparing(fh.compose(Octuple::get));
+                Comparator<Octuple<A, B, C, D, E, F, G, H>> h = Comparator.comparing(fh.compose(Octuple::getEighth));
         return (a).thenComparing(b).thenComparing(c).thenComparing(d).thenComparing(e).thenComparing(f).thenComparing(g).thenComparing(h);
     }
 
@@ -108,7 +108,7 @@ public interface Octuple<A, B, C, D, E, F, G, H> {
                 Comparator<Octuple<A, B, C, D, E, F, G, H>> e = Comparator.comparing(fe.compose(Octuple::getFifth));
                 Comparator<Octuple<A, B, C, D, E, F, G, H>> f = Comparator.comparing(ff.compose(Octuple::getSixth));
                 Comparator<Octuple<A, B, C, D, E, F, G, H>> g = Comparator.comparing(fg.compose(Octuple::getSeventh));
-                Comparator<Octuple<A, B, C, D, E, F, G, H>> h = Comparator.comparing(fh.compose(Octuple::get));
+                Comparator<Octuple<A, B, C, D, E, F, G, H>> h = Comparator.comparing(fh.compose(Octuple::getEighth));
         return (h).thenComparing(g).thenComparing(f).thenComparing(e).thenComparing(d).thenComparing(c).thenComparing(b).thenComparing(a);
     }
 
@@ -137,7 +137,7 @@ public interface Octuple<A, B, C, D, E, F, G, H> {
                 Comparator<Octuple<A, B, C, D, E, F, G, H>> e = Comparator.comparing(Octuple::getFifth, ce);
                 Comparator<Octuple<A, B, C, D, E, F, G, H>> f = Comparator.comparing(Octuple::getSixth, cf);
                 Comparator<Octuple<A, B, C, D, E, F, G, H>> g = Comparator.comparing(Octuple::getSeventh, cg);
-                Comparator<Octuple<A, B, C, D, E, F, G, H>> h = Comparator.comparing(Octuple::get, ch);
+                Comparator<Octuple<A, B, C, D, E, F, G, H>> h = Comparator.comparing(Octuple::getEighth, ch);
         return (a).thenComparing(b).thenComparing(c).thenComparing(d).thenComparing(e).thenComparing(f).thenComparing(g).thenComparing(h);
     }
 
@@ -166,7 +166,7 @@ public interface Octuple<A, B, C, D, E, F, G, H> {
                 Comparator<Octuple<A, B, C, D, E, F, G, H>> e = Comparator.comparing(Octuple::getFifth, ce);
                 Comparator<Octuple<A, B, C, D, E, F, G, H>> f = Comparator.comparing(Octuple::getSixth, cf);
                 Comparator<Octuple<A, B, C, D, E, F, G, H>> g = Comparator.comparing(Octuple::getSeventh, cg);
-                Comparator<Octuple<A, B, C, D, E, F, G, H>> h = Comparator.comparing(Octuple::get, ch);
+                Comparator<Octuple<A, B, C, D, E, F, G, H>> h = Comparator.comparing(Octuple::getEighth, ch);
         return (h).thenComparing(g).thenComparing(f).thenComparing(e).thenComparing(d).thenComparing(c).thenComparing(b).thenComparing(a);
     }
 }

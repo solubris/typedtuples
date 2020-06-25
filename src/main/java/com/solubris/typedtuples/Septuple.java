@@ -32,7 +32,7 @@ public interface Septuple<A, B, C, D, E, F, G> {
 
     F getSixth();
 
-    G get();
+    G getSeventh();
 
     /**
      * Compare tuple fields in order requiring that the fields are Comparable.
@@ -47,7 +47,7 @@ public interface Septuple<A, B, C, D, E, F, G> {
                 Comparator<Septuple<A, B, C, D, E, F, G>> d = Comparator.comparing(Septuple::getFourth);
                 Comparator<Septuple<A, B, C, D, E, F, G>> e = Comparator.comparing(Septuple::getFifth);
                 Comparator<Septuple<A, B, C, D, E, F, G>> f = Comparator.comparing(Septuple::getSixth);
-                Comparator<Septuple<A, B, C, D, E, F, G>> g = Comparator.comparing(Septuple::get);
+                Comparator<Septuple<A, B, C, D, E, F, G>> g = Comparator.comparing(Septuple::getSeventh);
         return (a).thenComparing(b).thenComparing(c).thenComparing(d).thenComparing(e).thenComparing(f).thenComparing(g);
     }
 
@@ -64,7 +64,7 @@ public interface Septuple<A, B, C, D, E, F, G> {
                 Comparator<Septuple<A, B, C, D, E, F, G>> d = Comparator.comparing(Septuple::getFourth);
                 Comparator<Septuple<A, B, C, D, E, F, G>> e = Comparator.comparing(Septuple::getFifth);
                 Comparator<Septuple<A, B, C, D, E, F, G>> f = Comparator.comparing(Septuple::getSixth);
-                Comparator<Septuple<A, B, C, D, E, F, G>> g = Comparator.comparing(Septuple::get);
+                Comparator<Septuple<A, B, C, D, E, F, G>> g = Comparator.comparing(Septuple::getSeventh);
         return (g).thenComparing(f).thenComparing(e).thenComparing(d).thenComparing(c).thenComparing(b).thenComparing(a);
     }
 
@@ -83,7 +83,7 @@ public interface Septuple<A, B, C, D, E, F, G> {
                 Comparator<Septuple<A, B, C, D, E, F, G>> d = Comparator.comparing(fd.compose(Septuple::getFourth));
                 Comparator<Septuple<A, B, C, D, E, F, G>> e = Comparator.comparing(fe.compose(Septuple::getFifth));
                 Comparator<Septuple<A, B, C, D, E, F, G>> f = Comparator.comparing(ff.compose(Septuple::getSixth));
-                Comparator<Septuple<A, B, C, D, E, F, G>> g = Comparator.comparing(fg.compose(Septuple::get));
+                Comparator<Septuple<A, B, C, D, E, F, G>> g = Comparator.comparing(fg.compose(Septuple::getSeventh));
         return (a).thenComparing(b).thenComparing(c).thenComparing(d).thenComparing(e).thenComparing(f).thenComparing(g);
     }
 
@@ -102,7 +102,7 @@ public interface Septuple<A, B, C, D, E, F, G> {
                 Comparator<Septuple<A, B, C, D, E, F, G>> d = Comparator.comparing(fd.compose(Septuple::getFourth));
                 Comparator<Septuple<A, B, C, D, E, F, G>> e = Comparator.comparing(fe.compose(Septuple::getFifth));
                 Comparator<Septuple<A, B, C, D, E, F, G>> f = Comparator.comparing(ff.compose(Septuple::getSixth));
-                Comparator<Septuple<A, B, C, D, E, F, G>> g = Comparator.comparing(fg.compose(Septuple::get));
+                Comparator<Septuple<A, B, C, D, E, F, G>> g = Comparator.comparing(fg.compose(Septuple::getSeventh));
         return (g).thenComparing(f).thenComparing(e).thenComparing(d).thenComparing(c).thenComparing(b).thenComparing(a);
     }
 
@@ -129,7 +129,7 @@ public interface Septuple<A, B, C, D, E, F, G> {
                 Comparator<Septuple<A, B, C, D, E, F, G>> d = Comparator.comparing(Septuple::getFourth, cd);
                 Comparator<Septuple<A, B, C, D, E, F, G>> e = Comparator.comparing(Septuple::getFifth, ce);
                 Comparator<Septuple<A, B, C, D, E, F, G>> f = Comparator.comparing(Septuple::getSixth, cf);
-                Comparator<Septuple<A, B, C, D, E, F, G>> g = Comparator.comparing(Septuple::get, cg);
+                Comparator<Septuple<A, B, C, D, E, F, G>> g = Comparator.comparing(Septuple::getSeventh, cg);
         return (a).thenComparing(b).thenComparing(c).thenComparing(d).thenComparing(e).thenComparing(f).thenComparing(g);
     }
 
@@ -156,7 +156,7 @@ public interface Septuple<A, B, C, D, E, F, G> {
                 Comparator<Septuple<A, B, C, D, E, F, G>> d = Comparator.comparing(Septuple::getFourth, cd);
                 Comparator<Septuple<A, B, C, D, E, F, G>> e = Comparator.comparing(Septuple::getFifth, ce);
                 Comparator<Septuple<A, B, C, D, E, F, G>> f = Comparator.comparing(Septuple::getSixth, cf);
-                Comparator<Septuple<A, B, C, D, E, F, G>> g = Comparator.comparing(Septuple::get, cg);
+                Comparator<Septuple<A, B, C, D, E, F, G>> g = Comparator.comparing(Septuple::getSeventh, cg);
         return (g).thenComparing(f).thenComparing(e).thenComparing(d).thenComparing(c).thenComparing(b).thenComparing(a);
     }
 }

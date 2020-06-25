@@ -82,9 +82,9 @@ class ImmutableTripleImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getThird(Integer value) {
         var underTest = new ImmutableTripleImpl<>(a, b, value);
-        var actual = underTest.get();
+        var actual = underTest.getThird();
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -159,9 +159,9 @@ class ImmutableTripleImplTest {
             ints = 1
     )
     @NullSource
-    void duplicate(Integer value) {
+    void duplicateThird(Integer value) {
         var underTest = new ImmutableTripleImpl<>(a, b, value);
-        var actual = underTest.duplicate();
+        var actual = underTest.duplicateThird();
         Assertions.assertThat(actual).isEqualTo(new ImmutableQuadrupleImpl<>(a, b, value, value));
     }
 
@@ -192,9 +192,9 @@ class ImmutableTripleImplTest {
             ints = 1
     )
     @NullSource
-    void remove(Integer value) {
+    void removeThird(Integer value) {
         var underTest = new ImmutableTripleImpl<>(a, b, value);
-        var actual = underTest.remove();
+        var actual = underTest.removeThird();
         Assertions.assertThat(actual).isEqualTo(new ImmutableCoupleImpl<>(a, b));
     }
 
@@ -225,9 +225,9 @@ class ImmutableTripleImplTest {
             ints = 1
     )
     @NullSource
-    void replace(Integer value) {
+    void replaceThird(Integer value) {
         var underTest = new ImmutableTripleImpl<>(a, b, value);
-        var actual = underTest.replace(1);
+        var actual = underTest.replaceThird(1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableTripleImpl<>(a, b, 1));
     }
 
@@ -258,9 +258,9 @@ class ImmutableTripleImplTest {
             ints = 1
     )
     @NullSource
-    void map(Integer value) {
+    void mapThird(Integer value) {
         var underTest = new ImmutableTripleImpl<>(a, b, value);
-        var actual = underTest.map(i -> 1);
+        var actual = underTest.mapThird(i -> 1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableTripleImpl<>(a, b, 1));
     }
 
@@ -291,9 +291,9 @@ class ImmutableTripleImplTest {
             ints = 1
     )
     @NullSource
-    void mapAndAdd(Integer value) {
+    void mapThirdAndAdd(Integer value) {
         var underTest = new ImmutableTripleImpl<>(a, b, value);
-        var actual = underTest.mapAndAdd(i -> 1);
+        var actual = underTest.mapThirdAndAdd(i -> 1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableQuadrupleImpl<>(a, b, value, 1));
     }
 

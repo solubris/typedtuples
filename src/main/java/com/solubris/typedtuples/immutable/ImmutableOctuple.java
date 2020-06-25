@@ -54,7 +54,7 @@ public interface ImmutableOctuple<A, B, C, D, E, F, G, H> extends Octuple<A, B, 
 
     ImmutableNonuple<A, B, C, D, E, F, G, G, H> duplicateSeventh();
 
-    ImmutableNonuple<A, B, C, D, E, F, G, H, H> duplicate();
+    ImmutableNonuple<A, B, C, D, E, F, G, H, H> duplicateEighth();
 
     ImmutableSeptuple<B, C, D, E, F, G, H> removeFirst();
 
@@ -70,7 +70,7 @@ public interface ImmutableOctuple<A, B, C, D, E, F, G, H> extends Octuple<A, B, 
 
     ImmutableSeptuple<A, B, C, D, E, F, H> removeSeventh();
 
-    ImmutableSeptuple<A, B, C, D, E, F, G> remove();
+    ImmutableSeptuple<A, B, C, D, E, F, G> removeEighth();
 
     <X> ImmutableOctuple<X, B, C, D, E, F, G, H> replaceFirst(X x);
 
@@ -86,7 +86,7 @@ public interface ImmutableOctuple<A, B, C, D, E, F, G, H> extends Octuple<A, B, 
 
     <X> ImmutableOctuple<A, B, C, D, E, F, X, H> replaceSeventh(X x);
 
-    <X> ImmutableOctuple<A, B, C, D, E, F, G, X> replace(X x);
+    <X> ImmutableOctuple<A, B, C, D, E, F, G, X> replaceEighth(X x);
 
     <X> ImmutableOctuple<X, B, C, D, E, F, G, H> mapFirst(Function<? super A, X> mapper);
 
@@ -102,7 +102,7 @@ public interface ImmutableOctuple<A, B, C, D, E, F, G, H> extends Octuple<A, B, 
 
     <X> ImmutableOctuple<A, B, C, D, E, F, X, H> mapSeventh(Function<? super G, X> mapper);
 
-    <X> ImmutableOctuple<A, B, C, D, E, F, G, X> map(Function<? super H, X> mapper);
+    <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapEighth(Function<? super H, X> mapper);
 
     <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapFirstAndAdd(Function<? super A, X> mapper);
 
@@ -118,7 +118,7 @@ public interface ImmutableOctuple<A, B, C, D, E, F, G, H> extends Octuple<A, B, 
 
     <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapSeventhAndAdd(Function<? super G, X> mapper);
 
-    <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapAndAdd(Function<? super H, X> mapper);
+    <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapEighthAndAdd(Function<? super H, X> mapper);
 
     <R> R mapAll(
             OctupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, ? super G, ? super H, R> mapper);

@@ -78,11 +78,11 @@ class Generics {
 
         var underTest1 = ImmutableTuple.of(1, new SubClass1());
         var underTest2 = ImmutableTuple.of(1, new SubClass2());
-        var actual1 = underTest1.map(function);
-        var actual2 = underTest2.map(function);
+        var actual1 = underTest1.mapSecond(function);
+        var actual2 = underTest2.mapSecond(function);
 
-        Assertions.assertThat(actual1.get()).isEqualTo("base");
-        Assertions.assertThat(actual2.get()).isEqualTo("base");
+        Assertions.assertThat(actual1.getSecond()).isEqualTo("base");
+        Assertions.assertThat(actual2.getSecond()).isEqualTo("base");
     }
 
     /**

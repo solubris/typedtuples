@@ -78,7 +78,7 @@ final class ImmutableSeptupleImpl<A, B, C, D, E, F, G> implements ImmutableSeptu
     }
 
     @Override
-    public G get() {
+    public G getSeventh() {
         return g;
     }
 
@@ -153,7 +153,7 @@ final class ImmutableSeptupleImpl<A, B, C, D, E, F, G> implements ImmutableSeptu
     }
 
     @Override
-    public ImmutableOctuple<A, B, C, D, E, F, G, G> duplicate() {
+    public ImmutableOctuple<A, B, C, D, E, F, G, G> duplicateSeventh() {
         return new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, g);
     }
 
@@ -188,7 +188,7 @@ final class ImmutableSeptupleImpl<A, B, C, D, E, F, G> implements ImmutableSeptu
     }
 
     @Override
-    public ImmutableSextuple<A, B, C, D, E, F> remove() {
+    public ImmutableSextuple<A, B, C, D, E, F> removeSeventh() {
         return new ImmutableSextupleImpl<>(a, b, c, d, e, f);
     }
 
@@ -223,7 +223,7 @@ final class ImmutableSeptupleImpl<A, B, C, D, E, F, G> implements ImmutableSeptu
     }
 
     @Override
-    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> replace(X x) {
+    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> replaceSeventh(X x) {
         return new ImmutableSeptupleImpl<>(a, b, c, d, e, f, x);
     }
 
@@ -258,7 +258,7 @@ final class ImmutableSeptupleImpl<A, B, C, D, E, F, G> implements ImmutableSeptu
     }
 
     @Override
-    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> map(Function<? super G, X> mapper) {
+    public <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapSeventh(Function<? super G, X> mapper) {
         return new ImmutableSeptupleImpl<>(a, b, c, d, e, f, mapper.apply(g));
     }
 
@@ -299,7 +299,8 @@ final class ImmutableSeptupleImpl<A, B, C, D, E, F, G> implements ImmutableSeptu
     }
 
     @Override
-    public <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapAndAdd(Function<? super G, X> mapper) {
+    public <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapSeventhAndAdd(
+            Function<? super G, X> mapper) {
         return new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, mapper.apply(g));
     }
 
@@ -325,7 +326,7 @@ final class ImmutableSeptupleImpl<A, B, C, D, E, F, G> implements ImmutableSeptu
                 Objects.equals(this.d, thatSeptuple.getFourth()) && 
                 Objects.equals(this.e, thatSeptuple.getFifth()) && 
                 Objects.equals(this.f, thatSeptuple.getSixth()) && 
-                Objects.equals(this.g, thatSeptuple.get());
+                Objects.equals(this.g, thatSeptuple.getSeventh());
     }
 
     @Override

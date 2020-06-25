@@ -24,7 +24,7 @@ import java.util.function.UnaryOperator;
 public interface MutableCouple<A, B> extends Couple<A, B> {
     void setFirst(A a);
 
-    void set(B b);
+    void setSecond(B b);
 
     void setAll(A a, B b);
 
@@ -32,5 +32,5 @@ public interface MutableCouple<A, B> extends Couple<A, B> {
 
     void computeFirst(UnaryOperator<A> mapper);
 
-    void compute(UnaryOperator<B> mapper);
+    void computeSecond(UnaryOperator<B> mapper);
 }

@@ -30,7 +30,7 @@ public interface MutableQuintuple<A, B, C, D, E> extends Quintuple<A, B, C, D, E
 
     void setFourth(D d);
 
-    void set(E e);
+    void setFifth(E e);
 
     void setAll(A a, B b, C c, D d, E e);
 
@@ -45,5 +45,5 @@ public interface MutableQuintuple<A, B, C, D, E> extends Quintuple<A, B, C, D, E
 
     void computeFourth(UnaryOperator<D> mapper);
 
-    void compute(UnaryOperator<E> mapper);
+    void computeFifth(UnaryOperator<E> mapper);
 }

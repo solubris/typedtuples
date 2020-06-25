@@ -102,7 +102,7 @@ final class ImmutableDecupleImpl<A, B, C, D, E, F, G, H, I, J> implements Immuta
     }
 
     @Override
-    public J get() {
+    public J getTenth() {
         return j;
     }
 
@@ -152,7 +152,7 @@ final class ImmutableDecupleImpl<A, B, C, D, E, F, G, H, I, J> implements Immuta
     }
 
     @Override
-    public ImmutableNonuple<A, B, C, D, E, F, G, H, I> remove() {
+    public ImmutableNonuple<A, B, C, D, E, F, G, H, I> removeTenth() {
         return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, i);
     }
 
@@ -202,7 +202,7 @@ final class ImmutableDecupleImpl<A, B, C, D, E, F, G, H, I, J> implements Immuta
     }
 
     @Override
-    public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> replace(X x) {
+    public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> replaceTenth(X x) {
         return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, x);
     }
 
@@ -261,7 +261,8 @@ final class ImmutableDecupleImpl<A, B, C, D, E, F, G, H, I, J> implements Immuta
     }
 
     @Override
-    public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> map(Function<? super J, X> mapper) {
+    public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapTenth(
+            Function<? super J, X> mapper) {
         return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(j));
     }
 
@@ -290,7 +291,7 @@ final class ImmutableDecupleImpl<A, B, C, D, E, F, G, H, I, J> implements Immuta
                 Objects.equals(this.g, thatDecuple.getSeventh()) && 
                 Objects.equals(this.h, thatDecuple.getEighth()) && 
                 Objects.equals(this.i, thatDecuple.getNinth()) && 
-                Objects.equals(this.j, thatDecuple.get());
+                Objects.equals(this.j, thatDecuple.getTenth());
     }
 
     @Override

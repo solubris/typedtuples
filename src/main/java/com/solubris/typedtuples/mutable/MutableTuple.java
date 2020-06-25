@@ -60,7 +60,7 @@ public class MutableTuple {
     }
 
     public static <A, B> MutableCouple<A, B> copyOf(Couple<A, B> t) {
-        return new MutableCoupleImpl<>(t.getFirst(), t.get());
+        return new MutableCoupleImpl<>(t.getFirst(), t.getSecond());
     }
 
     public static <A, B, R> Function<MutableCouple<A, B>, R> to(
@@ -73,7 +73,7 @@ public class MutableTuple {
     }
 
     public static <A, B, C> MutableTriple<A, B, C> copyOf(Triple<A, B, C> t) {
-        return new MutableTripleImpl<>(t.getFirst(), t.getSecond(), t.get());
+        return new MutableTripleImpl<>(t.getFirst(), t.getSecond(), t.getThird());
     }
 
     public static <A, B, C, R> Function<MutableTriple<A, B, C>, R> to(
@@ -86,7 +86,7 @@ public class MutableTuple {
     }
 
     public static <A, B, C, D> MutableQuadruple<A, B, C, D> copyOf(Quadruple<A, B, C, D> t) {
-        return new MutableQuadrupleImpl<>(t.getFirst(), t.getSecond(), t.getThird(), t.get());
+        return new MutableQuadrupleImpl<>(t.getFirst(), t.getSecond(), t.getThird(), t.getFourth());
     }
 
     public static <A, B, C, D, R> Function<MutableQuadruple<A, B, C, D>, R> to(
@@ -100,7 +100,7 @@ public class MutableTuple {
 
     public static <A, B, C, D, E> MutableQuintuple<A, B, C, D, E> copyOf(
             Quintuple<A, B, C, D, E> t) {
-        return new MutableQuintupleImpl<>(t.getFirst(), t.getSecond(), t.getThird(), t.getFourth(), t.get());
+        return new MutableQuintupleImpl<>(t.getFirst(), t.getSecond(), t.getThird(), t.getFourth(), t.getFifth());
     }
 
     public static <A, B, C, D, E, R> Function<MutableQuintuple<A, B, C, D, E>, R> to(
@@ -115,7 +115,7 @@ public class MutableTuple {
 
     public static <A, B, C, D, E, F> MutableSextuple<A, B, C, D, E, F> copyOf(
             Sextuple<A, B, C, D, E, F> t) {
-        return new MutableSextupleImpl<>(t.getFirst(), t.getSecond(), t.getThird(), t.getFourth(), t.getFifth(), t.get());
+        return new MutableSextupleImpl<>(t.getFirst(), t.getSecond(), t.getThird(), t.getFourth(), t.getFifth(), t.getSixth());
     }
 
     public static <A, B, C, D, E, F, R> Function<MutableSextuple<A, B, C, D, E, F>, R> to(
@@ -130,7 +130,7 @@ public class MutableTuple {
 
     public static <A, B, C, D, E, F, G> MutableSeptuple<A, B, C, D, E, F, G> copyOf(
             Septuple<A, B, C, D, E, F, G> t) {
-        return new MutableSeptupleImpl<>(t.getFirst(), t.getSecond(), t.getThird(), t.getFourth(), t.getFifth(), t.getSixth(), t.get());
+        return new MutableSeptupleImpl<>(t.getFirst(), t.getSecond(), t.getThird(), t.getFourth(), t.getFifth(), t.getSixth(), t.getSeventh());
     }
 
     public static <A, B, C, D, E, F, G, R> Function<MutableSeptuple<A, B, C, D, E, F, G>, R> to(
@@ -145,7 +145,7 @@ public class MutableTuple {
 
     public static <A, B, C, D, E, F, G, H> MutableOctuple<A, B, C, D, E, F, G, H> copyOf(
             Octuple<A, B, C, D, E, F, G, H> t) {
-        return new MutableOctupleImpl<>(t.getFirst(), t.getSecond(), t.getThird(), t.getFourth(), t.getFifth(), t.getSixth(), t.getSeventh(), t.get());
+        return new MutableOctupleImpl<>(t.getFirst(), t.getSecond(), t.getThird(), t.getFourth(), t.getFifth(), t.getSixth(), t.getSeventh(), t.getEighth());
     }
 
     public static <A, B, C, D, E, F, G, H, R> Function<MutableOctuple<A, B, C, D, E, F, G, H>, R> to(
@@ -160,7 +160,7 @@ public class MutableTuple {
 
     public static <A, B, C, D, E, F, G, H, I> MutableNonuple<A, B, C, D, E, F, G, H, I> copyOf(
             Nonuple<A, B, C, D, E, F, G, H, I> t) {
-        return new MutableNonupleImpl<>(t.getFirst(), t.getSecond(), t.getThird(), t.getFourth(), t.getFifth(), t.getSixth(), t.getSeventh(), t.getEighth(), t.get());
+        return new MutableNonupleImpl<>(t.getFirst(), t.getSecond(), t.getThird(), t.getFourth(), t.getFifth(), t.getSixth(), t.getSeventh(), t.getEighth(), t.getNinth());
     }
 
     public static <A, B, C, D, E, F, G, H, I, R> Function<MutableNonuple<A, B, C, D, E, F, G, H, I>, R> to(
@@ -175,7 +175,7 @@ public class MutableTuple {
 
     public static <A, B, C, D, E, F, G, H, I, J> MutableDecuple<A, B, C, D, E, F, G, H, I, J> copyOf(
             Decuple<A, B, C, D, E, F, G, H, I, J> t) {
-        return new MutableDecupleImpl<>(t.getFirst(), t.getSecond(), t.getThird(), t.getFourth(), t.getFifth(), t.getSixth(), t.getSeventh(), t.getEighth(), t.getNinth(), t.get());
+        return new MutableDecupleImpl<>(t.getFirst(), t.getSecond(), t.getThird(), t.getFourth(), t.getFifth(), t.getSixth(), t.getSeventh(), t.getEighth(), t.getNinth(), t.getTenth());
     }
 
     public static <A, B, C, D, E, F, G, H, I, J, R> Function<MutableDecuple<A, B, C, D, E, F, G, H, I, J>, R> to(

@@ -36,7 +36,7 @@ public interface MutableOctuple<A, B, C, D, E, F, G, H> extends Octuple<A, B, C,
 
     void setSeventh(G g);
 
-    void set(H h);
+    void setEighth(H h);
 
     void setAll(A a, B b, C c, D d, E e, F f, G g, H h);
 
@@ -57,5 +57,5 @@ public interface MutableOctuple<A, B, C, D, E, F, G, H> extends Octuple<A, B, C,
 
     void computeSeventh(UnaryOperator<G> mapper);
 
-    void compute(UnaryOperator<H> mapper);
+    void computeEighth(UnaryOperator<H> mapper);
 }

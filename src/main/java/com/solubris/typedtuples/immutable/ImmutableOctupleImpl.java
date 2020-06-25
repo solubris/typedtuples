@@ -86,7 +86,7 @@ final class ImmutableOctupleImpl<A, B, C, D, E, F, G, H> implements ImmutableOct
     }
 
     @Override
-    public H get() {
+    public H getEighth() {
         return h;
     }
 
@@ -171,7 +171,7 @@ final class ImmutableOctupleImpl<A, B, C, D, E, F, G, H> implements ImmutableOct
     }
 
     @Override
-    public ImmutableNonuple<A, B, C, D, E, F, G, H, H> duplicate() {
+    public ImmutableNonuple<A, B, C, D, E, F, G, H, H> duplicateEighth() {
         return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, h);
     }
 
@@ -211,7 +211,7 @@ final class ImmutableOctupleImpl<A, B, C, D, E, F, G, H> implements ImmutableOct
     }
 
     @Override
-    public ImmutableSeptuple<A, B, C, D, E, F, G> remove() {
+    public ImmutableSeptuple<A, B, C, D, E, F, G> removeEighth() {
         return new ImmutableSeptupleImpl<>(a, b, c, d, e, f, g);
     }
 
@@ -251,7 +251,7 @@ final class ImmutableOctupleImpl<A, B, C, D, E, F, G, H> implements ImmutableOct
     }
 
     @Override
-    public <X> ImmutableOctuple<A, B, C, D, E, F, G, X> replace(X x) {
+    public <X> ImmutableOctuple<A, B, C, D, E, F, G, X> replaceEighth(X x) {
         return new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, x);
     }
 
@@ -291,7 +291,7 @@ final class ImmutableOctupleImpl<A, B, C, D, E, F, G, H> implements ImmutableOct
     }
 
     @Override
-    public <X> ImmutableOctuple<A, B, C, D, E, F, G, X> map(Function<? super H, X> mapper) {
+    public <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapEighth(Function<? super H, X> mapper) {
         return new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, mapper.apply(h));
     }
 
@@ -338,7 +338,7 @@ final class ImmutableOctupleImpl<A, B, C, D, E, F, G, H> implements ImmutableOct
     }
 
     @Override
-    public <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapAndAdd(
+    public <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapEighthAndAdd(
             Function<? super H, X> mapper) {
         return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, mapper.apply(h));
     }
@@ -366,7 +366,7 @@ final class ImmutableOctupleImpl<A, B, C, D, E, F, G, H> implements ImmutableOct
                 Objects.equals(this.e, thatOctuple.getFifth()) && 
                 Objects.equals(this.f, thatOctuple.getSixth()) && 
                 Objects.equals(this.g, thatOctuple.getSeventh()) && 
-                Objects.equals(this.h, thatOctuple.get());
+                Objects.equals(this.h, thatOctuple.getEighth());
     }
 
     @Override

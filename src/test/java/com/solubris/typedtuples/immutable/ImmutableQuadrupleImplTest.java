@@ -95,9 +95,9 @@ class ImmutableQuadrupleImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getFourth(Integer value) {
         var underTest = new ImmutableQuadrupleImpl<>(a, b, c, value);
-        var actual = underTest.get();
+        var actual = underTest.getFourth();
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -194,9 +194,9 @@ class ImmutableQuadrupleImplTest {
             ints = 1
     )
     @NullSource
-    void duplicate(Integer value) {
+    void duplicateFourth(Integer value) {
         var underTest = new ImmutableQuadrupleImpl<>(a, b, c, value);
-        var actual = underTest.duplicate();
+        var actual = underTest.duplicateFourth();
         Assertions.assertThat(actual).isEqualTo(new ImmutableQuintupleImpl<>(a, b, c, value, value));
     }
 
@@ -238,9 +238,9 @@ class ImmutableQuadrupleImplTest {
             ints = 1
     )
     @NullSource
-    void remove(Integer value) {
+    void removeFourth(Integer value) {
         var underTest = new ImmutableQuadrupleImpl<>(a, b, c, value);
-        var actual = underTest.remove();
+        var actual = underTest.removeFourth();
         Assertions.assertThat(actual).isEqualTo(new ImmutableTripleImpl<>(a, b, c));
     }
 
@@ -282,9 +282,9 @@ class ImmutableQuadrupleImplTest {
             ints = 1
     )
     @NullSource
-    void replace(Integer value) {
+    void replaceFourth(Integer value) {
         var underTest = new ImmutableQuadrupleImpl<>(a, b, c, value);
-        var actual = underTest.replace(1);
+        var actual = underTest.replaceFourth(1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableQuadrupleImpl<>(a, b, c, 1));
     }
 
@@ -326,9 +326,9 @@ class ImmutableQuadrupleImplTest {
             ints = 1
     )
     @NullSource
-    void map(Integer value) {
+    void mapFourth(Integer value) {
         var underTest = new ImmutableQuadrupleImpl<>(a, b, c, value);
-        var actual = underTest.map(i -> 1);
+        var actual = underTest.mapFourth(i -> 1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableQuadrupleImpl<>(a, b, c, 1));
     }
 
@@ -370,9 +370,9 @@ class ImmutableQuadrupleImplTest {
             ints = 1
     )
     @NullSource
-    void mapAndAdd(Integer value) {
+    void mapFourthAndAdd(Integer value) {
         var underTest = new ImmutableQuadrupleImpl<>(a, b, c, value);
-        var actual = underTest.mapAndAdd(i -> 1);
+        var actual = underTest.mapFourthAndAdd(i -> 1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableQuintupleImpl<>(a, b, c, value, 1));
     }
 

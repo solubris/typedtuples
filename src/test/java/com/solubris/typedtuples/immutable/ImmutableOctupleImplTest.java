@@ -147,9 +147,9 @@ class ImmutableOctupleImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getEighth(Integer value) {
         var underTest = new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, value);
-        var actual = underTest.get();
+        var actual = underTest.getEighth();
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -334,9 +334,9 @@ class ImmutableOctupleImplTest {
             ints = 1
     )
     @NullSource
-    void duplicate(Integer value) {
+    void duplicateEighth(Integer value) {
         var underTest = new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, value);
-        var actual = underTest.duplicate();
+        var actual = underTest.duplicateEighth();
         Assertions.assertThat(actual).isEqualTo(new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, value, value));
     }
 
@@ -422,9 +422,9 @@ class ImmutableOctupleImplTest {
             ints = 1
     )
     @NullSource
-    void remove(Integer value) {
+    void removeEighth(Integer value) {
         var underTest = new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, value);
-        var actual = underTest.remove();
+        var actual = underTest.removeEighth();
         Assertions.assertThat(actual).isEqualTo(new ImmutableSeptupleImpl<>(a, b, c, d, e, f, g));
     }
 
@@ -510,9 +510,9 @@ class ImmutableOctupleImplTest {
             ints = 1
     )
     @NullSource
-    void replace(Integer value) {
+    void replaceEighth(Integer value) {
         var underTest = new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, value);
-        var actual = underTest.replace(1);
+        var actual = underTest.replaceEighth(1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, 1));
     }
 
@@ -598,9 +598,9 @@ class ImmutableOctupleImplTest {
             ints = 1
     )
     @NullSource
-    void map(Integer value) {
+    void mapEighth(Integer value) {
         var underTest = new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, value);
-        var actual = underTest.map(i -> 1);
+        var actual = underTest.mapEighth(i -> 1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, 1));
     }
 
@@ -686,9 +686,9 @@ class ImmutableOctupleImplTest {
             ints = 1
     )
     @NullSource
-    void mapAndAdd(Integer value) {
+    void mapEighthAndAdd(Integer value) {
         var underTest = new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, value);
-        var actual = underTest.mapAndAdd(i -> 1);
+        var actual = underTest.mapEighthAndAdd(i -> 1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, value, 1));
     }
 

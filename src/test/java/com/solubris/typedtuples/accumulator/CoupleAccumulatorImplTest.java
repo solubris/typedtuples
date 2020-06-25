@@ -44,9 +44,9 @@ class CoupleAccumulatorImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getSecond(Integer value) {
         CoupleAccumulatorImpl<Integer, Integer> underTest = new CoupleAccumulatorImpl<>((l, r) -> a, (l, r) -> value);
-        var actual = underTest.get().apply(null, null);
+        var actual = underTest.getSecond().apply(null, null);
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -73,7 +73,7 @@ class CoupleAccumulatorImplTest {
         CoupleAccumulator<Integer, Integer> underTest = Accumulator.of((l, r) -> a, (l, r) -> value);
         var actualA = underTest.getFirst().apply(null, null);
         Assertions.assertThat(actualA).isEqualTo(a);
-        var actualValue = underTest.get().apply(null, null);
+        var actualValue = underTest.getSecond().apply(null, null);
         Assertions.assertThat(actualValue).isEqualTo(value);
     }
 

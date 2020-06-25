@@ -94,7 +94,7 @@ final class ImmutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements Immutable
     }
 
     @Override
-    public I get() {
+    public I getNinth() {
         return i;
     }
 
@@ -189,7 +189,7 @@ final class ImmutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements Immutable
     }
 
     @Override
-    public ImmutableDecuple<A, B, C, D, E, F, G, H, I, I> duplicate() {
+    public ImmutableDecuple<A, B, C, D, E, F, G, H, I, I> duplicateNinth() {
         return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, i);
     }
 
@@ -234,7 +234,7 @@ final class ImmutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements Immutable
     }
 
     @Override
-    public ImmutableOctuple<A, B, C, D, E, F, G, H> remove() {
+    public ImmutableOctuple<A, B, C, D, E, F, G, H> removeNinth() {
         return new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, h);
     }
 
@@ -279,7 +279,7 @@ final class ImmutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements Immutable
     }
 
     @Override
-    public <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> replace(X x) {
+    public <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> replaceNinth(X x) {
         return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, x);
     }
 
@@ -328,7 +328,7 @@ final class ImmutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements Immutable
     }
 
     @Override
-    public <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> map(Function<? super I, X> mapper) {
+    public <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapNinth(Function<? super I, X> mapper) {
         return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, mapper.apply(i));
     }
 
@@ -381,7 +381,7 @@ final class ImmutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements Immutable
     }
 
     @Override
-    public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapAndAdd(
+    public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapNinthAndAdd(
             Function<? super I, X> mapper) {
         return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(i));
     }
@@ -410,7 +410,7 @@ final class ImmutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements Immutable
                 Objects.equals(this.f, thatNonuple.getSixth()) && 
                 Objects.equals(this.g, thatNonuple.getSeventh()) && 
                 Objects.equals(this.h, thatNonuple.getEighth()) && 
-                Objects.equals(this.i, thatNonuple.get());
+                Objects.equals(this.i, thatNonuple.getNinth());
     }
 
     @Override

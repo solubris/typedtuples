@@ -108,9 +108,9 @@ class MutableQuintupleImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getFifth(Integer value) {
         var underTest = new MutableQuintupleImpl<>(a, b, c, d, value);
-        var actual = underTest.get();
+        var actual = underTest.getFifth();
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -163,9 +163,9 @@ class MutableQuintupleImplTest {
             ints = 1
     )
     @NullSource
-    void set(Integer value) {
+    void setFifth(Integer value) {
         var underTest = new MutableQuintupleImpl<>(a, b, c, d, value);
-        underTest.set(10);
+        underTest.setFifth(10);
         Assertions.assertThat(underTest).isEqualTo(new MutableQuintupleImpl<>(a, b, c, d, 10));
     }
 
@@ -240,9 +240,9 @@ class MutableQuintupleImplTest {
             ints = 1
     )
     @NullSource
-    void compute(Integer value) {
+    void computeFifth(Integer value) {
         var underTest = new MutableQuintupleImpl<>(a, b, c, d, value);
-        underTest.compute(i -> 10);
+        underTest.computeFifth(i -> 10);
         Assertions.assertThat(underTest).isEqualTo(new MutableQuintupleImpl<>(a, b, c, d, 10));
     }
 

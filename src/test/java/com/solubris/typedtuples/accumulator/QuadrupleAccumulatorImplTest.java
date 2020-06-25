@@ -70,9 +70,9 @@ class QuadrupleAccumulatorImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getFourth(Integer value) {
         QuadrupleAccumulatorImpl<Integer, Integer, Integer, Integer> underTest = new QuadrupleAccumulatorImpl<>((l, r) -> a, (l, r) -> b, (l, r) -> c, (l, r) -> value);
-        var actual = underTest.get().apply(null, null);
+        var actual = underTest.getFourth().apply(null, null);
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -103,7 +103,7 @@ class QuadrupleAccumulatorImplTest {
         Assertions.assertThat(actualB).isEqualTo(b);
         var actualC = underTest.getThird().apply(null, null);
         Assertions.assertThat(actualC).isEqualTo(c);
-        var actualValue = underTest.get().apply(null, null);
+        var actualValue = underTest.getFourth().apply(null, null);
         Assertions.assertThat(actualValue).isEqualTo(value);
     }
 

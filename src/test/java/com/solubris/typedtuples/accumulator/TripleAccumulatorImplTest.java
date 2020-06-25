@@ -57,9 +57,9 @@ class TripleAccumulatorImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getThird(Integer value) {
         TripleAccumulatorImpl<Integer, Integer, Integer> underTest = new TripleAccumulatorImpl<>((l, r) -> a, (l, r) -> b, (l, r) -> value);
-        var actual = underTest.get().apply(null, null);
+        var actual = underTest.getThird().apply(null, null);
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -88,7 +88,7 @@ class TripleAccumulatorImplTest {
         Assertions.assertThat(actualA).isEqualTo(a);
         var actualB = underTest.getSecond().apply(null, null);
         Assertions.assertThat(actualB).isEqualTo(b);
-        var actualValue = underTest.get().apply(null, null);
+        var actualValue = underTest.getThird().apply(null, null);
         Assertions.assertThat(actualValue).isEqualTo(value);
     }
 

@@ -54,7 +54,7 @@ final class ImmutableQuadrupleImpl<A, B, C, D> implements ImmutableQuadruple<A, 
     }
 
     @Override
-    public D get() {
+    public D getFourth() {
         return d;
     }
 
@@ -99,7 +99,7 @@ final class ImmutableQuadrupleImpl<A, B, C, D> implements ImmutableQuadruple<A, 
     }
 
     @Override
-    public ImmutableQuintuple<A, B, C, D, D> duplicate() {
+    public ImmutableQuintuple<A, B, C, D, D> duplicateFourth() {
         return new ImmutableQuintupleImpl<>(a, b, c, d, d);
     }
 
@@ -119,7 +119,7 @@ final class ImmutableQuadrupleImpl<A, B, C, D> implements ImmutableQuadruple<A, 
     }
 
     @Override
-    public ImmutableTriple<A, B, C> remove() {
+    public ImmutableTriple<A, B, C> removeFourth() {
         return new ImmutableTripleImpl<>(a, b, c);
     }
 
@@ -139,7 +139,7 @@ final class ImmutableQuadrupleImpl<A, B, C, D> implements ImmutableQuadruple<A, 
     }
 
     @Override
-    public <X> ImmutableQuadruple<A, B, C, X> replace(X x) {
+    public <X> ImmutableQuadruple<A, B, C, X> replaceFourth(X x) {
         return new ImmutableQuadrupleImpl<>(a, b, c, x);
     }
 
@@ -159,7 +159,7 @@ final class ImmutableQuadrupleImpl<A, B, C, D> implements ImmutableQuadruple<A, 
     }
 
     @Override
-    public <X> ImmutableQuadruple<A, B, C, X> map(Function<? super D, X> mapper) {
+    public <X> ImmutableQuadruple<A, B, C, X> mapFourth(Function<? super D, X> mapper) {
         return new ImmutableQuadrupleImpl<>(a, b, c, mapper.apply(d));
     }
 
@@ -179,7 +179,7 @@ final class ImmutableQuadrupleImpl<A, B, C, D> implements ImmutableQuadruple<A, 
     }
 
     @Override
-    public <X> ImmutableQuintuple<A, B, C, D, X> mapAndAdd(Function<? super D, X> mapper) {
+    public <X> ImmutableQuintuple<A, B, C, D, X> mapFourthAndAdd(Function<? super D, X> mapper) {
         return new ImmutableQuintupleImpl<>(a, b, c, d, mapper.apply(d));
     }
 
@@ -201,7 +201,7 @@ final class ImmutableQuadrupleImpl<A, B, C, D> implements ImmutableQuadruple<A, 
         return Objects.equals(this.a, thatQuadruple.getFirst()) && 
                 Objects.equals(this.b, thatQuadruple.getSecond()) && 
                 Objects.equals(this.c, thatQuadruple.getThird()) && 
-                Objects.equals(this.d, thatQuadruple.get());
+                Objects.equals(this.d, thatQuadruple.getFourth());
     }
 
     @Override

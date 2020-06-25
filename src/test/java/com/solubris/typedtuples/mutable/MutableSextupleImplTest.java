@@ -121,9 +121,9 @@ class MutableSextupleImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getSixth(Integer value) {
         var underTest = new MutableSextupleImpl<>(a, b, c, d, e, value);
-        var actual = underTest.get();
+        var actual = underTest.getSixth();
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -187,9 +187,9 @@ class MutableSextupleImplTest {
             ints = 1
     )
     @NullSource
-    void set(Integer value) {
+    void setSixth(Integer value) {
         var underTest = new MutableSextupleImpl<>(a, b, c, d, e, value);
-        underTest.set(10);
+        underTest.setSixth(10);
         Assertions.assertThat(underTest).isEqualTo(new MutableSextupleImpl<>(a, b, c, d, e, 10));
     }
 
@@ -275,9 +275,9 @@ class MutableSextupleImplTest {
             ints = 1
     )
     @NullSource
-    void compute(Integer value) {
+    void computeSixth(Integer value) {
         var underTest = new MutableSextupleImpl<>(a, b, c, d, e, value);
-        underTest.compute(i -> 10);
+        underTest.computeSixth(i -> 10);
         Assertions.assertThat(underTest).isEqualTo(new MutableSextupleImpl<>(a, b, c, d, e, 10));
     }
 

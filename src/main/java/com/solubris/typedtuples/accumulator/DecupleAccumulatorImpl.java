@@ -106,7 +106,7 @@ final class DecupleAccumulatorImpl<A, B, C, D, E, F, G, H, I, J> implements Decu
     }
 
     @Override
-    public BinaryOperator<J> get() {
+    public BinaryOperator<J> getTenth() {
         return j;
     }
 
@@ -122,7 +122,7 @@ final class DecupleAccumulatorImpl<A, B, C, D, E, F, G, H, I, J> implements Decu
         acc.setSeventh(g.apply(acc.getSeventh(), t.getSeventh()));
         acc.setEighth(h.apply(acc.getEighth(), t.getEighth()));
         acc.setNinth(i.apply(acc.getNinth(), t.getNinth()));
-        acc.set(j.apply(acc.get(), t.get()));
+        acc.setTenth(j.apply(acc.getTenth(), t.getTenth()));
     }
 
     @Override
@@ -138,7 +138,7 @@ final class DecupleAccumulatorImpl<A, B, C, D, E, F, G, H, I, J> implements Decu
         G fg = g.apply(l.getSeventh(), r.getSeventh());
         H fh = h.apply(l.getEighth(), r.getEighth());
         I fi = i.apply(l.getNinth(), r.getNinth());
-        J fj = j.apply(l.get(), r.get());
+        J fj = j.apply(l.getTenth(), r.getTenth());
         return MutableTuple.of(fa, fb, fc, fd, fe, ff, fg, fh, fi, fj);
     }
 
@@ -155,7 +155,7 @@ final class DecupleAccumulatorImpl<A, B, C, D, E, F, G, H, I, J> implements Decu
         G fg = g.apply(l.getSeventh(), r.getSeventh());
         H fh = h.apply(l.getEighth(), r.getEighth());
         I fi = i.apply(l.getNinth(), r.getNinth());
-        J fj = j.apply(l.get(), r.get());
+        J fj = j.apply(l.getTenth(), r.getTenth());
         return ImmutableTuple.of(fa, fb, fc, fd, fe, ff, fg, fh, fi, fj);
     }
 }

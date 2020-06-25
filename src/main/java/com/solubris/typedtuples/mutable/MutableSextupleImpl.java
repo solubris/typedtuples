@@ -70,7 +70,7 @@ final class MutableSextupleImpl<A, B, C, D, E, F> implements MutableSextuple<A, 
     }
 
     @Override
-    public F get() {
+    public F getSixth() {
         return f;
     }
 
@@ -100,7 +100,7 @@ final class MutableSextupleImpl<A, B, C, D, E, F> implements MutableSextuple<A, 
     }
 
     @Override
-    public void set(F f) {
+    public void setSixth(F f) {
         this.f = f;
     }
 
@@ -146,7 +146,7 @@ final class MutableSextupleImpl<A, B, C, D, E, F> implements MutableSextuple<A, 
     }
 
     @Override
-    public void compute(UnaryOperator<F> mapper) {
+    public void computeSixth(UnaryOperator<F> mapper) {
         this.f = mapper.apply(f);
     }
 
@@ -160,7 +160,7 @@ final class MutableSextupleImpl<A, B, C, D, E, F> implements MutableSextuple<A, 
                 Objects.equals(this.c, thatSextuple.getThird()) && 
                 Objects.equals(this.d, thatSextuple.getFourth()) && 
                 Objects.equals(this.e, thatSextuple.getFifth()) && 
-                Objects.equals(this.f, thatSextuple.get());
+                Objects.equals(this.f, thatSextuple.getSixth());
     }
 
     @Override

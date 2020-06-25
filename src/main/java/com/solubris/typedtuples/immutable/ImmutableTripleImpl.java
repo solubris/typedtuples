@@ -46,7 +46,7 @@ final class ImmutableTripleImpl<A, B, C> implements ImmutableTriple<A, B, C> {
     }
 
     @Override
-    public C get() {
+    public C getThird() {
         return c;
     }
 
@@ -81,7 +81,7 @@ final class ImmutableTripleImpl<A, B, C> implements ImmutableTriple<A, B, C> {
     }
 
     @Override
-    public ImmutableQuadruple<A, B, C, C> duplicate() {
+    public ImmutableQuadruple<A, B, C, C> duplicateThird() {
         return new ImmutableQuadrupleImpl<>(a, b, c, c);
     }
 
@@ -96,7 +96,7 @@ final class ImmutableTripleImpl<A, B, C> implements ImmutableTriple<A, B, C> {
     }
 
     @Override
-    public ImmutableCouple<A, B> remove() {
+    public ImmutableCouple<A, B> removeThird() {
         return new ImmutableCoupleImpl<>(a, b);
     }
 
@@ -111,7 +111,7 @@ final class ImmutableTripleImpl<A, B, C> implements ImmutableTriple<A, B, C> {
     }
 
     @Override
-    public <X> ImmutableTriple<A, B, X> replace(X x) {
+    public <X> ImmutableTriple<A, B, X> replaceThird(X x) {
         return new ImmutableTripleImpl<>(a, b, x);
     }
 
@@ -126,7 +126,7 @@ final class ImmutableTripleImpl<A, B, C> implements ImmutableTriple<A, B, C> {
     }
 
     @Override
-    public <X> ImmutableTriple<A, B, X> map(Function<? super C, X> mapper) {
+    public <X> ImmutableTriple<A, B, X> mapThird(Function<? super C, X> mapper) {
         return new ImmutableTripleImpl<>(a, b, mapper.apply(c));
     }
 
@@ -141,7 +141,7 @@ final class ImmutableTripleImpl<A, B, C> implements ImmutableTriple<A, B, C> {
     }
 
     @Override
-    public <X> ImmutableQuadruple<A, B, C, X> mapAndAdd(Function<? super C, X> mapper) {
+    public <X> ImmutableQuadruple<A, B, C, X> mapThirdAndAdd(Function<? super C, X> mapper) {
         return new ImmutableQuadrupleImpl<>(a, b, c, mapper.apply(c));
     }
 
@@ -162,7 +162,7 @@ final class ImmutableTripleImpl<A, B, C> implements ImmutableTriple<A, B, C> {
         Triple<?, ?, ?> thatTriple = (Triple<?, ?, ?>) that;
         return Objects.equals(this.a, thatTriple.getFirst()) && 
                 Objects.equals(this.b, thatTriple.getSecond()) && 
-                Objects.equals(this.c, thatTriple.get());
+                Objects.equals(this.c, thatTriple.getThird());
     }
 
     @Override

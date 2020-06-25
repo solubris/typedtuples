@@ -28,7 +28,7 @@ public interface Quintuple<A, B, C, D, E> {
 
     D getFourth();
 
-    E get();
+    E getFifth();
 
     /**
      * Compare tuple fields in order requiring that the fields are Comparable.
@@ -41,7 +41,7 @@ public interface Quintuple<A, B, C, D, E> {
                 Comparator<Quintuple<A, B, C, D, E>> b = Comparator.comparing(Quintuple::getSecond);
                 Comparator<Quintuple<A, B, C, D, E>> c = Comparator.comparing(Quintuple::getThird);
                 Comparator<Quintuple<A, B, C, D, E>> d = Comparator.comparing(Quintuple::getFourth);
-                Comparator<Quintuple<A, B, C, D, E>> e = Comparator.comparing(Quintuple::get);
+                Comparator<Quintuple<A, B, C, D, E>> e = Comparator.comparing(Quintuple::getFifth);
         return (a).thenComparing(b).thenComparing(c).thenComparing(d).thenComparing(e);
     }
 
@@ -56,7 +56,7 @@ public interface Quintuple<A, B, C, D, E> {
                 Comparator<Quintuple<A, B, C, D, E>> b = Comparator.comparing(Quintuple::getSecond);
                 Comparator<Quintuple<A, B, C, D, E>> c = Comparator.comparing(Quintuple::getThird);
                 Comparator<Quintuple<A, B, C, D, E>> d = Comparator.comparing(Quintuple::getFourth);
-                Comparator<Quintuple<A, B, C, D, E>> e = Comparator.comparing(Quintuple::get);
+                Comparator<Quintuple<A, B, C, D, E>> e = Comparator.comparing(Quintuple::getFifth);
         return (e).thenComparing(d).thenComparing(c).thenComparing(b).thenComparing(a);
     }
 
@@ -72,7 +72,7 @@ public interface Quintuple<A, B, C, D, E> {
                 Comparator<Quintuple<A, B, C, D, E>> b = Comparator.comparing(fb.compose(Quintuple::getSecond));
                 Comparator<Quintuple<A, B, C, D, E>> c = Comparator.comparing(fc.compose(Quintuple::getThird));
                 Comparator<Quintuple<A, B, C, D, E>> d = Comparator.comparing(fd.compose(Quintuple::getFourth));
-                Comparator<Quintuple<A, B, C, D, E>> e = Comparator.comparing(fe.compose(Quintuple::get));
+                Comparator<Quintuple<A, B, C, D, E>> e = Comparator.comparing(fe.compose(Quintuple::getFifth));
         return (a).thenComparing(b).thenComparing(c).thenComparing(d).thenComparing(e);
     }
 
@@ -88,7 +88,7 @@ public interface Quintuple<A, B, C, D, E> {
                 Comparator<Quintuple<A, B, C, D, E>> b = Comparator.comparing(fb.compose(Quintuple::getSecond));
                 Comparator<Quintuple<A, B, C, D, E>> c = Comparator.comparing(fc.compose(Quintuple::getThird));
                 Comparator<Quintuple<A, B, C, D, E>> d = Comparator.comparing(fd.compose(Quintuple::getFourth));
-                Comparator<Quintuple<A, B, C, D, E>> e = Comparator.comparing(fe.compose(Quintuple::get));
+                Comparator<Quintuple<A, B, C, D, E>> e = Comparator.comparing(fe.compose(Quintuple::getFifth));
         return (e).thenComparing(d).thenComparing(c).thenComparing(b).thenComparing(a);
     }
 
@@ -110,7 +110,7 @@ public interface Quintuple<A, B, C, D, E> {
                 Comparator<Quintuple<A, B, C, D, E>> b = Comparator.comparing(Quintuple::getSecond, cb);
                 Comparator<Quintuple<A, B, C, D, E>> c = Comparator.comparing(Quintuple::getThird, cc);
                 Comparator<Quintuple<A, B, C, D, E>> d = Comparator.comparing(Quintuple::getFourth, cd);
-                Comparator<Quintuple<A, B, C, D, E>> e = Comparator.comparing(Quintuple::get, ce);
+                Comparator<Quintuple<A, B, C, D, E>> e = Comparator.comparing(Quintuple::getFifth, ce);
         return (a).thenComparing(b).thenComparing(c).thenComparing(d).thenComparing(e);
     }
 
@@ -132,7 +132,7 @@ public interface Quintuple<A, B, C, D, E> {
                 Comparator<Quintuple<A, B, C, D, E>> b = Comparator.comparing(Quintuple::getSecond, cb);
                 Comparator<Quintuple<A, B, C, D, E>> c = Comparator.comparing(Quintuple::getThird, cc);
                 Comparator<Quintuple<A, B, C, D, E>> d = Comparator.comparing(Quintuple::getFourth, cd);
-                Comparator<Quintuple<A, B, C, D, E>> e = Comparator.comparing(Quintuple::get, ce);
+                Comparator<Quintuple<A, B, C, D, E>> e = Comparator.comparing(Quintuple::getFifth, ce);
         return (e).thenComparing(d).thenComparing(c).thenComparing(b).thenComparing(a);
     }
 }

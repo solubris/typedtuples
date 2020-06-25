@@ -109,9 +109,9 @@ class SeptupleAccumulatorImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getSeventh(Integer value) {
         SeptupleAccumulatorImpl<Integer, Integer, Integer, Integer, Integer, Integer, Integer> underTest = new SeptupleAccumulatorImpl<>((l, r) -> a, (l, r) -> b, (l, r) -> c, (l, r) -> d, (l, r) -> e, (l, r) -> f, (l, r) -> value);
-        var actual = underTest.get().apply(null, null);
+        var actual = underTest.getSeventh().apply(null, null);
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -148,7 +148,7 @@ class SeptupleAccumulatorImplTest {
         Assertions.assertThat(actualE).isEqualTo(e);
         var actualF = underTest.getSixth().apply(null, null);
         Assertions.assertThat(actualF).isEqualTo(f);
-        var actualValue = underTest.get().apply(null, null);
+        var actualValue = underTest.getSeventh().apply(null, null);
         Assertions.assertThat(actualValue).isEqualTo(value);
     }
 

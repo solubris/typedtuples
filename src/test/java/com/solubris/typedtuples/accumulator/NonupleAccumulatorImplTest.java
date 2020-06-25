@@ -135,9 +135,9 @@ class NonupleAccumulatorImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getNinth(Integer value) {
         NonupleAccumulatorImpl<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> underTest = new NonupleAccumulatorImpl<>((l, r) -> a, (l, r) -> b, (l, r) -> c, (l, r) -> d, (l, r) -> e, (l, r) -> f, (l, r) -> g, (l, r) -> h, (l, r) -> value);
-        var actual = underTest.get().apply(null, null);
+        var actual = underTest.getNinth().apply(null, null);
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -178,7 +178,7 @@ class NonupleAccumulatorImplTest {
         Assertions.assertThat(actualG).isEqualTo(g);
         var actualH = underTest.getEighth().apply(null, null);
         Assertions.assertThat(actualH).isEqualTo(h);
-        var actualValue = underTest.get().apply(null, null);
+        var actualValue = underTest.getNinth().apply(null, null);
         Assertions.assertThat(actualValue).isEqualTo(value);
     }
 

@@ -173,9 +173,9 @@ class ImmutableDecupleImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getTenth(Integer value) {
         var underTest = new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, value);
-        var actual = underTest.get();
+        var actual = underTest.getTenth();
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -283,9 +283,9 @@ class ImmutableDecupleImplTest {
             ints = 1
     )
     @NullSource
-    void remove(Integer value) {
+    void removeTenth(Integer value) {
         var underTest = new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, value);
-        var actual = underTest.remove();
+        var actual = underTest.removeTenth();
         Assertions.assertThat(actual).isEqualTo(new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, i));
     }
 
@@ -393,9 +393,9 @@ class ImmutableDecupleImplTest {
             ints = 1
     )
     @NullSource
-    void replace(Integer value) {
+    void replaceTenth(Integer value) {
         var underTest = new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, value);
-        var actual = underTest.replace(1);
+        var actual = underTest.replaceTenth(1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, 1));
     }
 
@@ -503,9 +503,9 @@ class ImmutableDecupleImplTest {
             ints = 1
     )
     @NullSource
-    void map(Integer value) {
+    void mapTenth(Integer value) {
         var underTest = new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, value);
-        var actual = underTest.map(i -> 1);
+        var actual = underTest.mapTenth(i -> 1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, 1));
     }
 

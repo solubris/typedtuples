@@ -78,7 +78,7 @@ final class MutableSeptupleImpl<A, B, C, D, E, F, G> implements MutableSeptuple<
     }
 
     @Override
-    public G get() {
+    public G getSeventh() {
         return g;
     }
 
@@ -113,7 +113,7 @@ final class MutableSeptupleImpl<A, B, C, D, E, F, G> implements MutableSeptuple<
     }
 
     @Override
-    public void set(G g) {
+    public void setSeventh(G g) {
         this.g = g;
     }
 
@@ -165,7 +165,7 @@ final class MutableSeptupleImpl<A, B, C, D, E, F, G> implements MutableSeptuple<
     }
 
     @Override
-    public void compute(UnaryOperator<G> mapper) {
+    public void computeSeventh(UnaryOperator<G> mapper) {
         this.g = mapper.apply(g);
     }
 
@@ -180,7 +180,7 @@ final class MutableSeptupleImpl<A, B, C, D, E, F, G> implements MutableSeptuple<
                 Objects.equals(this.d, thatSeptuple.getFourth()) && 
                 Objects.equals(this.e, thatSeptuple.getFifth()) && 
                 Objects.equals(this.f, thatSeptuple.getSixth()) && 
-                Objects.equals(this.g, thatSeptuple.get());
+                Objects.equals(this.g, thatSeptuple.getSeventh());
     }
 
     @Override

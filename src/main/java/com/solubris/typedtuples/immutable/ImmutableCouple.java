@@ -30,23 +30,23 @@ public interface ImmutableCouple<A, B> extends Couple<A, B> {
 
     ImmutableTriple<A, A, B> duplicateFirst();
 
-    ImmutableTriple<A, B, B> duplicate();
+    ImmutableTriple<A, B, B> duplicateSecond();
 
     ImmutableSingle<B> removeFirst();
 
-    ImmutableSingle<A> remove();
+    ImmutableSingle<A> removeSecond();
 
     <X> ImmutableCouple<X, B> replaceFirst(X x);
 
-    <X> ImmutableCouple<A, X> replace(X x);
+    <X> ImmutableCouple<A, X> replaceSecond(X x);
 
     <X> ImmutableCouple<X, B> mapFirst(Function<? super A, X> mapper);
 
-    <X> ImmutableCouple<A, X> map(Function<? super B, X> mapper);
+    <X> ImmutableCouple<A, X> mapSecond(Function<? super B, X> mapper);
 
     <X> ImmutableTriple<A, B, X> mapFirstAndAdd(Function<? super A, X> mapper);
 
-    <X> ImmutableTriple<A, B, X> mapAndAdd(Function<? super B, X> mapper);
+    <X> ImmutableTriple<A, B, X> mapSecondAndAdd(Function<? super B, X> mapper);
 
     <R> R mapAll(CoupleFunction<? super A, ? super B, R> mapper);
 

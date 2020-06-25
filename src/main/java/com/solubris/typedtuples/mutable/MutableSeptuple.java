@@ -34,7 +34,7 @@ public interface MutableSeptuple<A, B, C, D, E, F, G> extends Septuple<A, B, C, 
 
     void setSixth(F f);
 
-    void set(G g);
+    void setSeventh(G g);
 
     void setAll(A a, B b, C c, D d, E e, F f, G g);
 
@@ -53,5 +53,5 @@ public interface MutableSeptuple<A, B, C, D, E, F, G> extends Septuple<A, B, C, 
 
     void computeSixth(UnaryOperator<F> mapper);
 
-    void compute(UnaryOperator<G> mapper);
+    void computeSeventh(UnaryOperator<G> mapper);
 }

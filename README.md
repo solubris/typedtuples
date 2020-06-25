@@ -180,20 +180,12 @@ So for a Pair, that's 4 extra object references (or 200%).
 
 - org.apache.commons.lang3.tuple
 
-is comparable
-uses reflection to work out which comparator
-Pair, Triple
-Mutable, Immutable
-Serializable
+   - is comparable - uses reflection to work out which comparator
 
 - org.jooq.lambda.tuple
-Arity: 16
-Numerical naming
-toArray(), Comparable, Serializable, Cloneable
-concat, split, limit, skip, swap, map, mapAll
-collect tuples from multiple collectors
-not self contained
 
-
-
+   - toArray(), Comparable, Serializable, Cloneable
+   - concat, split, limit, skip, swap, map, mapAll
+   - collect tuples from multiple collectors
+   - not self contained
 

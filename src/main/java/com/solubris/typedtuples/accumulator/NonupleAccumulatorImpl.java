@@ -98,7 +98,7 @@ final class NonupleAccumulatorImpl<A, B, C, D, E, F, G, H, I> implements Nonuple
     }
 
     @Override
-    public BinaryOperator<I> get() {
+    public BinaryOperator<I> getNinth() {
         return i;
     }
 
@@ -113,7 +113,7 @@ final class NonupleAccumulatorImpl<A, B, C, D, E, F, G, H, I> implements Nonuple
         acc.setSixth(f.apply(acc.getSixth(), t.getSixth()));
         acc.setSeventh(g.apply(acc.getSeventh(), t.getSeventh()));
         acc.setEighth(h.apply(acc.getEighth(), t.getEighth()));
-        acc.set(i.apply(acc.get(), t.get()));
+        acc.setNinth(i.apply(acc.getNinth(), t.getNinth()));
     }
 
     @Override
@@ -128,7 +128,7 @@ final class NonupleAccumulatorImpl<A, B, C, D, E, F, G, H, I> implements Nonuple
         F ff = f.apply(l.getSixth(), r.getSixth());
         G fg = g.apply(l.getSeventh(), r.getSeventh());
         H fh = h.apply(l.getEighth(), r.getEighth());
-        I fi = i.apply(l.get(), r.get());
+        I fi = i.apply(l.getNinth(), r.getNinth());
         return MutableTuple.of(fa, fb, fc, fd, fe, ff, fg, fh, fi);
     }
 
@@ -144,7 +144,7 @@ final class NonupleAccumulatorImpl<A, B, C, D, E, F, G, H, I> implements Nonuple
         F ff = f.apply(l.getSixth(), r.getSixth());
         G fg = g.apply(l.getSeventh(), r.getSeventh());
         H fh = h.apply(l.getEighth(), r.getEighth());
-        I fi = i.apply(l.get(), r.get());
+        I fi = i.apply(l.getNinth(), r.getNinth());
         return ImmutableTuple.of(fa, fb, fc, fd, fe, ff, fg, fh, fi);
     }
 }

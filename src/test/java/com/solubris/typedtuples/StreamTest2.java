@@ -126,7 +126,7 @@ class StreamTest2 {
                 // stream of (item.key1, subItem) -- Stream<Entry<String, SubItem<String>>>
                 .collect(
                         Collectors.groupingBy(ImmutableCouple::getFirst, // list of (item.key1, subItem)
-                                Collectors.mapping(ImmutableCouple::get, Collectors.groupingBy(SubItem::getKey2))
+                                Collectors.mapping(ImmutableCouple::getSecond, Collectors.groupingBy(SubItem::getKey2))
                         )
                 );
 

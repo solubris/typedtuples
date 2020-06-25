@@ -163,7 +163,7 @@ class CustomCoupleTest {
         }
 
         @Override
-        public B get() {
+        public B getSecond() {
             return b;
         }
     }

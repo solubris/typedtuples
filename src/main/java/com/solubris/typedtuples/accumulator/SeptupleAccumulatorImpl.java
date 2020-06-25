@@ -81,7 +81,7 @@ final class SeptupleAccumulatorImpl<A, B, C, D, E, F, G> implements SeptupleAccu
     }
 
     @Override
-    public BinaryOperator<G> get() {
+    public BinaryOperator<G> getSeventh() {
         return g;
     }
 
@@ -94,7 +94,7 @@ final class SeptupleAccumulatorImpl<A, B, C, D, E, F, G> implements SeptupleAccu
         acc.setFourth(d.apply(acc.getFourth(), t.getFourth()));
         acc.setFifth(e.apply(acc.getFifth(), t.getFifth()));
         acc.setSixth(f.apply(acc.getSixth(), t.getSixth()));
-        acc.set(g.apply(acc.get(), t.get()));
+        acc.setSeventh(g.apply(acc.getSeventh(), t.getSeventh()));
     }
 
     @Override
@@ -106,7 +106,7 @@ final class SeptupleAccumulatorImpl<A, B, C, D, E, F, G> implements SeptupleAccu
         D fd = d.apply(l.getFourth(), r.getFourth());
         E fe = e.apply(l.getFifth(), r.getFifth());
         F ff = f.apply(l.getSixth(), r.getSixth());
-        G fg = g.apply(l.get(), r.get());
+        G fg = g.apply(l.getSeventh(), r.getSeventh());
         return MutableTuple.of(fa, fb, fc, fd, fe, ff, fg);
     }
 
@@ -119,7 +119,7 @@ final class SeptupleAccumulatorImpl<A, B, C, D, E, F, G> implements SeptupleAccu
         D fd = d.apply(l.getFourth(), r.getFourth());
         E fe = e.apply(l.getFifth(), r.getFifth());
         F ff = f.apply(l.getSixth(), r.getSixth());
-        G fg = g.apply(l.get(), r.get());
+        G fg = g.apply(l.getSeventh(), r.getSeventh());
         return ImmutableTuple.of(fa, fb, fc, fd, fe, ff, fg);
     }
 }

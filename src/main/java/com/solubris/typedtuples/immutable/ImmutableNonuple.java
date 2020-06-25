@@ -58,7 +58,7 @@ public interface ImmutableNonuple<A, B, C, D, E, F, G, H, I> extends Nonuple<A, 
 
     ImmutableDecuple<A, B, C, D, E, F, G, H, H, I> duplicateEighth();
 
-    ImmutableDecuple<A, B, C, D, E, F, G, H, I, I> duplicate();
+    ImmutableDecuple<A, B, C, D, E, F, G, H, I, I> duplicateNinth();
 
     ImmutableOctuple<B, C, D, E, F, G, H, I> removeFirst();
 
@@ -76,7 +76,7 @@ public interface ImmutableNonuple<A, B, C, D, E, F, G, H, I> extends Nonuple<A, 
 
     ImmutableOctuple<A, B, C, D, E, F, G, I> removeEighth();
 
-    ImmutableOctuple<A, B, C, D, E, F, G, H> remove();
+    ImmutableOctuple<A, B, C, D, E, F, G, H> removeNinth();
 
     <X> ImmutableNonuple<X, B, C, D, E, F, G, H, I> replaceFirst(X x);
 
@@ -94,7 +94,7 @@ public interface ImmutableNonuple<A, B, C, D, E, F, G, H, I> extends Nonuple<A, 
 
     <X> ImmutableNonuple<A, B, C, D, E, F, G, X, I> replaceEighth(X x);
 
-    <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> replace(X x);
+    <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> replaceNinth(X x);
 
     <X> ImmutableNonuple<X, B, C, D, E, F, G, H, I> mapFirst(Function<? super A, X> mapper);
 
@@ -112,7 +112,7 @@ public interface ImmutableNonuple<A, B, C, D, E, F, G, H, I> extends Nonuple<A, 
 
     <X> ImmutableNonuple<A, B, C, D, E, F, G, X, I> mapEighth(Function<? super H, X> mapper);
 
-    <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> map(Function<? super I, X> mapper);
+    <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapNinth(Function<? super I, X> mapper);
 
     <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapFirstAndAdd(
             Function<? super A, X> mapper);
@@ -138,7 +138,8 @@ public interface ImmutableNonuple<A, B, C, D, E, F, G, H, I> extends Nonuple<A, 
     <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapEighthAndAdd(
             Function<? super H, X> mapper);
 
-    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapAndAdd(Function<? super I, X> mapper);
+    <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapNinthAndAdd(
+            Function<? super I, X> mapper);
 
     <R> R mapAll(
             NonupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, ? super G, ? super H, ? super I, R> mapper);

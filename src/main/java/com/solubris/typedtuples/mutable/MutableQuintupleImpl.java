@@ -62,7 +62,7 @@ final class MutableQuintupleImpl<A, B, C, D, E> implements MutableQuintuple<A, B
     }
 
     @Override
-    public E get() {
+    public E getFifth() {
         return e;
     }
 
@@ -87,7 +87,7 @@ final class MutableQuintupleImpl<A, B, C, D, E> implements MutableQuintuple<A, B
     }
 
     @Override
-    public void set(E e) {
+    public void setFifth(E e) {
         this.e = e;
     }
 
@@ -127,7 +127,7 @@ final class MutableQuintupleImpl<A, B, C, D, E> implements MutableQuintuple<A, B
     }
 
     @Override
-    public void compute(UnaryOperator<E> mapper) {
+    public void computeFifth(UnaryOperator<E> mapper) {
         this.e = mapper.apply(e);
     }
 
@@ -140,7 +140,7 @@ final class MutableQuintupleImpl<A, B, C, D, E> implements MutableQuintuple<A, B
                 Objects.equals(this.b, thatQuintuple.getSecond()) && 
                 Objects.equals(this.c, thatQuintuple.getThird()) && 
                 Objects.equals(this.d, thatQuintuple.getFourth()) && 
-                Objects.equals(this.e, thatQuintuple.get());
+                Objects.equals(this.e, thatQuintuple.getFifth());
     }
 
     @Override

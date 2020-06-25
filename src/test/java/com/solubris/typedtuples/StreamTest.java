@@ -56,15 +56,15 @@ class StreamTest {
                 .map(ImmutableTuple::of)
                 .flatMap(s -> s.get().getCourses().stream().map(
                         c -> s.map(Student::getStudentId).add(c)))
-                .flatMap(sc -> sc.get().getTasks().stream().map(
-                        t -> sc.map(Course::getCourseId).add(t)))
-                .flatMap(sct -> sct.get().getAssessments().stream().map(
-                        a -> sct.map(Task::getTaskId).add(a.getScore())))
+                .flatMap(sc -> sc.getSecond().getTasks().stream().map(
+                        t -> sc.mapSecond(Course::getCourseId).add(t)))
+                .flatMap(sct -> sct.getThird().getAssessments().stream().map(
+                        a -> sct.mapThird(Task::getTaskId).add(a.getScore())))
 //                .collect(Collectors.summarizingDouble())
 //                .collect(Tuples.QuartetCollector.groupingByAndAccumulating(Double::sum));
                 .collect(Collectors.groupingBy(
-                        ImmutableQuadruple::remove,
-                        Collectors.summingDouble(Quadruple::get)
+                        ImmutableQuadruple::removeFourth,
+                        Collectors.summingDouble(Quadruple::getFourth)
                 ));
 
         System.out.println(result);

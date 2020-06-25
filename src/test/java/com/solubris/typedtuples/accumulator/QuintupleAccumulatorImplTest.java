@@ -83,9 +83,9 @@ class QuintupleAccumulatorImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getFifth(Integer value) {
         QuintupleAccumulatorImpl<Integer, Integer, Integer, Integer, Integer> underTest = new QuintupleAccumulatorImpl<>((l, r) -> a, (l, r) -> b, (l, r) -> c, (l, r) -> d, (l, r) -> value);
-        var actual = underTest.get().apply(null, null);
+        var actual = underTest.getFifth().apply(null, null);
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -118,7 +118,7 @@ class QuintupleAccumulatorImplTest {
         Assertions.assertThat(actualC).isEqualTo(c);
         var actualD = underTest.getFourth().apply(null, null);
         Assertions.assertThat(actualD).isEqualTo(d);
-        var actualValue = underTest.get().apply(null, null);
+        var actualValue = underTest.getFifth().apply(null, null);
         Assertions.assertThat(actualValue).isEqualTo(value);
     }
 

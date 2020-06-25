@@ -134,9 +134,9 @@ class MutableSeptupleImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getSeventh(Integer value) {
         var underTest = new MutableSeptupleImpl<>(a, b, c, d, e, f, value);
-        var actual = underTest.get();
+        var actual = underTest.getSeventh();
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -211,9 +211,9 @@ class MutableSeptupleImplTest {
             ints = 1
     )
     @NullSource
-    void set(Integer value) {
+    void setSeventh(Integer value) {
         var underTest = new MutableSeptupleImpl<>(a, b, c, d, e, f, value);
-        underTest.set(10);
+        underTest.setSeventh(10);
         Assertions.assertThat(underTest).isEqualTo(new MutableSeptupleImpl<>(a, b, c, d, e, f, 10));
     }
 
@@ -310,9 +310,9 @@ class MutableSeptupleImplTest {
             ints = 1
     )
     @NullSource
-    void compute(Integer value) {
+    void computeSeventh(Integer value) {
         var underTest = new MutableSeptupleImpl<>(a, b, c, d, e, f, value);
-        underTest.compute(i -> 10);
+        underTest.computeSeventh(i -> 10);
         Assertions.assertThat(underTest).isEqualTo(new MutableSeptupleImpl<>(a, b, c, d, e, f, 10));
     }
 

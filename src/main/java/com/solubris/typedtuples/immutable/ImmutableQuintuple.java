@@ -42,7 +42,7 @@ public interface ImmutableQuintuple<A, B, C, D, E> extends Quintuple<A, B, C, D,
 
     ImmutableSextuple<A, B, C, D, D, E> duplicateFourth();
 
-    ImmutableSextuple<A, B, C, D, E, E> duplicate();
+    ImmutableSextuple<A, B, C, D, E, E> duplicateFifth();
 
     ImmutableQuadruple<B, C, D, E> removeFirst();
 
@@ -52,7 +52,7 @@ public interface ImmutableQuintuple<A, B, C, D, E> extends Quintuple<A, B, C, D,
 
     ImmutableQuadruple<A, B, C, E> removeFourth();
 
-    ImmutableQuadruple<A, B, C, D> remove();
+    ImmutableQuadruple<A, B, C, D> removeFifth();
 
     <X> ImmutableQuintuple<X, B, C, D, E> replaceFirst(X x);
 
@@ -62,7 +62,7 @@ public interface ImmutableQuintuple<A, B, C, D, E> extends Quintuple<A, B, C, D,
 
     <X> ImmutableQuintuple<A, B, C, X, E> replaceFourth(X x);
 
-    <X> ImmutableQuintuple<A, B, C, D, X> replace(X x);
+    <X> ImmutableQuintuple<A, B, C, D, X> replaceFifth(X x);
 
     <X> ImmutableQuintuple<X, B, C, D, E> mapFirst(Function<? super A, X> mapper);
 
@@ -72,7 +72,7 @@ public interface ImmutableQuintuple<A, B, C, D, E> extends Quintuple<A, B, C, D,
 
     <X> ImmutableQuintuple<A, B, C, X, E> mapFourth(Function<? super D, X> mapper);
 
-    <X> ImmutableQuintuple<A, B, C, D, X> map(Function<? super E, X> mapper);
+    <X> ImmutableQuintuple<A, B, C, D, X> mapFifth(Function<? super E, X> mapper);
 
     <X> ImmutableSextuple<A, B, C, D, E, X> mapFirstAndAdd(Function<? super A, X> mapper);
 
@@ -82,7 +82,7 @@ public interface ImmutableQuintuple<A, B, C, D, E> extends Quintuple<A, B, C, D,
 
     <X> ImmutableSextuple<A, B, C, D, E, X> mapFourthAndAdd(Function<? super D, X> mapper);
 
-    <X> ImmutableSextuple<A, B, C, D, E, X> mapAndAdd(Function<? super E, X> mapper);
+    <X> ImmutableSextuple<A, B, C, D, E, X> mapFifthAndAdd(Function<? super E, X> mapper);
 
     <R> R mapAll(
             QuintupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, R> mapper);

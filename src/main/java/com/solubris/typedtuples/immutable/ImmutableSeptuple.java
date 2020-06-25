@@ -50,7 +50,7 @@ public interface ImmutableSeptuple<A, B, C, D, E, F, G> extends Septuple<A, B, C
 
     ImmutableOctuple<A, B, C, D, E, F, F, G> duplicateSixth();
 
-    ImmutableOctuple<A, B, C, D, E, F, G, G> duplicate();
+    ImmutableOctuple<A, B, C, D, E, F, G, G> duplicateSeventh();
 
     ImmutableSextuple<B, C, D, E, F, G> removeFirst();
 
@@ -64,7 +64,7 @@ public interface ImmutableSeptuple<A, B, C, D, E, F, G> extends Septuple<A, B, C
 
     ImmutableSextuple<A, B, C, D, E, G> removeSixth();
 
-    ImmutableSextuple<A, B, C, D, E, F> remove();
+    ImmutableSextuple<A, B, C, D, E, F> removeSeventh();
 
     <X> ImmutableSeptuple<X, B, C, D, E, F, G> replaceFirst(X x);
 
@@ -78,7 +78,7 @@ public interface ImmutableSeptuple<A, B, C, D, E, F, G> extends Septuple<A, B, C
 
     <X> ImmutableSeptuple<A, B, C, D, E, X, G> replaceSixth(X x);
 
-    <X> ImmutableSeptuple<A, B, C, D, E, F, X> replace(X x);
+    <X> ImmutableSeptuple<A, B, C, D, E, F, X> replaceSeventh(X x);
 
     <X> ImmutableSeptuple<X, B, C, D, E, F, G> mapFirst(Function<? super A, X> mapper);
 
@@ -92,7 +92,7 @@ public interface ImmutableSeptuple<A, B, C, D, E, F, G> extends Septuple<A, B, C
 
     <X> ImmutableSeptuple<A, B, C, D, E, X, G> mapSixth(Function<? super F, X> mapper);
 
-    <X> ImmutableSeptuple<A, B, C, D, E, F, X> map(Function<? super G, X> mapper);
+    <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapSeventh(Function<? super G, X> mapper);
 
     <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapFirstAndAdd(Function<? super A, X> mapper);
 
@@ -106,7 +106,7 @@ public interface ImmutableSeptuple<A, B, C, D, E, F, G> extends Septuple<A, B, C
 
     <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapSixthAndAdd(Function<? super F, X> mapper);
 
-    <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapAndAdd(Function<? super G, X> mapper);
+    <X> ImmutableOctuple<A, B, C, D, E, F, G, X> mapSeventhAndAdd(Function<? super G, X> mapper);
 
     <R> R mapAll(
             SeptupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, ? super G, R> mapper);

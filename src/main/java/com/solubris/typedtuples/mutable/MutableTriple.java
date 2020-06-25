@@ -26,7 +26,7 @@ public interface MutableTriple<A, B, C> extends Triple<A, B, C> {
 
     void setSecond(B b);
 
-    void set(C c);
+    void setThird(C c);
 
     void setAll(A a, B b, C c);
 
@@ -36,5 +36,5 @@ public interface MutableTriple<A, B, C> extends Triple<A, B, C> {
 
     void computeSecond(UnaryOperator<B> mapper);
 
-    void compute(UnaryOperator<C> mapper);
+    void computeThird(UnaryOperator<C> mapper);
 }

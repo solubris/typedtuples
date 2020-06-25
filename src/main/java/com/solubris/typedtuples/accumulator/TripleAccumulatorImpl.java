@@ -48,7 +48,7 @@ final class TripleAccumulatorImpl<A, B, C> implements TripleAccumulator<A, B, C>
     }
 
     @Override
-    public BinaryOperator<C> get() {
+    public BinaryOperator<C> getThird() {
         return c;
     }
 
@@ -56,14 +56,14 @@ final class TripleAccumulatorImpl<A, B, C> implements TripleAccumulator<A, B, C>
     public void accumulate(MutableTriple<A, B, C> acc, Triple<A, B, C> t) {
         acc.setFirst(a.apply(acc.getFirst(), t.getFirst()));
         acc.setSecond(b.apply(acc.getSecond(), t.getSecond()));
-        acc.set(c.apply(acc.get(), t.get()));
+        acc.setThird(c.apply(acc.getThird(), t.getThird()));
     }
 
     @Override
     public MutableTriple<A, B, C> combine(MutableTriple<A, B, C> l, MutableTriple<A, B, C> r) {
         A fa = a.apply(l.getFirst(), r.getFirst());
         B fb = b.apply(l.getSecond(), r.getSecond());
-        C fc = c.apply(l.get(), r.get());
+        C fc = c.apply(l.getThird(), r.getThird());
         return MutableTuple.of(fa, fb, fc);
     }
 
@@ -72,7 +72,7 @@ final class TripleAccumulatorImpl<A, B, C> implements TripleAccumulator<A, B, C>
             ImmutableTriple<A, B, C> r) {
         A fa = a.apply(l.getFirst(), r.getFirst());
         B fb = b.apply(l.getSecond(), r.getSecond());
-        C fc = c.apply(l.get(), r.get());
+        C fc = c.apply(l.getThird(), r.getThird());
         return ImmutableTuple.of(fa, fb, fc);
     }
 }

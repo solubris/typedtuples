@@ -96,9 +96,9 @@ class SextupleAccumulatorImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getSixth(Integer value) {
         SextupleAccumulatorImpl<Integer, Integer, Integer, Integer, Integer, Integer> underTest = new SextupleAccumulatorImpl<>((l, r) -> a, (l, r) -> b, (l, r) -> c, (l, r) -> d, (l, r) -> e, (l, r) -> value);
-        var actual = underTest.get().apply(null, null);
+        var actual = underTest.getSixth().apply(null, null);
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -133,7 +133,7 @@ class SextupleAccumulatorImplTest {
         Assertions.assertThat(actualD).isEqualTo(d);
         var actualE = underTest.getFifth().apply(null, null);
         Assertions.assertThat(actualE).isEqualTo(e);
-        var actualValue = underTest.get().apply(null, null);
+        var actualValue = underTest.getSixth().apply(null, null);
         Assertions.assertThat(actualValue).isEqualTo(value);
     }
 

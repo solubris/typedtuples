@@ -38,7 +38,7 @@ public interface Decuple<A, B, C, D, E, F, G, H, I, J> {
 
     I getNinth();
 
-    J get();
+    J getTenth();
 
     /**
      * Compare tuple fields in order requiring that the fields are Comparable.
@@ -56,7 +56,7 @@ public interface Decuple<A, B, C, D, E, F, G, H, I, J> {
                 Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> g = Comparator.comparing(Decuple::getSeventh);
                 Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> h = Comparator.comparing(Decuple::getEighth);
                 Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> i = Comparator.comparing(Decuple::getNinth);
-                Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> j = Comparator.comparing(Decuple::get);
+                Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> j = Comparator.comparing(Decuple::getTenth);
         return (a).thenComparing(b).thenComparing(c).thenComparing(d).thenComparing(e).thenComparing(f).thenComparing(g).thenComparing(h).thenComparing(i).thenComparing(j);
     }
 
@@ -76,7 +76,7 @@ public interface Decuple<A, B, C, D, E, F, G, H, I, J> {
                 Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> g = Comparator.comparing(Decuple::getSeventh);
                 Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> h = Comparator.comparing(Decuple::getEighth);
                 Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> i = Comparator.comparing(Decuple::getNinth);
-                Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> j = Comparator.comparing(Decuple::get);
+                Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> j = Comparator.comparing(Decuple::getTenth);
         return (j).thenComparing(i).thenComparing(h).thenComparing(g).thenComparing(f).thenComparing(e).thenComparing(d).thenComparing(c).thenComparing(b).thenComparing(a);
     }
 
@@ -99,7 +99,7 @@ public interface Decuple<A, B, C, D, E, F, G, H, I, J> {
                 Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> g = Comparator.comparing(fg.compose(Decuple::getSeventh));
                 Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> h = Comparator.comparing(fh.compose(Decuple::getEighth));
                 Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> i = Comparator.comparing(fi.compose(Decuple::getNinth));
-                Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> j = Comparator.comparing(fj.compose(Decuple::get));
+                Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> j = Comparator.comparing(fj.compose(Decuple::getTenth));
         return (a).thenComparing(b).thenComparing(c).thenComparing(d).thenComparing(e).thenComparing(f).thenComparing(g).thenComparing(h).thenComparing(i).thenComparing(j);
     }
 
@@ -122,7 +122,7 @@ public interface Decuple<A, B, C, D, E, F, G, H, I, J> {
                 Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> g = Comparator.comparing(fg.compose(Decuple::getSeventh));
                 Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> h = Comparator.comparing(fh.compose(Decuple::getEighth));
                 Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> i = Comparator.comparing(fi.compose(Decuple::getNinth));
-                Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> j = Comparator.comparing(fj.compose(Decuple::get));
+                Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> j = Comparator.comparing(fj.compose(Decuple::getTenth));
         return (j).thenComparing(i).thenComparing(h).thenComparing(g).thenComparing(f).thenComparing(e).thenComparing(d).thenComparing(c).thenComparing(b).thenComparing(a);
     }
 
@@ -156,7 +156,7 @@ public interface Decuple<A, B, C, D, E, F, G, H, I, J> {
                 Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> g = Comparator.comparing(Decuple::getSeventh, cg);
                 Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> h = Comparator.comparing(Decuple::getEighth, ch);
                 Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> i = Comparator.comparing(Decuple::getNinth, ci);
-                Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> j = Comparator.comparing(Decuple::get, cj);
+                Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> j = Comparator.comparing(Decuple::getTenth, cj);
         return (a).thenComparing(b).thenComparing(c).thenComparing(d).thenComparing(e).thenComparing(f).thenComparing(g).thenComparing(h).thenComparing(i).thenComparing(j);
     }
 
@@ -190,7 +190,7 @@ public interface Decuple<A, B, C, D, E, F, G, H, I, J> {
                 Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> g = Comparator.comparing(Decuple::getSeventh, cg);
                 Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> h = Comparator.comparing(Decuple::getEighth, ch);
                 Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> i = Comparator.comparing(Decuple::getNinth, ci);
-                Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> j = Comparator.comparing(Decuple::get, cj);
+                Comparator<Decuple<A, B, C, D, E, F, G, H, I, J>> j = Comparator.comparing(Decuple::getTenth, cj);
         return (j).thenComparing(i).thenComparing(h).thenComparing(g).thenComparing(f).thenComparing(e).thenComparing(d).thenComparing(c).thenComparing(b).thenComparing(a);
     }
 }

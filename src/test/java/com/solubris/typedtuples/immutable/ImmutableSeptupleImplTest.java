@@ -134,9 +134,9 @@ class ImmutableSeptupleImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getSeventh(Integer value) {
         var underTest = new ImmutableSeptupleImpl<>(a, b, c, d, e, f, value);
-        var actual = underTest.get();
+        var actual = underTest.getSeventh();
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -299,9 +299,9 @@ class ImmutableSeptupleImplTest {
             ints = 1
     )
     @NullSource
-    void duplicate(Integer value) {
+    void duplicateSeventh(Integer value) {
         var underTest = new ImmutableSeptupleImpl<>(a, b, c, d, e, f, value);
-        var actual = underTest.duplicate();
+        var actual = underTest.duplicateSeventh();
         Assertions.assertThat(actual).isEqualTo(new ImmutableOctupleImpl<>(a, b, c, d, e, f, value, value));
     }
 
@@ -376,9 +376,9 @@ class ImmutableSeptupleImplTest {
             ints = 1
     )
     @NullSource
-    void remove(Integer value) {
+    void removeSeventh(Integer value) {
         var underTest = new ImmutableSeptupleImpl<>(a, b, c, d, e, f, value);
-        var actual = underTest.remove();
+        var actual = underTest.removeSeventh();
         Assertions.assertThat(actual).isEqualTo(new ImmutableSextupleImpl<>(a, b, c, d, e, f));
     }
 
@@ -453,9 +453,9 @@ class ImmutableSeptupleImplTest {
             ints = 1
     )
     @NullSource
-    void replace(Integer value) {
+    void replaceSeventh(Integer value) {
         var underTest = new ImmutableSeptupleImpl<>(a, b, c, d, e, f, value);
-        var actual = underTest.replace(1);
+        var actual = underTest.replaceSeventh(1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableSeptupleImpl<>(a, b, c, d, e, f, 1));
     }
 
@@ -530,9 +530,9 @@ class ImmutableSeptupleImplTest {
             ints = 1
     )
     @NullSource
-    void map(Integer value) {
+    void mapSeventh(Integer value) {
         var underTest = new ImmutableSeptupleImpl<>(a, b, c, d, e, f, value);
-        var actual = underTest.map(i -> 1);
+        var actual = underTest.mapSeventh(i -> 1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableSeptupleImpl<>(a, b, c, d, e, f, 1));
     }
 
@@ -607,9 +607,9 @@ class ImmutableSeptupleImplTest {
             ints = 1
     )
     @NullSource
-    void mapAndAdd(Integer value) {
+    void mapSeventhAndAdd(Integer value) {
         var underTest = new ImmutableSeptupleImpl<>(a, b, c, d, e, f, value);
-        var actual = underTest.mapAndAdd(i -> 1);
+        var actual = underTest.mapSeventhAndAdd(i -> 1);
         Assertions.assertThat(actual).isEqualTo(new ImmutableOctupleImpl<>(a, b, c, d, e, f, value, 1));
     }
 

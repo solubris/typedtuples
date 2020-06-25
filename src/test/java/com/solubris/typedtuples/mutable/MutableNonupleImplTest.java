@@ -160,9 +160,9 @@ class MutableNonupleImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getNinth(Integer value) {
         var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
-        var actual = underTest.get();
+        var actual = underTest.getNinth();
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -259,9 +259,9 @@ class MutableNonupleImplTest {
             ints = 1
     )
     @NullSource
-    void set(Integer value) {
+    void setNinth(Integer value) {
         var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
-        underTest.set(10);
+        underTest.setNinth(10);
         Assertions.assertThat(underTest).isEqualTo(new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, 10));
     }
 
@@ -380,9 +380,9 @@ class MutableNonupleImplTest {
             ints = 1
     )
     @NullSource
-    void compute(Integer value) {
+    void computeNinth(Integer value) {
         var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
-        underTest.compute(i -> 10);
+        underTest.computeNinth(i -> 10);
         Assertions.assertThat(underTest).isEqualTo(new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, 10));
     }
 

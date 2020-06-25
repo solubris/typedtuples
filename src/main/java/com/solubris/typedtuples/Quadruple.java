@@ -26,7 +26,7 @@ public interface Quadruple<A, B, C, D> {
 
     C getThird();
 
-    D get();
+    D getFourth();
 
     /**
      * Compare tuple fields in order requiring that the fields are Comparable.
@@ -38,7 +38,7 @@ public interface Quadruple<A, B, C, D> {
         Comparator<Quadruple<A, B, C, D>> a = Comparator.comparing(Quadruple::getFirst);
                 Comparator<Quadruple<A, B, C, D>> b = Comparator.comparing(Quadruple::getSecond);
                 Comparator<Quadruple<A, B, C, D>> c = Comparator.comparing(Quadruple::getThird);
-                Comparator<Quadruple<A, B, C, D>> d = Comparator.comparing(Quadruple::get);
+                Comparator<Quadruple<A, B, C, D>> d = Comparator.comparing(Quadruple::getFourth);
         return (a).thenComparing(b).thenComparing(c).thenComparing(d);
     }
 
@@ -52,7 +52,7 @@ public interface Quadruple<A, B, C, D> {
         Comparator<Quadruple<A, B, C, D>> a = Comparator.comparing(Quadruple::getFirst);
                 Comparator<Quadruple<A, B, C, D>> b = Comparator.comparing(Quadruple::getSecond);
                 Comparator<Quadruple<A, B, C, D>> c = Comparator.comparing(Quadruple::getThird);
-                Comparator<Quadruple<A, B, C, D>> d = Comparator.comparing(Quadruple::get);
+                Comparator<Quadruple<A, B, C, D>> d = Comparator.comparing(Quadruple::getFourth);
         return (d).thenComparing(c).thenComparing(b).thenComparing(a);
     }
 
@@ -67,7 +67,7 @@ public interface Quadruple<A, B, C, D> {
         Comparator<Quadruple<A, B, C, D>> a = Comparator.comparing(fa.compose(Quadruple::getFirst));
                 Comparator<Quadruple<A, B, C, D>> b = Comparator.comparing(fb.compose(Quadruple::getSecond));
                 Comparator<Quadruple<A, B, C, D>> c = Comparator.comparing(fc.compose(Quadruple::getThird));
-                Comparator<Quadruple<A, B, C, D>> d = Comparator.comparing(fd.compose(Quadruple::get));
+                Comparator<Quadruple<A, B, C, D>> d = Comparator.comparing(fd.compose(Quadruple::getFourth));
         return (a).thenComparing(b).thenComparing(c).thenComparing(d);
     }
 
@@ -82,7 +82,7 @@ public interface Quadruple<A, B, C, D> {
         Comparator<Quadruple<A, B, C, D>> a = Comparator.comparing(fa.compose(Quadruple::getFirst));
                 Comparator<Quadruple<A, B, C, D>> b = Comparator.comparing(fb.compose(Quadruple::getSecond));
                 Comparator<Quadruple<A, B, C, D>> c = Comparator.comparing(fc.compose(Quadruple::getThird));
-                Comparator<Quadruple<A, B, C, D>> d = Comparator.comparing(fd.compose(Quadruple::get));
+                Comparator<Quadruple<A, B, C, D>> d = Comparator.comparing(fd.compose(Quadruple::getFourth));
         return (d).thenComparing(c).thenComparing(b).thenComparing(a);
     }
 
@@ -102,7 +102,7 @@ public interface Quadruple<A, B, C, D> {
         Comparator<Quadruple<A, B, C, D>> a = Comparator.comparing(Quadruple::getFirst, ca);
                 Comparator<Quadruple<A, B, C, D>> b = Comparator.comparing(Quadruple::getSecond, cb);
                 Comparator<Quadruple<A, B, C, D>> c = Comparator.comparing(Quadruple::getThird, cc);
-                Comparator<Quadruple<A, B, C, D>> d = Comparator.comparing(Quadruple::get, cd);
+                Comparator<Quadruple<A, B, C, D>> d = Comparator.comparing(Quadruple::getFourth, cd);
         return (a).thenComparing(b).thenComparing(c).thenComparing(d);
     }
 
@@ -122,7 +122,7 @@ public interface Quadruple<A, B, C, D> {
         Comparator<Quadruple<A, B, C, D>> a = Comparator.comparing(Quadruple::getFirst, ca);
                 Comparator<Quadruple<A, B, C, D>> b = Comparator.comparing(Quadruple::getSecond, cb);
                 Comparator<Quadruple<A, B, C, D>> c = Comparator.comparing(Quadruple::getThird, cc);
-                Comparator<Quadruple<A, B, C, D>> d = Comparator.comparing(Quadruple::get, cd);
+                Comparator<Quadruple<A, B, C, D>> d = Comparator.comparing(Quadruple::getFourth, cd);
         return (d).thenComparing(c).thenComparing(b).thenComparing(a);
     }
 }

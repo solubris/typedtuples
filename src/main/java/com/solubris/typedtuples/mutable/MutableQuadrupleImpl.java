@@ -54,7 +54,7 @@ final class MutableQuadrupleImpl<A, B, C, D> implements MutableQuadruple<A, B, C
     }
 
     @Override
-    public D get() {
+    public D getFourth() {
         return d;
     }
 
@@ -74,7 +74,7 @@ final class MutableQuadrupleImpl<A, B, C, D> implements MutableQuadruple<A, B, C
     }
 
     @Override
-    public void set(D d) {
+    public void setFourth(D d) {
         this.d = d;
     }
 
@@ -107,7 +107,7 @@ final class MutableQuadrupleImpl<A, B, C, D> implements MutableQuadruple<A, B, C
     }
 
     @Override
-    public void compute(UnaryOperator<D> mapper) {
+    public void computeFourth(UnaryOperator<D> mapper) {
         this.d = mapper.apply(d);
     }
 
@@ -119,7 +119,7 @@ final class MutableQuadrupleImpl<A, B, C, D> implements MutableQuadruple<A, B, C
         return Objects.equals(this.a, thatQuadruple.getFirst()) && 
                 Objects.equals(this.b, thatQuadruple.getSecond()) && 
                 Objects.equals(this.c, thatQuadruple.getThird()) && 
-                Objects.equals(this.d, thatQuadruple.get());
+                Objects.equals(this.d, thatQuadruple.getFourth());
     }
 
     @Override

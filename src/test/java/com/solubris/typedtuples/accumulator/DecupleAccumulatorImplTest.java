@@ -148,9 +148,9 @@ class DecupleAccumulatorImplTest {
             ints = 1
     )
     @NullSource
-    void get(Integer value) {
+    void getTenth(Integer value) {
         DecupleAccumulatorImpl<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> underTest = new DecupleAccumulatorImpl<>((l, r) -> a, (l, r) -> b, (l, r) -> c, (l, r) -> d, (l, r) -> e, (l, r) -> f, (l, r) -> g, (l, r) -> h, (l, r) -> i, (l, r) -> value);
-        var actual = underTest.get().apply(null, null);
+        var actual = underTest.getTenth().apply(null, null);
         Assertions.assertThat(actual).isEqualTo(value);
     }
 
@@ -193,7 +193,7 @@ class DecupleAccumulatorImplTest {
         Assertions.assertThat(actualH).isEqualTo(h);
         var actualI = underTest.getNinth().apply(null, null);
         Assertions.assertThat(actualI).isEqualTo(i);
-        var actualValue = underTest.get().apply(null, null);
+        var actualValue = underTest.getTenth().apply(null, null);
         Assertions.assertThat(actualValue).isEqualTo(value);
     }
 
