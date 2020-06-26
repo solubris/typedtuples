@@ -14,12 +14,12 @@ Strongly typed tuple library for java
         <dependency>
           <groupId>com.solubris</groupId>
           <artifactId>typedtuples</artifactId>
-          <version>1.9</version>
+          <version>2.0</version>
         </dependency>
 ```
 - Gradle
 ```groovy
-        implementation 'com.solubris:typedtuples:1.9'
+        implementation 'com.solubris:typedtuples:2.0'
 ```
 
 ## Example
