@@ -17,7 +17,7 @@
 package com.solubris.typedtuples.immutable;
 
 final class ImmutableUnitImpl implements ImmutableUnit {
-    static final ImmutableUnitImpl INSTANCE = new ImmutableUnitImpl();
+    static final ImmutableUnit INSTANCE = new ImmutableUnitImpl();
 
     private ImmutableUnitImpl() {
     }
