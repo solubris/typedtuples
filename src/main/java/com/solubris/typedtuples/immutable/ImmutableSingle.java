@@ -36,5 +36,5 @@ public interface ImmutableSingle<A> extends Single<A> {
 
     <X> ImmutableCouple<A, X> mapAndAdd(Function<? super A, X> mapper);
 
-    <R> R mapAll(SingleFunction<? super A, R> mapper);
+    <R> R transform(SingleFunction<? super A, R> mapper);
 }

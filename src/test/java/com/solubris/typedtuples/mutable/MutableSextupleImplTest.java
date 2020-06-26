@@ -209,9 +209,9 @@ class MutableSextupleImplTest {
             ints = 1
     )
     @NullSource
-    void mapAll(Integer value) {
+    void transform(Integer value) {
         var underTest = new MutableSextupleImpl<>(a, b, c, d, e, value);
-        var actual = underTest.mapAll(MutableSextupleImpl::new);
+        var actual = underTest.transform(MutableSextupleImpl::new);
         Assertions.assertThat(actual).isEqualTo(underTest);
     }
 

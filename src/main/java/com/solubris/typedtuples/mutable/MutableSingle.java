@@ -24,7 +24,7 @@ import java.util.function.UnaryOperator;
 public interface MutableSingle<A> extends Single<A> {
     void set(A a);
 
-    <R> R mapAll(SingleFunction<? super A, R> mapper);
+    <R> R transform(SingleFunction<? super A, R> mapper);
 
     void compute(UnaryOperator<A> mapper);
 }

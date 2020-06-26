@@ -73,7 +73,7 @@ class Enrichment {
 //                                             Collector<RR, ACC, R> downstream) {
 //        BiConsumer<ACC, ? super RR> downstreamAccumulator = downstream.accumulator();
 //        return new Collectors.CollectorImpl<>(downstream.supplier(),
-//                (r, t) -> downstreamAccumulator.accept(r, t.mapAll(mapper)),
+//                (r, t) -> downstreamAccumulator.accept(r, t.transform(mapper)),
 //                downstream.combiner(), downstream.finisher(),
 //                downstream.characteristics());
 //    }

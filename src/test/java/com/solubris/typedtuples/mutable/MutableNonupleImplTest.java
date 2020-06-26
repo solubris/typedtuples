@@ -281,9 +281,9 @@ class MutableNonupleImplTest {
             ints = 1
     )
     @NullSource
-    void mapAll(Integer value) {
+    void transform(Integer value) {
         var underTest = new MutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
-        var actual = underTest.mapAll(MutableNonupleImpl::new);
+        var actual = underTest.transform(MutableNonupleImpl::new);
         Assertions.assertThat(actual).isEqualTo(underTest);
     }
 

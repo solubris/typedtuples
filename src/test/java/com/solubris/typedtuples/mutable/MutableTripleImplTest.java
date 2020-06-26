@@ -137,9 +137,9 @@ class MutableTripleImplTest {
             ints = 1
     )
     @NullSource
-    void mapAll(Integer value) {
+    void transform(Integer value) {
         var underTest = new MutableTripleImpl<>(a, b, value);
-        var actual = underTest.mapAll(MutableTripleImpl::new);
+        var actual = underTest.transform(MutableTripleImpl::new);
         Assertions.assertThat(actual).isEqualTo(underTest);
     }
 

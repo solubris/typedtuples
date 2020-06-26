@@ -87,18 +87,18 @@ class Generics {
 
     /**
      * Given a function that can operate on a baseClass
-     * It should be accepted by mapAll for any tuples with a subclass of the baseClass
+     * It should be accepted by transform for any tuples with a subclass of the baseClass
      *
      * Requires the capture: ? super T
      */
     @Test
-    void canMapAllFromSuperClassOfTheTarget() {
+    void canTransformFromSuperClassOfTheTarget() {
         CoupleFunction<Integer, BaseClass, String> function = (integer, baseClass) -> baseClass.baseMethod() + integer;
 
         var underTest1 = ImmutableTuple.of(1, new SubClass1());
         var underTest2 = ImmutableTuple.of(2, new SubClass2());
-        var actual1 = underTest1.mapAll(function);
-        var actual2 = underTest2.mapAll(function);
+        var actual1 = underTest1.transform(function);
+        var actual2 = underTest2.transform(function);
 
         Assertions.assertThat(actual1).isEqualTo("base1");
         Assertions.assertThat(actual2).isEqualTo("base2");

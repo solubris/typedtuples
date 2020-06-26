@@ -108,7 +108,7 @@ final class ImmutableCoupleImpl<A, B> implements ImmutableCouple<A, B> {
     }
 
     @Override
-    public <R> R mapAll(CoupleFunction<? super A, ? super B, R> mapper) {
+    public <R> R transform(CoupleFunction<? super A, ? super B, R> mapper) {
         return mapper.apply(a, b);
     }
 

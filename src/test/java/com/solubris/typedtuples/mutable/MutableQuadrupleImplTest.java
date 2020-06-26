@@ -161,9 +161,9 @@ class MutableQuadrupleImplTest {
             ints = 1
     )
     @NullSource
-    void mapAll(Integer value) {
+    void transform(Integer value) {
         var underTest = new MutableQuadrupleImpl<>(a, b, c, value);
-        var actual = underTest.mapAll(MutableQuadrupleImpl::new);
+        var actual = underTest.transform(MutableQuadrupleImpl::new);
         Assertions.assertThat(actual).isEqualTo(underTest);
     }
 

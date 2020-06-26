@@ -73,7 +73,7 @@ final class MutableTripleImpl<A, B, C> implements MutableTriple<A, B, C> {
     }
 
     @Override
-    public <R> R mapAll(TripleFunction<? super A, ? super B, ? super C, R> mapper) {
+    public <R> R transform(TripleFunction<? super A, ? super B, ? super C, R> mapper) {
         return mapper.apply(a, b, c);
     }
 

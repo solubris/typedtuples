@@ -539,9 +539,9 @@ class ImmutableSextupleImplTest {
             ints = 1
     )
     @NullSource
-    void mapAll(Integer value) {
+    void transform(Integer value) {
         var underTest = new ImmutableSextupleImpl<>(a, b, c, d, e, value);
-        var actual = underTest.mapAll(ImmutableSextupleImpl::new);
+        var actual = underTest.transform(ImmutableSextupleImpl::new);
         Assertions.assertThat(actual).isEqualTo(underTest);
     }
 

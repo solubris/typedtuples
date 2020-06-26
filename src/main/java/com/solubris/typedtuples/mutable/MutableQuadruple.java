@@ -32,7 +32,7 @@ public interface MutableQuadruple<A, B, C, D> extends Quadruple<A, B, C, D> {
 
     void setAll(A a, B b, C c, D d);
 
-    <R> R mapAll(QuadrupleFunction<? super A, ? super B, ? super C, ? super D, R> mapper);
+    <R> R transform(QuadrupleFunction<? super A, ? super B, ? super C, ? super D, R> mapper);
 
     void computeFirst(UnaryOperator<A> mapper);
 

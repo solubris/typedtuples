@@ -302,9 +302,9 @@ class ImmutableTripleImplTest {
             ints = 1
     )
     @NullSource
-    void mapAll(Integer value) {
+    void transform(Integer value) {
         var underTest = new ImmutableTripleImpl<>(a, b, value);
-        var actual = underTest.mapAll(ImmutableTripleImpl::new);
+        var actual = underTest.transform(ImmutableTripleImpl::new);
         Assertions.assertThat(actual).isEqualTo(underTest);
     }
 

@@ -48,7 +48,7 @@ public interface ImmutableCouple<A, B> extends Couple<A, B> {
 
     <X> ImmutableTriple<A, B, X> mapSecondAndAdd(Function<? super B, X> mapper);
 
-    <R> R mapAll(CoupleFunction<? super A, ? super B, R> mapper);
+    <R> R transform(CoupleFunction<? super A, ? super B, R> mapper);
 
     ImmutableCouple<B, A> reverse();
 }

@@ -96,7 +96,7 @@ public interface ImmutableSextuple<A, B, C, D, E, F> extends Sextuple<A, B, C, D
 
     <X> ImmutableSeptuple<A, B, C, D, E, F, X> mapSixthAndAdd(Function<? super F, X> mapper);
 
-    <R> R mapAll(
+    <R> R transform(
             SextupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, R> mapper);
 
     ImmutableSextuple<F, E, D, C, B, A> reverse();

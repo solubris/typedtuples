@@ -618,9 +618,9 @@ class ImmutableSeptupleImplTest {
             ints = 1
     )
     @NullSource
-    void mapAll(Integer value) {
+    void transform(Integer value) {
         var underTest = new ImmutableSeptupleImpl<>(a, b, c, d, e, f, value);
-        var actual = underTest.mapAll(ImmutableSeptupleImpl::new);
+        var actual = underTest.transform(ImmutableSeptupleImpl::new);
         Assertions.assertThat(actual).isEqualTo(underTest);
     }
 

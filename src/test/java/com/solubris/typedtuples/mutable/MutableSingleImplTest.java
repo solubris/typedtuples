@@ -78,9 +78,9 @@ class MutableSingleImplTest {
             ints = 1
     )
     @NullSource
-    void mapAll(Integer value) {
+    void transform(Integer value) {
         var underTest = new MutableSingleImpl<>(value);
-        var actual = underTest.mapAll(MutableSingleImpl::new);
+        var actual = underTest.transform(MutableSingleImpl::new);
         Assertions.assertThat(actual).isEqualTo(underTest);
     }
 

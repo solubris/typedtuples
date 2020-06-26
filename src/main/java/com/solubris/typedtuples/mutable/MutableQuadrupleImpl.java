@@ -87,7 +87,8 @@ final class MutableQuadrupleImpl<A, B, C, D> implements MutableQuadruple<A, B, C
     }
 
     @Override
-    public <R> R mapAll(QuadrupleFunction<? super A, ? super B, ? super C, ? super D, R> mapper) {
+    public <R> R transform(
+            QuadrupleFunction<? super A, ? super B, ? super C, ? super D, R> mapper) {
         return mapper.apply(a, b, c, d);
     }
 

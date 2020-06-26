@@ -56,7 +56,7 @@ public class ImmutableTuple {
     }
 
     public static <A, R> Function<ImmutableSingle<A>, R> to(SingleFunction<? super A, R> mapper) {
-        return t -> t.mapAll(mapper);
+        return t -> t.transform(mapper);
     }
 
     public static <A, B> ImmutableCouple<A, B> of(A a, B b) {
@@ -69,7 +69,7 @@ public class ImmutableTuple {
 
     public static <A, B, R> Function<ImmutableCouple<A, B>, R> to(
             CoupleFunction<? super A, ? super B, R> mapper) {
-        return t -> t.mapAll(mapper);
+        return t -> t.transform(mapper);
     }
 
     public static <A, B, C> ImmutableTriple<A, B, C> of(A a, B b, C c) {
@@ -82,7 +82,7 @@ public class ImmutableTuple {
 
     public static <A, B, C, R> Function<ImmutableTriple<A, B, C>, R> to(
             TripleFunction<? super A, ? super B, ? super C, R> mapper) {
-        return t -> t.mapAll(mapper);
+        return t -> t.transform(mapper);
     }
 
     public static <A, B, C, D> ImmutableQuadruple<A, B, C, D> of(A a, B b, C c, D d) {
@@ -95,7 +95,7 @@ public class ImmutableTuple {
 
     public static <A, B, C, D, R> Function<ImmutableQuadruple<A, B, C, D>, R> to(
             QuadrupleFunction<? super A, ? super B, ? super C, ? super D, R> mapper) {
-        return t -> t.mapAll(mapper);
+        return t -> t.transform(mapper);
     }
 
     public static <A, B, C, D, E> ImmutableQuintuple<A, B, C, D, E> of(A a, B b, C c, D d, E e) {
@@ -109,7 +109,7 @@ public class ImmutableTuple {
 
     public static <A, B, C, D, E, R> Function<ImmutableQuintuple<A, B, C, D, E>, R> to(
             QuintupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, R> mapper) {
-        return t -> t.mapAll(mapper);
+        return t -> t.transform(mapper);
     }
 
     public static <A, B, C, D, E, F> ImmutableSextuple<A, B, C, D, E, F> of(A a, B b, C c, D d, E e,
@@ -124,7 +124,7 @@ public class ImmutableTuple {
 
     public static <A, B, C, D, E, F, R> Function<ImmutableSextuple<A, B, C, D, E, F>, R> to(
             SextupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, R> mapper) {
-        return t -> t.mapAll(mapper);
+        return t -> t.transform(mapper);
     }
 
     public static <A, B, C, D, E, F, G> ImmutableSeptuple<A, B, C, D, E, F, G> of(A a, B b, C c,
@@ -139,7 +139,7 @@ public class ImmutableTuple {
 
     public static <A, B, C, D, E, F, G, R> Function<ImmutableSeptuple<A, B, C, D, E, F, G>, R> to(
             SeptupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, ? super G, R> mapper) {
-        return t -> t.mapAll(mapper);
+        return t -> t.transform(mapper);
     }
 
     public static <A, B, C, D, E, F, G, H> ImmutableOctuple<A, B, C, D, E, F, G, H> of(A a, B b,
@@ -154,7 +154,7 @@ public class ImmutableTuple {
 
     public static <A, B, C, D, E, F, G, H, R> Function<ImmutableOctuple<A, B, C, D, E, F, G, H>, R> to(
             OctupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, ? super G, ? super H, R> mapper) {
-        return t -> t.mapAll(mapper);
+        return t -> t.transform(mapper);
     }
 
     public static <A, B, C, D, E, F, G, H, I> ImmutableNonuple<A, B, C, D, E, F, G, H, I> of(A a,
@@ -169,7 +169,7 @@ public class ImmutableTuple {
 
     public static <A, B, C, D, E, F, G, H, I, R> Function<ImmutableNonuple<A, B, C, D, E, F, G, H, I>, R> to(
             NonupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, ? super G, ? super H, ? super I, R> mapper) {
-        return t -> t.mapAll(mapper);
+        return t -> t.transform(mapper);
     }
 
     public static <A, B, C, D, E, F, G, H, I, J> ImmutableDecuple<A, B, C, D, E, F, G, H, I, J> of(
@@ -184,6 +184,6 @@ public class ImmutableTuple {
 
     public static <A, B, C, D, E, F, G, H, I, J, R> Function<ImmutableDecuple<A, B, C, D, E, F, G, H, I, J>, R> to(
             DecupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, ? super G, ? super H, ? super I, ? super J, R> mapper) {
-        return t -> t.mapAll(mapper);
+        return t -> t.transform(mapper);
     }
 }

@@ -34,7 +34,7 @@ public interface MutableQuintuple<A, B, C, D, E> extends Quintuple<A, B, C, D, E
 
     void setAll(A a, B b, C c, D d, E e);
 
-    <R> R mapAll(
+    <R> R transform(
             QuintupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, R> mapper);
 
     void computeFirst(UnaryOperator<A> mapper);

@@ -144,9 +144,9 @@ class ImmutableSingleImplTest {
             ints = 1
     )
     @NullSource
-    void mapAll(Integer value) {
+    void transform(Integer value) {
         var underTest = new ImmutableSingleImpl<>(value);
-        var actual = underTest.mapAll(ImmutableSingleImpl::new);
+        var actual = underTest.transform(ImmutableSingleImpl::new);
         Assertions.assertThat(actual).isEqualTo(underTest);
     }
 

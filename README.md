@@ -144,7 +144,7 @@ Other limitations:
 Record types can be a good target for the result of enrichment, eg:
 
 ```java
-        ImmutableTuple.of("name", "value").mapAll(NameValue::new);
+        ImmutableTuple.of("name", "value").transform(NameValue::new);
 ```
 
 ## Alternatives

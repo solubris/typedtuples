@@ -776,9 +776,9 @@ class ImmutableNonupleImplTest {
             ints = 1
     )
     @NullSource
-    void mapAll(Integer value) {
+    void transform(Integer value) {
         var underTest = new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, value);
-        var actual = underTest.mapAll(ImmutableNonupleImpl::new);
+        var actual = underTest.transform(ImmutableNonupleImpl::new);
         Assertions.assertThat(actual).isEqualTo(underTest);
     }
 

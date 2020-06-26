@@ -40,7 +40,7 @@ final class MutableSingleImpl<A> implements MutableSingle<A> {
     }
 
     @Override
-    public <R> R mapAll(SingleFunction<? super A, R> mapper) {
+    public <R> R transform(SingleFunction<? super A, R> mapper) {
         return mapper.apply(a);
     }
 

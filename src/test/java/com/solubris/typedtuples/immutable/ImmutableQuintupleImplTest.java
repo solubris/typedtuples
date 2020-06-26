@@ -460,9 +460,9 @@ class ImmutableQuintupleImplTest {
             ints = 1
     )
     @NullSource
-    void mapAll(Integer value) {
+    void transform(Integer value) {
         var underTest = new ImmutableQuintupleImpl<>(a, b, c, d, value);
-        var actual = underTest.mapAll(ImmutableQuintupleImpl::new);
+        var actual = underTest.transform(ImmutableQuintupleImpl::new);
         Assertions.assertThat(actual).isEqualTo(underTest);
     }
 

@@ -223,9 +223,9 @@ class ImmutableCoupleImplTest {
             ints = 1
     )
     @NullSource
-    void mapAll(Integer value) {
+    void transform(Integer value) {
         var underTest = new ImmutableCoupleImpl<>(a, value);
-        var actual = underTest.mapAll(ImmutableCoupleImpl::new);
+        var actual = underTest.transform(ImmutableCoupleImpl::new);
         Assertions.assertThat(actual).isEqualTo(underTest);
     }
 

@@ -387,7 +387,7 @@ final class ImmutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements Immutable
     }
 
     @Override
-    public <R> R mapAll(
+    public <R> R transform(
             NonupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, ? super G, ? super H, ? super I, R> mapper) {
         return mapper.apply(a, b, c, d, e, f, g, h, i);
     }

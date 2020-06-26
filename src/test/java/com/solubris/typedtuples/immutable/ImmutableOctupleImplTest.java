@@ -697,9 +697,9 @@ class ImmutableOctupleImplTest {
             ints = 1
     )
     @NullSource
-    void mapAll(Integer value) {
+    void transform(Integer value) {
         var underTest = new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, value);
-        var actual = underTest.mapAll(ImmutableOctupleImpl::new);
+        var actual = underTest.transform(ImmutableOctupleImpl::new);
         Assertions.assertThat(actual).isEqualTo(underTest);
     }
 

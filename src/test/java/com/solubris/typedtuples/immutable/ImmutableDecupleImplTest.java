@@ -514,9 +514,9 @@ class ImmutableDecupleImplTest {
             ints = 1
     )
     @NullSource
-    void mapAll(Integer value) {
+    void transform(Integer value) {
         var underTest = new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, value);
-        var actual = underTest.mapAll(ImmutableDecupleImpl::new);
+        var actual = underTest.transform(ImmutableDecupleImpl::new);
         Assertions.assertThat(actual).isEqualTo(underTest);
     }
 

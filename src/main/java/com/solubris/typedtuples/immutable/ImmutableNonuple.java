@@ -141,7 +141,7 @@ public interface ImmutableNonuple<A, B, C, D, E, F, G, H, I> extends Nonuple<A, 
     <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapNinthAndAdd(
             Function<? super I, X> mapper);
 
-    <R> R mapAll(
+    <R> R transform(
             NonupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, ? super G, ? super H, ? super I, R> mapper);
 
     ImmutableNonuple<I, H, G, F, E, D, C, B, A> reverse();

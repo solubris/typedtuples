@@ -52,7 +52,7 @@ public class MutableTuple {
     }
 
     public static <A, R> Function<MutableSingle<A>, R> to(SingleFunction<? super A, R> mapper) {
-        return t -> t.mapAll(mapper);
+        return t -> t.transform(mapper);
     }
 
     public static <A, B> MutableCouple<A, B> of(A a, B b) {
@@ -65,7 +65,7 @@ public class MutableTuple {
 
     public static <A, B, R> Function<MutableCouple<A, B>, R> to(
             CoupleFunction<? super A, ? super B, R> mapper) {
-        return t -> t.mapAll(mapper);
+        return t -> t.transform(mapper);
     }
 
     public static <A, B, C> MutableTriple<A, B, C> of(A a, B b, C c) {
@@ -78,7 +78,7 @@ public class MutableTuple {
 
     public static <A, B, C, R> Function<MutableTriple<A, B, C>, R> to(
             TripleFunction<? super A, ? super B, ? super C, R> mapper) {
-        return t -> t.mapAll(mapper);
+        return t -> t.transform(mapper);
     }
 
     public static <A, B, C, D> MutableQuadruple<A, B, C, D> of(A a, B b, C c, D d) {
@@ -91,7 +91,7 @@ public class MutableTuple {
 
     public static <A, B, C, D, R> Function<MutableQuadruple<A, B, C, D>, R> to(
             QuadrupleFunction<? super A, ? super B, ? super C, ? super D, R> mapper) {
-        return t -> t.mapAll(mapper);
+        return t -> t.transform(mapper);
     }
 
     public static <A, B, C, D, E> MutableQuintuple<A, B, C, D, E> of(A a, B b, C c, D d, E e) {
@@ -105,7 +105,7 @@ public class MutableTuple {
 
     public static <A, B, C, D, E, R> Function<MutableQuintuple<A, B, C, D, E>, R> to(
             QuintupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, R> mapper) {
-        return t -> t.mapAll(mapper);
+        return t -> t.transform(mapper);
     }
 
     public static <A, B, C, D, E, F> MutableSextuple<A, B, C, D, E, F> of(A a, B b, C c, D d, E e,
@@ -120,7 +120,7 @@ public class MutableTuple {
 
     public static <A, B, C, D, E, F, R> Function<MutableSextuple<A, B, C, D, E, F>, R> to(
             SextupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, R> mapper) {
-        return t -> t.mapAll(mapper);
+        return t -> t.transform(mapper);
     }
 
     public static <A, B, C, D, E, F, G> MutableSeptuple<A, B, C, D, E, F, G> of(A a, B b, C c, D d,
@@ -135,7 +135,7 @@ public class MutableTuple {
 
     public static <A, B, C, D, E, F, G, R> Function<MutableSeptuple<A, B, C, D, E, F, G>, R> to(
             SeptupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, ? super G, R> mapper) {
-        return t -> t.mapAll(mapper);
+        return t -> t.transform(mapper);
     }
 
     public static <A, B, C, D, E, F, G, H> MutableOctuple<A, B, C, D, E, F, G, H> of(A a, B b, C c,
@@ -150,7 +150,7 @@ public class MutableTuple {
 
     public static <A, B, C, D, E, F, G, H, R> Function<MutableOctuple<A, B, C, D, E, F, G, H>, R> to(
             OctupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, ? super G, ? super H, R> mapper) {
-        return t -> t.mapAll(mapper);
+        return t -> t.transform(mapper);
     }
 
     public static <A, B, C, D, E, F, G, H, I> MutableNonuple<A, B, C, D, E, F, G, H, I> of(A a, B b,
@@ -165,7 +165,7 @@ public class MutableTuple {
 
     public static <A, B, C, D, E, F, G, H, I, R> Function<MutableNonuple<A, B, C, D, E, F, G, H, I>, R> to(
             NonupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, ? super G, ? super H, ? super I, R> mapper) {
-        return t -> t.mapAll(mapper);
+        return t -> t.transform(mapper);
     }
 
     public static <A, B, C, D, E, F, G, H, I, J> MutableDecuple<A, B, C, D, E, F, G, H, I, J> of(
@@ -180,6 +180,6 @@ public class MutableTuple {
 
     public static <A, B, C, D, E, F, G, H, I, J, R> Function<MutableDecuple<A, B, C, D, E, F, G, H, I, J>, R> to(
             DecupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, ? super F, ? super G, ? super H, ? super I, ? super J, R> mapper) {
-        return t -> t.mapAll(mapper);
+        return t -> t.transform(mapper);
     }
 }

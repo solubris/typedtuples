@@ -113,9 +113,9 @@ class MutableCoupleImplTest {
             ints = 1
     )
     @NullSource
-    void mapAll(Integer value) {
+    void transform(Integer value) {
         var underTest = new MutableCoupleImpl<>(a, value);
-        var actual = underTest.mapAll(MutableCoupleImpl::new);
+        var actual = underTest.transform(MutableCoupleImpl::new);
         Assertions.assertThat(actual).isEqualTo(underTest);
     }
 

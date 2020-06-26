@@ -30,7 +30,7 @@ public interface MutableTriple<A, B, C> extends Triple<A, B, C> {
 
     void setAll(A a, B b, C c);
 
-    <R> R mapAll(TripleFunction<? super A, ? super B, ? super C, R> mapper);
+    <R> R transform(TripleFunction<? super A, ? super B, ? super C, R> mapper);
 
     void computeFirst(UnaryOperator<A> mapper);
 

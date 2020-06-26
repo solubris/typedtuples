@@ -222,7 +222,7 @@ final class ImmutableQuintupleImpl<A, B, C, D, E> implements ImmutableQuintuple<
     }
 
     @Override
-    public <R> R mapAll(
+    public <R> R transform(
             QuintupleFunction<? super A, ? super B, ? super C, ? super D, ? super E, R> mapper) {
         return mapper.apply(a, b, c, d, e);
     }
