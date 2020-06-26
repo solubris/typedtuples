@@ -50,7 +50,7 @@ final class ImmutableSingleImpl<A> implements ImmutableSingle<A> {
     }
 
     @Override
-    public ImmutableUnitImpl remove() {
+    public ImmutableUnit remove() {
         return ImmutableUnitImpl.INSTANCE;
     }
 
