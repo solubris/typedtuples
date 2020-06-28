@@ -79,22 +79,22 @@ final class ImmutableCoupleImpl<A, B> implements ImmutableCouple<A, B> {
 
     @Override
     public <X> ImmutableCouple<X, B> replaceFirst(X x) {
-        return new ImmutableCoupleImpl<>(x, b);
+        return ImmutableTuple.of(x, b);
     }
 
     @Override
     public <X> ImmutableCouple<A, X> replaceSecond(X x) {
-        return new ImmutableCoupleImpl<>(a, x);
+        return ImmutableTuple.of(a, x);
     }
 
     @Override
     public <X> ImmutableCouple<X, B> mapFirst(Function<? super A, X> mapper) {
-        return new ImmutableCoupleImpl<>(mapper.apply(a), b);
+        return ImmutableTuple.of(mapper.apply(a), b);
     }
 
     @Override
     public <X> ImmutableCouple<A, X> mapSecond(Function<? super B, X> mapper) {
-        return new ImmutableCoupleImpl<>(a, mapper.apply(b));
+        return ImmutableTuple.of(a, mapper.apply(b));
     }
 
     @Override
@@ -114,7 +114,7 @@ final class ImmutableCoupleImpl<A, B> implements ImmutableCouple<A, B> {
 
     @Override
     public ImmutableCouple<B, A> reverse() {
-        return new ImmutableCoupleImpl<>(b, a);
+        return ImmutableTuple.of(b, a);
     }
 
     @Override

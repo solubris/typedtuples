@@ -125,42 +125,42 @@ final class ImmutableQuadrupleImpl<A, B, C, D> implements ImmutableQuadruple<A, 
 
     @Override
     public <X> ImmutableQuadruple<X, B, C, D> replaceFirst(X x) {
-        return new ImmutableQuadrupleImpl<>(x, b, c, d);
+        return ImmutableTuple.of(x, b, c, d);
     }
 
     @Override
     public <X> ImmutableQuadruple<A, X, C, D> replaceSecond(X x) {
-        return new ImmutableQuadrupleImpl<>(a, x, c, d);
+        return ImmutableTuple.of(a, x, c, d);
     }
 
     @Override
     public <X> ImmutableQuadruple<A, B, X, D> replaceThird(X x) {
-        return new ImmutableQuadrupleImpl<>(a, b, x, d);
+        return ImmutableTuple.of(a, b, x, d);
     }
 
     @Override
     public <X> ImmutableQuadruple<A, B, C, X> replaceFourth(X x) {
-        return new ImmutableQuadrupleImpl<>(a, b, c, x);
+        return ImmutableTuple.of(a, b, c, x);
     }
 
     @Override
     public <X> ImmutableQuadruple<X, B, C, D> mapFirst(Function<? super A, X> mapper) {
-        return new ImmutableQuadrupleImpl<>(mapper.apply(a), b, c, d);
+        return ImmutableTuple.of(mapper.apply(a), b, c, d);
     }
 
     @Override
     public <X> ImmutableQuadruple<A, X, C, D> mapSecond(Function<? super B, X> mapper) {
-        return new ImmutableQuadrupleImpl<>(a, mapper.apply(b), c, d);
+        return ImmutableTuple.of(a, mapper.apply(b), c, d);
     }
 
     @Override
     public <X> ImmutableQuadruple<A, B, X, D> mapThird(Function<? super C, X> mapper) {
-        return new ImmutableQuadrupleImpl<>(a, b, mapper.apply(c), d);
+        return ImmutableTuple.of(a, b, mapper.apply(c), d);
     }
 
     @Override
     public <X> ImmutableQuadruple<A, B, C, X> mapFourth(Function<? super D, X> mapper) {
-        return new ImmutableQuadrupleImpl<>(a, b, c, mapper.apply(d));
+        return ImmutableTuple.of(a, b, c, mapper.apply(d));
     }
 
     @Override
@@ -191,7 +191,7 @@ final class ImmutableQuadrupleImpl<A, B, C, D> implements ImmutableQuadruple<A, 
 
     @Override
     public ImmutableQuadruple<D, C, B, A> reverse() {
-        return new ImmutableQuadrupleImpl<>(d, c, b, a);
+        return ImmutableTuple.of(d, c, b, a);
     }
 
     @Override

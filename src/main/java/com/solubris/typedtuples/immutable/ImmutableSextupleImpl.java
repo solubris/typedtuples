@@ -171,62 +171,62 @@ final class ImmutableSextupleImpl<A, B, C, D, E, F> implements ImmutableSextuple
 
     @Override
     public <X> ImmutableSextuple<X, B, C, D, E, F> replaceFirst(X x) {
-        return new ImmutableSextupleImpl<>(x, b, c, d, e, f);
+        return ImmutableTuple.of(x, b, c, d, e, f);
     }
 
     @Override
     public <X> ImmutableSextuple<A, X, C, D, E, F> replaceSecond(X x) {
-        return new ImmutableSextupleImpl<>(a, x, c, d, e, f);
+        return ImmutableTuple.of(a, x, c, d, e, f);
     }
 
     @Override
     public <X> ImmutableSextuple<A, B, X, D, E, F> replaceThird(X x) {
-        return new ImmutableSextupleImpl<>(a, b, x, d, e, f);
+        return ImmutableTuple.of(a, b, x, d, e, f);
     }
 
     @Override
     public <X> ImmutableSextuple<A, B, C, X, E, F> replaceFourth(X x) {
-        return new ImmutableSextupleImpl<>(a, b, c, x, e, f);
+        return ImmutableTuple.of(a, b, c, x, e, f);
     }
 
     @Override
     public <X> ImmutableSextuple<A, B, C, D, X, F> replaceFifth(X x) {
-        return new ImmutableSextupleImpl<>(a, b, c, d, x, f);
+        return ImmutableTuple.of(a, b, c, d, x, f);
     }
 
     @Override
     public <X> ImmutableSextuple<A, B, C, D, E, X> replaceSixth(X x) {
-        return new ImmutableSextupleImpl<>(a, b, c, d, e, x);
+        return ImmutableTuple.of(a, b, c, d, e, x);
     }
 
     @Override
     public <X> ImmutableSextuple<X, B, C, D, E, F> mapFirst(Function<? super A, X> mapper) {
-        return new ImmutableSextupleImpl<>(mapper.apply(a), b, c, d, e, f);
+        return ImmutableTuple.of(mapper.apply(a), b, c, d, e, f);
     }
 
     @Override
     public <X> ImmutableSextuple<A, X, C, D, E, F> mapSecond(Function<? super B, X> mapper) {
-        return new ImmutableSextupleImpl<>(a, mapper.apply(b), c, d, e, f);
+        return ImmutableTuple.of(a, mapper.apply(b), c, d, e, f);
     }
 
     @Override
     public <X> ImmutableSextuple<A, B, X, D, E, F> mapThird(Function<? super C, X> mapper) {
-        return new ImmutableSextupleImpl<>(a, b, mapper.apply(c), d, e, f);
+        return ImmutableTuple.of(a, b, mapper.apply(c), d, e, f);
     }
 
     @Override
     public <X> ImmutableSextuple<A, B, C, X, E, F> mapFourth(Function<? super D, X> mapper) {
-        return new ImmutableSextupleImpl<>(a, b, c, mapper.apply(d), e, f);
+        return ImmutableTuple.of(a, b, c, mapper.apply(d), e, f);
     }
 
     @Override
     public <X> ImmutableSextuple<A, B, C, D, X, F> mapFifth(Function<? super E, X> mapper) {
-        return new ImmutableSextupleImpl<>(a, b, c, d, mapper.apply(e), f);
+        return ImmutableTuple.of(a, b, c, d, mapper.apply(e), f);
     }
 
     @Override
     public <X> ImmutableSextuple<A, B, C, D, E, X> mapSixth(Function<? super F, X> mapper) {
-        return new ImmutableSextupleImpl<>(a, b, c, d, e, mapper.apply(f));
+        return ImmutableTuple.of(a, b, c, d, e, mapper.apply(f));
     }
 
     @Override
@@ -273,7 +273,7 @@ final class ImmutableSextupleImpl<A, B, C, D, E, F> implements ImmutableSextuple
 
     @Override
     public ImmutableSextuple<F, E, D, C, B, A> reverse() {
-        return new ImmutableSextupleImpl<>(f, e, d, c, b, a);
+        return ImmutableTuple.of(f, e, d, c, b, a);
     }
 
     @Override

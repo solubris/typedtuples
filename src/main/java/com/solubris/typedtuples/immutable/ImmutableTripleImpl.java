@@ -102,32 +102,32 @@ final class ImmutableTripleImpl<A, B, C> implements ImmutableTriple<A, B, C> {
 
     @Override
     public <X> ImmutableTriple<X, B, C> replaceFirst(X x) {
-        return new ImmutableTripleImpl<>(x, b, c);
+        return ImmutableTuple.of(x, b, c);
     }
 
     @Override
     public <X> ImmutableTriple<A, X, C> replaceSecond(X x) {
-        return new ImmutableTripleImpl<>(a, x, c);
+        return ImmutableTuple.of(a, x, c);
     }
 
     @Override
     public <X> ImmutableTriple<A, B, X> replaceThird(X x) {
-        return new ImmutableTripleImpl<>(a, b, x);
+        return ImmutableTuple.of(a, b, x);
     }
 
     @Override
     public <X> ImmutableTriple<X, B, C> mapFirst(Function<? super A, X> mapper) {
-        return new ImmutableTripleImpl<>(mapper.apply(a), b, c);
+        return ImmutableTuple.of(mapper.apply(a), b, c);
     }
 
     @Override
     public <X> ImmutableTriple<A, X, C> mapSecond(Function<? super B, X> mapper) {
-        return new ImmutableTripleImpl<>(a, mapper.apply(b), c);
+        return ImmutableTuple.of(a, mapper.apply(b), c);
     }
 
     @Override
     public <X> ImmutableTriple<A, B, X> mapThird(Function<? super C, X> mapper) {
-        return new ImmutableTripleImpl<>(a, b, mapper.apply(c));
+        return ImmutableTuple.of(a, b, mapper.apply(c));
     }
 
     @Override
@@ -152,7 +152,7 @@ final class ImmutableTripleImpl<A, B, C> implements ImmutableTriple<A, B, C> {
 
     @Override
     public ImmutableTriple<C, B, A> reverse() {
-        return new ImmutableTripleImpl<>(c, b, a);
+        return ImmutableTuple.of(c, b, a);
     }
 
     @Override

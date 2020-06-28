@@ -148,52 +148,52 @@ final class ImmutableQuintupleImpl<A, B, C, D, E> implements ImmutableQuintuple<
 
     @Override
     public <X> ImmutableQuintuple<X, B, C, D, E> replaceFirst(X x) {
-        return new ImmutableQuintupleImpl<>(x, b, c, d, e);
+        return ImmutableTuple.of(x, b, c, d, e);
     }
 
     @Override
     public <X> ImmutableQuintuple<A, X, C, D, E> replaceSecond(X x) {
-        return new ImmutableQuintupleImpl<>(a, x, c, d, e);
+        return ImmutableTuple.of(a, x, c, d, e);
     }
 
     @Override
     public <X> ImmutableQuintuple<A, B, X, D, E> replaceThird(X x) {
-        return new ImmutableQuintupleImpl<>(a, b, x, d, e);
+        return ImmutableTuple.of(a, b, x, d, e);
     }
 
     @Override
     public <X> ImmutableQuintuple<A, B, C, X, E> replaceFourth(X x) {
-        return new ImmutableQuintupleImpl<>(a, b, c, x, e);
+        return ImmutableTuple.of(a, b, c, x, e);
     }
 
     @Override
     public <X> ImmutableQuintuple<A, B, C, D, X> replaceFifth(X x) {
-        return new ImmutableQuintupleImpl<>(a, b, c, d, x);
+        return ImmutableTuple.of(a, b, c, d, x);
     }
 
     @Override
     public <X> ImmutableQuintuple<X, B, C, D, E> mapFirst(Function<? super A, X> mapper) {
-        return new ImmutableQuintupleImpl<>(mapper.apply(a), b, c, d, e);
+        return ImmutableTuple.of(mapper.apply(a), b, c, d, e);
     }
 
     @Override
     public <X> ImmutableQuintuple<A, X, C, D, E> mapSecond(Function<? super B, X> mapper) {
-        return new ImmutableQuintupleImpl<>(a, mapper.apply(b), c, d, e);
+        return ImmutableTuple.of(a, mapper.apply(b), c, d, e);
     }
 
     @Override
     public <X> ImmutableQuintuple<A, B, X, D, E> mapThird(Function<? super C, X> mapper) {
-        return new ImmutableQuintupleImpl<>(a, b, mapper.apply(c), d, e);
+        return ImmutableTuple.of(a, b, mapper.apply(c), d, e);
     }
 
     @Override
     public <X> ImmutableQuintuple<A, B, C, X, E> mapFourth(Function<? super D, X> mapper) {
-        return new ImmutableQuintupleImpl<>(a, b, c, mapper.apply(d), e);
+        return ImmutableTuple.of(a, b, c, mapper.apply(d), e);
     }
 
     @Override
     public <X> ImmutableQuintuple<A, B, C, D, X> mapFifth(Function<? super E, X> mapper) {
-        return new ImmutableQuintupleImpl<>(a, b, c, d, mapper.apply(e));
+        return ImmutableTuple.of(a, b, c, d, mapper.apply(e));
     }
 
     @Override
@@ -229,7 +229,7 @@ final class ImmutableQuintupleImpl<A, B, C, D, E> implements ImmutableQuintuple<
 
     @Override
     public ImmutableQuintuple<E, D, C, B, A> reverse() {
-        return new ImmutableQuintupleImpl<>(e, d, c, b, a);
+        return ImmutableTuple.of(e, d, c, b, a);
     }
 
     @Override

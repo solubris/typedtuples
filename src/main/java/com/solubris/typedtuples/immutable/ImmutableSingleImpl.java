@@ -56,12 +56,12 @@ final class ImmutableSingleImpl<A> implements ImmutableSingle<A> {
 
     @Override
     public <X> ImmutableSingle<X> replace(X x) {
-        return new ImmutableSingleImpl<>(x);
+        return ImmutableTuple.of(x);
     }
 
     @Override
     public <X> ImmutableSingle<X> map(Function<? super A, X> mapper) {
-        return new ImmutableSingleImpl<>(mapper.apply(a));
+        return ImmutableTuple.of(mapper.apply(a));
     }
 
     @Override

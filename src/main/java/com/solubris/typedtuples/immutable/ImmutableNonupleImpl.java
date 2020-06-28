@@ -240,96 +240,96 @@ final class ImmutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements Immutable
 
     @Override
     public <X> ImmutableNonuple<X, B, C, D, E, F, G, H, I> replaceFirst(X x) {
-        return new ImmutableNonupleImpl<>(x, b, c, d, e, f, g, h, i);
+        return ImmutableTuple.of(x, b, c, d, e, f, g, h, i);
     }
 
     @Override
     public <X> ImmutableNonuple<A, X, C, D, E, F, G, H, I> replaceSecond(X x) {
-        return new ImmutableNonupleImpl<>(a, x, c, d, e, f, g, h, i);
+        return ImmutableTuple.of(a, x, c, d, e, f, g, h, i);
     }
 
     @Override
     public <X> ImmutableNonuple<A, B, X, D, E, F, G, H, I> replaceThird(X x) {
-        return new ImmutableNonupleImpl<>(a, b, x, d, e, f, g, h, i);
+        return ImmutableTuple.of(a, b, x, d, e, f, g, h, i);
     }
 
     @Override
     public <X> ImmutableNonuple<A, B, C, X, E, F, G, H, I> replaceFourth(X x) {
-        return new ImmutableNonupleImpl<>(a, b, c, x, e, f, g, h, i);
+        return ImmutableTuple.of(a, b, c, x, e, f, g, h, i);
     }
 
     @Override
     public <X> ImmutableNonuple<A, B, C, D, X, F, G, H, I> replaceFifth(X x) {
-        return new ImmutableNonupleImpl<>(a, b, c, d, x, f, g, h, i);
+        return ImmutableTuple.of(a, b, c, d, x, f, g, h, i);
     }
 
     @Override
     public <X> ImmutableNonuple<A, B, C, D, E, X, G, H, I> replaceSixth(X x) {
-        return new ImmutableNonupleImpl<>(a, b, c, d, e, x, g, h, i);
+        return ImmutableTuple.of(a, b, c, d, e, x, g, h, i);
     }
 
     @Override
     public <X> ImmutableNonuple<A, B, C, D, E, F, X, H, I> replaceSeventh(X x) {
-        return new ImmutableNonupleImpl<>(a, b, c, d, e, f, x, h, i);
+        return ImmutableTuple.of(a, b, c, d, e, f, x, h, i);
     }
 
     @Override
     public <X> ImmutableNonuple<A, B, C, D, E, F, G, X, I> replaceEighth(X x) {
-        return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, x, i);
+        return ImmutableTuple.of(a, b, c, d, e, f, g, x, i);
     }
 
     @Override
     public <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> replaceNinth(X x) {
-        return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, x);
+        return ImmutableTuple.of(a, b, c, d, e, f, g, h, x);
     }
 
     @Override
     public <X> ImmutableNonuple<X, B, C, D, E, F, G, H, I> mapFirst(Function<? super A, X> mapper) {
-        return new ImmutableNonupleImpl<>(mapper.apply(a), b, c, d, e, f, g, h, i);
+        return ImmutableTuple.of(mapper.apply(a), b, c, d, e, f, g, h, i);
     }
 
     @Override
     public <X> ImmutableNonuple<A, X, C, D, E, F, G, H, I> mapSecond(
             Function<? super B, X> mapper) {
-        return new ImmutableNonupleImpl<>(a, mapper.apply(b), c, d, e, f, g, h, i);
+        return ImmutableTuple.of(a, mapper.apply(b), c, d, e, f, g, h, i);
     }
 
     @Override
     public <X> ImmutableNonuple<A, B, X, D, E, F, G, H, I> mapThird(Function<? super C, X> mapper) {
-        return new ImmutableNonupleImpl<>(a, b, mapper.apply(c), d, e, f, g, h, i);
+        return ImmutableTuple.of(a, b, mapper.apply(c), d, e, f, g, h, i);
     }
 
     @Override
     public <X> ImmutableNonuple<A, B, C, X, E, F, G, H, I> mapFourth(
             Function<? super D, X> mapper) {
-        return new ImmutableNonupleImpl<>(a, b, c, mapper.apply(d), e, f, g, h, i);
+        return ImmutableTuple.of(a, b, c, mapper.apply(d), e, f, g, h, i);
     }
 
     @Override
     public <X> ImmutableNonuple<A, B, C, D, X, F, G, H, I> mapFifth(Function<? super E, X> mapper) {
-        return new ImmutableNonupleImpl<>(a, b, c, d, mapper.apply(e), f, g, h, i);
+        return ImmutableTuple.of(a, b, c, d, mapper.apply(e), f, g, h, i);
     }
 
     @Override
     public <X> ImmutableNonuple<A, B, C, D, E, X, G, H, I> mapSixth(Function<? super F, X> mapper) {
-        return new ImmutableNonupleImpl<>(a, b, c, d, e, mapper.apply(f), g, h, i);
+        return ImmutableTuple.of(a, b, c, d, e, mapper.apply(f), g, h, i);
     }
 
     @Override
     public <X> ImmutableNonuple<A, B, C, D, E, F, X, H, I> mapSeventh(
             Function<? super G, X> mapper) {
-        return new ImmutableNonupleImpl<>(a, b, c, d, e, f, mapper.apply(g), h, i);
+        return ImmutableTuple.of(a, b, c, d, e, f, mapper.apply(g), h, i);
     }
 
     @Override
     public <X> ImmutableNonuple<A, B, C, D, E, F, G, X, I> mapEighth(
             Function<? super H, X> mapper) {
-        return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, mapper.apply(h), i);
+        return ImmutableTuple.of(a, b, c, d, e, f, g, mapper.apply(h), i);
     }
 
     @Override
     public <X> ImmutableNonuple<A, B, C, D, E, F, G, H, X> mapNinth(Function<? super I, X> mapper) {
-        return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, mapper.apply(i));
+        return ImmutableTuple.of(a, b, c, d, e, f, g, h, mapper.apply(i));
     }
 
     @Override
@@ -394,7 +394,7 @@ final class ImmutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements Immutable
 
     @Override
     public ImmutableNonuple<I, H, G, F, E, D, C, B, A> reverse() {
-        return new ImmutableNonupleImpl<>(i, h, g, f, e, d, c, b, a);
+        return ImmutableTuple.of(i, h, g, f, e, d, c, b, a);
     }
 
     @Override
