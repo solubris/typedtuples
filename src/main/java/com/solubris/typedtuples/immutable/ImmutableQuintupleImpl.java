@@ -68,82 +68,82 @@ final class ImmutableQuintupleImpl<A, B, C, D, E> implements ImmutableQuintuple<
 
     @Override
     public <X0> ImmutableSextuple<X0, A, B, C, D, E> addFirst(X0 x0) {
-        return new ImmutableSextupleImpl<>(x0, a, b, c, d, e);
+        return ImmutableTuple.of(x0, a, b, c, d, e);
     }
 
     @Override
     public <X0> ImmutableSextuple<A, X0, B, C, D, E> addSecond(X0 x0) {
-        return new ImmutableSextupleImpl<>(a, x0, b, c, d, e);
+        return ImmutableTuple.of(a, x0, b, c, d, e);
     }
 
     @Override
     public <X0> ImmutableSextuple<A, B, X0, C, D, E> addThird(X0 x0) {
-        return new ImmutableSextupleImpl<>(a, b, x0, c, d, e);
+        return ImmutableTuple.of(a, b, x0, c, d, e);
     }
 
     @Override
     public <X0> ImmutableSextuple<A, B, C, X0, D, E> addFourth(X0 x0) {
-        return new ImmutableSextupleImpl<>(a, b, c, x0, d, e);
+        return ImmutableTuple.of(a, b, c, x0, d, e);
     }
 
     @Override
     public <X0> ImmutableSextuple<A, B, C, D, X0, E> addFifth(X0 x0) {
-        return new ImmutableSextupleImpl<>(a, b, c, d, x0, e);
+        return ImmutableTuple.of(a, b, c, d, x0, e);
     }
 
     @Override
     public <X0> ImmutableSextuple<A, B, C, D, E, X0> add(X0 x0) {
-        return new ImmutableSextupleImpl<>(a, b, c, d, e, x0);
+        return ImmutableTuple.of(a, b, c, d, e, x0);
     }
 
     @Override
     public ImmutableSextuple<A, A, B, C, D, E> duplicateFirst() {
-        return new ImmutableSextupleImpl<>(a, a, b, c, d, e);
+        return ImmutableTuple.of(a, a, b, c, d, e);
     }
 
     @Override
     public ImmutableSextuple<A, B, B, C, D, E> duplicateSecond() {
-        return new ImmutableSextupleImpl<>(a, b, b, c, d, e);
+        return ImmutableTuple.of(a, b, b, c, d, e);
     }
 
     @Override
     public ImmutableSextuple<A, B, C, C, D, E> duplicateThird() {
-        return new ImmutableSextupleImpl<>(a, b, c, c, d, e);
+        return ImmutableTuple.of(a, b, c, c, d, e);
     }
 
     @Override
     public ImmutableSextuple<A, B, C, D, D, E> duplicateFourth() {
-        return new ImmutableSextupleImpl<>(a, b, c, d, d, e);
+        return ImmutableTuple.of(a, b, c, d, d, e);
     }
 
     @Override
     public ImmutableSextuple<A, B, C, D, E, E> duplicateFifth() {
-        return new ImmutableSextupleImpl<>(a, b, c, d, e, e);
+        return ImmutableTuple.of(a, b, c, d, e, e);
     }
 
     @Override
     public ImmutableQuadruple<B, C, D, E> removeFirst() {
-        return new ImmutableQuadrupleImpl<>(b, c, d, e);
+        return ImmutableTuple.of(b, c, d, e);
     }
 
     @Override
     public ImmutableQuadruple<A, C, D, E> removeSecond() {
-        return new ImmutableQuadrupleImpl<>(a, c, d, e);
+        return ImmutableTuple.of(a, c, d, e);
     }
 
     @Override
     public ImmutableQuadruple<A, B, D, E> removeThird() {
-        return new ImmutableQuadrupleImpl<>(a, b, d, e);
+        return ImmutableTuple.of(a, b, d, e);
     }
 
     @Override
     public ImmutableQuadruple<A, B, C, E> removeFourth() {
-        return new ImmutableQuadrupleImpl<>(a, b, c, e);
+        return ImmutableTuple.of(a, b, c, e);
     }
 
     @Override
     public ImmutableQuadruple<A, B, C, D> removeFifth() {
-        return new ImmutableQuadrupleImpl<>(a, b, c, d);
+        return ImmutableTuple.of(a, b, c, d);
     }
 
     @Override
@@ -198,27 +198,27 @@ final class ImmutableQuintupleImpl<A, B, C, D, E> implements ImmutableQuintuple<
 
     @Override
     public <X> ImmutableSextuple<A, B, C, D, E, X> mapFirstAndAdd(Function<? super A, X> mapper) {
-        return new ImmutableSextupleImpl<>(a, b, c, d, e, mapper.apply(a));
+        return ImmutableTuple.of(a, b, c, d, e, mapper.apply(a));
     }
 
     @Override
     public <X> ImmutableSextuple<A, B, C, D, E, X> mapSecondAndAdd(Function<? super B, X> mapper) {
-        return new ImmutableSextupleImpl<>(a, b, c, d, e, mapper.apply(b));
+        return ImmutableTuple.of(a, b, c, d, e, mapper.apply(b));
     }
 
     @Override
     public <X> ImmutableSextuple<A, B, C, D, E, X> mapThirdAndAdd(Function<? super C, X> mapper) {
-        return new ImmutableSextupleImpl<>(a, b, c, d, e, mapper.apply(c));
+        return ImmutableTuple.of(a, b, c, d, e, mapper.apply(c));
     }
 
     @Override
     public <X> ImmutableSextuple<A, B, C, D, E, X> mapFourthAndAdd(Function<? super D, X> mapper) {
-        return new ImmutableSextupleImpl<>(a, b, c, d, e, mapper.apply(d));
+        return ImmutableTuple.of(a, b, c, d, e, mapper.apply(d));
     }
 
     @Override
     public <X> ImmutableSextuple<A, B, C, D, E, X> mapFifthAndAdd(Function<? super E, X> mapper) {
-        return new ImmutableSextupleImpl<>(a, b, c, d, e, mapper.apply(e));
+        return ImmutableTuple.of(a, b, c, d, e, mapper.apply(e));
     }
 
     @Override

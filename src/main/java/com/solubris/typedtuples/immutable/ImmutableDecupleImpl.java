@@ -108,52 +108,52 @@ final class ImmutableDecupleImpl<A, B, C, D, E, F, G, H, I, J> implements Immuta
 
     @Override
     public ImmutableNonuple<B, C, D, E, F, G, H, I, J> removeFirst() {
-        return new ImmutableNonupleImpl<>(b, c, d, e, f, g, h, i, j);
+        return ImmutableTuple.of(b, c, d, e, f, g, h, i, j);
     }
 
     @Override
     public ImmutableNonuple<A, C, D, E, F, G, H, I, J> removeSecond() {
-        return new ImmutableNonupleImpl<>(a, c, d, e, f, g, h, i, j);
+        return ImmutableTuple.of(a, c, d, e, f, g, h, i, j);
     }
 
     @Override
     public ImmutableNonuple<A, B, D, E, F, G, H, I, J> removeThird() {
-        return new ImmutableNonupleImpl<>(a, b, d, e, f, g, h, i, j);
+        return ImmutableTuple.of(a, b, d, e, f, g, h, i, j);
     }
 
     @Override
     public ImmutableNonuple<A, B, C, E, F, G, H, I, J> removeFourth() {
-        return new ImmutableNonupleImpl<>(a, b, c, e, f, g, h, i, j);
+        return ImmutableTuple.of(a, b, c, e, f, g, h, i, j);
     }
 
     @Override
     public ImmutableNonuple<A, B, C, D, F, G, H, I, J> removeFifth() {
-        return new ImmutableNonupleImpl<>(a, b, c, d, f, g, h, i, j);
+        return ImmutableTuple.of(a, b, c, d, f, g, h, i, j);
     }
 
     @Override
     public ImmutableNonuple<A, B, C, D, E, G, H, I, J> removeSixth() {
-        return new ImmutableNonupleImpl<>(a, b, c, d, e, g, h, i, j);
+        return ImmutableTuple.of(a, b, c, d, e, g, h, i, j);
     }
 
     @Override
     public ImmutableNonuple<A, B, C, D, E, F, H, I, J> removeSeventh() {
-        return new ImmutableNonupleImpl<>(a, b, c, d, e, f, h, i, j);
+        return ImmutableTuple.of(a, b, c, d, e, f, h, i, j);
     }
 
     @Override
     public ImmutableNonuple<A, B, C, D, E, F, G, I, J> removeEighth() {
-        return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, i, j);
+        return ImmutableTuple.of(a, b, c, d, e, f, g, i, j);
     }
 
     @Override
     public ImmutableNonuple<A, B, C, D, E, F, G, H, J> removeNinth() {
-        return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, j);
+        return ImmutableTuple.of(a, b, c, d, e, f, g, h, j);
     }
 
     @Override
     public ImmutableNonuple<A, B, C, D, E, F, G, H, I> removeTenth() {
-        return new ImmutableNonupleImpl<>(a, b, c, d, e, f, g, h, i);
+        return ImmutableTuple.of(a, b, c, d, e, f, g, h, i);
     }
 
     @Override

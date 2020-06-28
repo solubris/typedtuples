@@ -44,37 +44,37 @@ final class ImmutableCoupleImpl<A, B> implements ImmutableCouple<A, B> {
 
     @Override
     public <X0> ImmutableTriple<X0, A, B> addFirst(X0 x0) {
-        return new ImmutableTripleImpl<>(x0, a, b);
+        return ImmutableTuple.of(x0, a, b);
     }
 
     @Override
     public <X0> ImmutableTriple<A, X0, B> addSecond(X0 x0) {
-        return new ImmutableTripleImpl<>(a, x0, b);
+        return ImmutableTuple.of(a, x0, b);
     }
 
     @Override
     public <X0> ImmutableTriple<A, B, X0> add(X0 x0) {
-        return new ImmutableTripleImpl<>(a, b, x0);
+        return ImmutableTuple.of(a, b, x0);
     }
 
     @Override
     public ImmutableTriple<A, A, B> duplicateFirst() {
-        return new ImmutableTripleImpl<>(a, a, b);
+        return ImmutableTuple.of(a, a, b);
     }
 
     @Override
     public ImmutableTriple<A, B, B> duplicateSecond() {
-        return new ImmutableTripleImpl<>(a, b, b);
+        return ImmutableTuple.of(a, b, b);
     }
 
     @Override
     public ImmutableSingle<B> removeFirst() {
-        return new ImmutableSingleImpl<>(b);
+        return ImmutableTuple.of(b);
     }
 
     @Override
     public ImmutableSingle<A> removeSecond() {
-        return new ImmutableSingleImpl<>(a);
+        return ImmutableTuple.of(a);
     }
 
     @Override
@@ -99,12 +99,12 @@ final class ImmutableCoupleImpl<A, B> implements ImmutableCouple<A, B> {
 
     @Override
     public <X> ImmutableTriple<A, B, X> mapFirstAndAdd(Function<? super A, X> mapper) {
-        return new ImmutableTripleImpl<>(a, b, mapper.apply(a));
+        return ImmutableTuple.of(a, b, mapper.apply(a));
     }
 
     @Override
     public <X> ImmutableTriple<A, B, X> mapSecondAndAdd(Function<? super B, X> mapper) {
-        return new ImmutableTripleImpl<>(a, b, mapper.apply(b));
+        return ImmutableTuple.of(a, b, mapper.apply(b));
     }
 
     @Override

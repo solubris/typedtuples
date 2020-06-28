@@ -100,142 +100,142 @@ final class ImmutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements Immutable
 
     @Override
     public <X0> ImmutableDecuple<X0, A, B, C, D, E, F, G, H, I> addFirst(X0 x0) {
-        return new ImmutableDecupleImpl<>(x0, a, b, c, d, e, f, g, h, i);
+        return ImmutableTuple.of(x0, a, b, c, d, e, f, g, h, i);
     }
 
     @Override
     public <X0> ImmutableDecuple<A, X0, B, C, D, E, F, G, H, I> addSecond(X0 x0) {
-        return new ImmutableDecupleImpl<>(a, x0, b, c, d, e, f, g, h, i);
+        return ImmutableTuple.of(a, x0, b, c, d, e, f, g, h, i);
     }
 
     @Override
     public <X0> ImmutableDecuple<A, B, X0, C, D, E, F, G, H, I> addThird(X0 x0) {
-        return new ImmutableDecupleImpl<>(a, b, x0, c, d, e, f, g, h, i);
+        return ImmutableTuple.of(a, b, x0, c, d, e, f, g, h, i);
     }
 
     @Override
     public <X0> ImmutableDecuple<A, B, C, X0, D, E, F, G, H, I> addFourth(X0 x0) {
-        return new ImmutableDecupleImpl<>(a, b, c, x0, d, e, f, g, h, i);
+        return ImmutableTuple.of(a, b, c, x0, d, e, f, g, h, i);
     }
 
     @Override
     public <X0> ImmutableDecuple<A, B, C, D, X0, E, F, G, H, I> addFifth(X0 x0) {
-        return new ImmutableDecupleImpl<>(a, b, c, d, x0, e, f, g, h, i);
+        return ImmutableTuple.of(a, b, c, d, x0, e, f, g, h, i);
     }
 
     @Override
     public <X0> ImmutableDecuple<A, B, C, D, E, X0, F, G, H, I> addSixth(X0 x0) {
-        return new ImmutableDecupleImpl<>(a, b, c, d, e, x0, f, g, h, i);
+        return ImmutableTuple.of(a, b, c, d, e, x0, f, g, h, i);
     }
 
     @Override
     public <X0> ImmutableDecuple<A, B, C, D, E, F, X0, G, H, I> addSeventh(X0 x0) {
-        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, x0, g, h, i);
+        return ImmutableTuple.of(a, b, c, d, e, f, x0, g, h, i);
     }
 
     @Override
     public <X0> ImmutableDecuple<A, B, C, D, E, F, G, X0, H, I> addEighth(X0 x0) {
-        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, x0, h, i);
+        return ImmutableTuple.of(a, b, c, d, e, f, g, x0, h, i);
     }
 
     @Override
     public <X0> ImmutableDecuple<A, B, C, D, E, F, G, H, X0, I> addNinth(X0 x0) {
-        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, x0, i);
+        return ImmutableTuple.of(a, b, c, d, e, f, g, h, x0, i);
     }
 
     @Override
     public <X0> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X0> add(X0 x0) {
-        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, x0);
+        return ImmutableTuple.of(a, b, c, d, e, f, g, h, i, x0);
     }
 
     @Override
     public ImmutableDecuple<A, A, B, C, D, E, F, G, H, I> duplicateFirst() {
-        return new ImmutableDecupleImpl<>(a, a, b, c, d, e, f, g, h, i);
+        return ImmutableTuple.of(a, a, b, c, d, e, f, g, h, i);
     }
 
     @Override
     public ImmutableDecuple<A, B, B, C, D, E, F, G, H, I> duplicateSecond() {
-        return new ImmutableDecupleImpl<>(a, b, b, c, d, e, f, g, h, i);
+        return ImmutableTuple.of(a, b, b, c, d, e, f, g, h, i);
     }
 
     @Override
     public ImmutableDecuple<A, B, C, C, D, E, F, G, H, I> duplicateThird() {
-        return new ImmutableDecupleImpl<>(a, b, c, c, d, e, f, g, h, i);
+        return ImmutableTuple.of(a, b, c, c, d, e, f, g, h, i);
     }
 
     @Override
     public ImmutableDecuple<A, B, C, D, D, E, F, G, H, I> duplicateFourth() {
-        return new ImmutableDecupleImpl<>(a, b, c, d, d, e, f, g, h, i);
+        return ImmutableTuple.of(a, b, c, d, d, e, f, g, h, i);
     }
 
     @Override
     public ImmutableDecuple<A, B, C, D, E, E, F, G, H, I> duplicateFifth() {
-        return new ImmutableDecupleImpl<>(a, b, c, d, e, e, f, g, h, i);
+        return ImmutableTuple.of(a, b, c, d, e, e, f, g, h, i);
     }
 
     @Override
     public ImmutableDecuple<A, B, C, D, E, F, F, G, H, I> duplicateSixth() {
-        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, f, g, h, i);
+        return ImmutableTuple.of(a, b, c, d, e, f, f, g, h, i);
     }
 
     @Override
     public ImmutableDecuple<A, B, C, D, E, F, G, G, H, I> duplicateSeventh() {
-        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, g, h, i);
+        return ImmutableTuple.of(a, b, c, d, e, f, g, g, h, i);
     }
 
     @Override
     public ImmutableDecuple<A, B, C, D, E, F, G, H, H, I> duplicateEighth() {
-        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, h, i);
+        return ImmutableTuple.of(a, b, c, d, e, f, g, h, h, i);
     }
 
     @Override
     public ImmutableDecuple<A, B, C, D, E, F, G, H, I, I> duplicateNinth() {
-        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, i);
+        return ImmutableTuple.of(a, b, c, d, e, f, g, h, i, i);
     }
 
     @Override
     public ImmutableOctuple<B, C, D, E, F, G, H, I> removeFirst() {
-        return new ImmutableOctupleImpl<>(b, c, d, e, f, g, h, i);
+        return ImmutableTuple.of(b, c, d, e, f, g, h, i);
     }
 
     @Override
     public ImmutableOctuple<A, C, D, E, F, G, H, I> removeSecond() {
-        return new ImmutableOctupleImpl<>(a, c, d, e, f, g, h, i);
+        return ImmutableTuple.of(a, c, d, e, f, g, h, i);
     }
 
     @Override
     public ImmutableOctuple<A, B, D, E, F, G, H, I> removeThird() {
-        return new ImmutableOctupleImpl<>(a, b, d, e, f, g, h, i);
+        return ImmutableTuple.of(a, b, d, e, f, g, h, i);
     }
 
     @Override
     public ImmutableOctuple<A, B, C, E, F, G, H, I> removeFourth() {
-        return new ImmutableOctupleImpl<>(a, b, c, e, f, g, h, i);
+        return ImmutableTuple.of(a, b, c, e, f, g, h, i);
     }
 
     @Override
     public ImmutableOctuple<A, B, C, D, F, G, H, I> removeFifth() {
-        return new ImmutableOctupleImpl<>(a, b, c, d, f, g, h, i);
+        return ImmutableTuple.of(a, b, c, d, f, g, h, i);
     }
 
     @Override
     public ImmutableOctuple<A, B, C, D, E, G, H, I> removeSixth() {
-        return new ImmutableOctupleImpl<>(a, b, c, d, e, g, h, i);
+        return ImmutableTuple.of(a, b, c, d, e, g, h, i);
     }
 
     @Override
     public ImmutableOctuple<A, B, C, D, E, F, H, I> removeSeventh() {
-        return new ImmutableOctupleImpl<>(a, b, c, d, e, f, h, i);
+        return ImmutableTuple.of(a, b, c, d, e, f, h, i);
     }
 
     @Override
     public ImmutableOctuple<A, B, C, D, E, F, G, I> removeEighth() {
-        return new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, i);
+        return ImmutableTuple.of(a, b, c, d, e, f, g, i);
     }
 
     @Override
     public ImmutableOctuple<A, B, C, D, E, F, G, H> removeNinth() {
-        return new ImmutableOctupleImpl<>(a, b, c, d, e, f, g, h);
+        return ImmutableTuple.of(a, b, c, d, e, f, g, h);
     }
 
     @Override
@@ -335,55 +335,55 @@ final class ImmutableNonupleImpl<A, B, C, D, E, F, G, H, I> implements Immutable
     @Override
     public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapFirstAndAdd(
             Function<? super A, X> mapper) {
-        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(a));
+        return ImmutableTuple.of(a, b, c, d, e, f, g, h, i, mapper.apply(a));
     }
 
     @Override
     public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapSecondAndAdd(
             Function<? super B, X> mapper) {
-        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(b));
+        return ImmutableTuple.of(a, b, c, d, e, f, g, h, i, mapper.apply(b));
     }
 
     @Override
     public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapThirdAndAdd(
             Function<? super C, X> mapper) {
-        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(c));
+        return ImmutableTuple.of(a, b, c, d, e, f, g, h, i, mapper.apply(c));
     }
 
     @Override
     public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapFourthAndAdd(
             Function<? super D, X> mapper) {
-        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(d));
+        return ImmutableTuple.of(a, b, c, d, e, f, g, h, i, mapper.apply(d));
     }
 
     @Override
     public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapFifthAndAdd(
             Function<? super E, X> mapper) {
-        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(e));
+        return ImmutableTuple.of(a, b, c, d, e, f, g, h, i, mapper.apply(e));
     }
 
     @Override
     public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapSixthAndAdd(
             Function<? super F, X> mapper) {
-        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(f));
+        return ImmutableTuple.of(a, b, c, d, e, f, g, h, i, mapper.apply(f));
     }
 
     @Override
     public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapSeventhAndAdd(
             Function<? super G, X> mapper) {
-        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(g));
+        return ImmutableTuple.of(a, b, c, d, e, f, g, h, i, mapper.apply(g));
     }
 
     @Override
     public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapEighthAndAdd(
             Function<? super H, X> mapper) {
-        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(h));
+        return ImmutableTuple.of(a, b, c, d, e, f, g, h, i, mapper.apply(h));
     }
 
     @Override
     public <X> ImmutableDecuple<A, B, C, D, E, F, G, H, I, X> mapNinthAndAdd(
             Function<? super I, X> mapper) {
-        return new ImmutableDecupleImpl<>(a, b, c, d, e, f, g, h, i, mapper.apply(i));
+        return ImmutableTuple.of(a, b, c, d, e, f, g, h, i, mapper.apply(i));
     }
 
     @Override

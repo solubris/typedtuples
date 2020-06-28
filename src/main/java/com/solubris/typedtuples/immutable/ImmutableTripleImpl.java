@@ -52,52 +52,52 @@ final class ImmutableTripleImpl<A, B, C> implements ImmutableTriple<A, B, C> {
 
     @Override
     public <X0> ImmutableQuadruple<X0, A, B, C> addFirst(X0 x0) {
-        return new ImmutableQuadrupleImpl<>(x0, a, b, c);
+        return ImmutableTuple.of(x0, a, b, c);
     }
 
     @Override
     public <X0> ImmutableQuadruple<A, X0, B, C> addSecond(X0 x0) {
-        return new ImmutableQuadrupleImpl<>(a, x0, b, c);
+        return ImmutableTuple.of(a, x0, b, c);
     }
 
     @Override
     public <X0> ImmutableQuadruple<A, B, X0, C> addThird(X0 x0) {
-        return new ImmutableQuadrupleImpl<>(a, b, x0, c);
+        return ImmutableTuple.of(a, b, x0, c);
     }
 
     @Override
     public <X0> ImmutableQuadruple<A, B, C, X0> add(X0 x0) {
-        return new ImmutableQuadrupleImpl<>(a, b, c, x0);
+        return ImmutableTuple.of(a, b, c, x0);
     }
 
     @Override
     public ImmutableQuadruple<A, A, B, C> duplicateFirst() {
-        return new ImmutableQuadrupleImpl<>(a, a, b, c);
+        return ImmutableTuple.of(a, a, b, c);
     }
 
     @Override
     public ImmutableQuadruple<A, B, B, C> duplicateSecond() {
-        return new ImmutableQuadrupleImpl<>(a, b, b, c);
+        return ImmutableTuple.of(a, b, b, c);
     }
 
     @Override
     public ImmutableQuadruple<A, B, C, C> duplicateThird() {
-        return new ImmutableQuadrupleImpl<>(a, b, c, c);
+        return ImmutableTuple.of(a, b, c, c);
     }
 
     @Override
     public ImmutableCouple<B, C> removeFirst() {
-        return new ImmutableCoupleImpl<>(b, c);
+        return ImmutableTuple.of(b, c);
     }
 
     @Override
     public ImmutableCouple<A, C> removeSecond() {
-        return new ImmutableCoupleImpl<>(a, c);
+        return ImmutableTuple.of(a, c);
     }
 
     @Override
     public ImmutableCouple<A, B> removeThird() {
-        return new ImmutableCoupleImpl<>(a, b);
+        return ImmutableTuple.of(a, b);
     }
 
     @Override
@@ -132,17 +132,17 @@ final class ImmutableTripleImpl<A, B, C> implements ImmutableTriple<A, B, C> {
 
     @Override
     public <X> ImmutableQuadruple<A, B, C, X> mapFirstAndAdd(Function<? super A, X> mapper) {
-        return new ImmutableQuadrupleImpl<>(a, b, c, mapper.apply(a));
+        return ImmutableTuple.of(a, b, c, mapper.apply(a));
     }
 
     @Override
     public <X> ImmutableQuadruple<A, B, C, X> mapSecondAndAdd(Function<? super B, X> mapper) {
-        return new ImmutableQuadrupleImpl<>(a, b, c, mapper.apply(b));
+        return ImmutableTuple.of(a, b, c, mapper.apply(b));
     }
 
     @Override
     public <X> ImmutableQuadruple<A, B, C, X> mapThirdAndAdd(Function<? super C, X> mapper) {
-        return new ImmutableQuadrupleImpl<>(a, b, c, mapper.apply(c));
+        return ImmutableTuple.of(a, b, c, mapper.apply(c));
     }
 
     @Override

@@ -60,67 +60,67 @@ final class ImmutableQuadrupleImpl<A, B, C, D> implements ImmutableQuadruple<A, 
 
     @Override
     public <X0> ImmutableQuintuple<X0, A, B, C, D> addFirst(X0 x0) {
-        return new ImmutableQuintupleImpl<>(x0, a, b, c, d);
+        return ImmutableTuple.of(x0, a, b, c, d);
     }
 
     @Override
     public <X0> ImmutableQuintuple<A, X0, B, C, D> addSecond(X0 x0) {
-        return new ImmutableQuintupleImpl<>(a, x0, b, c, d);
+        return ImmutableTuple.of(a, x0, b, c, d);
     }
 
     @Override
     public <X0> ImmutableQuintuple<A, B, X0, C, D> addThird(X0 x0) {
-        return new ImmutableQuintupleImpl<>(a, b, x0, c, d);
+        return ImmutableTuple.of(a, b, x0, c, d);
     }
 
     @Override
     public <X0> ImmutableQuintuple<A, B, C, X0, D> addFourth(X0 x0) {
-        return new ImmutableQuintupleImpl<>(a, b, c, x0, d);
+        return ImmutableTuple.of(a, b, c, x0, d);
     }
 
     @Override
     public <X0> ImmutableQuintuple<A, B, C, D, X0> add(X0 x0) {
-        return new ImmutableQuintupleImpl<>(a, b, c, d, x0);
+        return ImmutableTuple.of(a, b, c, d, x0);
     }
 
     @Override
     public ImmutableQuintuple<A, A, B, C, D> duplicateFirst() {
-        return new ImmutableQuintupleImpl<>(a, a, b, c, d);
+        return ImmutableTuple.of(a, a, b, c, d);
     }
 
     @Override
     public ImmutableQuintuple<A, B, B, C, D> duplicateSecond() {
-        return new ImmutableQuintupleImpl<>(a, b, b, c, d);
+        return ImmutableTuple.of(a, b, b, c, d);
     }
 
     @Override
     public ImmutableQuintuple<A, B, C, C, D> duplicateThird() {
-        return new ImmutableQuintupleImpl<>(a, b, c, c, d);
+        return ImmutableTuple.of(a, b, c, c, d);
     }
 
     @Override
     public ImmutableQuintuple<A, B, C, D, D> duplicateFourth() {
-        return new ImmutableQuintupleImpl<>(a, b, c, d, d);
+        return ImmutableTuple.of(a, b, c, d, d);
     }
 
     @Override
     public ImmutableTriple<B, C, D> removeFirst() {
-        return new ImmutableTripleImpl<>(b, c, d);
+        return ImmutableTuple.of(b, c, d);
     }
 
     @Override
     public ImmutableTriple<A, C, D> removeSecond() {
-        return new ImmutableTripleImpl<>(a, c, d);
+        return ImmutableTuple.of(a, c, d);
     }
 
     @Override
     public ImmutableTriple<A, B, D> removeThird() {
-        return new ImmutableTripleImpl<>(a, b, d);
+        return ImmutableTuple.of(a, b, d);
     }
 
     @Override
     public ImmutableTriple<A, B, C> removeFourth() {
-        return new ImmutableTripleImpl<>(a, b, c);
+        return ImmutableTuple.of(a, b, c);
     }
 
     @Override
@@ -165,22 +165,22 @@ final class ImmutableQuadrupleImpl<A, B, C, D> implements ImmutableQuadruple<A, 
 
     @Override
     public <X> ImmutableQuintuple<A, B, C, D, X> mapFirstAndAdd(Function<? super A, X> mapper) {
-        return new ImmutableQuintupleImpl<>(a, b, c, d, mapper.apply(a));
+        return ImmutableTuple.of(a, b, c, d, mapper.apply(a));
     }
 
     @Override
     public <X> ImmutableQuintuple<A, B, C, D, X> mapSecondAndAdd(Function<? super B, X> mapper) {
-        return new ImmutableQuintupleImpl<>(a, b, c, d, mapper.apply(b));
+        return ImmutableTuple.of(a, b, c, d, mapper.apply(b));
     }
 
     @Override
     public <X> ImmutableQuintuple<A, B, C, D, X> mapThirdAndAdd(Function<? super C, X> mapper) {
-        return new ImmutableQuintupleImpl<>(a, b, c, d, mapper.apply(c));
+        return ImmutableTuple.of(a, b, c, d, mapper.apply(c));
     }
 
     @Override
     public <X> ImmutableQuintuple<A, B, C, D, X> mapFourthAndAdd(Function<? super D, X> mapper) {
-        return new ImmutableQuintupleImpl<>(a, b, c, d, mapper.apply(d));
+        return ImmutableTuple.of(a, b, c, d, mapper.apply(d));
     }
 
     @Override

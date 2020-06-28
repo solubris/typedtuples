@@ -36,22 +36,22 @@ final class ImmutableSingleImpl<A> implements ImmutableSingle<A> {
 
     @Override
     public <X0> ImmutableCouple<X0, A> addFirst(X0 x0) {
-        return new ImmutableCoupleImpl<>(x0, a);
+        return ImmutableTuple.of(x0, a);
     }
 
     @Override
     public <X0> ImmutableCouple<A, X0> add(X0 x0) {
-        return new ImmutableCoupleImpl<>(a, x0);
+        return ImmutableTuple.of(a, x0);
     }
 
     @Override
     public ImmutableCouple<A, A> duplicate() {
-        return new ImmutableCoupleImpl<>(a, a);
+        return ImmutableTuple.of(a, a);
     }
 
     @Override
     public ImmutableUnit remove() {
-        return ImmutableUnitImpl.INSTANCE;
+        return ImmutableTuple.of();
     }
 
     @Override
@@ -66,7 +66,7 @@ final class ImmutableSingleImpl<A> implements ImmutableSingle<A> {
 
     @Override
     public <X> ImmutableCouple<A, X> mapAndAdd(Function<? super A, X> mapper) {
-        return new ImmutableCoupleImpl<>(a, mapper.apply(a));
+        return ImmutableTuple.of(a, mapper.apply(a));
     }
 
     @Override

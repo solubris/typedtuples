@@ -24,7 +24,7 @@ final class ImmutableUnitImpl implements ImmutableUnit {
 
     @Override
     public <X0> ImmutableSingle<X0> add(X0 x0) {
-        return new ImmutableSingleImpl<>(x0);
+        return ImmutableTuple.of(x0);
     }
 
     @Override
