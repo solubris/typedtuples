@@ -261,6 +261,7 @@
                 <configuration>
                     <excludes>
                         <exclude>README.md</exclude>
+                        <exclude>CODE_OF_CONDUCT.md</exclude>
                     </excludes>
                 </configuration>
                 <executions>
