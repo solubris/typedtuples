@@ -27,14 +27,14 @@
     <url>http://github.com/solubris/typedtuples/</url>
 
     <properties>
-        <maven.compiler.release>17</maven.compiler.release>
+        <maven.compiler.release>11</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- gpg not enabled on travis ci -->
         <gpg.skip>false</gpg.skip>
         <sonar.projectKey>solubris_typedtuples</sonar.projectKey>
         <sonar.organization>solubris</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.java.source>17</sonar.java.source>
+        <sonar.java.source>11</sonar.java.source>
         <sonar.cpd.exclusions>src/main/java/**/*.java</sonar.cpd.exclusions>
         <sonar.issue.ignore.multicriteria>e1,e2</sonar.issue.ignore.multicriteria>
         <!-- Ignore: Method has 10 parameters, which is greater than 7 authorized-->
