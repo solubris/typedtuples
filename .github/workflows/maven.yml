@@ -43,3 +43,4 @@ jobs:
         mvn clean install sonar:sonar -Dgpg.skip=true
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        GITHUB_TOKEN: ${{ github.token }}
