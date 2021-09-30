@@ -32,6 +32,8 @@
         <!-- gpg not enabled on travis ci -->
         <gpg.skip>false</gpg.skip>
         <sonar.projectKey>solubris_typedtuples</sonar.projectKey>
+        <sonar.organization>solubris</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.java.source>11</sonar.java.source>
         <sonar.cpd.exclusions>src/main/java/**/*.java</sonar.cpd.exclusions>
         <sonar.issue.ignore.multicriteria>e1,e2</sonar.issue.ignore.multicriteria>
