@@ -188,4 +188,3 @@ So for a Pair, that's 4 extra object references (or 200%).
    - concat, split, limit, skip, swap, map, mapAll
    - collect tuples from multiple collectors
    - not self contained
-
