@@ -1,4 +1,4 @@
-[![Build Status](https://app.travis-ci.com/solubris/typedtuples.svg?branch=master)](https://app.travis-ci.com/solubris/typedtuples)
+![Build Status](https://github.com/solubris/typedtuples/actions/workflows/maven/badge.svg)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=solubris_typedtuples&metric=alert_status)](https://sonarcloud.io/dashboard?id=solubris_typedtuples)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.solubris/typedtuples/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.solubris/typedtuples)
 [![Javadocs](http://www.javadoc.io/badge/com.solubris/typedtuples.svg)](http://www.javadoc.io/doc/com.solubris/typedtuples)
