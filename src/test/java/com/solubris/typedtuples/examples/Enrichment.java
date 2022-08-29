@@ -41,7 +41,7 @@ class Enrichment {
                 .collect(Collectors.toList());
 
         assertThat(result)
-                .usingFieldByFieldElementComparator()
+                .usingRecursiveFieldByFieldElementComparator()
                 .containsExactly(
                         new StringStats("abc", 3, false),
                         new StringStats("1234", 4, false),
@@ -60,7 +60,7 @@ class Enrichment {
 //                .collect(mapping(StringStats::new, Collectors.toList()));
 
         assertThat(result)
-                .usingFieldByFieldElementComparator()
+                .usingRecursiveFieldByFieldElementComparator()
                 .containsExactly(
                         new StringStats("abc", 3, false),
                         new StringStats("1234", 4, false),
