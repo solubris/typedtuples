@@ -39,7 +39,8 @@ jobs:
         # Also skip signing artifacts here as gpg is not enable on travis ci
         mvn install -Dmaven.javadoc.skip=true -Dmaven.test.skip=true -Dgpg.skip=true -V -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
         # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analy
-        mvn clean install sonar:sonar -Dgpg.skip=true
+        mvn clean install -Dgpg.skip=true
+        # removed sonar since its running it automode - sonar:sonar
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         GITHUB_TOKEN: ${{ github.token }}
